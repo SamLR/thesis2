@@ -1,0 +1,37 @@
+// Primary action generator
+G4UIcmdWithAnInteger("/MuSIC_Detector/gun/inputOffset",this);
+G4UIcmdWithABool("/MuSIC_Detector/gun/g4blEnable", this);
+G4UIcmdWithABool("/MuSIC_Detector/gun/g4blCharged", this);
+G4UIcmdWithABool("/MuSIC_Detector/gun/g4blSinglePID", this);
+create_cmd_with_double("setXmean");
+create_cmd_with_double("setXsigma");
+create_cmd_with_double("setYmean");
+create_cmd_with_double("setZmean", 3901.1799);
+create_cmd_with_double("setYsigma");
+create_cmd_with_double("setZsigma", 0.001);
+create_cmd_with_double("setPxMean");
+create_cmd_with_double("setPyMean");
+create_cmd_with_double("setPzMean");
+create_cmd_with_double("setPzMean2");
+create_cmd_with_double("setPxSigma");
+create_cmd_with_double("setPySigma");
+create_cmd_with_double("setPzSigma");
+create_cmd_with_double("setPzSigma2");
+create_cmd_with_double("setPzRatio");
+create_cmd_with_double("setXoffset",-1460.0);
+create_cmd_with_double("setZoffset", -370.0);
+
+// physics
+G4UIcmdWithABool("/MuSIC_Detector/enableOpticalProcesses", this);
+
+// Field
+G4UIcmdWithAString("/MuSIC_Detector/solField", this); 
+G4UIcmdWithAString("/MuSIC_Detector/dipField", this);
+G4UIcmdWithADouble("/MuSIC_Detector/polarity", this);
+
+// Detector cosntructor
+G4UIcmdWithADoubleAndUnit("/MuSIC_Detector/degraderZ", this); 
+G4UIcmdWithAString("/MuSIC_Detector/degraderMat", this); 
+G4UIcmdWithADoubleAndUnit("/MuSIC_Detector/targetZ", this); 
+G4UIcmdWithAString("/MuSIC_Detector/targetMat", this); 
+G4UIcommand("/MuSIC_Detector/update",this);

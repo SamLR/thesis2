@@ -1,0 +1,3 @@
+# LaTeX Variables
+# Specify which file we actually want to make
+TM_LATEX_MASTER="/Users/scook/Google Drive/PhD/thesis/thesis.tex"

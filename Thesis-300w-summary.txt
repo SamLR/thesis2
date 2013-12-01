@@ -1,0 +1,11 @@
+As it is now known that neutrinos oscillate, this entails that lepton number is not a conserved quantity and required modification of the Standard Model.  The same mechanism also allows charged leptons to violate lepton number, but at an immeasurable rate.  Therefore any observation of e.g. a muon decaying to an electron in the absence of neutrinos would be a signal of physics beyond the Standard Model.  A test facility, but also an experiment capable of searching for such a kinematic effect has been set-up in Osaka, Japan.
+
+The thesis 'Initial Measurements at the MuSIC Beam-Line' documents several experiments that were carried out using the MuSIC muon beam in Osaka. The experiments focused on understanding the beam and characterising it. Three main measurements were made: total charged particle flux, muon flux and muon momentum spectrum. 
+
+Each experiment used plastic scintillators and MPPCs to detect the charged particles. Muons were identified by looking for muon decays between two scintillators. Data acquisition was performed using NIM for signal shaping and logic; and CAMAC or VME for readout via TDC and ADC modules. 
+
+In addition to direct experimental measurements, a simulation of MuSIC was made using the 'G4Beamline' and 'Geant4' packages which allowed detailed interrogation of the experiment to aid understanding of the results.  It also provided a test bed upon which to refine the setup for later measurements. 
+
+These measurements allow us to confirm the performance of the novel pion capture solenoid which is an integral part of several future experiments (primarily CoMET but also proposed neutrino factories).
+
+In addition to this core work, the thesis deals with my services writing firmware for the LPD detector being built for the XFEL project in Hamburg, Germany. The firmware is an interface between the generic clock and control card (being developed at UCL) and the custom ASIC (being developed at RAL). The interface was written using VHDL and receives, translates, interprets then transmits control instructions to the detector.

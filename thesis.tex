@@ -1,0 +1,124 @@
+%
+%  RAL XFEL FEE CCC/ASIC interface manual
+%
+%  Created by Sam Cook on Mon 28 Jan 2013
+%
+%  Copyright (c) 2013 RAL. All rights reserved.
+%
+\documentclass[12pt]{book}
+
+% Use utf-8 encoding for foreign characters
+\usepackage[utf8]{inputenc}
+
+% Setup for fullpage use
+\usepackage{fullpage}
+
+% Uncomment some of the following if you use the features
+%
+% Running Headers and footers
+%\usepackage{fancyhdr}
+
+% Multipart figures
+%\usepackage{subfigure}
+
+% Multirow tables
+\usepackage{multirow}
+
+% More symbols
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{wasysym}
+\usepackage{latexsym}
+
+% Surround parts of graphics with box
+% \usepackage{boxedminipage}
+
+% Stop the float madness! doesn't seem to work, stick with htbp
+% \usepackage{float} 
+
+% Package for including code in the document
+\usepackage{listings}
+
+% Package for including code in the document
+\usepackage{minted}
+% If you want to generate a toc for each chapter (use with book)
+\usepackage{minitoc}
+
+% This is now the recommended way for checking for PDFLaTeX:
+\usepackage{ifpdf}
+
+% Add a bit of extra height to tables so '\hlines' don't look crap
+\usepackage{array}
+\setlength{\extrarowheight}{1.5pt}
+% Specify a new column type 'X' that is fixed width and centred
+% \newcolumntype{X}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt} } p{#1} }
+\newcolumntype{X}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+% This gives better decimel place alignment (apparently)
+% Still needs multicolumns in the header to align correctly
+\usepackage{dcolumn}
+% Arguments are:
+% D<column sep (instead of &)><column sep to insert><n decimal places>
+\newcolumntype{d}[1]{D{.}{.}{#1}}
+
+% Set footnotes to be symbols as it stops random powers appearing
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+% Reset the footnote 'counter' every page
+\usepackage{perpage} %the perpage package
+\MakePerPage{footnote} %the perpage package command
+
+% Create tables of a defined total width with wrapped columns
+\usepackage{tabulary}
+% threeparttable gives us access to footnotes in tables
+\usepackage{threeparttable}
+% wan to get ditto mark
+\usepackage[T1]{fontenc}
+\newcommand*{\dittostraight}{---\textquotedbl---} % available in T1 encoding
+
+% We want a nice tick & cross symbol for comparison tables
+\usepackage{pifont} 
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\newcommand{\mus}{$~\mu$s}
+
+% make bullet point lists with tighter spacing
+\usepackage{mdwlist}
+%\newif\ifpdf
+%\ifx\pdfoutput\undefined
+%\pdffalse % we are not running PDFLaTeX
+%\else
+%\pdfoutput=1 % we are running PDFLaTeX
+%\pdftrue
+%\fi
+
+% rotating also includes graphicx so don't double import (causes error)
+\ifpdf
+\usepackage[pdftex]{graphicx}
+\else
+\usepackage{graphicx}
+\fi
+
+% Allow full page landscape images
+\usepackage{rotating}
+
+
+
+% TODO ACTUAL TITLE!
+\title{Characterisation of the MuSIC muon beam.}
+\author{ Sam Cook }
+
+\date{\today}
+\graphicspath{{4_appendix_XFEL/}{1_introduction/}{3_measurements/}{2_simulation/}}
+\renewcommand{\sfdefault}{phv}
+\begin{document}    
+
+    \maketitle
+    \tableofcontents
+    \include{1_introduction/Content}
+    \include{2_simulation/Content}
+    \include{3_measurements/Content}
+    \include{4_appendix_XFEL/appendix_xfel_intro}
+    \include{4_appendix_XFEL/Content}
+    \bibliographystyle{plain}
+    \bibliography{thesis_bib}
+\end{document}
+    

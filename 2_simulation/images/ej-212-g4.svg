@@ -1,0 +1,151 @@
+<?xml version="1.0" standalone="no"?>
+<svg width="567" height="328" viewBox="0 0 567 328" xmlns="http://www.w3.org/2000/svg">
+<title>
+ej-212-g4.svg
+</title>
+<desc>
+Creator: ROOT Version 5.34/09
+CreationDate: Sun Oct 13 00:23:49 2013</desc>
+<defs>
+</defs>
+<rect x="0" y="0" width="567" height="328" fill="white"/>
+<rect x="57" y="33" width="453" height="262" fill="white"/>
+<rect x="57" y="33" width="453" height="262" fill="none" stroke="black"/>
+<path d="M57,295h 453" fill="none" stroke="black"/>
+<text x="429" y="317" fill="black" font-size="11" font-family="Helvetica">
+Wavelength (nm)
+</text>
+<path d="M94,287v 8" fill="none" stroke="black"/>
+<path d="M110,291v 4" fill="none" stroke="black"/>
+<path d="M126,291v 4" fill="none" stroke="black"/>
+<path d="M142,291v 4" fill="none" stroke="black"/>
+<path d="M157,287v 8" fill="none" stroke="black"/>
+<path d="M173,291v 4" fill="none" stroke="black"/>
+<path d="M189,291v 4" fill="none" stroke="black"/>
+<path d="M205,291v 4" fill="none" stroke="black"/>
+<path d="M220,287v 8" fill="none" stroke="black"/>
+<path d="M236,291v 4" fill="none" stroke="black"/>
+<path d="M252,291v 4" fill="none" stroke="black"/>
+<path d="M268,291v 4" fill="none" stroke="black"/>
+<path d="M283,287v 8" fill="none" stroke="black"/>
+<path d="M299,291v 4" fill="none" stroke="black"/>
+<path d="M315,291v 4" fill="none" stroke="black"/>
+<path d="M331,291v 4" fill="none" stroke="black"/>
+<path d="M346,287v 8" fill="none" stroke="black"/>
+<path d="M362,291v 4" fill="none" stroke="black"/>
+<path d="M378,291v 4" fill="none" stroke="black"/>
+<path d="M394,291v 4" fill="none" stroke="black"/>
+<path d="M409,287v 8" fill="none" stroke="black"/>
+<path d="M425,291v 4" fill="none" stroke="black"/>
+<path d="M441,291v 4" fill="none" stroke="black"/>
+<path d="M457,291v 4" fill="none" stroke="black"/>
+<path d="M472,287v 8" fill="none" stroke="black"/>
+<path d="M94,287v 8" fill="none" stroke="black"/>
+<path d="M79,291v 4" fill="none" stroke="black"/>
+<path d="M63,291v 4" fill="none" stroke="black"/>
+<path d="M472,287v 8" fill="none" stroke="black"/>
+<path d="M488,291v 4" fill="none" stroke="black"/>
+<path d="M504,291v 4" fill="none" stroke="black"/>
+<text x="86" y="306" fill="black" font-size="11" font-family="Helvetica">
+400
+</text>
+<text x="148" y="306" fill="black" font-size="11" font-family="Helvetica">
+420
+</text>
+<text x="211" y="306" fill="black" font-size="11" font-family="Helvetica">
+440
+</text>
+<text x="275" y="306" fill="black" font-size="11" font-family="Helvetica">
+460
+</text>
+<text x="338" y="306" fill="black" font-size="11" font-family="Helvetica">
+480
+</text>
+<text x="401" y="306" fill="black" font-size="11" font-family="Helvetica">
+500
+</text>
+<text x="464" y="306" fill="black" font-size="11" font-family="Helvetica">
+520
+</text>
+<path d="M57,295v -262" fill="none" stroke="black"/>
+<g transform="rotate(-90,28,80)">
+<text x="28" y="80" fill="black" font-size="11" font-family="Helvetica">
+Amplitude
+</text>
+</g>
+<path d="M70,295h -13" fill="none" stroke="black"/>
+<path d="M63,283h -6" fill="none" stroke="black"/>
+<path d="M63,271h -6" fill="none" stroke="black"/>
+<path d="M63,259h -6" fill="none" stroke="black"/>
+<path d="M70,247h -13" fill="none" stroke="black"/>
+<path d="M63,235h -6" fill="none" stroke="black"/>
+<path d="M63,223h -6" fill="none" stroke="black"/>
+<path d="M63,211h -6" fill="none" stroke="black"/>
+<path d="M70,199h -13" fill="none" stroke="black"/>
+<path d="M63,187h -6" fill="none" stroke="black"/>
+<path d="M63,175h -6" fill="none" stroke="black"/>
+<path d="M63,163h -6" fill="none" stroke="black"/>
+<path d="M70,152h -13" fill="none" stroke="black"/>
+<path d="M63,140h -6" fill="none" stroke="black"/>
+<path d="M63,128h -6" fill="none" stroke="black"/>
+<path d="M63,116h -6" fill="none" stroke="black"/>
+<path d="M70,104h -13" fill="none" stroke="black"/>
+<path d="M63,92h -6" fill="none" stroke="black"/>
+<path d="M63,80h -6" fill="none" stroke="black"/>
+<path d="M63,68h -6" fill="none" stroke="black"/>
+<path d="M70,56h -13" fill="none" stroke="black"/>
+<path d="M70,56h -13" fill="none" stroke="black"/>
+<path d="M63,44h -6" fill="none" stroke="black"/>
+<text x="48" y="299" fill="black" font-size="11" font-family="Helvetica">
+0
+</text>
+<text x="39" y="251" fill="black" font-size="11" font-family="Helvetica">
+0.2
+</text>
+<text x="39" y="203" fill="black" font-size="11" font-family="Helvetica">
+0.4
+</text>
+<text x="39" y="155" fill="black" font-size="11" font-family="Helvetica">
+0.6
+</text>
+<text x="39" y="107" fill="black" font-size="11" font-family="Helvetica">
+0.8
+</text>
+<text x="50" y="60" fill="black" font-size="11" font-family="Helvetica">
+1
+</text>
+<text x="130" y="16" fill="black" font-size="16" font-family="Helvetica">
+Geant4 simulated, EJ-212 emission spectra
+</text>
+<path d="M94,283l 16, -12l 16, -24l 16, -72l 15, -107l 10, -12h 6l 16, 48l 16, 24h 15l 16, 7l 16, 28l 16, 24l 15, 22l 16, 12l 16, 10l 16, 9l 15, 7l 16, 5l 16, 5l 16, 5l 15, 4l 16, 5l 16, 3l 16, 2l 15, 2" fill="none" stroke="black"/>
+<g stroke="black" stroke-width="1" fill="black">
+<circle cx=" 94" cy=" 283" r=" 1.5"/>
+<circle cx=" 110" cy=" 271" r=" 1.5"/>
+<circle cx=" 126" cy=" 247" r=" 1.5"/>
+<circle cx=" 142" cy=" 175" r=" 1.5"/>
+<circle cx=" 157" cy=" 68" r=" 1.5"/>
+<circle cx=" 167" cy=" 56" r=" 1.5"/>
+<circle cx=" 173" cy=" 56" r=" 1.5"/>
+<circle cx=" 189" cy=" 104" r=" 1.5"/>
+<circle cx=" 205" cy=" 128" r=" 1.5"/>
+<circle cx=" 220" cy=" 128" r=" 1.5"/>
+<circle cx=" 236" cy=" 135" r=" 1.5"/>
+<circle cx=" 252" cy=" 163" r=" 1.5"/>
+<circle cx=" 268" cy=" 187" r=" 1.5"/>
+<circle cx=" 283" cy=" 209" r=" 1.5"/>
+<circle cx=" 299" cy=" 221" r=" 1.5"/>
+<circle cx=" 315" cy=" 231" r=" 1.5"/>
+<circle cx=" 331" cy=" 240" r=" 1.5"/>
+<circle cx=" 346" cy=" 247" r=" 1.5"/>
+<circle cx=" 362" cy=" 252" r=" 1.5"/>
+<circle cx=" 378" cy=" 257" r=" 1.5"/>
+<circle cx=" 394" cy=" 262" r=" 1.5"/>
+<circle cx=" 409" cy=" 266" r=" 1.5"/>
+<circle cx=" 425" cy=" 271" r=" 1.5"/>
+<circle cx=" 441" cy=" 274" r=" 1.5"/>
+<circle cx=" 457" cy=" 276" r=" 1.5"/>
+<circle cx=" 472" cy=" 278" r=" 1.5"/>
+</g>
+<text x="130" y="16" fill="black" font-size="16" font-family="Helvetica">
+Geant4 simulated, EJ-212 emission spectra
+</text></svg>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="354px" height="425.197px" viewBox="0 105.401 354 425.197" enable-background="new 0 105.401 354 425.197"
+	 xml:space="preserve">
+<path fill="none" d="z"/>
+<rect x="208.56" y="167.302" shape-rendering="crispEdges" fill="#FFFFFF" stroke="#000000" width="11.58" height="39.737"/>
+<rect x="249.09" y="167.302" shape-rendering="crispEdges" fill="#FFFFFF" stroke="#000000" width="5.79" height="298.031"/>
+<rect x="283.83" y="167.302" shape-rendering="crispEdges" fill="#FFFFFF" stroke="#000000" width="40.529" height="59.606"/>
+<rect x="208.56" y="207.04" shape-rendering="crispEdges" fill="#FFFFFF" stroke="#000000" width="11.58" height="36.426"/>
+<rect x="208.56" y="243.466" shape-rendering="crispEdges" fill="#FFFFFF" stroke="#000000" width="11.58" height="36.426"/>
+<rect x="208.56" y="279.892" shape-rendering="crispEdges" fill="#FFFFFF" stroke="#000000" width="11.58" height="36.426"/>
+<rect x="208.56" y="316.317" shape-rendering="crispEdges" fill="#FFFFFF" stroke="#000000" width="11.58" height="36.426"/>
+<rect x="208.56" y="352.743" shape-rendering="crispEdges" fill="#FFFFFF" stroke="#000000" width="11.58" height="36.426"/>
+<rect x="208.56" y="389.169" shape-rendering="crispEdges" fill="#FFFFFF" stroke="#000000" width="11.58" height="36.426"/>
+<rect x="208.56" y="425.595" shape-rendering="crispEdges" fill="#FFFFFF" stroke="#000000" width="11.58" height="39.738"/>
+<rect x="283.83" y="226.908" shape-rendering="crispEdges" fill="#FFFFFF" stroke="#000000" width="40.529" height="59.606"/>
+<rect x="283.83" y="286.515" shape-rendering="crispEdges" fill="#FFFFFF" stroke="#000000" width="40.529" height="59.605"/>
+<rect x="283.83" y="346.12" shape-rendering="crispEdges" fill="#FFFFFF" stroke="#000000" width="40.529" height="59.605"/>
+<rect x="283.83" y="405.726" shape-rendering="crispEdges" fill="#FFFFFF" stroke="#000000" width="40.529" height="59.607"/>
+<rect x="115.92" y="167.302" shape-rendering="crispEdges" fill="#FFFFFF" stroke="#000000" width="57.899" height="298.031"/>
+<g>
+	<text transform="matrix(1 0 0 1 117.7717 136.0825)" font-family="'Helvetica'" font-size="13">Degrader</text>
+</g>
+<g>
+	<text transform="matrix(1 0 0 1 186.0276 496.6738)" font-family="'Helvetica'" font-size="13">Upstream</text>
+	<text transform="matrix(1 0 0 1 191.0784 513.5723)" font-family="'Helvetica'" font-size="13">Counter</text>
+</g>
+<g>
+	<text transform="matrix(1 0 0 1 267.4592 496.6738)" font-family="'Helvetica'" font-size="13">Downstream</text>
+	<text transform="matrix(1 0 0 1 280.8176 513.5723)" font-family="'Helvetica'" font-size="13">Counter</text>
+</g>
+<g>
+	<text transform="matrix(1 0 0 1 226.3186 127.063)" font-family="'Helvetica'" font-size="13">Stopping</text>
+	<text transform="matrix(1 0 0 1 233.9143 143.9624)" font-family="'Helvetica'" font-size="13">Target</text>
+</g>
+<path stroke="#000000" stroke-width="1.158" stroke-miterlimit="10" d="M251.98,165.062l-4-8l4,2l4-2L251.98,165.062z"/>
+<path shape-rendering="crispEdges" fill="none" stroke="#000000" stroke-width="1.158" stroke-miterlimit="10" d="M251.98,149.933
+	v9.13"/>
+<path stroke="#000000" stroke-width="1.158" stroke-miterlimit="10" d="M144.87,165.062l-4-8l4,2l4-2L144.87,165.062z"/>
+<path shape-rendering="crispEdges" fill="none" stroke="#000000" stroke-width="1.158" stroke-miterlimit="10" d="M144.87,142.692
+	v16.37"/>
+<path stroke="#000000" stroke-width="1.158" stroke-miterlimit="10" d="M303.943,465.333l4,8l-4-2l-4,2L303.943,465.333z"/>
+<path fill="none" stroke="#000000" stroke-width="1.158" stroke-miterlimit="10" d="M303.952,486.253l-0.01-14.92"/>
+<path stroke="#000000" stroke-width="1.158" stroke-miterlimit="10" d="M214.202,465.333l4,8l-4-2l-4,2L214.202,465.333z"/>
+<path shape-rendering="crispEdges" fill="none" stroke="#000000" stroke-width="1.158" stroke-miterlimit="10" d="M214.202,486.253
+	v-14.92"/>
+<path fill="#FFFFFF" stroke="#000000" stroke-width="1.158" stroke-miterlimit="10" d="M19.132,307.632h56.05v-11.58l36.59,20.262
+	l-36.59,20.27v-11.58h-56.05V307.632z"/>
+<g>
+	<text transform="matrix(1 0 0 1 51.9426 319.832)" font-family="'Helvetica'" font-size="13">Muons</text>
+</g>
+<path fill="none" d="z"/>
+</svg>

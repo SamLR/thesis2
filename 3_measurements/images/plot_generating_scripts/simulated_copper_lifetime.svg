@@ -1,0 +1,173 @@
+<?xml version="1.0" standalone="no"?>
+<svg width="567" height="328" viewBox="0 0 567 328" xmlns="http://www.w3.org/2000/svg">
+<title>
+simulated_copper_lifetime.svg
+</title>
+<desc>
+Creator: ROOT Version 5.34/09
+CreationDate: Mon Sep  9 23:05:26 2013</desc>
+<defs>
+</defs>
+<rect x="0" y="0" width="567" height="328" fill="white"/>
+<rect x="57" y="33" width="453" height="262" fill="white"/>
+<rect x="57" y="33" width="453" height="262" fill="none" stroke="black"/>
+<path d="M57,295h 453" fill="none" stroke="black"/>
+<text x="391" y="317" fill="black" font-size="11" font-family="Helvetica">
+Degrader thickness (mm)
+</text>
+<path d="M98,287v 8" fill="none" stroke="black"/>
+<path d="M113,291v 4" fill="none" stroke="black"/>
+<path d="M128,291v 4" fill="none" stroke="black"/>
+<path d="M143,291v 4" fill="none" stroke="black"/>
+<path d="M157,291v 4" fill="none" stroke="black"/>
+<path d="M172,287v 8" fill="none" stroke="black"/>
+<path d="M187,291v 4" fill="none" stroke="black"/>
+<path d="M202,291v 4" fill="none" stroke="black"/>
+<path d="M217,291v 4" fill="none" stroke="black"/>
+<path d="M232,291v 4" fill="none" stroke="black"/>
+<path d="M246,287v 8" fill="none" stroke="black"/>
+<path d="M261,291v 4" fill="none" stroke="black"/>
+<path d="M276,291v 4" fill="none" stroke="black"/>
+<path d="M291,291v 4" fill="none" stroke="black"/>
+<path d="M306,291v 4" fill="none" stroke="black"/>
+<path d="M321,287v 8" fill="none" stroke="black"/>
+<path d="M335,291v 4" fill="none" stroke="black"/>
+<path d="M350,291v 4" fill="none" stroke="black"/>
+<path d="M365,291v 4" fill="none" stroke="black"/>
+<path d="M380,291v 4" fill="none" stroke="black"/>
+<path d="M395,287v 8" fill="none" stroke="black"/>
+<path d="M409,291v 4" fill="none" stroke="black"/>
+<path d="M424,291v 4" fill="none" stroke="black"/>
+<path d="M439,291v 4" fill="none" stroke="black"/>
+<path d="M454,291v 4" fill="none" stroke="black"/>
+<path d="M469,287v 8" fill="none" stroke="black"/>
+<path d="M98,287v 8" fill="none" stroke="black"/>
+<path d="M83,291v 4" fill="none" stroke="black"/>
+<path d="M69,291v 4" fill="none" stroke="black"/>
+<path d="M469,287v 8" fill="none" stroke="black"/>
+<path d="M484,291v 4" fill="none" stroke="black"/>
+<path d="M498,291v 4" fill="none" stroke="black"/>
+<text x="95" y="306" fill="black" font-size="11" font-family="Helvetica">
+0
+</text>
+<text x="170" y="306" fill="black" font-size="11" font-family="Helvetica">
+1
+</text>
+<text x="243" y="306" fill="black" font-size="11" font-family="Helvetica">
+2
+</text>
+<text x="318" y="306" fill="black" font-size="11" font-family="Helvetica">
+3
+</text>
+<text x="391" y="306" fill="black" font-size="11" font-family="Helvetica">
+4
+</text>
+<text x="466" y="306" fill="black" font-size="11" font-family="Helvetica">
+5
+</text>
+<path d="M57,295v -262" fill="none" stroke="black"/>
+<g transform="rotate(-90,28,91)">
+<text x="28" y="91" fill="black" font-size="11" font-family="Helvetica">
+Lifetime (ns)
+</text>
+</g>
+<path d="M70,287h -13" fill="none" stroke="black"/>
+<path d="M63,278h -6" fill="none" stroke="black"/>
+<path d="M63,270h -6" fill="none" stroke="black"/>
+<path d="M63,261h -6" fill="none" stroke="black"/>
+<path d="M70,253h -13" fill="none" stroke="black"/>
+<path d="M63,244h -6" fill="none" stroke="black"/>
+<path d="M63,236h -6" fill="none" stroke="black"/>
+<path d="M63,228h -6" fill="none" stroke="black"/>
+<path d="M70,219h -13" fill="none" stroke="black"/>
+<path d="M63,211h -6" fill="none" stroke="black"/>
+<path d="M63,202h -6" fill="none" stroke="black"/>
+<path d="M63,194h -6" fill="none" stroke="black"/>
+<path d="M70,185h -13" fill="none" stroke="black"/>
+<path d="M63,177h -6" fill="none" stroke="black"/>
+<path d="M63,168h -6" fill="none" stroke="black"/>
+<path d="M63,160h -6" fill="none" stroke="black"/>
+<path d="M70,151h -13" fill="none" stroke="black"/>
+<path d="M63,143h -6" fill="none" stroke="black"/>
+<path d="M63,134h -6" fill="none" stroke="black"/>
+<path d="M63,126h -6" fill="none" stroke="black"/>
+<path d="M70,118h -13" fill="none" stroke="black"/>
+<path d="M63,109h -6" fill="none" stroke="black"/>
+<path d="M63,101h -6" fill="none" stroke="black"/>
+<path d="M63,92h -6" fill="none" stroke="black"/>
+<path d="M70,84h -13" fill="none" stroke="black"/>
+<path d="M63,75h -6" fill="none" stroke="black"/>
+<path d="M63,67h -6" fill="none" stroke="black"/>
+<path d="M63,58h -6" fill="none" stroke="black"/>
+<path d="M70,50h -13" fill="none" stroke="black"/>
+<path d="M70,287h -13" fill="none" stroke="black"/>
+<path d="M70,50h -13" fill="none" stroke="black"/>
+<path d="M63,41h -6" fill="none" stroke="black"/>
+<text x="48" y="290" fill="black" font-size="11" font-family="Helvetica">
+0
+</text>
+<text x="36" y="257" fill="black" font-size="11" font-family="Helvetica">
+200
+</text>
+<text x="36" y="223" fill="black" font-size="11" font-family="Helvetica">
+400
+</text>
+<text x="36" y="189" fill="black" font-size="11" font-family="Helvetica">
+600
+</text>
+<text x="36" y="155" fill="black" font-size="11" font-family="Helvetica">
+800
+</text>
+<text x="30" y="121" fill="black" font-size="11" font-family="Helvetica">
+1000
+</text>
+<text x="30" y="88" fill="black" font-size="11" font-family="Helvetica">
+1200
+</text>
+<text x="30" y="54" fill="black" font-size="11" font-family="Helvetica">
+1400
+</text>
+<text x="173" y="16" fill="black" font-size="16" font-family="Helvetica">
+Simulated copper muon lifetime
+</text>
+<g stroke="black" stroke-width="1" fill="none">
+<line x1="97" y1="70" x2="98" y2="70"/>
+<line x1="134" y1="286" x2="135" y2="286"/>
+<line x1="171" y1="203" x2="172" y2="203"/>
+<line x1="468" y1="41" x2="469" y2="41"/>
+</g>
+<path d="M98,70h -4" fill="none" stroke="black"/>
+<path d="M94,71v -2" fill="none" stroke="black"/>
+<path d="M98,70h 4" fill="none" stroke="black"/>
+<path d="M102,71v -2" fill="none" stroke="black"/>
+<path d="M98,70v -37" fill="none" stroke="black"/>
+<path d="M97,33h 2" fill="none" stroke="black"/>
+<path d="M98,70v 225" fill="none" stroke="black"/>
+<path d="M97,295h 2" fill="none" stroke="black"/>
+<path d="M135,286h -3" fill="none" stroke="black"/>
+<path d="M132,287v -2" fill="none" stroke="black"/>
+<path d="M135,286h 4" fill="none" stroke="black"/>
+<path d="M139,287v -2" fill="none" stroke="black"/>
+<path d="M135,286v -253" fill="none" stroke="black"/>
+<path d="M134,33h 2" fill="none" stroke="black"/>
+<path d="M135,286v 9" fill="none" stroke="black"/>
+<path d="M134,295h 2" fill="none" stroke="black"/>
+<path d="M172,203h -3" fill="none" stroke="black"/>
+<path d="M169,204v -1" fill="none" stroke="black"/>
+<path d="M172,203h 4" fill="none" stroke="black"/>
+<path d="M176,204v -1" fill="none" stroke="black"/>
+<path d="M172,203v -170" fill="none" stroke="black"/>
+<path d="M172,33h 1" fill="none" stroke="black"/>
+<path d="M172,203v 92" fill="none" stroke="black"/>
+<path d="M172,295h 1" fill="none" stroke="black"/>
+<path d="M469,41h -4" fill="none" stroke="black"/>
+<path d="M465,41v -1" fill="none" stroke="black"/>
+<path d="M469,41h 3" fill="none" stroke="black"/>
+<path d="M472,41v -1" fill="none" stroke="black"/>
+<path d="M469,41v -8" fill="none" stroke="black"/>
+<path d="M468,33h 2" fill="none" stroke="black"/>
+<path d="M469,41v 254" fill="none" stroke="black"/>
+<path d="M468,295h 2" fill="none" stroke="black"/>
+<text x="173" y="16" fill="black" font-size="16" font-family="Helvetica">
+Simulated copper muon lifetime
+</text></svg>

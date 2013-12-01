@@ -1,0 +1,4 @@
+CAPS           = states          e.g. IDLE, 
+bold(CAPS)     = generic         e.g. BUNCH_LENGTH 
+textttt{CAPS}  = commands        e.g. SET_TRIGGER_FLAG
+textttt{lower} = ports/signals   e.g. start_i

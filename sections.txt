@@ -1,0 +1,108 @@
+Introduction
+    Preface
+    High Intensity Muon Sources
+        Scientific Motivation
+    MuSIC
+        MuSIC: Scientific Motivation
+            Prototype for CoMET
+            Precision Measurements of cLFV muon decays
+            Muon Spin Resonance
+            Fix-Field Alternating Gradient research
+        MuSIC design
+    Physics
+        Charged Particle Interactions in Matter
+        Muon decay
+Simulation
+    Technologies
+        Geant4
+        G4beamline
+    Geometry
+        Physical
+            Approximations
+        Materials
+            Important Properties
+        Magnetic Fields
+    Physics Simulation
+        Muon Capture Rate
+        Hadron Production
+    Simulation Verification
+Characterising the beam
+        Introduction
+        Charged Particle Flux
+            Detector set up
+                Scintillator and Mounting
+                Calibration
+                Data Acquisition
+            Run Summary
+            Results
+        Muon Lifetime
+            Detector set up
+                Scintillator and Mounting
+                Calibration
+                Data Acquisition
+            Run Summary
+            Results
+        Muon Momentum Spectrum
+            Detector set up
+                Scintillator and Mounting
+                Calibration
+                Data Acquisition
+            Run Summary
+            Results
+Clock and Control interface for the Large Pixel Detector
+        Conventions
+    Introduction
+        The European X-ray Free-Electron Laser: an overview
+            Synchrotrons and FELs
+            X-ray production at EuXFEL
+            Scientific Motivation
+        Detectors at EuXFEL
+            The Large Pixel Detector (LPD)
+        DAQ and control systems
+            Clock and Control Card (CCC)
+                Clock signal
+                Control signal
+                Veto signals
+        Firmware
+            VHDL
+    Design
+        Requirements
+        Design Principles
+        The Design
+    Implementation
+        Top level
+            Interface
+            Generics
+            Registers
+            Implementation
+        Receiver
+            Interface
+            Implementation
+        Veto Filter
+            Interface
+            Registers
+                Pattern BRAM
+                Pattern ID registers
+                Veto log
+            Implementation
+        Transmitter
+            Controlling the ASIC
+            Interface
+            Registers
+                Control register
+                Instruction set BRAM
+            Implementation
+    Testing
+        Methodology
+        Results
+            Start, no-veto, stop
+            Veto/No-veto
+            Reset Command
+            Stop with down-scaler
+            RDMA
+            Local Link
+    Conclusion
+    EuXFEL Appendix
+        ASIC command words
+        RDMA interface
+        Local Link interface

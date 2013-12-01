@@ -1,0 +1,168 @@
+<?xml version="1.0" standalone="no"?>
+<svg width="567" height="328" viewBox="0 0 567 328" xmlns="http://www.w3.org/2000/svg">
+<title>
+pid_counts_in_beamline.svg
+</title>
+<desc>
+Creator: ROOT Version 5.34/09
+CreationDate: Sun Nov 10 15:20:23 2013</desc>
+<defs>
+</defs>
+<rect x="0" y="0" width="567" height="328" fill="white"/>
+<rect x="57" y="33" width="453" height="262" fill="white"/>
+<rect x="57" y="33" width="453" height="262" fill="none" stroke="black"/>
+<rect x="57" y="33" width="453" height="262" fill="white"/>
+<rect x="57" y="33" width="453" height="262" fill="none" stroke="black"/>
+<path d="M57,182h 64v -18h 65v -41h 65v -71h 65v 157h 65v -77h 64v -16h 65" fill="none" stroke="black"/>
+<path d="M57,295h 453" fill="none" stroke="black"/>
+<text x="475" y="317" fill="black" font-size="11" font-family="Helvetica">
+Particle
+</text>
+<text x="90" y="300" fill="black" font-size="5" font-family="Helvetica">
+-
+</text>
+<text x="86" y="303" fill="black" font-size="7" font-family="Times">
+&#0960;
+</text>
+<text x="154" y="301" fill="black" font-size="5" font-family="Helvetica">
++
+</text>
+<text x="150" y="303" fill="black" font-size="7" font-family="Times">
+&#0956;
+</text>
+<text x="219" y="301" fill="black" font-size="5" font-family="Helvetica">
++
+</text>
+<text x="215" y="304" fill="black" font-size="7" font-family="Helvetica">
+e
+</text>
+<text x="285" y="300" fill="black" font-size="5" font-family="Helvetica">
+-
+</text>
+<text x="281" y="303" fill="black" font-size="7" font-family="Helvetica">
+e
+</text>
+<text x="349" y="300" fill="black" font-size="5" font-family="Helvetica">
+-
+</text>
+<text x="345" y="303" fill="black" font-size="7" font-family="Times">
+&#0956;
+</text>
+<text x="413" y="301" fill="black" font-size="5" font-family="Helvetica">
++
+</text>
+<text x="409" y="303" fill="black" font-size="7" font-family="Times">
+&#0960;
+</text>
+<text x="475" y="303" fill="black" font-size="7" font-family="Helvetica">
+p
+</text>
+<path d="M57,287v 8" fill="none" stroke="black"/>
+<path d="M121,287v 8" fill="none" stroke="black"/>
+<path d="M186,287v 8" fill="none" stroke="black"/>
+<path d="M251,287v 8" fill="none" stroke="black"/>
+<path d="M316,287v 8" fill="none" stroke="black"/>
+<path d="M381,287v 8" fill="none" stroke="black"/>
+<path d="M445,287v 8" fill="none" stroke="black"/>
+<path d="M510,287v 8" fill="none" stroke="black"/>
+<path d="M57,295v -262" fill="none" stroke="black"/>
+<g transform="rotate(-90,29,102)">
+<text x="29" y="102" fill="black" font-size="11" font-family="Helvetica">
+ initial protons)
+</text>
+</g>
+<g transform="rotate(-90,24,106)">
+<text x="24" y="106" fill="black" font-size="7" font-family="Helvetica">
+6
+</text>
+</g>
+<g transform="rotate(-90,29,170)">
+<text x="29" y="170" fill="black" font-size="11" font-family="Helvetica">
+Count (per 10
+</text>
+</g>
+<path d="M63,295h -6" fill="none" stroke="black"/>
+<path d="M70,292h -13" fill="none" stroke="black"/>
+<text x="52" y="297" text-anchor="end" fill="black" font-size="11" font-family="Helvetica">
+1
+</text>
+<path d="M63,271h -6" fill="none" stroke="black"/>
+<path d="M63,259h -6" fill="none" stroke="black"/>
+<path d="M63,250h -6" fill="none" stroke="black"/>
+<path d="M63,244h -6" fill="none" stroke="black"/>
+<path d="M63,238h -6" fill="none" stroke="black"/>
+<path d="M63,234h -6" fill="none" stroke="black"/>
+<path d="M63,230h -6" fill="none" stroke="black"/>
+<path d="M63,226h -6" fill="none" stroke="black"/>
+<path d="M70,223h -13" fill="none" stroke="black"/>
+<text x="52" y="228" text-anchor="end" fill="black" font-size="11" font-family="Helvetica">
+10
+</text>
+<path d="M63,202h -6" fill="none" stroke="black"/>
+<path d="M63,190h -6" fill="none" stroke="black"/>
+<path d="M63,181h -6" fill="none" stroke="black"/>
+<path d="M63,175h -6" fill="none" stroke="black"/>
+<path d="M63,169h -6" fill="none" stroke="black"/>
+<path d="M63,164h -6" fill="none" stroke="black"/>
+<path d="M63,160h -6" fill="none" stroke="black"/>
+<path d="M63,157h -6" fill="none" stroke="black"/>
+<path d="M70,154h -13" fill="none" stroke="black"/>
+<text x="48" y="154" fill="black" font-size="7" font-family="Helvetica">
+2
+</text>
+<text x="37" y="159" fill="black" font-size="11" font-family="Helvetica">
+10
+</text>
+<path d="M63,133h -6" fill="none" stroke="black"/>
+<path d="M63,121h -6" fill="none" stroke="black"/>
+<path d="M63,112h -6" fill="none" stroke="black"/>
+<path d="M63,105h -6" fill="none" stroke="black"/>
+<path d="M63,100h -6" fill="none" stroke="black"/>
+<path d="M63,95h -6" fill="none" stroke="black"/>
+<path d="M63,91h -6" fill="none" stroke="black"/>
+<path d="M63,88h -6" fill="none" stroke="black"/>
+<path d="M70,85h -13" fill="none" stroke="black"/>
+<text x="48" y="85" fill="black" font-size="7" font-family="Helvetica">
+3
+</text>
+<text x="37" y="90" fill="black" font-size="11" font-family="Helvetica">
+10
+</text>
+<path d="M63,64h -6" fill="none" stroke="black"/>
+<path d="M63,52h -6" fill="none" stroke="black"/>
+<path d="M63,43h -6" fill="none" stroke="black"/>
+<path d="M63,36h -6" fill="none" stroke="black"/>
+<path d="M57,259h 64v -92h 65v -33h 65v -68h 65v 168h 65v -45h 64v -31h 65" fill="none" stroke="#ff0000"/>
+<path d="M57,238h 64v -76h 65v -34h 65v -71h 65v 160h 65v -39h 64v -24h 65" fill="none" stroke="#00ff00"/>
+<rect x="397" y="33" width="113" height="66" fill="white"/>
+<path d="M397,99h 113" fill="none" stroke="black"/>
+<path d="M510,99v -66" fill="none" stroke="black"/>
+<path d="M510,33h -113" fill="none" stroke="black"/>
+<path d="M397,33v 66" fill="none" stroke="black"/>
+<text x="425" y="46" fill="black" font-size="7" font-family="Helvetica">
+Position 1 particle counts
+</text>
+<path d="M401,52h 20v -16h -20z" fill="white"/>
+<path d="M401,44h 20" fill="none" stroke="black"/>
+<g stroke="black" stroke-width="1" fill="none">
+<line x1="410" y1="44" x2="411" y2="44"/>
+</g>
+<text x="425" y="68" fill="black" font-size="7" font-family="Helvetica">
+Position 3 particle counts
+</text>
+<path d="M401,73h 20v -15h -20z" fill="white"/>
+<path d="M401,66h 20" fill="none" stroke="#ff0000"/>
+<g stroke="black" stroke-width="1" fill="none">
+<line x1="410" y1="66" x2="411" y2="66"/>
+</g>
+<text x="425" y="90" fill="black" font-size="7" font-family="Helvetica">
+Position 2 particle counts
+</text>
+<path d="M401,95h 20v -15h -20z" fill="white"/>
+<path d="M401,88h 20" fill="none" stroke="#00ff00"/>
+<g stroke="black" stroke-width="1" fill="none">
+<line x1="410" y1="88" x2="411" y2="88"/>
+</g>
+<text x="103" y="16" fill="black" font-size="16" font-family="Helvetica">
+Particle counts at various positions in the beampipe
+</text></svg>

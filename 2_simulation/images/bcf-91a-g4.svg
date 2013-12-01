@@ -1,0 +1,202 @@
+<?xml version="1.0" standalone="no"?>
+<svg width="567" height="328" viewBox="0 0 567 328" xmlns="http://www.w3.org/2000/svg">
+<title>
+bcf-91a-g4.svg
+</title>
+<desc>
+Creator: ROOT Version 5.34/09
+CreationDate: Sun Oct 13 00:23:49 2013</desc>
+<defs>
+</defs>
+<rect x="0" y="0" width="567" height="328" fill="white"/>
+<rect x="57" y="33" width="453" height="262" fill="white"/>
+<rect x="57" y="33" width="453" height="262" fill="none" stroke="black"/>
+<path d="M57,295h 453" fill="none" stroke="black"/>
+<text x="426" y="317" fill="black" font-size="11" font-family="Helvetica">
+ Wavelength (nm)
+</text>
+<path d="M77,287v 8" fill="none" stroke="black"/>
+<path d="M94,291v 4" fill="none" stroke="black"/>
+<path d="M110,291v 4" fill="none" stroke="black"/>
+<path d="M127,291v 4" fill="none" stroke="black"/>
+<path d="M143,291v 4" fill="none" stroke="black"/>
+<path d="M160,287v 8" fill="none" stroke="black"/>
+<path d="M176,291v 4" fill="none" stroke="black"/>
+<path d="M193,291v 4" fill="none" stroke="black"/>
+<path d="M209,291v 4" fill="none" stroke="black"/>
+<path d="M226,291v 4" fill="none" stroke="black"/>
+<path d="M242,287v 8" fill="none" stroke="black"/>
+<path d="M259,291v 4" fill="none" stroke="black"/>
+<path d="M275,291v 4" fill="none" stroke="black"/>
+<path d="M292,291v 4" fill="none" stroke="black"/>
+<path d="M308,291v 4" fill="none" stroke="black"/>
+<path d="M325,287v 8" fill="none" stroke="black"/>
+<path d="M341,291v 4" fill="none" stroke="black"/>
+<path d="M358,291v 4" fill="none" stroke="black"/>
+<path d="M374,291v 4" fill="none" stroke="black"/>
+<path d="M391,291v 4" fill="none" stroke="black"/>
+<path d="M407,287v 8" fill="none" stroke="black"/>
+<path d="M424,291v 4" fill="none" stroke="black"/>
+<path d="M440,291v 4" fill="none" stroke="black"/>
+<path d="M457,291v 4" fill="none" stroke="black"/>
+<path d="M473,291v 4" fill="none" stroke="black"/>
+<path d="M490,287v 8" fill="none" stroke="black"/>
+<path d="M77,287v 8" fill="none" stroke="black"/>
+<path d="M61,291v 4" fill="none" stroke="black"/>
+<path d="M490,287v 8" fill="none" stroke="black"/>
+<path d="M506,291v 4" fill="none" stroke="black"/>
+<text x="68" y="306" fill="black" font-size="11" font-family="Helvetica">
+350
+</text>
+<text x="151" y="306" fill="black" font-size="11" font-family="Helvetica">
+400
+</text>
+<text x="233" y="306" fill="black" font-size="11" font-family="Helvetica">
+450
+</text>
+<text x="316" y="306" fill="black" font-size="11" font-family="Helvetica">
+500
+</text>
+<text x="398" y="306" fill="black" font-size="11" font-family="Helvetica">
+550
+</text>
+<text x="481" y="306" fill="black" font-size="11" font-family="Helvetica">
+600
+</text>
+<path d="M57,295v -262" fill="none" stroke="black"/>
+<g transform="rotate(-90,28,83)">
+<text x="28" y="83" fill="black" font-size="11" font-family="Helvetica">
+ Amplitude
+</text>
+</g>
+<path d="M70,295h -13" fill="none" stroke="black"/>
+<path d="M63,283h -6" fill="none" stroke="black"/>
+<path d="M63,270h -6" fill="none" stroke="black"/>
+<path d="M63,258h -6" fill="none" stroke="black"/>
+<path d="M70,245h -13" fill="none" stroke="black"/>
+<path d="M63,233h -6" fill="none" stroke="black"/>
+<path d="M63,220h -6" fill="none" stroke="black"/>
+<path d="M63,208h -6" fill="none" stroke="black"/>
+<path d="M70,195h -13" fill="none" stroke="black"/>
+<path d="M63,183h -6" fill="none" stroke="black"/>
+<path d="M63,170h -6" fill="none" stroke="black"/>
+<path d="M63,158h -6" fill="none" stroke="black"/>
+<path d="M70,145h -13" fill="none" stroke="black"/>
+<path d="M63,133h -6" fill="none" stroke="black"/>
+<path d="M63,120h -6" fill="none" stroke="black"/>
+<path d="M63,108h -6" fill="none" stroke="black"/>
+<path d="M70,95h -13" fill="none" stroke="black"/>
+<path d="M63,83h -6" fill="none" stroke="black"/>
+<path d="M63,70h -6" fill="none" stroke="black"/>
+<path d="M63,58h -6" fill="none" stroke="black"/>
+<path d="M70,45h -13" fill="none" stroke="black"/>
+<path d="M70,45h -13" fill="none" stroke="black"/>
+<text x="48" y="299" fill="black" font-size="11" font-family="Helvetica">
+0
+</text>
+<text x="39" y="249" fill="black" font-size="11" font-family="Helvetica">
+0.2
+</text>
+<text x="39" y="199" fill="black" font-size="11" font-family="Helvetica">
+0.4
+</text>
+<text x="39" y="149" fill="black" font-size="11" font-family="Helvetica">
+0.6
+</text>
+<text x="39" y="99" fill="black" font-size="11" font-family="Helvetica">
+0.8
+</text>
+<text x="50" y="50" fill="black" font-size="11" font-family="Helvetica">
+1
+</text>
+<text x="101" y="16" fill="black" font-size="14" font-family="Helvetica">
+Geant4 simulated BCF-91A absorption/emission spectra
+</text>
+<path d="M77,295h 182l 16, -62l 17, -93l 16, -85l 8, -10l 9, 10l 16, 90l 17, 45l 16, 28l 17, 17l 16, 18l 17, 12l 16, 10l 17, 10l 16, 5l 17, 5" fill="none" stroke="black"/>
+<g stroke="#0000ff" stroke-width="1" fill="#0000ff">
+<circle cx=" 77" cy=" 295" r=" 1.5"/>
+<circle cx=" 94" cy=" 295" r=" 1.5"/>
+<circle cx=" 110" cy=" 295" r=" 1.5"/>
+<circle cx=" 127" cy=" 295" r=" 1.5"/>
+<circle cx=" 143" cy=" 295" r=" 1.5"/>
+<circle cx=" 160" cy=" 295" r=" 1.5"/>
+<circle cx=" 170" cy=" 295" r=" 1.5"/>
+<circle cx=" 176" cy=" 295" r=" 1.5"/>
+<circle cx=" 193" cy=" 295" r=" 1.5"/>
+<circle cx=" 209" cy=" 295" r=" 1.5"/>
+<circle cx=" 226" cy=" 295" r=" 1.5"/>
+<circle cx=" 232" cy=" 295" r=" 1.5"/>
+<circle cx=" 242" cy=" 295" r=" 1.5"/>
+<circle cx=" 259" cy=" 295" r=" 1.5"/>
+<circle cx=" 275" cy=" 233" r=" 1.5"/>
+<circle cx=" 292" cy=" 140" r=" 1.5"/>
+<circle cx=" 308" cy=" 55" r=" 1.5"/>
+<circle cx=" 316" cy=" 45" r=" 1.5"/>
+<circle cx=" 325" cy=" 55" r=" 1.5"/>
+<circle cx=" 341" cy=" 145" r=" 1.5"/>
+<circle cx=" 358" cy=" 190" r=" 1.5"/>
+<circle cx=" 374" cy=" 218" r=" 1.5"/>
+<circle cx=" 391" cy=" 235" r=" 1.5"/>
+<circle cx=" 407" cy=" 253" r=" 1.5"/>
+<circle cx=" 424" cy=" 265" r=" 1.5"/>
+<circle cx=" 440" cy=" 275" r=" 1.5"/>
+<circle cx=" 457" cy=" 285" r=" 1.5"/>
+<circle cx=" 473" cy=" 290" r=" 1.5"/>
+<circle cx=" 490" cy=" 295" r=" 1.5"/>
+</g>
+<path d="M77,285l 17, -2l 16, -18l 17, -35l 16, -25l 17, -65l 10, 8l 6, -18l 17, -85l 16, 90l 17, -30l 6, -20l 10, 40l 17, 155l 16, 15h 215" fill="none" stroke="black"/>
+<g stroke="#ff0000" stroke-width="1" fill="#ff0000">
+<circle cx=" 77" cy=" 285" r=" 1.5"/>
+<circle cx=" 94" cy=" 283" r=" 1.5"/>
+<circle cx=" 110" cy=" 265" r=" 1.5"/>
+<circle cx=" 127" cy=" 230" r=" 1.5"/>
+<circle cx=" 143" cy=" 205" r=" 1.5"/>
+<circle cx=" 160" cy=" 140" r=" 1.5"/>
+<circle cx=" 170" cy=" 148" r=" 1.5"/>
+<circle cx=" 176" cy=" 130" r=" 1.5"/>
+<circle cx=" 193" cy=" 45" r=" 1.5"/>
+<circle cx=" 209" cy=" 135" r=" 1.5"/>
+<circle cx=" 226" cy=" 105" r=" 1.5"/>
+<circle cx=" 232" cy=" 85" r=" 1.5"/>
+<circle cx=" 242" cy=" 125" r=" 1.5"/>
+<circle cx=" 259" cy=" 280" r=" 1.5"/>
+<circle cx=" 275" cy=" 295" r=" 1.5"/>
+<circle cx=" 292" cy=" 295" r=" 1.5"/>
+<circle cx=" 308" cy=" 295" r=" 1.5"/>
+<circle cx=" 316" cy=" 295" r=" 1.5"/>
+<circle cx=" 325" cy=" 295" r=" 1.5"/>
+<circle cx=" 341" cy=" 295" r=" 1.5"/>
+<circle cx=" 358" cy=" 295" r=" 1.5"/>
+<circle cx=" 374" cy=" 295" r=" 1.5"/>
+<circle cx=" 391" cy=" 295" r=" 1.5"/>
+<circle cx=" 407" cy=" 295" r=" 1.5"/>
+<circle cx=" 424" cy=" 295" r=" 1.5"/>
+<circle cx=" 440" cy=" 295" r=" 1.5"/>
+<circle cx=" 457" cy=" 295" r=" 1.5"/>
+<circle cx=" 473" cy=" 295" r=" 1.5"/>
+<circle cx=" 490" cy=" 295" r=" 1.5"/>
+</g>
+<rect x="397" y="33" width="113" height="33" fill="none" stroke="black"/>
+<path d="M397,66h 113" fill="none" stroke="black"/>
+<path d="M510,66v -33" fill="none" stroke="black"/>
+<path d="M510,33h -113" fill="none" stroke="black"/>
+<path d="M397,33v 33" fill="none" stroke="black"/>
+<text x="425" y="45" fill="black" font-size="12" font-family="Helvetica">
+Absorption
+</text>
+<path d="M401,47h 20v -12h -20z" fill="none" stroke="black"/>
+<path d="M401,41h 20" fill="none" stroke="black"/>
+<g stroke="#ff0000" stroke-width="1" fill="#ff0000">
+<circle cx=" 411" cy=" 41" r=" 1.5"/>
+</g>
+<text x="425" y="62" fill="black" font-size="12" font-family="Helvetica">
+Emission
+</text>
+<path d="M401,63h 20v -11h -20z" fill="none" stroke="black"/>
+<path d="M401,58h 20" fill="none" stroke="black"/>
+<g stroke="#0000ff" stroke-width="1" fill="#0000ff">
+<circle cx=" 411" cy=" 58" r=" 1.5"/>
+</g>
+<text x="101" y="16" fill="black" font-size="14" font-family="Helvetica">
+Geant4 simulated BCF-91A absorption/emission spectra
+</text></svg>

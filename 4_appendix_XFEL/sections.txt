@@ -1,0 +1,109 @@
+Introduction
+  The European X-ray Free-Electron Laser: an overview 
+    Scientific motivation ** NEW **
+  Detectors **ADD** Fluff
+    General **NEW** cover differences & why there are differences
+    The Large Pixel Detector (LPD) **MOVED**
+  DAQ & Control systems **ADD** Fluff
+    The Clock and Control Card (CCC)
+  Firmware ** MOVED** 
+
+Design **New**
+  Imagined use & operation **New**
+    XFEL use  **New**
+    LCLS use  **New**
+    Debugging  **New**
+  Motivation & design  **New**
+  Actual design  **New**
+
+Implementation
+  Top level
+   Interface
+   Generics
+   Registers
+   Implementation
+  # Basic Use    --Probably not needed-- Moved to appendix, de-fluffed
+  #   Veto pattern BRAM
+  #   Transmitter control register
+  #   Transmitter BRAM
+  Receiver
+    Interface
+    Implementation
+  Veto Filter
+    Interface
+    Registers
+      Pattern BRAM
+      Pattern ID registers
+      Veto log
+    Implementation
+  Transmitter 
+    Interface
+    Registers
+      Control register
+      Instruction set BRAM
+    Implementation **ADD**: Explanation of the signals to ASIC
+    
+Testing **New**
+  Requirements**New**
+  Methodology **New**
+  Results **Add** discuss test plan
+    Start, no-veto, stop **Add** discuss test plan
+    Veto/No-veto **Add** discuss test plan
+    Reset Command **Add** discuss test plan
+    Stop with down-scaler **Add** discuss test plan
+    RDMA **Add** discuss test plan
+    Local Link **Add** discuss test plan
+    
+Conclusion **New**
+Appendix
+  ASIC command words **Move** to sections, not chapters
+  RDMA interface **Move** to sections, not chapters
+  Local Link interface **Move** to sections, not chapters
+
+
+
+
+
+==============================================================================
+
+Introduction
+  The European X-ray Free-Electron Laser: an overview
+  Firmware
+  The Clock and Control Card (CCC)
+  The Large Pixel Detector (LPD)
+Basic Use
+  Veto pattern BRAM
+  Transmitter control register
+  Transmitter BRAM
+Top level
+  Interface
+  Generics
+  Registers
+  Implementation
+Receiver
+  Interface
+  Implementation
+Veto Filter
+  Interface
+  Registers
+    Pattern BRAM
+    Pattern ID registers
+    Veto log
+  Implementation
+Transmitter
+  Interface
+  Registers
+    Control register
+    Instruction set BRAM
+  Implementation
+Timing Diagrams
+  Start, no-veto, stop
+  Veto/No-veto
+  Reset Command
+  Stop with down-scaler
+  RDMA
+  Local Link
+ASIC command words
+RDMA interface
+Local Link interface
+

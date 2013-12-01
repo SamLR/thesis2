@@ -1,0 +1,178 @@
+%
+%  RAL XFEL FEE CCC/ASIC interface manual
+%
+%  Created by Sam Cook on Mon 28 Jan 2013
+%
+%  Copyright (c) 2013 RAL. All rights reserved.
+%
+\documentclass[]{report}
+
+% Use utf-8 encoding for foreign characters
+\usepackage[utf8]{inputenc}
+
+% Setup for fullpage use
+\usepackage{fullpage}
+
+% Uncomment some of the following if you use the features
+%
+% Running Headers and footers
+%\usepackage{fancyhdr}
+
+% Multipart figures
+%\usepackage{subfigure}
+
+% Multirow tables
+\usepackage {multirow}
+
+% More symbols
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{latexsym}
+
+% Surround parts of graphics with box
+% \usepackage{boxedminipage}
+
+% Package for including code in the document
+\usepackage{listings}
+
+% If you want to generate a toc for each chapter (use with book)
+\usepackage{minitoc}
+
+% This is now the recommended way for checking for PDFLaTeX:
+\usepackage{ifpdf}
+
+% Add a bit of extra height to tables so '\hlines' don't look crap
+\usepackage{array}
+\setlength{\extrarowheight}{1.5pt}
+% Specify a new column type 'X' that is fixed width and centred
+% \newcolumntype{X}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt} } p{#1} }
+\newcolumntype{X}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+% Set footnotes to be symbols as it stops random powers appearing
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+% Reset the footnote 'counter' every page
+\usepackage{perpage} %the perpage package
+\MakePerPage{footnote} %the perpage package command
+
+% Create tables of a defined total width with wrapped columns
+\usepackage{tabulary}
+% threeparttable gives us access to footnotes in tables
+\usepackage{threeparttable}
+% wan to get ditto mark
+\usepackage[T1]{fontenc}
+\newcommand*{\dittostraight}{---\textquotedbl---} % available in T1 encoding
+
+% We want a nice tick & cross symbol for comparison tables
+\usepackage{pifont} 
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+% make bullet point lists with tighter spacing
+\usepackage{mdwlist}
+%\newif\ifpdf
+%\ifx\pdfoutput\undefined
+%\pdffalse % we are not running PDFLaTeX
+%\else
+%\pdfoutput=1 % we are running PDFLaTeX
+%\pdftrue
+%\fi
+
+\ifpdf
+\usepackage[pdftex]{graphicx}
+\else
+\usepackage{graphicx}
+\fi
+\title{LPD CCC/ASIC interface}
+\author{ Sam Cook }
+
+\date{\today}
+\renewcommand{\sfdefault}{phv}
+\begin{document}    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \maketitle
+    \begin{abstract}
+        Design and operation of the firmware for the Clock and Control Card (CCC) to Large Pixel Detector (LPD) ASIC interface for the Eu-XFEL. 
+    \end{abstract}
+    \tableofcontents
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \chapter{Introduction} % (fold)
+    \label{cha:introduction}
+    %
+    % TODO add notes on typography CAPS for states/Generics, signal names (should be monospace?), use of (X:Y) for
+    %      (X down/to Y), use of (A:B) in generics/register lists to denote a collection of registers
+    %      lines/ports = mono
+    %      commands    = mono caps
+    %      states      = caps
+    %      registers   = italics
+    % TODO differentiation between START, STOP, RESET, N/VETO as commands from ccc and states (esp in Tx)
+    % TODO PORTS not signals when refering to interfaces?
+    % TODO check consistant typography, use of quotes, names, use of 'word(s)' Vs 'command(s)' Vs 'cmd(s)' Vs 'instruction set'
+    %      Instruction set  == the big list of words that _can_ be sent to the ASIC, from which command sequences are formed
+    %      Command sequence == stream of commands sent to ASIC
+    %      ASIC command     == a single 20b word sent to the ASIC
+    %      CCC command      == a single 4b word received on the command line from the CCC
+    %      veto command     == a single 3b word received on the veto line from the CCC
+    %      word             == a generic set of bits that correspond to a command or location in memory
+    % TODO note re placement of generics, i.e. 'generics are discussed in the section relating to the block in which they are used'
+    % TODO add full (top) interface to appendix?
+    % 
+    The Large Pixel Detector (LPD) is being built for the European X-ray Free-Electron Laser (Eu-XFEL). To maintain synchronisation between the machine and the detectors a common Clock and Control Card (CCC) is being developed. To communicate with the LPD-ASIC a Front End Electronics card (FEE) has been developed that will act as a fan out for commands and provide detector specific control.
+    
+    In order to control the ASIC via the CCC interface firmware was written to act as a translator unit. Translation was split into three separate sub-blocks: CCC-signal receiver, a veto filter and the ASIC command transmitter. Between the three blocks the messages from the CCC are interpreted, processed and encoded for the ASIC. 
+    
+    Table~\ref{tab:ccc_spec} gives the specification of the CCC interface whilst table~\ref{tab:asic_spec} is the ASIC interface. The CCC specification specifies 5 command words for the cmd and veto lines that the interface needs to interpret: \texttt{START}, \texttt{STOP}, \texttt{RESET}, \texttt{VETO} and \texttt{NO-VETO} (full specification of these are given in table~\ref{tab:ccc_commands}). Each of these command words correspond to either a single word or a sequence that must be sent to the ASIC. \texttt{START}, \texttt{STOP} and \texttt{RESET} all have multi-word sequences associated to them whilst \texttt{VETO} and \texttt{NOVETO} are communicated with single words. The command sequences for the ASIC are specified in the LPD manual~\cite{lpd_manual}, the command words are given in appendix~\ref{cha:asic_command_words}.
+    
+    \begin{table}
+        \begin{center}
+            \begin{tabular}{c|l}
+                Line & Notes \\
+                \hline
+                clk    & System clock (likely 99.31~MHz).        \\
+                cmd    & Fast command signals (\texttt{START}, \texttt{STOP} etc.) \\
+                veto   & Veto/no-veto.                                             \\
+                status & Return line from the ASIC to the CCC.                     \\
+            \end{tabular}
+        \end{center}
+        \caption{Clock and control card signal specification}
+        \label{tab:ccc_spec}
+    \end{table}
+
+    \begin{table}
+        \begin{center}
+            \begin{tabular}{c|l}
+                Line       & Notes                                       \\
+                \hline
+                CLK        & The system clock, as received from the CCC. \\
+                SERIAL\_IN & Serial command line.                        \\
+            \end{tabular}
+        \end{center}
+        \caption{ASIC signal specification}
+        \label{tab:asic_spec}
+    \end{table}
+  
+    \begin{table}
+        \begin{center}
+            \begin{tabulary}{\textwidth}{c | c | c | C | l}
+                Line & Command & Value & Payload & Description \\
+                \hline
+                \multirow{5}{*}[11.5pt]{Control} 
+                & START & 1100 & Train ID (32b), bunch pattern ID (8b), checksum (8b) & Start of the train \\
+                & STOP  & 1010 & none                                                 & End of the train \\
+                & RESET & 1001 & none                                                 & Reset the FEE and ASIC \\
+                \hline
+        
+                \multirow{2}{*}{Veto} 
+                & VETO   & 110 & \multirow{2}{*}{Bunch ID (8b)} & Veto this bunch \\
+                & NOVETO & 101 &                                & Record this bunch \\
+            \end{tabulary}
+        \end{center}
+        \caption{Command definitions for the fast and veto lines from the CCC, see \cite{xfel_veto_spec} for more details.}
+        \label{tab:ccc_commands}
+    \end{table}
+    % section introduction (end)
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \include{Content}
+    \bibliographystyle{plain}
+    \bibliography{ral_manual}
+\end{document}
+    
