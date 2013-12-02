@@ -7,6 +7,7 @@
 #include "TGraph2DErrors.h"
 #include "TStyle.h"
 #include "TPaveStats.h"
+#include "TLegend.h"
 
 void charged_particle_flux_sim (){
     gStyle->SetOptStat(2220);
@@ -97,16 +98,35 @@ void charged_particle_flux_sim (){
     measured_flux_2d->SetMarkerSize(3);
     measured_flux_2d->Draw("PCOL ERR FB");
 
-    can1->SaveAs("sim_1d_charged_flux.png");
+    can1->SaveAs("sim_1d_charged_flux.eps");
     can1->SaveAs("sim_1d_charged_flux.svg");
-    can2->SaveAs("sim_2d_charged_flux.png");
+    can2->SaveAs("sim_2d_charged_flux.eps");
     can2->SaveAs("sim_2d_charged_flux.svg");
     
-    can3->SaveAs("measured_1d_charged_flux.png");
+    can3->SaveAs("measured_1d_charged_flux.eps");
     can3->SaveAs("measured_1d_charged_flux.svg");
-    can4->SaveAs("measured_2d_charged_flux.png");
+    can4->SaveAs("measured_2d_charged_flux.eps");
     can4->SaveAs("measured_2d_charged_flux.svg");
     
+    
+    TCanvas* can5 = new TCanvas("c5", "c5", 1436,856);
+    measured_flux_1d->SetLineColor(4);
+    measured_flux_1d->SetTitle("Measured rate");
+    measured_flux_1d->SetFillColor(0);
+    measured_flux_1d->Draw("A P");
+    hist_1d->SetLineColor(2);
+    hist_1d->SetTitle("Simulated rate");
+    hist_1d->SetStats(false);
+    hist_1d->SetFillColor(0);
+    hist_1d->Draw("SAME E");
+    TLegend* leg = can5->BuildLegend(0.1, 0.7, 0.4, 0.9);
+    leg->SetFillColor(0);
+    leg->Draw();
+
+    measured_flux_1d->SetTitle("1D Charged particle rate");
+    can5->Update();
+    can5->SaveAs("1D_charged_particle_flux.eps");
+    can5->SaveAs("1D_charged_particle_flux.svg");
     
     
 }

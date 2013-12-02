@@ -177,6 +177,70 @@ The positions of the two experiments are given in table~\ref{tab:flux_setup} wit
 \end{table}
 
 % section experimental_set_up (end) 
+\section{Detector efficiency} % (fold)
+\label{sec:detector_efficiency}
+As well as making measurements of the charged particle flux another important measurement, made soon after the second beam time, was measurement of the efficiency of the circular detector. This was done using 3 large Photo-Multiplier Tubes (PMT) attached to large (\( 40\times40\times1 \)~cm\(^3\)) scintillator paddles. Measurement of the disk detector was calculated using the ratio of detections by the PMTs to detection by the MPPCs (once size considerations had been taken into account).
+
+The test procedure for this measurement was to do long runs with the PMT paddles sandwiching the disk then compare the number of cosmic rays detected in the paddles compared to those detected by the disk. First all remaining MPPCs were tested (one had become irrevocably damaged during beam time) then pairs were tested. Testing consisted of counting the occurrence of three-fold coincidence on the PMTs and either two or three fold coincidence on the MPPCs. Data was taken for approximately one day for each configuration. The results of this measurement are shown in table~\ref{tab:music2_eff}.
+
+\begin{table}
+  \begin{center}
+    \begin{tabular}{c | c | c | c | c | r@{~\( \pm \)~}l}
+      \multirow{2}{*}{Configuration} 
+                     &  Run Time             &  MPPC   &  PMT        &  \multirow{2}{*}{Efficiency} 
+                                                                                    &  \multicolumn{2}{c}{Adjusted}   \\
+                     &  (\(\times 10^3\)~s)  &  Count  &  Count      &              &  \multicolumn{2}{c}{Efficiency} \\
+      \hline
+      123            &  86.0                 &  1651   &  1,161,165  &  0.00142     &  0.0591 & 0.0015  \\
+      12             &  92.3                 &  6055   &  1,229,389  &  0.00493     &  0.2048 & 0.0026  \\
+      13             &  87.1                 &  5653   &  1,179,116  &  0.00479     &  0.1993 & 0.0027  \\
+      23             &  84.4                 &  3999   &  1,129,137  &  0.00354     &  0.1472 & 0.0023  \\
+        
+    \end{tabular}
+  \end{center}
+  \caption{Summary of the data taken for measuring the MPPC detector efficiency. Configuration refers to which of the three MPPCs were tested. The efficiency is the simple ratio of the MPPC count to the PMT count whilst the adjusted efficiency has been scaled by the ratio of the areas of the scintillators, i.e.\ by \( \frac{40\times40}{\pi3.5^2} \).}
+  \label{tab:music2_eff}
+\end{table}
+
+Assuming that the total efficiency (\( \epsilon_t \)) is the product of the individual efficiencies (\( \epsilon_{1,2,3} \)) then the it can be expressed as:
+\begin{align}
+  \epsilon_t &= \epsilon_1  \epsilon_2  \epsilon_3
+\end{align}
+With the measured efficiencies of the pairs of MPPCs we can calculate the individual efficiencies by solving:
+\begin{align*}
+  \epsilon_{12} &= \epsilon_{1} \epsilon_{2} &\implies   \epsilon_{1}  &= \frac{\epsilon_{12}}{\epsilon_{2}}                       \\
+  \epsilon_{13} &= \epsilon_{1} \epsilon_{3} &\implies   \epsilon_{2}  &= \frac{\epsilon_{12}\epsilon_{3}}{\epsilon_{13}}          \\
+  \epsilon_{23} &= \epsilon_{2} \epsilon_{3} &\implies   \epsilon_{3}  &= \sqrt{\frac{\epsilon_{23}\epsilon_{13}}{\epsilon_{12}}}  \\
+\end{align*} 
+This can be generalised to:
+\begin{align*}
+  \epsilon_{i} &= \sqrt{\frac{\epsilon_{ij}\epsilon_{ik}}{\epsilon_{jk}}} \label{equ:individual_eff}
+\end{align*}
+Where \( \epsilon_i \) is a single efficiency we want to calculate and \( \epsilon_{jk} \) is the combined measurement of the other two efficiencies. Applying this to table~\ref{tab:music2_eff} we get the efficiencies for the MPPCs shown in table~\ref{tab:calculated_individual_eff}. It's important to note that these efficiencies represent more than just the individual MPPC's quantum efficiency but the entire gestalt of systematic effects that contribute to the efficiency of the specific MPPC including scintillator acceptance (both geometric and energetic), light collection and transmission. As can be seen the estimated total efficiency ends up being larger than what was actually measured but this is to be expected as the system assumes all the efficiencies are completely independent of one another. Using these values the average efficiency of a single MPPC can be calculated and given an error as seen in the final line of the table.
+
+\begin{table}
+  \lineup
+  \begin{center}
+    \begin{tabular}{c|r@{~\(\pm\)~}l}
+      MPPC  &  \multicolumn{2}{c}{Efficiency} \\
+      \hline
+      1  &  0.5265 & 0.0064  \\
+      3  &  0.3786 & 0.0046  \\
+      2  &  0.3889 & 0.0048  \\
+      \hline
+      \( 123_{Calc} \)  &  0.0775  &  0.0016  \\
+      \( 123_{Meas} \)  &  0.0591  &  0.0015  \\
+      \hline 
+      \( \epsilon_{\text{MPPC}} \)  &  0.431\0 & 0.067 \\
+         
+    \end{tabular}
+  \end{center}
+  \caption{Efficiencies of individual MPPCs calculated using the values from table~\ref{tab:music2_eff}, and equation~\eqref{equ:individual_eff}. The two values below the line represent the total efficiency as calculated using the individual values and the measured value. Note: these values also include any acceptance effects and the light collection efficiencies of the scintillator.}
+  \label{tab:calculated_individual_eff}
+\end{table}
+
+
+% section detector_efficiency (end)
 \section{Results} % (fold)
 \label{sec:results}
 
@@ -220,8 +284,7 @@ where \(j\) is the flux, \(F\) is a scaling factor, \(C\) is the trigger count w
   \caption{Measurement of the 1D charged particle flux as given in table~\ref{tab:1d_res}. Where two measurements were made at a single location an offset has been applied to the point to allow clearer reading of the plot, the measurements were actually at the same position. The errors on the vertical position are the width of the scintillator used.}
   \label{fig:images_hit_rate_rescaled}
 \end{figure}
- 
-% TODO note re multiple computer measurements for trigger count
+
 \begin{table}
   \begin{center}
     \begin{tabular}{r|r|r|c|c|c|r@{~\(\pm\)~}r}
@@ -260,77 +323,6 @@ where \(j\) is the flux, \(F\) is a scaling factor, \(C\) is the trigger count w
 \end{figure}
  
 % section results (end)
-\section{Detector efficiency} % (fold)
-\label{sec:detector_efficiency}
-As well as making measurements of the charged particle flux another important measurement, made soon after the second beam time, was measurement of the efficiency of the circular detector. This was done using 3 large Photo-Multiplier Tubes (PMT) attached to large (\( 40\times40\times1 \)~cm\(^3\)) scintillator paddles. Measurement of the disk detector was calculated using the ratio of detections by the PMTs to detection by the MPPCs (once size considerations had been taken into account).
-
-The test procedure for this measurement was to do long runs with the PMT paddles sandwiching the disk then compare the number of cosmic rays detected in the paddles compared to those detected by the disk. First all remaining MPPCs were tested (one had become irrevocably damaged during beam time) then pairs were tested. Testing consisted of counting the occurrence of three-fold coincidence on the PMTs and either two or three fold coincidence on the MPPCs. Data was taken for approximately one day for each configuration. The results of this measurement are shown in table~\ref{tab:music2_eff}.
-
-\begin{table}
-  \begin{center}
-    \begin{tabular}{c | c | c | c | c | r@{~\( \pm \)~}l}
-      Configuration  &  Run Time             &  MPPC   &  PMT        &  Efficiency  &  \multicolumn{2}{c}{Adjusted}   \\
-                     &  (\(\times 10^3\)~s)  &  Count  &  Count      &              &  \multicolumn{2}{c}{Efficiency} \\
-      \hline
-      123            &  86.0                 &  1651   &  1,161,165  &  0.00142     &  0.0591 & 0.0015  \\
-      12             &  92.3                 &  6055   &  1,229,389  &  0.00493     &  0.2048 & 0.0026  \\
-      13             &  87.1                 &  5653   &  1,179,116  &  0.00479     &  0.1993 & 0.0027  \\
-      23             &  84.4                 &  3999   &  1,129,137  &  0.00354     &  0.1472 & 0.0023  \\
-        
-    \end{tabular}
-  \end{center}
-  \caption{Summary of the data taken for measuring the MPPC detector efficiency. Configuration refers to which of the three MPPCs were tested. The efficiency is the simple ratio of the MPPC count to the PMT count whilst the adjusted efficiency has been scaled by the ratio of the areas of the scintillators, i.e.\ by \( \frac{40\times40}{\pi3.5^2} \).}
-  \label{tab:music2_eff}
-\end{table}
-
-Assuming that the total efficiency (\( \epsilon_t \)) is the product of the individual efficiencies (\( \epsilon_{1,2,3} \)) then the it can be expressed as:
-\begin{align}
-  \epsilon_t &= \epsilon_1  \epsilon_2  \epsilon_3
-\end{align}
-
-With the measured efficiencies of the pairs of MPPCs we can calculate the individual efficiencies by solving:
-\begin{align*}
-  \epsilon_{12} &= \epsilon_{1} \epsilon_{2} &\implies   \epsilon_{1}  &= \frac{\epsilon_{12}}{\epsilon_{2}}                       \\
-  \epsilon_{13} &= \epsilon_{1} \epsilon_{3} &\implies   \epsilon_{2}  &= \frac{\epsilon_{12}\epsilon_{3}}{\epsilon_{13}}          \\
-  \epsilon_{23} &= \epsilon_{2} \epsilon_{3} &\implies   \epsilon_{3}  &= \sqrt{\frac{\epsilon_{23}\epsilon_{13}}{\epsilon_{12}}}  \\
-\end{align*} 
-This can be generalised to:
-\begin{align*}
-  \epsilon_{i} &= \sqrt{\frac{\epsilon_{ij}\epsilon_{ik}}{\epsilon_{jk}}}
-\end{align*}
-% \begin{align*}
-%   \epsilon_{12} &= \epsilon_{1} \epsilon_{2}                        \\
-%   \epsilon_{13} &= \epsilon_{1} \epsilon_{3}                                \\
-%   \epsilon_{23} &= \epsilon_{2} \epsilon_{3}                                \\
-%   \epsilon_{1}  &= \frac{\epsilon_{12}}{\epsilon_{2}}                       \\
-%   \epsilon_{2}  &= \frac{\epsilon_{12}\epsilon_{3}}{\epsilon_{13}}          \\
-%   \epsilon_{3}  &= \sqrt{\frac{\epsilon_{23}\epsilon_{13}}{\epsilon_{12}}}  \\
-% \end{align*}
-
-where \( \epsilon_i \) is a single efficiency we want to calculate and \( \epsilon_{jk} \) is the combined measurement of the other two efficiencies. Applying this to table~\ref{tab:music2_eff} we get the efficiencies for the MPPCs shown in table~\ref{tab:calculated_individual_eff}. It's important to note that these efficiencies represent more than just the individual MPPC's quantum efficiency but the entire gestalt of systematic effects that contribute to the efficiency of the specific MPPC including scintillator acceptance (both geometric and energetic), light collection and transmission. As can be seen the estimated total efficiency ends up being larger than what was actually measured but this is to be expected as the system assumes all the efficiencies are completely independent of one another. 
-
-These measurements form a minimum value for the later experiments for which detector efficiency measurements couldn't be made. Whilst these values are not useful as specific values they provide a reasonable first approximation for analysis.
-
-\begin{table}
-  \begin{center}
-    \begin{tabular}{c|r@{\( \pm \)}l}
-      MPPC  &  \multicolumn{2}{c}{Efficiency} \\
-      \hline
-      1  &  0.5265 & 0.0064  \\
-      3  &  0.3786 & 0.0046  \\
-      2  &  0.3889 & 0.0048  \\
-      \hline
-      \( 123_{Calc} \)  &  0.0775  &  0.0016  \\
-      \( 123_{Meas} \)  &  0.0591  &  0.0015  \\
-         
-    \end{tabular}
-  \end{center}
-  \caption{Efficiencies of individual MPPCs calculated using the values from table~\ref{tab:music2_eff}, and equation~\eqref{equ:individual_eff}. The two values below the line represent the total efficiency as calculated using the individual values and the measured value. Note: these values also include any acceptance effects and the light collection efficiencies of the scintillator.}
-  \label{tab:calculated_individual_eff}
-\end{table}
-
-
-% section detector_efficiency (end)
 \section{Analysis} % (fold)
 \label{sec:analysis}
 As can be seen from the figures~\ref{fig:images_hit_rate_rescaled}~and~\ref{fig:2D_flux} the beam spot is positioned slightly up and to the left of the centre of the pipe. As figure~\ref{fig:sim_2d_charged_particle_flux} shows both measurements agree on the general position of the beam spot. The measurements are not directly comparable due to the differences in both scintillator volume and position with respect to the end of the beam-pipe. Obviously the flux for the 2D measurement is generally lower due to smaller scintillator and greater distance from the beam-pipe.
@@ -343,20 +335,25 @@ A signifiant issue with the 1D measurement is the lack of a confirmation measure
 
 Comparing the measured and simulated rates yields some interesting features. There is broad agreement on the general shape of the distribution but, using normalised plots, it appears that the measured charged particle rate for the 1D measurement is consistently higher than the simulated value by a factor of between 2 and 10. No obvious explanation of this presents itself as the measured value, should be, a lower bound whilst the simulated value should be closer to the `true' value due to lack of detector affects and similar. Whilst this suggests that further development of the G4BL simulation is required it is encouraging that MuSIC is performing above expectations.
 
-\begin{figure}[hptb] 
+% \begin{figure}[hptb] 
+%   \centering
+%     \includegraphics[width=.9\textwidth]{images/plot_generating_scripts/sim_1d_charged_flux.png}
+%   \caption{Simulated results for the 1D charged particle rate, normalised to a proton current of 1~nA. Values calculated as the un-adjusted number of charged particles in the 1D scintillator volume from \( 9\times10^8 \) initial protons generated in G4BL.}
+%   \label{fig:sim_1d_charged_flux}
+% \end{figure}
+\begin{figure}[hptb]
   \centering
-    \includegraphics[width=.9\textwidth]{images/plot_generating_scripts/sim_1d_charged_flux.png}
-  \caption{Simulated results for the 1D charged particle rate, normalised to a proton current of 1~nA. Values calculated as the un-adjusted number of charged particles in the 1D scintillator volume from \( 9\times10^8 \) initial protons generated in G4BL.}
-  \label{fig:sim_1d_charged_flux}
+    \includegraphics[width=.9\textwidth]{images/plot_generating_scripts/1D_charged_particle_flux.eps}
+  \caption{Comparison of simulated and measured total charged particle flux.}
+  \label{fig:images_plot_generating_scripts_1D_charged_particle_flux}
 \end{figure}
-
+  
 \begin{figure}[hptb]
   \centering  
     \includegraphics[width=.9\textwidth]{images/plot_generating_scripts/sim_2d_charged_flux.png}
   \caption{Simulated results for the 2D charged particle rate normalised to a proton current of 1~nA. Colour is equal to the rate as given by the z-axis. Simulated using \( 9\times10^8 \) in G4BL, the rate was taken to be those particles seen within the area of the scintillator used.}
   \label{fig:sim_2d_charged_flux}
 \end{figure}
-
 
 % section analysis (end)
 % chapter charged_particle_flux (end)
@@ -497,14 +494,14 @@ For the analysis 6 runs were chosen, all using the 0.5~mm copper stopping target
 \begin{table}
 	\begin{center}
 	\begin{tabular}{c|c|c|c}
-		Run ID & Time (sec) & Current (nA) & Degrader (mm) \\
+		Run ID & Time (sec) & Current (pA) & Degrader (mm) \\
 		\hline
-		448    & 9,221      & 1.534E-02    & 0.0   \\
-		451    & 1,001      & 1.546E-02    & 0.5   \\
-		452    & 4,924      & 1.313E-02    & 0.5   \\
-		455    & 6,307      & 1.332E-02    & 1.0   \\
-		458    & 5,144      & 1.363E-02    & 5.0   \\
-		459    & 2,452      & 1.238E-02    & 5.0   \\
+		448    & 9,221      & 15           & 0.0   \\
+		451    & 1,001      & 15           & 0.5   \\
+		452    & 4,924      & 13           & 0.5   \\
+		455    & 6,307      & 13           & 1.0   \\
+		458    & 5,144      & 14           & 5.0   \\
+		459    & 2,452      & 12           & 5.0   \\
 	\end{tabular}
 	\end{center}
 	\caption{Summary of the runs selected for this analysis. The degrader used aluminium and the stopping target 0.5~mm copper.}
@@ -617,12 +614,16 @@ Where potential triggers are considered any anti-coincidence of the up without t
 \label{sub:gain_stability}
 In order to better understand possible sources of systematics in the experiment the total trigger rate for each run was plotted over time. The gain stability should then be proportional to this trigger rate, giving a measure of how well the detector was working and highlighting any possible problems in the run. To plot this value the events produced in a run were divided into 10 sections, each containing an equal number of events. Using the values recorded by the scaler the length of each section in seconds could be determined (channel 7, see table~\ref{tab:scaler_chs}) as could the number of triggers seen in that section (channel 1). The results are plotted in figure~\ref{fig:gain_stability}, note that as the degrader thickness is increased the fit value decreases which is consistent with fewer particles reaching the detector. Full listings for plotting the gain stability can be found in appendix~\ref{appsub:gain_stability}.
 %
-\begin{figure}[htbp]
-    \centering
-        \includegraphics[width=\textwidth]{images/momentum_spectrum/gain_stability.png}
-    \caption{Gain stability for each run, the black lines indicate the gain stability for that period of time (each $\sim^1/_{10}^{\text{th}}$s of the run) whilst the blue histogram plots the cumulative number of triggers. The gain stability has bit fitted with an order 0 polynomial who's parameters are given.}
-    \label{fig:gain_stability}
-\end{figure}
+
+\begin{sidewaysfigure}
+  % \begin{figure}%[htbp]
+      \centering
+          \includegraphics[width=\textwidth]{images/momentum_spectrum/gain_stability.png}
+      \caption{Gain stability for each run, the black lines indicate the gain stability for that period of time (each is  \(\frac{1}{10}\) of the run) whilst the blue histogram plots the cumulative number of triggers. The gain stability has bit fitted with an order 0 polynomial who's parameters are given.}
+      \label{fig:gain_stability}
+  % \end{figure}
+\end{sidewaysfigure}
+
 %
 \begin{table}
     \begin{center}
@@ -656,9 +657,23 @@ As has been discussed there are 6 data sets that were used for this analysis, th
 \begin{align}
   N_{f}\exp(\frac{-t}{\tau_{f}}) + N_{c}\exp(\frac{-t}{\tau_{c}}) + N_{s}\sin(2\pi\frac{t-\phi}{T}) + N_{b} \label{equ:fit}
 \end{align}
-Where \(N\)s denote scaling factors and \(\tau\) is a lifetime. The \(f\) terms refer to the free decay of muons; the \(c\) terms are muonic decays in copper; the \(s\) term is a sinusoidal source of noise with period \(T\) and phase \(\phi\), the \(b\) term is a constant background term.
+Where the `\(N\)' terms are  scaling factors and `\(\tau\)' terms are lifetimes. The \(f\) terms refer to the free decay of muons; the \(c\) terms are muonic decays in copper; the \(s\) term is a sinusoidal source of noise with period \(T\) and phase \(\phi\), the \(b\) term is a constant background term.
 
-Once the data was fitted using Root the \(f\) and \(c\) portions were integrated individually to calculate the number of free and copper decays the muons underwent. The fit results are shown in figures~\ref{fig:images_momentum_spectrum_448}~to~\ref{fig:images_momentum_spectrum_459} with each figure showing the per-channel fits with associated values. For these fits the values of \(\tau_{f}\) and \(\tau_{c}\) were fixed at their given values of \( 2,196.9811\pm0.0022 \)~ns~\ref{PDG} and \( 163.5\pm1 \)~ns~\ref{Suzuki Cu tau} respectively. The period, \( T \), was fixed at 65~ns as determined by fitting isolated regions of the background. 
+Once the data was fitted using Root the \(f\) and \(c\) portions were integrated individually to calculate the number of free and copper decays the muons underwent. The fit results are shown in figures~\ref{fig:images_momentum_spectrum_448}~to~\ref{fig:images_momentum_spectrum_459} and summarised in table~\ref{tab:fit_res}. To improve the \(\chi^2\) values of the fits \(\tau_{f}\) and \(\tau_{c}\) were fixed at their given values of \(2,196.9811\pm0.0022 \)~ns~\ref{PDG} and \( 163.5\pm1 \)~ns~\ref{Suzuki Cu tau} respectively. The period, \(T\), was constrained to \(60\pm5\)~ns as this was determined to be a good value from fitting the noise (see figure~\ref{fig:images_momentum_spectrum_448_D1_noise_fit}). 
+
+Fitting of the period of the background was done separately to the rest of the fit as this seemed to be something that ROOT struggled to do simultaneously with the other aspects of the fit. As can be seen a sinusoidal fit is not a very accurate description of the background but makes for a reasonable first-order approximation. 
+
+In order to have good statistics whilst maintaining sensitivity to the relatively fast copper component of the decays a bin width of 16~ns was used. A large bin width (e.g.\ 100~ns) could have been used to smooth the sinusoidal noise but this would result in very few bins in which the copper component was significant. Whilst the ideal solution would be to use binning such that the sinusoidal component was cancelled out this was not feasible due to limitations of the fitting program. In the end a bin width was chosen that resulted in a small \(\chi^2\) whilst remaining sensitive to copper.
+
+The number of muons was normalised between runs to the proton beam current using:
+\begin{align}
+  R &= \frac{N_{\mu}}{I_p D E} \label{equ:rate}
+\end{align}
+Where \( R \) is the normalised rate of muon decays (in nA\(^{-1}\)), \(N_{\mu}\) is the number of muon decays (either free or from muonic copper), \( I_p \) is the proton current in nA, \( D \) is the duration of the run in s and \( E \) is the dead time (as given in table~\ref{tab:dead_time}). The rates and number of muon decays are given in table~\ref{tab:rates_res} along with the \(\chi^2\) values for each fit. Again the majority of the beam is clearly towards the top of the beam pipe as has previously been seen.
+
+Figures~\ref{fig:images_momentum_spectrum_run_muon_rate_in_f}~and~\ref{fig:images_momentum_spectrum_run_muon_rate_in_cu} show the rates of decays from free muons and muonic copper respectively. These plots are the `pure' rates based solely on the measured values. Between the pairs of runs (e.g.\ runs 451/452 and 458/459) there is good agreement and the general shape suggests that (unsurprisingly) as larger degraders are used there are fewer decays of stopped muons. As can be seen Further refinements can be made to enable more accurate comparison to simulation: inclusion of the acceptance and the detector efficiency as well as conversion of the degrader thickness to the simulated average momentums.
+
+As can be seen in the fit data the \(\chi^2\) values for the fitting of channels D4 and D5 are generally poor because of this they were removed from the final, summed, rate calculation. The main cause of the poor \(\chi^2\) value is likely the low statistics compounded by the fact that, as the counters share a common trigger those scintillators that are further away from the beam spot will record a greater fraction of noise. Also clear is that even for the channels with better \(\chi^2\) values equation~\eqref{equ:fit} is not a full description of the data. This affect can be seen more clearly when the values for \( \tau_c \) and \( \tau_f \) are also fitted using ROOT, as shown in figures~\ref{fig:images_plot_generating_scripts_per_ch_copper_lifetime} and~\ref{fig:images_plot_generating_scripts_per_ch_free_lifetime} respectively. Both of these plots show that ROOT moves the fit away from the canonical values whilst simultaneously providing a worse \(\chi^2\) than is seen with the constrained values.
 
 \begin{table}
   \begin{center}
@@ -678,48 +693,180 @@ Once the data was fitted using Root the \(f\) and \(c\) portions were integrated
   \label{tab:music5_run_summary}
 \end{table}
 
-\begin{sidewaysfigure}[hptb] 
-  \centering
-    \includegraphics[scale=1.1]{images/momentum_spectrum/448.eps}
-  \caption{Per channel fitting of data for run 448.}
-  \label{fig:images_momentum_spectrum_448}
+\begin{table}
+  \lineup % enable \0, \- & \.
+  \begin{center}
+  \begin{tabular}{ c | c | r@{\(\,\pm\,\)}l | r@{\(\,\pm\,\)}l | r@{\(\,\pm\,\)}l | r@{\(\,\pm\,\)}l | r@{\(\,\pm\,\)}l }
+  % \begin{tabular}{ c | c | S@{\(\pm\)}S | S@{\(\pm\)}S | S@{\(\pm\)}S | S@{\(\pm\)}S | S@{\(\pm\)}S }
+    Run  
+      &  Channel  
+             & \multicolumn{2}{c|}{\(N_b\)} 
+                                 &  \multicolumn{2}{c|}{\(N_s\)}
+                                                     &  \multicolumn{2}{c|}{\(\phi\)}  
+                                                                         & \multicolumn{2}{c|}{\( N_c \)}
+                                                                                           &\multicolumn{2}{c}{\( N_f \)} \\
+    \hline
+    \multirow{5}{*}{448}
+      &  D1  &  576.85\0& 0.80   &  121.10\0& 1.15   &   2.19 & 0.21    &   549\.\0& 31    &  1377.2\0& 5.7  \\
+      &  D2  &  914.39\0& 1.0    &  197.28\0& 1.44   &  10.33 & 0.16    &  1524\.\0& 38    &  1937.2\0& 6.9  \\
+      &  D3  &  164.22\0& 0.43   &   40.68\0& 0.63   &  18.22 & 0.36    &   592\.\0& 21    &   620.3\0& 3.4  \\
+      &  D4  &   32.07\0& 0.19   &    6.89\0& 0.28   &  57.02 & 0.96    &   193\.\0& 11    &   172.8\0& 1.7  \\
+      &  D5  &   27.79\0& 0.18   &    6.37\0& 0.26   &   4.31 & 0.94    &    24.8  &\07.8  &    91.1\0& 1.4  \\
+    \hline
+    \multirow{5}{*}{451}
+      &  D1  &   39.55\0& 0.21   &    2.38\0& 0.31   &  25.3\0& 2.4     &    29.4  &\08.1  &   101.4\0& 1.5   \\
+      &  D2  &   62.27\0& 0.26   &   17.74\0& 0.38   &  13.28 & 0.50    &   153\.\0& 11    &   178.2\0& 1.9   \\
+      &  D3  &   11.52\0& 0.12   &    3.60\0& 0.17   &  20.4\0& 1.2     &    85.6  &\06.5  &    57.76 & 0.99  \\
+      &  D4  &    2.18\0& 0.05   &    0.61\0& 0.08   &   6.5\0& 3.0     &    25.9  &\03.5  &    16.59 & 0.49  \\
+      &  D5  &    1.97\0& 0.05   &    0.65\0& 0.07   &   8.7\0& 2.6     &     7.3  &\02.6  &     8.78 & 0.40  \\
+    \hline
+    \multirow{5}{*}{452}
+      &  D1  &  161.25\0& 0.43   &   43.56\0& 0.61   &   4.08 & 0.31    &   208\.\0& 17    &   435.5\0& 3.1  \\
+      &  D2  &  252.14\0& 0.54   &   71.73\0& 0.76   &  12.39 & 0.25    &   706\.\0& 23    &   789.9\0& 4.0  \\
+      &  D3  &   46.29\0& 0.23   &   15.70\0& 0.34   &  19.82 & 0.55    &   335\.\0& 13    &   266.7\0& 2.1  \\
+      &  D4  &    8.95\0& 0.11   &    2.49\0& 0.16   &   0.00 & 1.64    &   128.2  &\07.5  &    76.6\0& 1.1  \\
+      &  D5  &    8.01\0& 0.097  &    2.37\0& 0.14   &   7.54 & 1.43    &    25.9  &\05.2  &    38.71 & 0.82  \\
+    \hline
+    \multirow{5}{*}{455}
+      &  D1  &  187.67\0& 0.46   &   46.99\0& 0.66   &   4.38 & 0.32    &   265\.\0& 19    &   539.1\0& 3.4  \\
+      &  D2  &  293.99\0& 0.58   &   73.76\0& 0.83   &  12.41 & 0.26    &   896\.\0& 26    &   967.9\0& 4.4  \\
+      &  D3  &   54.02\0& 0.25   &   17.18\0& 0.37   &  20.27 & 0.53    &   438\.\0& 15    &   326.4\0& 2.3  \\
+      &  D4  &   10.37\0& 0.11   &    2.86\0& 0.16   &   0.00 & 0.36    &   195.1  &\08.5  &    87.4\0& 1.1  \\
+      &  D5  &    9.30\0& 0.10   &    2.63\0& 0.15   &   4.8\0& 1.3     &    41.9  &\05.8  &    47.00 & 0.90  \\
+    \hline
+    \multirow{5}{*}{458}
+      &  D1  &   73.73\0& 0.29   &   21.53\0& 0.43   &   0.000 & 0.037  &   219\.\0& 15    &   350.2\0& 2.4  \\
+      &  D2  &  114.37\0& 0.37   &   34.08\0& 0.54   &   5.32\0& 0.38   &   799\.\0& 20    &   562.4\0& 3.1  \\
+      &  D3  &   21.47\0& 0.16   &    8.40\0& 0.24   &   9.89\0& 0.71   &   236\.\0& 11    &   178.1\0& 1.6  \\
+      &  D4  &    3.805 & 0.070  &    1.25\0& 0.10   &   0.00\0& 0.19   &    72.6  &\05.8  &    49.23 & 0.80  \\
+      &  D5  &    3.728 & 0.067  &    1.436 & 0.098  &   0.00\0& 0.76   &    19.1  &\04.2  &    28.11 & 0.65  \\
+    \hline
+    \multirow{5}{*}{459}
+      &  D1  &   30.67\0& 0.19   &    8.86\0& 0.28   &  56.68 & 0.72    &   115.3  &\09.8  &   155.0\0& 1.6  \\
+      &  D2  &   48.07\0& 0.24   &   14.91\0& 0.35   &   4.36 & 0.56    &   369\.\0& 13    &   254.0\0& 2.1  \\
+      &  D3  &    8.87\0& 0.11   &    3.65\0& 0.16   &  11.3\0& 1.0     &   110.1  &\07.3  &    81.0\0& 1.1  \\
+      &  D4  &    1.631 & 0.046  &    0.579 & 0.068  &  48.2\0& 3.1     &    39.2  &\04.9  &    22.01 & 0.54  \\
+      &  D5  &    1.496 & 0.043  &    0.615 & 0.063  &   0.0\0& 1.0     &     8.0  &\02.8  &    12.73 & 0.43  \\
+  \end{tabular}
+  \end{center}
+  \caption{Summary of the fitted values for equation~\eqref{equ:fit}. These are the values used for the calculation of the integrals and, ultimately, the muon rates. The two lifetime parameters, \( \tau_f \) and \( \tau_c \), were fixed at the values \(2,196.9811\pm0.0022 \)~ns~\ref{PDG} and \( 163.5\pm1 \)~ns~\ref{Suzuki Cu tau} respectively, \( T \) was fixed at 60~ns.}
+  \label{tab:fit_res}
+\end{table}
+
+\begin{table}
+  \lineup
+  \begin{center}
+  \begin{tabular}{c | c | r@{\(\,\pm\,\)}l | r@{\(\,\pm\,\)}l | r@{\(\,\pm\,\)}l | r@{\(\,\pm\,\)}l | r | l }
+   \multirow{2}{*}{Run} 
+     & \multirow{2}{*}{Channel}
+          &  \multicolumn{2}{c|}{Copper}
+                         &  \multicolumn{2}{c|}{Free}  
+                                          & \multicolumn{2}{c|}{Rate (copper)}
+                                                                 &\multicolumn{2}{c|}{Rate (free)}
+                                                                     &\multicolumn{1}{c|}{\multirow{2}{*}{\(\chi^2\)}}
+                                                                                     & \multicolumn{1}{c}{\multirow{2}{*}{NDF}}  \\ 
+     &    & \multicolumn{2}{c|}{decays}
+                         &  \multicolumn{2}{c|}{decays}  
+                                           & \multicolumn{2}{c|}{(nA\(^{-1}\))}
+                                                                & \multicolumn{2}{c|}{(nA\(^{-1}\))}
+                                                                                     &         &      \\
+   \hline
+   \multirow{5}{*}{448}
+     & D1 &   4098 & 232  &  184833 & 758  &    47.1\0& 2.7   &  2122.7  &  8.8   &    2772 & 1239  \\
+     & D2 &  11377 & 286  &  259990 & 928  &   130.7\0& 3.3   &  2986\.\0& 11     &    5815 & 1239  \\
+     & D3 &   4420 & 153  &   83253 & 458  &    50.8\0& 1.8   &   956.1  &  5.3   &    2116 & 1239  \\
+     & D4 &   1462 &  85  &   23189 & 228  &    16.79 & 0.98  &   266.3  &  2.6   &  115129 & 1239  \\
+     & D5 &    188 &  59  &   12223 & 183  &     2.16 & 0.68  &   140.4  &  2.1   &   37059 & 1239  \\
+   \hline
+   \multirow{5}{*}{451}
+     & D1 &    220 &  60  &   13602 & 202  &    19.8\0& 5.4   &  1226\.\0& 18    &   2887 & 1239  \\ 
+     & D2 &   1140 &  84  &   23915 & 261  &   102.8\0& 7.6   &  2155\.\0& 24    &   1592 & 1239  \\ 
+     & D3 &    639 &  49  &    7751 & 132  &    57.6\0& 4.4   &   699\.\0& 12    &   1759 & 1239  \\ 
+     & D4 &    193 &  26  &    2227 &  66  &    17.4\0& 2.3   &   200.7  &  6.0  &   3020 & 1239  \\ 
+     & D5 &     55 &  19  &    1178 &  53  &     5.0\0& 1.8   &   106.1  &  4.8  &   2040 & 1239  \\ 
+   \hline
+   \multirow{5}{*}{452}
+     & D1 &   1550 & 128  &   58446 & 413  &    32.2\0& 2.7   &  1214.5  &  8.6  &   1672 & 1239  \\
+     & D2 &   5268 & 175  &  106013 & 538  &   109.5\0& 3.7   &  2203\.\0& 11    &   2416 & 1239  \\
+     & D3 &   2501 & 100  &   35787 & 277  &    52.0\0& 2.1   &   743.6  &  5.8  &   1680 & 1239  \\
+     & D4 &    957 &  57  &   10282 & 141  &    19.9\0& 1.2   &   213.7  &  2.9  &  32046 & 1239  \\
+     & D5 &    196 &  39  &    5195 & 110  &     4.08 & 0.81  &   108.0  &  2.3  &   9906 & 1239  \\
+   \hline
+   \multirow{5}{*}{455}
+     & D1 &   1976 & 142  &   72348 & 453  &    30.9\0& 2.2   &   1131.0 &  7.1  &   1766 & 1239  \\
+     & D2 &   6689 & 194  &  129903 & 589  &   104.6\0& 3.0   &   2030.8 &  9.3  &   2726 & 1239  \\
+     & D3 &   3273 & 112  &   43808 & 304  &    51.1\0& 1.8   &    684.9 &  4.8  &   1865 & 1239  \\
+     & D4 &   1457 &  65  &   11730 & 151  &    22.8\0& 1.0   &    183.4 &  2.4  &  56096 & 1239  \\
+     & D5 &    318 &  44  &    6308 & 121  &     4.97 & 0.69  &     98.6 &  1.9  &  15454 & 1239  \\
+   \hline
+   \multirow{5}{*}{458}
+     & D1 &   1633 & 109  &   46999 & 328  &    27.9\0& 1.9   &    803.4 &  5.7  &   1418 & 1239  \\
+     & D2 &   5968 & 149  &   75477 & 414  &   102.0\0& 2.6   &   1290.2 &  7.2  &   2265 & 1239  \\
+     & D3 &   1765 &  82  &   23907 & 214  &    30.2\0& 1.4   &    408.7 &  3.7  &   1477 & 1239  \\
+     & D4 &    542 &  44  &    6607 & 107  &     9.27 & 0.75  &    112.9 &  1.8  &  12516 & 1239  \\
+     & D5 &    145 &  32  &    3773 &  87  &     2.48 & 0.54  &     64.5 &  1.5  &   5842 & 1239  \\
+   \hline
+   \multirow{5}{*}{459}
+     & D1 &    861 &  74  &   20803 & 216  &    33.4\0& 2.9   &    806.5 &  8.5  &   1314 & 1239  \\
+     & D2 &   2757 & 100  &   34085 & 275  &   106.9\0& 3.9   &   1321.4 & 10.8  &   1780 & 1239  \\
+     & D3 &    822 &  55  &   10893 & 143  &    31.9\0& 2.1   &    422.3 &  5.6  &   1596 & 1239  \\
+     & D4 &    293 &  37  &    2954 &  73  &    11.4\0& 1.4   &    114.5 &  2.8  &   3981 & 1239  \\
+     & D5 &     61 &  21  &    1708 &  58  &     2.35 & 0.81  &     66.2 &  2.2  &   2110 & 1239  \\
+  \end{tabular}
+  \end{center}
+  \caption{Summary of the results of integrating equation~\eqref{equ:fit} and using the values from table~\ref{tab:fit_res}. The rates are the initial values calculated using equation~\eqref{equ:rate}.}
+  \label{tab:rates_res}
+\end{table}
+
+\begin{sidewaysfigure}
+    \centering
+      \includegraphics[scale=1]{images/momentum_spectrum/448.eps}
+    \caption{Per channel fitting of data for run 448, for this run there was no degrader.}
+    \label{fig:images_momentum_spectrum_448}
 \end{sidewaysfigure}
-\begin{sidewaysfigure}[hptb] 
-  \centering
-    \includegraphics[scale=1.1]{images/momentum_spectrum/451.eps}
-  \caption{Per channel fitting of data for run 451.}
-  \label{fig:images_momentum_spectrum_451}
+%
+\begin{sidewaysfigure}
+    \centering
+      \includegraphics[scale=1]{images/momentum_spectrum/451.eps}
+    \caption{Per channel fitting of data for run 451, for this run a 0.5~mm aluminium degrader was used.}
+    \label{fig:images_momentum_spectrum_451}
 \end{sidewaysfigure}
-\begin{sidewaysfigure}[hptb] 
-  \centering
-    \includegraphics[scale=1.1]{images/momentum_spectrum/452.eps}
-  \caption{Per channel fitting of data for run 452.}
-  \label{fig:images_momentum_spectrum_452}
+%
+\begin{sidewaysfigure}
+    \centering
+      \includegraphics[scale=1]{images/momentum_spectrum/452.eps}
+    \caption{Per channel fitting of data for run 452, for this run a 0.5~mm aluminium degrader was used.}
+    \label{fig:images_momentum_spectrum_452}
 \end{sidewaysfigure}
-\begin{sidewaysfigure}[hptb] 
-  \centering
-    \includegraphics[scale=1.1]{images/momentum_spectrum/455.eps}
-  \caption{Per channel fitting of data for run 455.}
-  \label{fig:images_momentum_spectrum_455}
+%
+\begin{sidewaysfigure}
+    \centering
+      \includegraphics[scale=1]{images/momentum_spectrum/455.eps}
+    \caption{Per channel fitting of data for run 455, for this run a 1~mm aluminium degrader was used.}
+    \label{fig:images_momentum_spectrum_455}
 \end{sidewaysfigure}
-\begin{sidewaysfigure}[hptb] 
-  \centering
-    \includegraphics[scale=1.1]{images/momentum_spectrum/458.eps}
-  \caption{Per channel fitting of data for run 458.}
-  \label{fig:images_momentum_spectrum_458}
+%
+\begin{sidewaysfigure}
+    \centering
+      \includegraphics[scale=1]{images/momentum_spectrum/458.eps}
+    \caption{Per channel fitting of data for run 458, for this run a 5~mm aluminium degrader was used.}
+    \label{fig:images_momentum_spectrum_458}
 \end{sidewaysfigure}
-\begin{sidewaysfigure}[hptb] 
-  \centering
-    \includegraphics[scale=1.1]{images/momentum_spectrum/459.eps}
-  \caption{Per channel fitting of data for run 459.}
-  \label{fig:images_momentum_spectrum_459}
+%
+\begin{sidewaysfigure}
+    \centering
+      \includegraphics[scale=1]{images/momentum_spectrum/459.eps}
+    \caption{Per channel fitting of data for run 459, for this run a 5~mm aluminium degrader was used.}
+    \label{fig:images_momentum_spectrum_459}
 \end{sidewaysfigure}
+
 \begin{figure}[hptb]
   \centering
     \includegraphics[width=.9\textwidth]{images/momentum_spectrum/448_D1_noise_fit.eps}
   \caption{Zoomed region (8,000~to~8,600~ns) of run 448, channel D1, showing the sinusoidal component of the background, the background has been fitted using \(N_b + N_s\sin(2\pi\frac{t-\phi}{T})\).}
   \label{fig:images_momentum_spectrum_448_D1_noise_fit}
 \end{figure}
+
 \begin{figure}[hptb]
   \centering
     \includegraphics[width=.9\textwidth]{images/plot_generating_scripts/per_ch_free_lifetime.eps}
@@ -746,25 +893,72 @@ Once the data was fitted using Root the \(f\) and \(c\) portions were integrated
   \caption{Integrated number of free muon decays summed over all channels.}
   \label{fig:images_momentum_spectrum_run_muon_rate_in_f}
 \end{figure}
-\begin{figure}[hptb]
-  \centering
-    \includegraphics[width=.9\textwidth]{images/momentum_spectrum/sim_muon_rate_in_f.eps}
-  \caption{Simulated integrated number of free muon decays summed over all channels.}
-  \label{fig:images_momentum_spectrum_sim_muon_rate_in_f}
-\end{figure}
+
 \begin{figure}[hptb]
   \centering
     \includegraphics[width=.9\textwidth]{images/momentum_spectrum/run_muon_rate_in_cu.eps}
   \caption{Integrated number of muon decays in copper summed over all channels.}
   \label{fig:images_momentum_spectrum_run_muon_rate_in_cu}
 \end{figure}
-\begin{figure}[hptb]
+\clearpage
+Once the muon rates (figure~\ref{fig:images_momentum_spectrum_run_muon_rate_in_f}) have been calculated they can be adjusted to account for other affects. This is shown in figure~\ref{fig:images_plot_generating_scripts_adjusted_muon_rates} where additional terms have been incorporated to account for the photon acceptance, the systematic errors due to fitting of curve and the efficiency of the MPPCs. The photon acceptance is taken to be the ratio of muon that decay in a detectable manner to those decay events that produce detected photons. A detectable decay is one where a muon is present in the upstream scintillator and its daughter electron in the downstream scintillator whilst the requirements for detected photons are that the photons must exceed the threshold of that scintillator as well as having an upstream/downstream separation of greater than 50~ns. The efficiency is taken to be twice the product of the average efficiency of one MPPC from section~\ref{sec:detector_efficiency}. The adjusted decay rate, \(R_a\), is then given by:
+\begin{align}
+    R_a &= \frac{N_{\mu}}{I_p D E \epsilon_{\text{MPPC}}^2 A } \label{equ:adj_rate}
+\end{align}
+Where the symbols \(I_p\), \(D\) and \(E\) have the same meaning as in equation~\eqref{equ:rate}. Furthermore \(\epsilon_{\text{MPPC}}\) is the average efficiency of an MPPC as determined in section~\ref{sec:detector_efficiency} and \(A\) is the photon acceptance as determined by simulation (see section~\ref{WRITE THIS SECTION ON PHOTON ACCEPTANCE}). 
+
+The same protocol can be applied to the muonic copper decays to get an adjusted rate that is shown in figure~\ref{fig:images_plot_generating_scripts_adjusted_muon_rates_cu} and table~\ref{tab:adjusted_cu_rates}.
+
+\begin{table}
+  \begin{center}
+  \begin{tabular}{c | c | c | c | c}
+    Momentum  & \multirow{2}{*}{Runs}  &  Rate           &  \multicolumn{2}{c}{Error (nA\(^{-1}\))} \\
+     (MeV/c)  &                        &  (nA\(^{-1}\))  &     (incl.\ eff.)  &  (excl.\ eff.)      \\
+    \hline
+    41.0  &       448  &  41,945  &  9,301  &  731  \\
+    46.7  &  451, 452  &  28,497  &  6,320  &  507  \\
+    50.3  &       455  &  26,604  &  5,900  &  467  \\
+    65.7  &  458, 459  &  17,472  &  3,875  &  308  \\
+  \end{tabular}
+  \end{center}
+  \caption{Adjusted rates for freely decaying muons. The error column shows the error without the contribution from the MPPC efficiency and with it, as is clear this is the dominate source.}
+  \label{tab:adjusted_free_decay_rates}
+\end{table}
+
+\begin{table}
+  \begin{center}
+  \begin{tabular}{c | c | c | c | c}
+    Momentum  & \multirow{2}{*}{Runs}  &  Rate           &  \multicolumn{2}{c}{Error (nA\(^{-1}\))} \\
+     (MeV/c)  &                        &  (nA\(^{-1}\))  &     (incl.\ eff.)  &  (excl.\ eff.)      \\
+    \hline
+    41.0  &       448  &  1580  &  352  &  42  \\
+    46.7  &  451, 452  &  1293  &  289  &  45  \\
+    50.3  &       455  &  1291  &  288  &  36  \\
+    65.7  &  458, 459  &  1149  &  256  &  29  \\
+  \end{tabular}
+  \end{center}
+  \caption{Adjusted rates of muonic copper decay. Errors are split into the dominant portion (due to MPPC efficiency) and other sources.}
+  \label{tab:adjusted_cu_rates}
+\end{table}
+
+\begin{figure}[hptb] 
   \centering
-    \includegraphics[width=.9\textwidth]{images/momentum_spectrum/sim_muon_rate_in_cu.eps}
-  \caption{Simulated integrated number of muon decays in copper summed over all channels.}
-  \label{fig:images_momentum_spectrum_sim_muon_rate_in_cu}
+    \includegraphics[width=.9\textwidth]{images/plot_generating_scripts/adjusted_muon_rates.eps}
+  \caption{Adjusted free muon decay rate and simulated free muon decay rate. The thin error lines for the measured rate indicate the error due to MPPC efficiency whilst the thicker line are due to the remainder of the errors (mainly statistical).}
+  \label{fig:images_plot_generating_scripts_adjusted_muon_rates}
 \end{figure}
 
+\begin{figure}[hptb]
+  \centering
+    \includegraphics[width=.9\textwidth]{images/plot_generating_scripts/adjusted_muon_rates_cu.eps}
+  \caption{Adjusted decay rate of muonic copper. The simulated rates are not shown as the statistics for muonic copper decays were too low to extract reasonable values from. As with the freely decaying muons the thinner error lines are due to the uncertainty on the MPPC efficiency and the thicker lines due to statistics and the other factors.}
+  \label{fig:images_plot_generating_scripts_adjusted_muon_rates_cu}
+\end{figure}
+
+\subsection{Systematics} % (fold)
+\label{sub:systematics}
+
+% subsection systematics (end)
 
 \label{sec:results}
 % section results (end)

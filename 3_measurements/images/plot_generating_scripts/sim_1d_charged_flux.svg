@@ -4,8 +4,8 @@
 sim_1d_charged_flux.svg
 </title>
 <desc>
-Creator: ROOT Version 5.99/02
-CreationDate: Mon Aug 26 19:35:47 2013</desc>
+Creator: ROOT Version 5.34/09
+CreationDate: Mon Dec  2 21:12:30 2013</desc>
 <defs>
 </defs>
 <rect x="0" y="0" width="567" height="328" fill="white"/>
@@ -20,26 +20,26 @@ CreationDate: Mon Aug 26 19:35:47 2013</desc>
 <g stroke="black" stroke-width="1" fill="none">
 <line x1="76" y1="287" x2="77" y2="287"/>
 </g>
+<path d="M215,265" fill="none" stroke="#000099"/>
 <path d="M215,265v -1" fill="none" stroke="#000099"/>
-<path d="M215,264" fill="none" stroke="#000099"/>
-<path d="M194,264h 21" fill="none" stroke="#000099"/>
-<path d="M215,264h 20" fill="none" stroke="#000099"/>
+<path d="M194,265h 21" fill="none" stroke="#000099"/>
+<path d="M215,265h 20" fill="none" stroke="#000099"/>
 <g stroke="black" stroke-width="1" fill="none">
-<line x1="214" y1="264" x2="215" y2="264"/>
+<line x1="214" y1="265" x2="215" y2="265"/>
 </g>
+<path d="M283,231" fill="none" stroke="#000099"/>
 <path d="M283,231v -1" fill="none" stroke="#000099"/>
-<path d="M283,230" fill="none" stroke="#000099"/>
-<path d="M263,230h 20" fill="none" stroke="#000099"/>
-<path d="M283,230h 21" fill="none" stroke="#000099"/>
+<path d="M263,231h 20" fill="none" stroke="#000099"/>
+<path d="M283,231h 21" fill="none" stroke="#000099"/>
 <g stroke="black" stroke-width="1" fill="none">
-<line x1="282" y1="230" x2="283" y2="230"/>
+<line x1="282" y1="231" x2="283" y2="231"/>
 </g>
-<path d="M352,47v -1" fill="none" stroke="#000099"/>
-<path d="M352,46v -1" fill="none" stroke="#000099"/>
-<path d="M332,46h 20" fill="none" stroke="#000099"/>
-<path d="M352,46h 21" fill="none" stroke="#000099"/>
+<path d="M352,48v -1" fill="none" stroke="#000099"/>
+<path d="M352,47v -2" fill="none" stroke="#000099"/>
+<path d="M332,47h 20" fill="none" stroke="#000099"/>
+<path d="M352,47h 21" fill="none" stroke="#000099"/>
 <g stroke="black" stroke-width="1" fill="none">
-<line x1="351" y1="46" x2="352" y2="46"/>
+<line x1="351" y1="47" x2="352" y2="47"/>
 </g>
 <path d="M490,88v -1" fill="none" stroke="#000099"/>
 <path d="M490,87v -1" fill="none" stroke="#000099"/>
@@ -48,43 +48,43 @@ CreationDate: Mon Aug 26 19:35:47 2013</desc>
 <g stroke="black" stroke-width="1" fill="none">
 <line x1="489" y1="87" x2="490" y2="87"/>
 </g>
-<rect x="57" y="33" width="113" height="65" fill="white"/>
-<path d="M57,98h 113" fill="none" stroke="black"/>
-<path d="M170,98v -65" fill="none" stroke="black"/>
+<rect x="57" y="33" width="113" height="66" fill="white"/>
+<path d="M57,99h 113" fill="none" stroke="black"/>
+<path d="M170,99v -66" fill="none" stroke="black"/>
 <path d="M170,33h -113" fill="none" stroke="black"/>
-<path d="M57,33v 65" fill="none" stroke="black"/>
-<text x="62" y="46" fill="black" font-size="9" font-family="Helvetica">
+<path d="M57,33v 66" fill="none" stroke="black"/>
+<text x="62" y="47" fill="black" font-size="9" font-family="Helvetica">
 Entries 
 </text>
-<text x="130" y="46" fill="black" font-size="9" font-family="Helvetica">
+<text x="130" y="47" fill="black" font-size="9" font-family="Helvetica">
  687257
 </text>
-<text x="62" y="68" fill="black" font-size="9" font-family="Helvetica">
+<text x="62" y="69" fill="black" font-size="9" font-family="Helvetica">
 Mean  
 </text>
-<text x="128" y="69" fill="black" font-size="9" font-family="Helvetica">
+<text x="127" y="69" fill="black" font-size="9" font-family="Helvetica">
  0.08117
 </text>
-<text x="121" y="69" fill="black" font-size="9" font-family="Times">
+<text x="122" y="69" fill="black" font-size="9" font-family="Times">
 &#0177;
 </text>
-<text x="89" y="69" fill="black" font-size="9" font-family="Helvetica">
+<text x="90" y="69" fill="black" font-size="9" font-family="Helvetica">
   74.32 
 </text>
-<text x="62" y="90" fill="black" font-size="9" font-family="Helvetica">
+<text x="62" y="91" fill="black" font-size="9" font-family="Helvetica">
 RMS   
 </text>
 <text x="133" y="91" fill="black" font-size="9" font-family="Helvetica">
  0.0574
 </text>
-<text x="125" y="91" fill="black" font-size="9" font-family="Times">
+<text x="127" y="91" fill="black" font-size="9" font-family="Times">
 &#0177;
 </text>
-<text x="93" y="91" fill="black" font-size="9" font-family="Helvetica">
+<text x="95" y="91" fill="black" font-size="9" font-family="Helvetica">
   67.29 
 </text>
 <path d="M57,295h 453" fill="none" stroke="black"/>
-<text x="400" y="317" fill="black" font-size="11" font-family="Helvetica">
+<text x="407" y="317" fill="black" font-size="11" font-family="Helvetica">
 Vertical position (mm)
 </text>
 <path d="M77,287v 8" fill="none" stroke="black"/>
@@ -122,40 +122,40 @@ Vertical position (mm)
 <path d="M64,291v 4" fill="none" stroke="black"/>
 <path d="M490,287v 8" fill="none" stroke="black"/>
 <path d="M503,291v 4" fill="none" stroke="black"/>
-<text x="66" y="306" fill="black" font-size="11" font-family="Helvetica">
+<text x="67" y="306" fill="black" font-size="11" font-family="Helvetica">
 -150
 </text>
-<text x="134" y="306" fill="black" font-size="11" font-family="Helvetica">
+<text x="135" y="306" fill="black" font-size="11" font-family="Helvetica">
 -100
 </text>
-<text x="206" y="306" fill="black" font-size="11" font-family="Helvetica">
+<text x="207" y="306" fill="black" font-size="11" font-family="Helvetica">
 -50
 </text>
-<text x="280" y="306" fill="black" font-size="11" font-family="Helvetica">
+<text x="281" y="306" fill="black" font-size="11" font-family="Helvetica">
 0
 </text>
 <text x="346" y="306" fill="black" font-size="11" font-family="Helvetica">
 50
 </text>
-<text x="411" y="306" fill="black" font-size="11" font-family="Helvetica">
+<text x="412" y="306" fill="black" font-size="11" font-family="Helvetica">
 100
 </text>
-<text x="480" y="306" fill="black" font-size="11" font-family="Helvetica">
+<text x="481" y="306" fill="black" font-size="11" font-family="Helvetica">
 150
 </text>
 <path d="M57,295v -262" fill="none" stroke="black"/>
-<g transform="rotate(-90,16,36)">
-<text x="16" y="36" fill="black" font-size="11" font-family="Helvetica">
+<g transform="rotate(-90,16,35)">
+<text x="16" y="35" fill="black" font-size="11" font-family="Helvetica">
 )
 </text>
 </g>
-<g transform="rotate(-90,9,42)">
-<text x="9" y="42" fill="black" font-size="7" font-family="Helvetica">
+<g transform="rotate(-90,11,41)">
+<text x="11" y="41" fill="black" font-size="7" font-family="Helvetica">
 -1
 </text>
 </g>
-<g transform="rotate(-90,16,170)">
-<text x="16" y="170" fill="black" font-size="11" font-family="Helvetica">
+<g transform="rotate(-90,16,160)">
+<text x="16" y="160" fill="black" font-size="11" font-family="Helvetica">
 Charged particle rate (nA
 </text>
 </g>
@@ -186,92 +186,92 @@ Charged particle rate (nA
 <path d="M63,159h -6" fill="none" stroke="black"/>
 <path d="M70,154h -13" fill="none" stroke="black"/>
 <path d="M63,148h -6" fill="none" stroke="black"/>
-<path d="M63,142h -6" fill="none" stroke="black"/>
+<path d="M63,143h -6" fill="none" stroke="black"/>
 <path d="M63,137h -6" fill="none" stroke="black"/>
 <path d="M63,131h -6" fill="none" stroke="black"/>
-<path d="M70,125h -13" fill="none" stroke="black"/>
+<path d="M70,126h -13" fill="none" stroke="black"/>
 <path d="M63,120h -6" fill="none" stroke="black"/>
 <path d="M63,114h -6" fill="none" stroke="black"/>
-<path d="M63,108h -6" fill="none" stroke="black"/>
+<path d="M63,109h -6" fill="none" stroke="black"/>
 <path d="M63,103h -6" fill="none" stroke="black"/>
 <path d="M70,97h -13" fill="none" stroke="black"/>
-<path d="M63,91h -6" fill="none" stroke="black"/>
+<path d="M63,92h -6" fill="none" stroke="black"/>
 <path d="M63,86h -6" fill="none" stroke="black"/>
 <path d="M63,80h -6" fill="none" stroke="black"/>
-<path d="M63,74h -6" fill="none" stroke="black"/>
+<path d="M63,75h -6" fill="none" stroke="black"/>
 <path d="M70,69h -13" fill="none" stroke="black"/>
 <path d="M63,63h -6" fill="none" stroke="black"/>
-<path d="M63,57h -6" fill="none" stroke="black"/>
+<path d="M63,58h -6" fill="none" stroke="black"/>
 <path d="M63,52h -6" fill="none" stroke="black"/>
 <path d="M63,46h -6" fill="none" stroke="black"/>
-<path d="M70,40h -13" fill="none" stroke="black"/>
-<path d="M70,40h -13" fill="none" stroke="black"/>
+<path d="M70,41h -13" fill="none" stroke="black"/>
+<path d="M70,41h -13" fill="none" stroke="black"/>
 <path d="M63,35h -6" fill="none" stroke="black"/>
 <text x="48" y="299" fill="black" font-size="11" font-family="Helvetica">
 0
 </text>
-<text x="29" y="270" fill="black" font-size="11" font-family="Helvetica">
+<text x="30" y="271" fill="black" font-size="11" font-family="Helvetica">
 5000
 </text>
-<text x="22" y="242" fill="black" font-size="11" font-family="Helvetica">
+<text x="25" y="242" fill="black" font-size="11" font-family="Helvetica">
 10000
 </text>
-<text x="22" y="214" fill="black" font-size="11" font-family="Helvetica">
+<text x="25" y="214" fill="black" font-size="11" font-family="Helvetica">
 15000
 </text>
-<text x="22" y="185" fill="black" font-size="11" font-family="Helvetica">
+<text x="25" y="186" fill="black" font-size="11" font-family="Helvetica">
 20000
 </text>
-<text x="22" y="157" fill="black" font-size="11" font-family="Helvetica">
+<text x="25" y="158" fill="black" font-size="11" font-family="Helvetica">
 25000
 </text>
-<text x="22" y="129" fill="black" font-size="11" font-family="Helvetica">
+<text x="25" y="129" fill="black" font-size="11" font-family="Helvetica">
 30000
 </text>
-<text x="22" y="100" fill="black" font-size="11" font-family="Helvetica">
+<text x="25" y="101" fill="black" font-size="11" font-family="Helvetica">
 35000
 </text>
-<text x="22" y="72" fill="black" font-size="11" font-family="Helvetica">
+<text x="25" y="73" fill="black" font-size="11" font-family="Helvetica">
 40000
 </text>
-<text x="22" y="44" fill="black" font-size="11" font-family="Helvetica">
+<text x="25" y="45" fill="black" font-size="11" font-family="Helvetica">
 45000
 </text>
-<rect x="57" y="33" width="113" height="65" fill="white"/>
-<path d="M57,98h 113" fill="none" stroke="black"/>
-<path d="M170,98v -65" fill="none" stroke="black"/>
+<rect x="57" y="33" width="113" height="66" fill="white"/>
+<path d="M57,99h 113" fill="none" stroke="black"/>
+<path d="M170,99v -66" fill="none" stroke="black"/>
 <path d="M170,33h -113" fill="none" stroke="black"/>
-<path d="M57,33v 65" fill="none" stroke="black"/>
-<text x="62" y="46" fill="black" font-size="9" font-family="Helvetica">
+<path d="M57,33v 66" fill="none" stroke="black"/>
+<text x="62" y="47" fill="black" font-size="9" font-family="Helvetica">
 Entries 
 </text>
-<text x="130" y="46" fill="black" font-size="9" font-family="Helvetica">
+<text x="130" y="47" fill="black" font-size="9" font-family="Helvetica">
  687257
 </text>
-<text x="62" y="68" fill="black" font-size="9" font-family="Helvetica">
+<text x="62" y="69" fill="black" font-size="9" font-family="Helvetica">
 Mean  
 </text>
-<text x="128" y="69" fill="black" font-size="9" font-family="Helvetica">
+<text x="127" y="69" fill="black" font-size="9" font-family="Helvetica">
  0.08117
 </text>
-<text x="121" y="69" fill="black" font-size="9" font-family="Times">
+<text x="122" y="69" fill="black" font-size="9" font-family="Times">
 &#0177;
 </text>
-<text x="89" y="69" fill="black" font-size="9" font-family="Helvetica">
+<text x="90" y="69" fill="black" font-size="9" font-family="Helvetica">
   74.32 
 </text>
-<text x="62" y="90" fill="black" font-size="9" font-family="Helvetica">
+<text x="62" y="91" fill="black" font-size="9" font-family="Helvetica">
 RMS   
 </text>
 <text x="133" y="91" fill="black" font-size="9" font-family="Helvetica">
  0.0574
 </text>
-<text x="125" y="91" fill="black" font-size="9" font-family="Times">
+<text x="127" y="91" fill="black" font-size="9" font-family="Times">
 &#0177;
 </text>
-<text x="93" y="91" fill="black" font-size="9" font-family="Helvetica">
+<text x="95" y="91" fill="black" font-size="9" font-family="Helvetica">
   67.29 
 </text>
-<text x="159" y="17" fill="black" font-size="17" font-family="Helvetica">
+<text x="175" y="16" fill="black" font-size="16" font-family="Helvetica">
 Simulated charged particle flux
 </text></svg>

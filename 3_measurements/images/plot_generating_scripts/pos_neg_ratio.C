@@ -11,6 +11,7 @@ float getRelativeError(float f, float f_er, float c, float c_er);
 
 const int n_ch = 5;
 const int n_files = 6;
+const int n_deg = 4;
 const TString ch_names [n_ch] = {
   TString("D1"), TString("D2"), TString("D3"), TString("D4"), TString("D5")
 };
@@ -56,7 +57,7 @@ void pos_neg_ratio(){
   };
   
   TH1D* hists [n_ch];
-  TCanvas* can = new TCanvas("c", "c", 1436,856);
+  TCanvas* can_dat = new TCanvas("ratio", "ratio", 1436,856);
   TLegend* leg = new TLegend(0.90, 0.35, 0.99, 0.65, "Channel");
   leg->SetFillStyle(0);
   for(int ch = 0; ch < n_ch; ++ch) {
@@ -70,8 +71,51 @@ void pos_neg_ratio(){
     }
   }
   leg->Draw();
-  can->SaveAs("Ratio.svg");
-  can->SaveAs("Ratio.eps");
+  can_dat->SaveAs("Ratio.svg");
+  can_dat->SaveAs("Ratio.eps");
+  
+  // from sim counts & int 
+  TString deg_dz     [n_deg] = {
+    TString("0.0"), TString("0.5"), TString("1.0"), TString("5.0")
+  };
+  // float sim_f1_val [n_deg] = {11722.0, 11827.0, 11723.0,  7078.0};  // 500k counts
+  // float sim_f1_err [n_deg] = {  108.0,   109.0,   108.0,    84.0};
+  // float sim_f2_val [n_deg] = {36964.0, 37931.0, 37666.0, 23235.0};
+  // float sim_f2_err [n_deg] = {  192.0,   195.0,   194.0,   152.0};
+  // float sim_cu_val [n_deg] = {  881.0,   837.0,   891.0,   453.0};
+  // float sim_cu_err [n_deg] = {   30.0,    29.0,    30.0,    21.0};
+  float sim_f1_val [n_deg] = { 194.0,  157.0,  160.0,   74.0}; // G4BL counts USE THESE!
+  float sim_f1_err [n_deg] = {  14.0,   13.0,    9.0,   13.0}; // x10 difference
+  float sim_f2_val [n_deg] = {5165.0, 4570.0, 4283.0, 2959.0};
+  float sim_f2_err [n_deg] = {  72.0,   68.0,   65.0,   54.0};
+  float sim_cu_val [n_deg] = {   8.0,    9.0,    5.0,    6.0};
+  float sim_cu_err [n_deg] = {   3.0,    3.0,    2.0,    2.0};
+    
+  char name [50] = "Simulated ratios of positive to negative muons";
+  TH1D* sim_hist = new TH1D(name, name, n_deg, 0, n_deg);
+  TCanvas* can_sim = new TCanvas("simulated_ratio", "simulated_ratio", 1436,856);
+  for(int deg = 0; deg < n_deg; ++deg) {
+    // calculate the ratio
+    float sum = sim_f1_val[deg] + sim_f2_val[deg];
+    float sum_err = sum * getRelativeError(sim_f1_val[deg], sim_f1_err[deg], 
+                  sim_f2_val[deg], sim_f2_err[deg]);
+    float ratio = sim_cu_val[deg]/sum;
+    float ratio_err = ratio * getRelativeError(sum, sum_err, sim_cu_val[deg], sim_cu_err[deg]);
+    
+    // fill the histogram
+    int bin = deg+1;
+    sim_hist->SetBinContent(bin, ratio);
+    sim_hist->SetBinError(bin, ratio_err);
+    sim_hist->GetXaxis()->SetBinLabel(bin, deg_dz[deg].Data());
+  }
+  sim_hist->SetLineWidth(2);
+  sim_hist->SetMarkerStyle(20);
+  sim_hist->GetXaxis()->SetTitle("Degrader thickness (mm)");
+  sim_hist->GetYaxis()->SetTitle("Ratio copper:free");
+  sim_hist->GetYaxis()->SetTitleOffset(1.25);
+  sim_hist->Draw("E1 P 9");
+  can_sim->SaveAs("sim_ratio.eps");
+  can_sim->SaveAs("sim_ratio.svg");
 }
 
 TH1D* makeHist(int id, float* f, float* f_er, float* c, float* c_er) {
