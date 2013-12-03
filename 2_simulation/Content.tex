@@ -239,7 +239,7 @@ The degrader and stopping target were configured so that their material and thic
 
 The counters were more complex. Each counter was split into a number of `paddles' (eight upstream, five downstream). A paddle was composed of a main scintillator, a 45\(^{\circ}\) section of pipe (also made of scintillator material) that mimicked the optical cement and a length of wavelength shifting fibre (made of a core and shell). Mylar was then used to define an optical surface that existed at the boundary between scintillator and air. An optical surface is a special construct in Geant4 that is not a full volume but a set of physical affects that occur when optical photons move from one volume to the next, in this way the reflective affect of mylar wrapping was created. A \(1\times1\times1\)~mm\(^3\) volume of air is placed at the end of each wavelength shifting fibre to act as a Multi-Pixel Photon Counter (MPPC) detector region. A side on view of the layout of a counter can be seen in figure~\ref{fig:images_Geometry_full_strip}, the dimensions used for the paddles are are given in table~\ref{tab:dimensions_of_paddles}. A top down view of the simulation is shown in figure~\ref{fig:images_top_for_combo_with_field}.
 
-\begin{figure}[h]
+\begin{figure}[hptb]
   \centering
     \includegraphics[scale=0.5]{images/Geometry/full_strip.png}
   \caption{Side on view of a counter strip, the square surrounding the wavelength shifting fibre is the MPPC region. }
@@ -248,7 +248,7 @@ The counters were more complex. Each counter was split into a number of `paddles
 
 \begin{figure}[hptb]
   \centering
-    \includegraphics[width=.9\textwidth]{images/top_for_combo_with_field.eps}
+    \includegraphics[width=.7\textwidth]{images/top_for_combo_with_field.eps}
   \caption{Top-down view of the entire simulation showing the region of interest of the magnetic field overlaying the detector volumes. The interaction is a muon decaying outside of the detector and emitting a positron (the blue line) and two neutrinos (the green lines). Within the region of interest the colour indicates the magnetic field strength (red is high, blue is low).}
   \label{fig:images_top_for_combo_with_field}
 \end{figure}
@@ -328,19 +328,21 @@ In the MPPC data photons that were found an MPPC were recorded but to keep run t
 
 As well as providing a method to test the affects of different detector constructions the simulation was also used to verify the analysis technique used in the final measurements. 
 
-In order to have suitable statistical significance a much larger number of muons were required than could be produced using the initial G4BL distribution of particles. Instead an approximation to the G4BL distribution was created and then used. The approximation was not good enough for analysis of the beam but provided a reasonable number of positive and negative muons upon which analysis techniques could be tested. 
+In order to have suitable statistical significance a much larger number of muons were required than could be produced using the initial G4BL distribution of particles. Instead an approximation to the G4BL distribution was created and then used. The approximation was not close enough to the G4BL distribution to be used as a base of comparison in measurements of the beam but provided a reasonable number of positive and negative muons upon which analysis techniques could be tested.
 
 The core analysis technique used was to create muon lifetime distributions, fit them with a function and then use the integral of the appropriate portion of the function to calculate the number of muon decays that had occurred. This method could be used because no other constituent of the beam would have a lifetime comparable to that of the muons: electrons and protons have lifetimes measured in years whilst charged pions have a lifetime of \(26.003\pm0.005\)~ns~\cite{PDG} which is suitably short, even compared to muonic copper, to have little impact on the muon decay spectrum (neutral pions have a lifetime of \( 8.52\times10^{-8}\)~ns and don't produce charged daughters).
 
-The first step of the protocol was to create histograms of downstream\(-\)upstream hit times. In reality this was done by an item of hardware but for the simulation this was done by looking for muons in the upstream counter and their daughter-electrons in the downstream counter. The difference in times was then binned, any differences of less than 50~ns was ignored as this was a region that we were blind to in the experiment.
+The first step of the protocol was to create histograms of downstream\(-\)upstream hit times. In the measurements this was done by an item of hardware but for the simulation this was done by looking for muons in the upstream counter and their daughter-electrons in the downstream counter. The difference in times was then binned, any differences of less than 50~ns was ignored as this was a region that we were blind to in the experiment.
 
-During verification a variety of bin widths were tested in an attempt to minimise the error on any one bin whilst aiming to avoid loss of signal. Ultimately bin widths of 16~ns were settled on. 
+During verification a variety of bin widths were tested in an attempt to minimise the error on any one bin whilst aiming to avoid loss of signal. The was especially important for fitting the copper component of the decay spectrums as this would be a significant contribution for only the first few bins. Ultimately bin widths of 16~ns were settled on.
 
 The simulation was then fitted using a double exponential: 
 \begin{align}
-    N_{cu}\exp(-t/\tau_{cu}) + N_{f}\exp(-t/\tau_{f})
+    N_{cu}\exp(-t/\tau_{cu}) + N_{f}\exp(-t/\tau_{f}) \label{equ:dbl_exp}
 \end{align}
-As the simulated data was pure the background terms used in the final analysis were not included. The fitted values for \( \tau \) and \( N \) for both copper and `free' muons were then extracted. Once extracted the fitted values were integrated over the region 50~ns to 20~\(\mu\)s. These values could then be compared directly to the counted number of muon decays in the simulation. The results of the integration method compared to the counted number of decays are given in table~\ref{tab:sim_counts_vs_integrals}. As can be seen from the table there is good agreement between the counted number of decays and the number produced by the integration method. 
+As the simulated data was pure the background terms used in the final analysis were not included. Using the same method as the experimental technique the values of \(\tau_{cu}\) and \(\tau_{f}\) were fixed at their measured values (163.5~ns and 2,197~ns respectively) for the fitting. The fitted values for equation~\eqref{equ:dbl_exp} were extracted into individual exponentials and integrated over the region 50~ns to 20~\(\mu\)s. 
+
+The integrated approximation to the number of decays could then be compared directly to the counted number of muon decays in the simulation. The results of the integration method compared to the counted number of decays are given in table~\ref{tab:sim_counts_vs_integrals}. As can be seen from the table there is good agreement between the counted number of decays and the number produced by the integration method. 
  \begin{table}
   \begin{center}
   \begin{tabular}{c | c | c | c | c | c}
