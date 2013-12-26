@@ -8,19 +8,19 @@ The G4BL simulation was mainly used to simulate the bulk of MuSIC and the hadron
 
 \section{Geant4} % (fold)
 \label{sec:geant4}
-Geant4 is described as `a toolkit for the simulation of the passage of particles through matter'~\cite{Geant4 REF}. Rather than a complete program it is a collection of pre-compiled libraries that comprise the basics required to simulate various interactions. It has additional libraries that provide further functionality such as visualisation. 
+Geant4 is described as `a toolkit for the simulation of the passage of particles through matter'~\cite{geant4}. Rather than a complete program it is a collection of pre-compiled libraries that comprise the basics required to simulate various interactions. It has additional libraries that provide further functionality such as visualisation. 
 
-Geant4 is written in C++ using an object orientated approach that allows the user to either use Geant4's implementation of a class or write their own. This flexibility also means that all the functionality of Geant4 is explicitly opt-in making the resultant programs much faster than they would otherwise be (as only the components that are selected are used). Geant4's speed does come at a cost which is that a larger amount of configuration is required than would be needed for less flexible solutions (c.f.\ G4BL).
+Geant4 is written in C++ using an object orientated approach that allows the user to either use Geant4's implementation of a class or write their own. This flexibility also means that all the functionality of Geant4 is explicitly opt-in making the resultant programs much faster than they would otherwise be (as only the components that are selected are used). Geant4's speed does come at a cost which is that a larger amount of configuration is required than would be needed for less flexible solutions (e.g.\ G4BL).
 
 Even with it's increased flexibility Geant4 has certain requirements that must be met in order to work. These requirements embody the minimum information to create a simulation they define what to simulate, where to simulate it and which processes to simulate. Geant4's base requirement is that there is an instance of one of each of three classes\footnote{Whilst there is a technical distinction between an instance of a class (an object) and the class itself for the sake of clarity the word `class' is used throughout.}:
 \begin{description}
-  \item[The detector constructor] A description of the detector.
-  \item[The physics list] The physics processes to use.
-  \item[The primary action generator] Information describing the initial particle to simulate.
+  \item[The detector constructor], a description of the space in which the particle is to be simulated.
+  \item[The physics list], which physical processes to simulate.
+  \item[The primary action generator], a description of the initial particle to simulate.
 \end{description}
 With these three classes defined a simple program can be linked against the Geant4 libraries and will run. The libraries will use the primary action generator to create the initial particle; simulate its movement and interactions as described by the physics list in the world specified by the detector constructor. In addition to these required components a simulation can be further refined with custom classes that replace or expand those supplied by Geant4.
 
-The rest of this section will consider the roles of the detector constructor, physics list and primary action generator. The detector constructor will be treated separately to the other two classes as it is a primarily static description. Discussion of the physics list and primary action generator will be rolled together with several other key concepts under the execution model which covers the dynamic aspects of the simulation.
+The rest of this section will discuss how Geant4 uses the above three classes, and several others, to simulate a particle. This discussion will be split into two: discussion of the detector constructor and discussion of Geant4's execution model. The detector constructor will be treated separately as it is a primarily static description of a space. The execution model will cover the dynamic aspects of the simulation, e.g.\ how physical processes are implemented.
 
 % subsection material_simulation (end)
 \subsection{Detector Constructor} % (fold)
@@ -40,9 +40,9 @@ Due to the computationally complex nature of interactions between light and mate
 \subsubsection{Detector Volumes} % (fold)
 \label{ssub:detector_volumes}
 
-The detector volumes describe the physical pieces of the detector. Each volume is split between three classes: the shape, the logical volume and the physical volume. The shape describes the geometrical volume. The logical volume describes how the piece works within the larger simulation. Finally the physical volume places and orientates the volume. 
+The detector volumes describe the physical pieces of the detector. Each volume to be simulated has its description split between three classes: the geometry, the logical volume and the physical volume. The geometry describes the shape and size of the volume. The logical volume describes how the volume relates to the larger simulation. Finally the physical volume places and orientates the volume with respect to the other volumes.
 
-The volume's shape is normally described by either basic polyhedra (cubes, tubes, trapezoids etc.) Geant4 also provides basic tools for creating compound shapes made of the intersection, difference and addition of basic shapes. Using these tools it's possible to create suitably complex constructions in code. Geant4 does offer more powerful tools (e.g.\ geometry importing) but these were not used for this simulation.
+The volume's geometry is normally described by either basic polyhedra (cubes, tubes, trapezoids etc.) or compound shapes made from basic polyhedra. Geant4 provides basic tools for creating compounds made of the intersection, difference and addition of other geometries (either basic polyhedra or other compound polyhedra). Using these tools it's possible to create suitably complex constructions in code. Geant4 does offer more powerful tools (e.g.\ geometry importing) but these were not used for this simulation.
 
 The logical volume stores the specific attributes of the component. The main information that the logical volume maintains is what material a component is (this can be changed using messengers) and what shape it is. A single logical volume can be associated with many physical volumes to make repetitive constructs easy to define.
 
@@ -52,7 +52,9 @@ As has been noted the physical volume positions the component. Additionally it s
 \subsection{Execution model} % (fold)
 \label{sub:execution_model}
 
-Geant4 manages simulation by splitting it into several layers. At the top-most level is the run, this represents a collection of events and all the associated information (e.g.\ the detector configuration). Each event within a run starts with an initial particle (as defined by the primary action generator) and tracks it through the detector, if another particle is produced (e.g.\ if the initial particle decays or scatters) then a new track is added to the simulation to represent the new particle(s). A track is made up of steps, each step represents a period of time in which nothing `significant' occurs.
+Geant4 manages simulation by splitting it into several layers with each layer representing a level of complexity within the simulation. The top-most level is the \emph{run}, this represents a collection of \emph{events} and all the information that is static between them (e.g.\ the detector configuration). An event is a collection of particle \emph{tracks}. Each event starts with an initial particle (as defined by the primary action generator) the particle's track is split into \emph{steps} with each step representing a period of time in which nothing `significant' happens. As significant processes occur (e.g.\ particle decay) new tracks (to represent the new particles) are added to the event and they too stepped through their simulation. A track finishes when either the particle decays (and produces new tracks), it leaves the simulated volume or comes to rest. One all the tracks finish the event is over and the next one begins. Normally the user will specify the number of events that any run should contain, although other criteria can be used (e.g. a time out).
+% who's subsequent interactions are then simulated, if another particle is produced (e.g.\ if the initial particle decays) then a new track is added to the event to represent the new particle(s). 
+% A track is made up of \emph{steps}, each step represents a period of time in which nothing `significant' occurs.
 
 A `significant' occurrence is one which will make further calculations of properties of the particle difficult and therefore limit the length of the particle's step. Determination of this step length is split between multiple classes within Geant4 but they can be broadly separated into four categories: detector considerations, user imposed limits, continuous physical processes and discrete physical processes. In each category the method is broadly the same, any class that can have an affect on the particle proposes a distance from the current position at which the affect will occur, e.g.\ a detector may report that the particle will leave the current volume in 10~mm whilst a decay process may report that the particle will likely decay in 5~mm. Once all the proposed step lengths have been determined the shortest is found and the particle is transported that distance and properties (position, time, energy, particle type(s)\footnote{Should the particle decay it is replaced at the end of the step with the appropriate daughter particles.} etc.) are updated. 
 
@@ -65,7 +67,7 @@ The processes (discrete or continuous) are supplied by the physics list. The phy
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{G4beamline} % (fold)
 \label{sec:g4beamline}
-G4beamline (G4BL) is a program written by Muons, Inc.~\cite{G4BL ref}, it is a particle tracking simulation program that uses Geant4. Unlike Geant4, G4BL is a pre-compiled program that the user writes simple scripts that define the parameters of the simulation. In general creating simulations in G4BL is much quicker than Geant4 as a significant amount of `boilerplate' code is removed at the cost of flexibility. The use of Geant4, rather than G4BL, for the detector simulation was mainly driven by the finer control Geant4 offered.
+G4beamline (G4BL) is a program written by Muons, Inc.~\cite{g4bl}, it is a particle tracking simulation program that uses Geant4. Unlike Geant4, G4BL is a pre-compiled program that the user writes simple scripts that define the parameters of the simulation. In general creating simulations in G4BL is much quicker than Geant4 as a significant amount of `boilerplate' code is removed at the cost of flexibility. The use of Geant4, rather than G4BL, for the detector simulation was mainly driven by the finer control Geant4 offered.
 
 % section g4beamline (end)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -80,7 +82,7 @@ G4BL was used to describe the bulk of MuSIC: the pion capture solenoid: target, 
 
 \begin{figure}[hptb]
   \centering
-    \includegraphics[width=.9\textwidth]{images/Geometry/g4bl_wireframe.png}
+    \includegraphics[width=.75\textwidth]{images/Geometry/g4bl_wireframe.png}
   \caption{Wireframe of the G4BL simulation of MuSIC. The dark red is the iron yoke, the bright red are the solenoids, the light blue is the pion capture solenoid shielding and the yellow line is a simulated proton.}
   \label{fig:images_Geometry_g4bl_wireframe}
 \end{figure}
@@ -162,34 +164,34 @@ The detector constructor is by far the most complex of the classes used in the s
 \subsubsection{Materials} % (fold)
 \label{ssub:implementation_materials}
 
-To simulate the detectors at MuSIC a fairly simple selection of materials were required, the elemental metals used for the stopping target and degrader; and several plastics that made up the scintillators. Geant4 treats materials as either pure elements or as mixtures (even if they're a compound). For the materials used at MuSIC only six elements were needed (H, C, N, O, Al and Cu), these had their standard values~\cite{Some reference for elements} for mass number, atomic number and, where needed, density. The majority of these were used as components of plastics and for approximating the composition of air but copper and aluminium were used in their pure form (hence the inclusion of their density). 
+To simulate the detectors at MuSIC a fairly simple selection of materials were required, the elemental metals used for the stopping target and degrader; and several plastics that made up the scintillators. Geant4 treats materials as either pure elements or as mixtures (even if they're a compound). For the materials used at MuSIC only six elements were needed (H, C, N, O, Al and Cu), these had their standard values for mass number, atomic number and, where needed, density. The majority of these were used as components of plastics and for approximating the composition of air but copper and aluminium were used in their pure form (hence the inclusion of their density). 
 
-The compounds and mixtures (table~\ref{tab:sim_compounds_and_mixtures}) were, with the exception of air, components of the scintillators. Mylar was used to wrap the scintillators; EJ-212 (a trade name for NE-102A) is the core scintillating material; and BCF-91A is the Wave-Length Shifting (WLS) fibre, which has a polystyrene core with a PMMA cladding. The optical properties that were included in the simulation were:
+The compounds and mixtures (table~\ref{tab:sim_compounds_and_mixtures}) were, with the exception of air, components of the scintillators. Mylar was used to wrap the scintillators; EJ-212~\cite{ej_212} (a trade name for NE-102A) is the core scintillating material; and BCF-91A~\cite{bcf_91a} is the Wave-Length Shifting (WLS) fibre, which has a polystyrene core with a PMMA cladding. The optical properties that were included in the simulation were:
 \begin{enumerate}
   \item The refractive index, n.
   \item The emission spectrum that described the scintillation light produced by ionising particles.
   \item Absorption spectrum, used in concert with an additional emission spectrum this described the WLS fibres.
   \item Scintillation yield, for EJ-212 this was 10,000~MeV\(^{-1}\) as stated by the manufacturer and assumes a linear response.
 \end{enumerate}
-These properties were only implemented for the materials involved in the optical system. The emission and absorption spectra for the scintillator and WLS fibres were approximated to the curves given in the material data sheets (\cite{EJ_212} and \cite{BCF_91A}), the values used are plotted in  figures~\ref{fig:images_ej-212-g4}~and~\ref{fig:images_bcf-91a-g4} respectively.
+These properties were only implemented for the materials involved in the optical system. The emission and absorption spectra for the scintillator and WLS fibres were approximated to the curves given in the material data sheets (\cite{ej_212} and \cite{bcf_91a}), the values used are plotted in  figures~\ref{fig:images_ej-212-g4}~and~\ref{fig:images_bcf-91a-g4} respectively.
 
 \begin{table}
   \begin{center}
   \begin{tabular}{c | c | c | d{4} | c | c}
     Compound/  &  \multirow{2}{*}{Components}  
                                &  \multirow{2}{*}{Ratio}
-                                           &  \multicolumn{1}{c|}{Density}
-                                                   & Refractive
-                                                        &  \multirow{2}{*}{Ref}  \\
-    Element    &               &           &  \multicolumn{1}{c|}{(g/cm\(^3\))}
-                                                   &  Index 
-                                                           &        \\
+                                             &  \multicolumn{1}{c|}{Density}
+                                                       & Refractive
+                                                                &  \multirow{2}{*}{Ref}  \\
+    Element    &               &             &  \multicolumn{1}{c|}{(g/cm\(^3\))}
+                                                       &  Index 
+                                                                &        \\
     \hline
-    Air        &     N, O      &    7:3    &  1.290  &  1.00  & \cite{Air}        \\
-    Mylar      &   H, C, O     &  8:10:4   &  1.397  &   --   & \cite{Mylar Data} \\
-    EJ-212     &     H, C      &  1:1.103  &  1.023  &  1.58  & \cite{EJ212}      \\
-    BCF-91A (core)  &  H, C    &  1:1.006  &  1.05   &  1.60  & \cite{BCF_91A}    \\
-    BCF-91A (clad)  & H, C, O  &   8:5:2   &  1.05   &  1.49  & \cite{BCF_91A}    \\
+    Air        &     N, O      &    7 : 3      &  1.290  &  1.00  & --        \\
+    Mylar      &   H, C, O     &  4 : 5 : 2    &  1.40   &   --   & \cite{groom2001_mylar_ref} \\
+    EJ-212     &     H, C      &  5.17 : 4.69  &  1.023  &  1.58  & \cite{ej_212}      \\
+    BCF-91A (core)  &  H, C    &  4.82 : 4.85  &  1.05   &  1.60  & \cite{bcf_91a}    \\
+    BCF-91A (clad)  & H, C, O  &   8 : 5 : 2   &  1.2    &  1.49  & \cite{bcf_91a}    \\
     
   \end{tabular}
   \end{center}
@@ -200,7 +202,7 @@ These properties were only implemented for the materials involved in the optical
 \begin{figure}[hptb]
   \centering
     \includegraphics[width=.9\textwidth]{images/ej-212-g4.eps}
-  \caption{Scintillation spectra for EJ-212. The points represent the values passed to Geant4 and are based on those read from the manufacture's data-sheet~\cite{EJ_212}}
+  \caption{Scintillation spectra for EJ-212. The points represent the values passed to Geant4 and are based on those read from the manufacture's data-sheet~\cite{ej_212}}
   \label{fig:images_ej-212-g4}
 \end{figure}
 
@@ -208,7 +210,7 @@ These properties were only implemented for the materials involved in the optical
 \begin{figure}[hptb]
   \centering
     \includegraphics[width=.9\textwidth]{images/bcf-91a-g4.eps}
-  \caption{Absorption and re-emission spectra for BCF-91A wavelength shifting fibre. The points represent the values used in Geant4 to approximate the manufacture's curve as given in the data-sheet~\cite{BCF-91A}.}
+  \caption{Absorption and re-emission spectra for BCF-91A wavelength shifting fibre. The points represent the values used in Geant4 to approximate the manufacture's curve as given in the data-sheet~\cite{bcf_91a}.}
   \label{fig:images_bcf-91a-g4}
 \end{figure}
 
@@ -284,7 +286,7 @@ To import from G4BL the particle type, momentum and position were all read from 
 \label{sec:physics_list}
 Geant4 provides the majority of physics processes as precompiled lists that cover the major aspects of a simulation. For MuSIC the key attribute of each list was the accuracy at low energies. In this respect the most important lists were those dealing with electromagnetic processes. To cover this `option3' and the `extra' lists were used which have improved low energy simulations and more detailed processes. Most importantly the `extra' list implements muon capture at rest. The few hadronic processes were simulated with the `HP' QGSP-BERT and the elastic physics models, both of which have better methods for simulating low energy neutrons.
 
-One problem with the default supplied physics lists is that the implementation of mu capture at rest is based mainly on theoretical work that doesn't accurately model the capture rate of muons on copper. This is obviously a problem as copper is the main stopping target used at MuSIC. The lifetime for muonic copper produced using unmodified Geant4 is \(\sim1.2\mu\)s compared to the experimental value of 163.5~ns~\ref{Suzuki et al}. This difference can be seen in figure~\ref{fig:images_mu-_lifetime_in_cu_modded_g4} and figure~\ref{fig:images_mu-_lifetime_in_cu_unmodded_g4} which show the muon decay spectra of negative muons with the modified and un-modified versions of Geant4 respectively. 
+One problem with the default supplied physics lists is that the implementation of mu capture at rest is based mainly on theoretical work that doesn't accurately model the capture rate of muons on copper. This is obviously a problem as copper is the main stopping target used at MuSIC. The lifetime for muonic copper produced using unmodified Geant4 is \(\sim1.2\mu\)s compared to the experimental value of 163.5~ns~\cite{suzuki_mu_capture_rates}. This difference can be seen in figure~\ref{fig:images_mu-_lifetime_in_cu_modded_g4} and figure~\ref{fig:images_mu-_lifetime_in_cu_unmodded_g4} which show the muon decay spectra of negative muons with the modified and un-modified versions of Geant4 respectively. 
 \begin{figure}[hptb]
   \centering
     \includegraphics[width=.9\textwidth]{images/mu-_lifetime_in_cu_unmodded_g4.eps}
@@ -330,7 +332,7 @@ As well as providing a method to test the affects of different detector construc
 
 In order to have suitable statistical significance a much larger number of muons were required than could be produced using the initial G4BL distribution of particles. Instead an approximation to the G4BL distribution was created and then used. The approximation was not close enough to the G4BL distribution to be used as a base of comparison in measurements of the beam but provided a reasonable number of positive and negative muons upon which analysis techniques could be tested.
 
-The core analysis technique used was to create muon lifetime distributions, fit them with a function and then use the integral of the appropriate portion of the function to calculate the number of muon decays that had occurred. This method could be used because no other constituent of the beam would have a lifetime comparable to that of the muons: electrons and protons have lifetimes measured in years whilst charged pions have a lifetime of \(26.003\pm0.005\)~ns~\cite{PDG} which is suitably short, even compared to muonic copper, to have little impact on the muon decay spectrum (neutral pions have a lifetime of \( 8.52\times10^{-8}\)~ns and don't produce charged daughters).
+The core analysis technique used was to create muon lifetime distributions, fit them with a function and then use the integral of the appropriate portion of the function to calculate the number of muon decays that had occurred. This method could be used because no other constituent of the beam would have a lifetime comparable to that of the muons: electrons and protons have lifetimes measured in years whilst charged pions have a lifetime of \(26.003\pm0.005\)~ns~\cite{pdg} which is suitably short, even compared to muonic copper, to have little impact on the muon decay spectrum (neutral pions have a lifetime of \( 8.52\times10^{-8}\)~ns and don't produce charged daughters).
 
 The first step of the protocol was to create histograms of downstream\(-\)upstream hit times. In the measurements this was done by an item of hardware but for the simulation this was done by looking for muons in the upstream counter and their daughter-electrons in the downstream counter. The difference in times was then binned, any differences of less than 50~ns was ignored as this was a region that we were blind to in the experiment.
 
