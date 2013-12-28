@@ -11,7 +11,10 @@ Characterisation of the MuSIC beam was carried out over several years and throug
       \hline                                                                             
       29 July 2010     & 31 July 2010     & Charged particle flux.                      \\
       \hline
-      13 February 2011 & 16 February 2011 & Muon yield (lifetime).                      \\
+      \multirow{2}{*}{13 February 2011}
+                       & \multirow{2}{*}{16 February 2011}
+                                           & Charged particle flux.                     \\
+                       &                   & Muon yield (lifetime).                     \\
       \hline
       \multirow{2}{*}{19 July 2011}
                        & \multirow{2}{*}{21 July 2011}
@@ -153,41 +156,47 @@ Registers are similar to the gate modules discussed above except that they are e
 \label{cha:charged_particle_flux}
 % TODO Pictures of set ups
 % TODO Diagrams of set ups
-The first experiment carried out at MuSIC aimed to establish the barest understanding of the beam, the flux of charged particles. Whilst this experiment yielded useful data it was ultimately a prototype for the technology and a way to test and develop the techniques for later experiments.
+The first experiment carried out at MuSIC aimed to measure the total flux of charged particles. As well as yielding useful data it was also a test-bed for the technology and techniques used in later experiments.
 
-Two measurements of the charged particle flux were made: one using a long strip scintillator that measured the flux at a range of heights and a second that used a smaller disk that measured the flux at a number of points across the face of the disc. These measurements were made during two different beam-times but will be discussed together as they have a lot of their designs in common.
+Two separate measurements of the charged particle flux were made: one using a long strip scintillator that measured the flux at a range of vertical positions and a second that used a smaller disk that measured the flux at a number of points across the face of the disc.
 
-These early experiments had DAQ designs that were ultimately superfluous as the data it yielded was not used; this design is included for completeness.
+The DAQ used for these experiments was designed to have a lot greater functionality that was ultimately used. The original design aimed to use the difference of arrival times at the various MPPCs for greater positional accuracy whilst the ADC measurements were intended to measure the energy of the particle neither of these techniques were successful but the full DAQ is included for completeness.
+
+% These early experiments had DAQ designs that were ultimately superfluous as the data it yielded was not used; this design is included for completeness.
 \subsection{Experimental Set Up} % (fold)
 \label{sec:experimental_set_up}
-The experimental design for both measurements was broadly the same: the scintillators both had four MPPCs attached, NIM was used logic for basic triggering whilst read-out was performed via CAMAC crates, data was recorded on a PC and analysed afterwards. The scintillators were both wrapped with aluminium foil and black wrap and the MPPCs attached via optical cement (see table~\ref{tab:charged_particle_flux_scint_details}).
+The experimental design for both measurements was broadly the same: the scintillators both had four MPPCs attached (see figure~\ref{fig:schematic_of_mppc_layouts}), NIM was used logic for basic triggering whilst read-out was performed via CAMAC, data was recorded on a PC and analysed afterwards. The scintillators were both wrapped with aluminium foil and black wrap and the MPPCs attached via optical cement (see table~\ref{tab:charged_particle_flux_scint_details}). The scintillators were mounted on aluminium supports at the end of the beam-pipe.
 \begin{table}
   \begin{center}
     \begin{tabular}{c|c|c|c}
-      Shape  &  Volume (mm\(^3\))            &  MPPCs  &  MPPC positions                    \\
+      Shape  &  Volume (mm\(^3\))           &  MPPCs  &  MPPC positions                    \\
       \hline
-      Strip  &  \(380 \times30\times10\)     &  4      &  \( \pm 5 \)~mm on each ends.      \\
+      Strip  &  \(380 \times30\times10\)    &  4      &  \( \pm 5 \)~mm on each end.       \\
       Disk   &  \( 35^2\times\pi\times20\)  &  4      &  Radially, every 90\( ^{\circ} \). \\
-        
     \end{tabular}
   \end{center}
   \caption{Details of the scintillators used for the two measurements of the charged particle flux.}
   \label{tab:charged_particle_flux_scint_details}
 \end{table}
 
-The aim of these early experiments was to make three measurements: the total trigger rate, the difference in arrival times of light at the MPPCs and the distribution of the number of firing pixels at each MPPC. The total trigger is proportional to the flux of charged particles through the scintillator. It was hoped that the timing difference between MPPC firings could be correlated to the position of the interaction within the scintillator (this was ultimately incorrect). The distribution of the number of firing pixels was hoped to give some idea of the energy deposited, and possible the types of particles. 
+The aim of these early experiments was to make three measurements: the total trigger rate, the difference in arrival times of light at the MPPCs and the distribution of the number of firing pixels at each MPPC. The total trigger count is proportional to the flux of charged particles through the scintillator. The timing and photon counts were hoped to give information on positioning and the amount of energy deposited but this was found to be incorrect.
 
-Ultimately only the measurement of the trigger rate was successful. The trigger rate is proportional to the charged particle flux as long a the dead time is essentially nil. To ensure this, as discussed below, a simplified DAQ system was used and MuSIC was run with a reduced beam current (\(<1\)~nA instead of the MuSIC design current of \(~1\)~\(\mu\)A). Another concern for measuring the charged particle flux is minimally ionising particles, by definition these particles will scintillate the least making their detection difficult, to mitigate this a thicker scintillator (20~mm) was used for the second measurement in which more energy would be deposited.
+% It was hoped that the timing difference between MPPC firings could be correlated to the position of the interaction within the scintillator (this was ultimately incorrect). The distribution of the number of firing pixels was hoped to give some idea of the energy deposited, and possible the types of particles. 
 
-The trigger rate DAQ system was a subset of the full DAQ used to measure the time and energy:
+Ultimately only the measurement of the trigger rate was successful. The trigger rate is proportional to the charged particle flux,  assuming negligible dead time. To ensure this, as discussed below, a simplified DAQ system was used and MuSIC was run with a reduced beam current (\(<1\)~nA instead of the MuSIC design current of \(~1\)~\(\mu\)A). Another concern for measuring the charged particle flux are minimally ionising particles (MIPs). MIPs, by definition produce a minimal amount of scintillation light, making their detection difficult. The thickness of the scintillators, especially the second (20~mm) should still be sensitive to MIPs.
+
+% to mitigate this a thicker scintillator (20~mm) was used for the second measurement in which more energy would be deposited.
+
+The DAQ used to measure the trigger rate was a subset of the full DAQ, used to measure the time and energy:
 \begin{enumerate}
-  \item Amplify the MPPC signal to a detectable level (see section~\ref{sub:multi_photon_pixel_counters}).
-  \item Use a discriminator to remove noise.
-  \item Use an AND module to form a trigger and raise a veto based on the coincidence of events from all MPPCs.
+  \item Amplify the MPPC signal to a detectable level.
+  \item Remove dark current using a discriminator.
+  \item Create a trigger and veto from the coincidence of all MPPCs: an `AND' operation applied to the output of the discriminators.
+   % logic module to form a trigger (further removing noise) and raise a veto based on the coincidence of events from all MPPCs.
   \item Record the analogue MPPC signal using an ADC.
-  \item Use the trigger to start the TDC.
-  \item Delay three of the remaining signals by an amount to form the stops to the TDC.
-  \item Remove the veto on the system once read out is complete.
+  \item Use the trigger and the first MPPC's signal to start the TDC.
+  \item Delay three of the remaining signals to form the stops to the TDC (the delay can be removed to regain the accurate time).
+  \item Remove the veto on the system once read-out is complete.
 \end{enumerate}
 This can be seen as a schematic in figure~\ref{fig:MuSIC1_DAQ_Block}. 
 
@@ -200,7 +209,7 @@ This can be seen as a schematic in figure~\ref{fig:MuSIC1_DAQ_Block}.
 
 To make the final measurement of the trigger rate, the majority of the DAQ was ignored and the four-fold coincidence counted using a scaler. By counting the raw triggers, affects of dead time could be negated and a truer value for the number of interactions obtained. For the 1D experiment measurements were made over 50~s with control done via hand, this obviously had limitations 
 
-The positions of the two experiments are given in table~\ref{tab:flux_setup} with respect to the centre of the beam-pipe. `By-eye' readout of the 1D measurement was done using a display mounted on the scaler used to count triggers. For the 2D measurement a CAMAC module was used that was read out by computer.
+The positions of the two experiments are given in table~\ref{tab:flux_setup} with respect to the centre of the beam-pipe. `By-eye' readout of the 1D measurement was done using a display mounted on the scaler used to count triggers. For the 2D measurement a CAMAC module was used that was read out by computer. It's important to note that not only were the detectors very different but due to experimental constraints the 2D measurement was made significantly further from the end of the beam pipe than the 1D experiment (85~cm compared to 6~cm).
 \begin{table}
   \begin{center}
     \begin{tabular}{c|c|c|c|c|c}
@@ -218,9 +227,9 @@ The positions of the two experiments are given in table~\ref{tab:flux_setup} wit
 % section experimental_set_up (end) 
 \subsection{Detector efficiency} % (fold)
 \label{sec:detector_efficiency}
-As well as making measurements of the charged particle flux another important measurement, made soon after the second beam time, was measurement of the efficiency of the circular detector. This was done using 3 large Photo-Multiplier Tubes (PMT) attached to large (\( 40\times40\times1 \)~cm\(^3\)) scintillator paddles. Measurement of the disk detector was calculated using the ratio of detections by the PMTs to detection by the MPPCs (once size considerations had been taken into account).
+As well as making measurements of the charged particle flux another important measurement, made soon after the second beam time, was measurement of the efficiency of the circular detector. This was done using three large (\( 40\times40\times1 \)~cm\(^3\)) scintillator paddles. Light from the scintillators was detected using Photo-Multiplier Tubes (PMT). The three large paddles were positioned sandwiching the circular scintillator, two above and one below. 
 
-The test procedure for this measurement was to do long runs with the PMT paddles sandwiching the disk then compare the number of cosmic rays detected in the paddles compared to those detected by the disk. First all remaining MPPCs were tested (one had become irrevocably damaged during beam time) then pairs were tested. Testing consisted of counting the occurrence of three-fold coincidence on the PMTs and either two or three fold coincidence on the MPPCs. Data was taken for approximately one day for each configuration. The results of this measurement are shown in table~\ref{tab:music2_eff}.
+The circular detector's efficiency was calculated using the ratio of detections by the PMTs to detection by the MPPCs (once size considerations had been taken into account). It was assumed that the rate of detection by the circular scintillator was proportional to the detection rate in the three large scintillators. The first test was the efficiency of all three remaining MPPCs (one had become irrevocably damaged during beam time) then the efficiency of pairs of MPPCs was tested. Testing consisted of counting the occurrence of three-fold coincidence on the PMTs and either two or three fold coincidence on the MPPCs. Data was taken for approximately one day for each configuration. The MPPCs were not individually to ensure that dark current events were not included, although these were reduced by using a discriminator to produce the signals. The results of this measurement are shown in table~\ref{tab:music2_eff}.
 
 \begin{table}
   \begin{center}
@@ -317,9 +326,10 @@ where \(j\) is the flux, \(F\) is a scaling factor, \(C\) is the trigger count w
   \label{tab:1d_res}
 \end{table}
 
+
 \begin{figure}[hptb]
   \centering
-  \includegraphics[width=.9\textwidth]{images/plot_generating_scripts/measured_1d_charged_flux.png}
+  \includegraphics[width=.8\textwidth]{images/plot_generating_scripts/measured_1d_charged_flux.png}
   \caption{Measurement of the 1D charged particle flux as given in table~\ref{tab:1d_res}. Where two measurements were made at a single location an offset has been applied to the point to allow clearer reading of the plot, the measurements were actually at the same position. The errors on the vertical position are the width of the scintillator used.}
   \label{fig:images_hit_rate_rescaled}
 \end{figure}
@@ -356,7 +366,7 @@ where \(j\) is the flux, \(F\) is a scaling factor, \(C\) is the trigger count w
  
 \begin{figure}[hptb]
   \centering
-  \includegraphics[width=.9\textwidth]{images/plot_generating_scripts/measured_2d_charged_flux.png}
+  \includegraphics[width=.8\textwidth]{images/plot_generating_scripts/measured_2d_charged_flux.png}
   \caption{2D plot of the charged particle flux across the front of the MuSIC beam pipe. The final three measurements were rescaled using the ratio of the two measurements at \((0,20)\)~cm.}
   \label{fig:2D_flux}
 \end{figure}
@@ -364,13 +374,13 @@ where \(j\) is the flux, \(F\) is a scaling factor, \(C\) is the trigger count w
 % section results (end)
 \subsection{Analysis} % (fold)
 \label{sec:analysis}
-As can be seen from the figures~\ref{fig:images_hit_rate_rescaled}~and~\ref{fig:2D_flux} the beam spot is positioned slightly up and to the left of the centre of the pipe. As figure~\ref{fig:sim_2d_charged_particle_flux} shows both measurements agree on the general position of the beam spot. The measurements are not directly comparable due to the differences in both scintillator volume and position with respect to the end of the beam-pipe. Obviously the flux for the 2D measurement is generally lower due to smaller scintillator and greater distance from the beam-pipe.
+As can be seen from the figures~\ref{fig:images_hit_rate_rescaled}~and~\ref{fig:2D_flux} the beam spot is positioned slightly up and to the left of the centre of the pipe. As figure~\ref{fig:sim_2d_charged_flux} shows both measurements agree on the general position of the beam spot. The measurements are not directly comparable due to the differences in both scintillator volume and position with respect to the end of the beam-pipe. Obviously the flux for the 2D measurement is generally lower due to smaller scintillator and greater distance from the beam-pipe.
 
-The detector efficiency measurement for the 2D apparatus allows a more accurate calculation of the flux whilst also providing a bench-mark efficiency for future uses of the scintillator/MPPC configuration. 
+The detector efficiency measurement for the 2D apparatus allows a more accurate calculation of the flux for this case whilst also providing a bench-mark efficiency for future uses of the scintillator/MPPC configuration (where it wasn't always possible to make an analogous measurement). 
 
-The biggest problem, and one which was a cause of many problems, was the fragility of the MPPCs. Both the MPPC itself and the optical cement that bonded them to the scintillator were liable to break and this caused many problems that could not be easily fixed. 
+The biggest problem, and one which was a cause of many problems, was the fragility of the MPPCs. Both the MPPC itself and the optical cement that bonded them to the scintillator were liable to break and this caused many problems that could not be easily fixed during the time available. 
 
-A signifiant issue with the 1D measurement is the lack of a confirmation measurement that allows verification of the scaling but even if the re-scaled points are ignored then they confirm that the beam spot is in the upper half of the pipe, a measurement later confirmed by the 2D measurement. 
+A signifiant issue with the 1D measurement is the lack of a confirmation measurement that allows verification of the scaling applied to the later results. Even if the re-scaled points are ignored then they confirm that the beam spot is in the upper half of the pipe, a measurement later confirmed by the 2D measurement. 
 
 Comparing the measured and simulated rates yields some interesting features. There is broad agreement on the general shape of the distribution but, using normalised plots, it appears that the measured charged particle rate for the 1D measurement is consistently higher than the simulated value by a factor of between 2 and 10. No obvious explanation of this presents itself as the measured value, should be, a lower bound whilst the simulated value should be closer to the `true' value due to lack of detector affects and similar. Whilst this suggests that further development of the G4BL simulation is required it is encouraging that MuSIC is performing above expectations.
 
