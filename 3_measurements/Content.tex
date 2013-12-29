@@ -14,11 +14,11 @@ Characterisation of the MuSIC beam was carried out over several years and throug
       \multirow{2}{*}{13 February 2011}
                        & \multirow{2}{*}{16 February 2011}
                                            & Charged particle flux.                     \\
-                       &                   & Muon yield (lifetime).                     \\
+                       &                   & Muon lifetime.                             \\
       \hline
       \multirow{2}{*}{19 July 2011}
                        & \multirow{2}{*}{21 July 2011}
-                                          & Muon yield (lifetime).                      \\
+                                          & Muon lifetime.                              \\
                        &                  & Muon yield (via muonic X-rays).             \\
       \hline
       22 October 2011  & 23 October 2011  & Neutron flux.                               \\
@@ -408,15 +408,15 @@ Comparing the measured and simulated rates yields some interesting features. The
 % chapter charged_particle_flux (end)
 \section{Muon Lifetime} % (fold)
 \label{cha:muon_lifetime}
-Measurement of the muon lifetime is primarily used as a basic form of particle identification. Muons have a relatively long lifetime (\(2.197~\mu\)s) that acts as a useful method of identification. Measuring the muon lifetime is also a reasonably simple measurement that can be made with basic equipment. Two scintillators are placed on either side of a suitable stopping target along the muon's direction of travel. The muons loose energy as they traverse the stopping target and some number will stop, these can then be detected by the electrons produced in their decay. Plotting the differences in time between a detection at the upstream scintillator and the downstream scintillator will then produce the characteristic exponential decay curve that can be used to measure the muon lifetime. The curve produced is actually the sum of two separate decay curves: the decay of free muons and, as we have a beam containing negative muons as well, a component due to negative captured muon decay. The ratio of these two component can be used to estimate the ratio of muon types within the beam.
+Measurement of the muon lifetime was done to confirm the presence of muons in the beam. As has been discussed muons have a relatively long lifetime (\(2.197~\mu\)s) that is reasonably distinct from any others, this acts as a useful method of identification. To make the measurement two scintillators are placed on either side of a stopping target. The entire detector is placed perpendicular to the muon's direction of travel. The muons loose energy as they traverse the stopping target and some number of them will decay emitting an electron. By measuring the time differences between a detection at the upstream scintillator (the muon) and a detection at the downstream scintillator (the decay electron) we can plot the characteristic exponential decay plot and measure the muon lifetime. The curve produced is actually the sum of two separate decay curves: the decay of free muons and a component due to the decay of captured negative muons.
 
-In total three measurements of the muon lifetime were taken: one con-currently with the 2D charged particle flux measurement, a high-statistics run and then measurements that form the basis of the muon momentum spectrum measurement. The first two of these measurements will be discussed here and the final will be discussed in the final chapter of this part.
+In total three measurements of the muon lifetime were taken: one con-currently with the 2D charged particle flux measurement, a high-statistics run and then measurements that form the basis of the muon momentum spectrum measurement. The first two of these measurements will be discussed here and the final one will be discussed later.
 
 \subsection{Experimental Set Up} % (fold)
 \label{sec:experimental_set_up}
-The basic experimental set up for muon lifetime measurement has already been discussed: two scintillators sandwiching a stopping target. Both measurements were made using the same scintillator and stopping target: two \( 380\times50\times3.5 \)~mm scintillators and a \( 370\times80\times6 \)~mm pure copper target. Two MPPCs were mounted on the ends of each scintillator to provide readout. 
+The basic experimental set up for muon lifetime measurement has already been discussed: two scintillators sandwiching a stopping target. Both measurements were made using the same scintillator and stopping target: two \( 380\times50\times3.5 \)~mm scintillators and a \( 370\times80\times6 \)~mm pure copper target. An MPPC was mounted at either end of both scintillators (4 MPPCs in total) to provide read-out.
 
-The DAQ used was a simple extension of the previous versions. This time, rather than measuring the time differences between the different individual MPPCs the TDC was used to measure the time between a hit on the upstream scintillator and then a hit on the downstream. A `hit' was considered to be a co-incident signal on both MPPCs of that scintillator. As a measure to reduce spurious signals due to other charged particles, e.g.\ electrons, a veto window of 50~ns was used. The veto window was a period following the upstream hit in which no hits were allowed in the downstream scintillator. The veto-window aimed to reject particles that didn't decay between the scintillators, unfortunately this removes a portion of the signal but enough remains for a reasonable measurement to be made.
+The DAQ used was a simple extension of the previous versions. This time, rather than measuring the time differences between the different individual MPPCs the TDC was used to measure the time between a hit on the upstream scintillator and then a hit on the downstream. A `hit' was considered to be a co-incident signal on both MPPCs of that scintillator. As a measure to reduce spurious signals due to other charged particles, e.g.\ electrons, a veto window of 50~ns was used. The veto window was a period following the upstream hit in which no hits were allowed in the downstream scintillator. The veto-window is used to reject particles that didn't decay between the scintillators or which decay but aren't muons (e.g. pions, which have a 26~ns lifetime).
 
 % section experimental_set_up (end)
 \subsection{Results} % (fold)
@@ -427,7 +427,7 @@ Figures~\ref{fig:music2_mu_lifetime} and \ref{fig:music3_muon_lifetime} shows th
 \end{align}
 where \( t \) is the real time, in ns, \( K \) is the calibration constant (0.025, measured by manufacturer), \( T \) is the value recorded in the MH-TDC and \( T_0 \) is the time when the start signal for the TDC was sent as recorded by the MH-TDC on a dedicated channel.
 
-The data is then fitted with either one or two exponential decay functions and a flat background. Whether a single or double exponential is used depends heavily on the amount of data that was taken. A single function is mainly used to fit the free decay of muons whereas a second exponential can be used to model the decay of captured negative muons inside the stopping target. Fitting the copper-decay exponential requires much greater data as a significant proportion of the events from this are ignored because of the veto-window. In the first 50~ns \(\sim\)26~\% of all copper decays will have already occurred in comparison to only \(\sim\)2\% of free muon decays. 
+The data is then fitted with either one or two exponential decay functions and a flat background. Whether a single or double exponential is used depends heavily on the amount of data that was taken. A single function was used to fit the free decay of muons (neglecting the captured negative muons) whereas a second exponential was used to model the decay of captured negative muons inside the stopping target. Fitting the copper-decay exponential requires much more data as a significant proportion of the events from this are ignored because of the veto-window. In the first 50~ns \(\sim\)26~\% of all copper decays will have already occurred in comparison to only \(\sim\)2\% of free muon decays, this is made worse as the number of positive muons is significantly higher negative muons making the captured muon signal much lower.
 
 \begin{figure}[hptb]
   \centering
@@ -445,7 +445,7 @@ The data is then fitted with either one or two exponential decay functions and a
 % section results (end)
 \subsection{Analysis} % (fold)
 \label{sec:analysis}
-As can be seen in figures~\ref{fig:music2_mu_lifetime} and \ref{fig:music3_muon_lifetime} the exponential decays are good fits to the data with reasonable chi-squared values (\(192.6/114\) and \( 728.7/240 \) respectively). The muon lifetimes measured are in good agreement with the canonical value of \(2.1969811\pm0.0000022\)~\cite{PDG} although the MuSIC2 measurement. Both measurements are low (with the MuSIC2 measurement being significantly lower) but this should be due to affects of other materials in the detector, for example the plastic scintillator which has a captured muon lifetime of \(2026.3\pm1.5\)~ns~\cite{SUZUKI}. 
+As can be seen in figures~\ref{fig:music2_mu_lifetime} and \ref{fig:music3_muon_lifetime} the exponential decays are good fits to the data with reasonable chi-squared values (\(192.6/114\) and \( 728.7/240 \) respectively). The muon lifetimes measured are in good agreement with the canonical value of \(2.1969811\pm0.0000022\)~\cite{pdg}. The lifetime measurement for the first run is low but this is to be expected as the fit doesn't account for the capture of negative muons which has a much shorter lifetime. Whilst both measurements have a large amount of background this does not remove from the core fact that large numbers of muons were detected and they exhibited the expected properties. The second measurement also produces a measurement of the muonic-copper lifetime which is good agreement with that measured by others~\cite{mu_neg_cu_lifetime}.
 
 % section analysis (end)
 % chapter muon_lifetime (end)
