@@ -5,7 +5,7 @@ adjusted_muon_rates_cu.svg
 </title>
 <desc>
 Creator: ROOT Version 5.34/09
-CreationDate: Mon Dec  2 21:17:38 2013</desc>
+CreationDate: Tue Jan  7 14:37:43 2014</desc>
 <defs>
 </defs>
 <rect x="0" y="0" width="567" height="328" fill="white"/>
@@ -127,65 +127,147 @@ Muon rate (nA
 <text x="30" y="37" fill="black" font-size="11" font-family="Helvetica">
 2500
 </text>
-<g stroke="#0000ff" stroke-width="1" fill="#0000ff">
-<circle cx=" 94" cy=" 129" r=" 1"/>
-<circle cx=" 181" cy=" 160" r=" 1"/>
-<circle cx=" 237" cy=" 160" r=" 1"/>
-<circle cx=" 472" cy=" 175" r=" 1"/>
+<g stroke="black" stroke-width="1" fill="none">
+<line x1=" 93" y1=" 128" x2=" 95" y2=" 130"/><line x1=" 93" y1=" 130" x2=" 95" y2=" 128"/>
+<line x1=" 180" y1=" 159" x2=" 182" y2=" 161"/><line x1=" 180" y1=" 161" x2=" 182" y2=" 159"/>
+<line x1=" 236" y1=" 159" x2=" 238" y2=" 161"/><line x1=" 236" y1=" 161" x2=" 238" y2=" 159"/>
+<line x1=" 471" y1=" 174" x2=" 473" y2=" 176"/><line x1=" 471" y1=" 176" x2=" 473" y2=" 174"/>
 </g>
-<path d="M94,129v -4" fill="none" stroke="#0000ff"/>
-<path d="M94,125h 1" fill="none" stroke="#0000ff"/>
-<path d="M94,129v 5" fill="none" stroke="#0000ff"/>
-<path d="M94,134h 1" fill="none" stroke="#0000ff"/>
-<path d="M181,160v -5" fill="none" stroke="#0000ff"/>
-<path d="M180,155h 2" fill="none" stroke="#0000ff"/>
-<path d="M181,160v 4" fill="none" stroke="#0000ff"/>
-<path d="M180,164h 2" fill="none" stroke="#0000ff"/>
-<path d="M237,160v -4" fill="none" stroke="#0000ff"/>
-<path d="M236,156h 1" fill="none" stroke="#0000ff"/>
-<path d="M237,160v 4" fill="none" stroke="#0000ff"/>
-<path d="M236,164h 1" fill="none" stroke="#0000ff"/>
-<path d="M472,175v -3" fill="none" stroke="#0000ff"/>
-<path d="M472,172h 1" fill="none" stroke="#0000ff"/>
-<path d="M472,175v 3" fill="none" stroke="#0000ff"/>
-<path d="M472,178h 1" fill="none" stroke="#0000ff"/>
+<path d="M94,129v -4" fill="none" stroke="black"/>
+<path d="M94,125h 1" fill="none" stroke="black"/>
+<path d="M94,129v 5" fill="none" stroke="black"/>
+<path d="M94,134h 1" fill="none" stroke="black"/>
+<path d="M181,160v -5" fill="none" stroke="black"/>
+<path d="M180,155h 2" fill="none" stroke="black"/>
+<path d="M181,160v 4" fill="none" stroke="black"/>
+<path d="M180,164h 2" fill="none" stroke="black"/>
+<path d="M237,160v -4" fill="none" stroke="black"/>
+<path d="M236,156h 1" fill="none" stroke="black"/>
+<path d="M237,160v 4" fill="none" stroke="black"/>
+<path d="M236,164h 1" fill="none" stroke="black"/>
+<path d="M472,175v -3" fill="none" stroke="black"/>
+<path d="M472,172h 1" fill="none" stroke="black"/>
+<path d="M472,175v 3" fill="none" stroke="black"/>
+<path d="M472,178h 1" fill="none" stroke="black"/>
+<path d="M94,129v -36" fill="none" stroke="#ff0000"/>
+<path d="M94,93h 1" fill="none" stroke="#ff0000"/>
+<path d="M94,129v 37" fill="none" stroke="#ff0000"/>
+<path d="M94,166h 1" fill="none" stroke="#ff0000"/>
+<path d="M181,160v -31" fill="none" stroke="#ff0000"/>
+<path d="M180,129h 2" fill="none" stroke="#ff0000"/>
+<path d="M181,160v 30" fill="none" stroke="#ff0000"/>
+<path d="M180,190h 2" fill="none" stroke="#ff0000"/>
+<path d="M237,160v -30" fill="none" stroke="#ff0000"/>
+<path d="M236,130h 1" fill="none" stroke="#ff0000"/>
+<path d="M237,160v 30" fill="none" stroke="#ff0000"/>
+<path d="M236,190h 1" fill="none" stroke="#ff0000"/>
+<path d="M472,175v -27" fill="none" stroke="#ff0000"/>
+<path d="M472,148h 1" fill="none" stroke="#ff0000"/>
+<path d="M472,175v 27" fill="none" stroke="#ff0000"/>
+<path d="M472,202h 1" fill="none" stroke="#ff0000"/>
+<g stroke="#ff0000" stroke-width="1" fill="none">
+<line x1="93" y1="129" x2="94" y2="129"/>
+<line x1="180" y1="160" x2="181" y2="160"/>
+<line x1="236" y1="160" x2="237" y2="160"/>
+<line x1="471" y1="175" x2="472" y2="175"/>
+</g>
+<path d="M94,129v -65" fill="none" stroke="#0000ff"/>
+<path d="M94,64h 1" fill="none" stroke="#0000ff"/>
+<path d="M94,129v 66" fill="none" stroke="#0000ff"/>
+<path d="M94,195h 1" fill="none" stroke="#0000ff"/>
+<path d="M181,160v -55" fill="none" stroke="#0000ff"/>
+<path d="M180,105h 2" fill="none" stroke="#0000ff"/>
+<path d="M181,160v 54" fill="none" stroke="#0000ff"/>
+<path d="M180,214h 2" fill="none" stroke="#0000ff"/>
+<path d="M237,160v -54" fill="none" stroke="#0000ff"/>
+<path d="M236,106h 1" fill="none" stroke="#0000ff"/>
+<path d="M237,160v 54" fill="none" stroke="#0000ff"/>
+<path d="M236,214h 1" fill="none" stroke="#0000ff"/>
+<path d="M472,175v -48" fill="none" stroke="#0000ff"/>
+<path d="M472,127h 1" fill="none" stroke="#0000ff"/>
+<path d="M472,175v 48" fill="none" stroke="#0000ff"/>
+<path d="M472,223h 1" fill="none" stroke="#0000ff"/>
+<g stroke="#0000ff" stroke-width="0" fill="none">
+<line x1="93" y1="129" x2="94" y2="129"/>
+<line x1="180" y1="160" x2="181" y2="160"/>
+<line x1="236" y1="160" x2="237" y2="160"/>
+<line x1="471" y1="175" x2="472" y2="175"/>
+</g>
 <rect x="340" y="33" width="170" height="33" fill="none" stroke="black"/>
 <path d="M340,66h 170" fill="none" stroke="black"/>
 <path d="M510,66v -33" fill="none" stroke="black"/>
 <path d="M510,33h -170" fill="none" stroke="black"/>
 <path d="M340,33v 33" fill="none" stroke="black"/>
-<text x="344" y="43" fill="black" font-size="4" font-family="Helvetica">
+<text x="344" y="39" fill="black" font-size="4" font-family="Helvetica">
 Muon momentum distribution
 </text>
-<text x="382" y="59" fill="black" font-size="4" font-family="Helvetica">
+<text x="382" y="47" fill="black" font-size="4" font-family="Helvetica">
 Adjusted rate of muons decaying in copper (statistical errors)
 </text>
-<path d="M347,63h 29v -11h -29z" fill="white"/>
-<path d="M347,58h 29" fill="none" stroke="#0000ff"/>
-<g stroke="#0000ff" stroke-width="1" fill="#0000ff">
-<circle cx=" 361" cy=" 58" r=" 1"/>
+<path d="M347,48h 29v -6h -29z" fill="white"/>
+<path d="M347,45h 29" fill="none" stroke="black"/>
+<g stroke="black" stroke-width="1" fill="none">
+<line x1=" 360" y1=" 44" x2=" 362" y2=" 46"/><line x1=" 360" y1=" 46" x2=" 362" y2=" 44"/>
 </g>
-<path d="M94,129v -36" fill="none" stroke="#0000ff"/>
-<path d="M94,93h 1" fill="none" stroke="#0000ff"/>
-<path d="M94,129v 37" fill="none" stroke="#0000ff"/>
-<path d="M94,166h 1" fill="none" stroke="#0000ff"/>
-<path d="M181,160v -31" fill="none" stroke="#0000ff"/>
-<path d="M180,129h 2" fill="none" stroke="#0000ff"/>
-<path d="M181,160v 30" fill="none" stroke="#0000ff"/>
-<path d="M180,190h 2" fill="none" stroke="#0000ff"/>
-<path d="M237,160v -30" fill="none" stroke="#0000ff"/>
-<path d="M236,130h 1" fill="none" stroke="#0000ff"/>
-<path d="M237,160v 30" fill="none" stroke="#0000ff"/>
-<path d="M236,190h 1" fill="none" stroke="#0000ff"/>
-<path d="M472,175v -27" fill="none" stroke="#0000ff"/>
-<path d="M472,148h 1" fill="none" stroke="#0000ff"/>
-<path d="M472,175v 27" fill="none" stroke="#0000ff"/>
-<path d="M472,202h 1" fill="none" stroke="#0000ff"/>
-<g stroke="#0000ff" stroke-width="0" fill="#0000ff">
-<circle cx=" 94" cy=" 129" r=" 1"/>
-<circle cx=" 181" cy=" 160" r=" 1"/>
-<circle cx=" 237" cy=" 160" r=" 1"/>
-<circle cx=" 472" cy=" 175" r=" 1"/>
+<text x="382" y="55" fill="black" font-size="4" font-family="Helvetica">
+Errors due to MPPC efficiency
+</text>
+<path d="M347,56h 29v -5h -29z" fill="white"/>
+<path d="M347,53h 29" fill="none" stroke="#ff0000"/>
+<g stroke="#ff0000" stroke-width="1" fill="none">
+<line x1="360" y1="53" x2="361" y2="53"/>
+</g>
+<text x="382" y="63" fill="black" font-size="4" font-family="Helvetica">
+Systematic errors
+</text>
+<path d="M347,65h 29v -6h -29z" fill="white"/>
+<path d="M347,62h 29" fill="none" stroke="#0000ff"/>
+<g stroke="#0000ff" stroke-width="0" fill="none">
+<line x1="360" y1="62" x2="361" y2="62"/>
+</g>
+<path d="M94,129v -36" fill="none" stroke="#ff0000"/>
+<path d="M94,93h 1" fill="none" stroke="#ff0000"/>
+<path d="M94,129v 37" fill="none" stroke="#ff0000"/>
+<path d="M94,166h 1" fill="none" stroke="#ff0000"/>
+<path d="M181,160v -31" fill="none" stroke="#ff0000"/>
+<path d="M180,129h 2" fill="none" stroke="#ff0000"/>
+<path d="M181,160v 30" fill="none" stroke="#ff0000"/>
+<path d="M180,190h 2" fill="none" stroke="#ff0000"/>
+<path d="M237,160v -30" fill="none" stroke="#ff0000"/>
+<path d="M236,130h 1" fill="none" stroke="#ff0000"/>
+<path d="M237,160v 30" fill="none" stroke="#ff0000"/>
+<path d="M236,190h 1" fill="none" stroke="#ff0000"/>
+<path d="M472,175v -27" fill="none" stroke="#ff0000"/>
+<path d="M472,148h 1" fill="none" stroke="#ff0000"/>
+<path d="M472,175v 27" fill="none" stroke="#ff0000"/>
+<path d="M472,202h 1" fill="none" stroke="#ff0000"/>
+<g stroke="#ff0000" stroke-width="1" fill="none">
+<line x1="93" y1="129" x2="94" y2="129"/>
+<line x1="180" y1="160" x2="181" y2="160"/>
+<line x1="236" y1="160" x2="237" y2="160"/>
+<line x1="471" y1="175" x2="472" y2="175"/>
+</g>
+<path d="M94,129v -4" fill="none" stroke="black"/>
+<path d="M94,125h 1" fill="none" stroke="black"/>
+<path d="M94,129v 5" fill="none" stroke="black"/>
+<path d="M94,134h 1" fill="none" stroke="black"/>
+<path d="M181,160v -5" fill="none" stroke="black"/>
+<path d="M180,155h 2" fill="none" stroke="black"/>
+<path d="M181,160v 4" fill="none" stroke="black"/>
+<path d="M180,164h 2" fill="none" stroke="black"/>
+<path d="M237,160v -4" fill="none" stroke="black"/>
+<path d="M236,156h 1" fill="none" stroke="black"/>
+<path d="M237,160v 4" fill="none" stroke="black"/>
+<path d="M236,164h 1" fill="none" stroke="black"/>
+<path d="M472,175v -3" fill="none" stroke="black"/>
+<path d="M472,172h 1" fill="none" stroke="black"/>
+<path d="M472,175v 3" fill="none" stroke="black"/>
+<path d="M472,178h 1" fill="none" stroke="black"/>
+<g stroke="black" stroke-width="1" fill="none">
+<line x1=" 93" y1=" 128" x2=" 95" y2=" 130"/><line x1=" 93" y1=" 130" x2=" 95" y2=" 128"/>
+<line x1=" 180" y1=" 159" x2=" 182" y2=" 161"/><line x1=" 180" y1=" 161" x2=" 182" y2=" 159"/>
+<line x1=" 236" y1=" 159" x2=" 238" y2=" 161"/><line x1=" 236" y1=" 161" x2=" 238" y2=" 159"/>
+<line x1=" 471" y1=" 174" x2=" 473" y2=" 176"/><line x1=" 471" y1=" 176" x2=" 473" y2=" 174"/>
 </g>
 <text x="103" y="15" fill="black" font-size="13" font-family="Helvetica">
 Adjusted rate of muons decaying in copper (statistical errors)

@@ -107,7 +107,7 @@ void replot_rates() {
   d_bin_ers_exec_eff[3] = d_bins[3] * add_in_quad(photon_acceptance, photon_acceptance_er, bin_sum3, bin_sum_er3);
   
   double bin_means_r[n_bins] = {41.13, 46.78, 50.39, 65.76}; // run values round & take 
-  double bin_means_s[n_bins] = {40.93, 46.58, 50.19, 65.56}; // offsets at +/- 0.25
+  double bin_means_s[n_bins] = {40.93, 46.58, 50.19, 65.56}; // offsets at +/- 0.25 simulation
   double bin_sigmas [n_bins] = { 0.00,  0.00,  0.00,  0.00};
   
   char name [] = "Adjusted rate of freely decaying muons";
@@ -118,15 +118,29 @@ void replot_rates() {
   out_f_hist_exec_eff->GetYaxis()->SetTitleOffset(1.45);
   out_f_hist_exec_eff->GetYaxis()->SetRangeUser(0, 50000);
   
+  const int marker_style = 5; // 8
+  
   TCanvas* can = new TCanvas("c1", "c1", 1436, 856);
-  out_f_hist_exec_eff->SetLineColor(4);
+  out_f_hist_exec_eff->SetLineColor(1);
   out_f_hist_exec_eff->SetFillColor(0);
   out_f_hist_exec_eff->SetLineWidth(1);
   out_f_hist_exec_eff->SetMarkerSize(0.75);
-  out_f_hist_exec_eff->SetMarkerColor(4);
-  out_f_hist_exec_eff->SetMarkerStyle(8);
+  out_f_hist_exec_eff->SetMarkerColor(1);
+  out_f_hist_exec_eff->SetMarkerStyle(5);
   out_f_hist_exec_eff->GetYaxis()->SetRangeUser(0,55000);
   out_f_hist_exec_eff->Draw("A P");
+  
+  // char name99 [] = "Adjusted rate of freely decaying muons (errors due to MPPC efficiency)";
+  char name99 [] = "Errors due to MPPC efficiency";
+  TGraphErrors* out_f_hist = new TGraphErrors(n_bins, bin_means_r, d_bins, bin_sigmas, d_bin_ers);
+  out_f_hist->SetTitle(name99);
+  out_f_hist->SetLineColor(4);
+  out_f_hist->SetFillColor(0);
+  out_f_hist->SetLineWidth(1);
+  out_f_hist->SetMarkerSize(0.75);
+  out_f_hist->SetMarkerColor(4);
+  out_f_hist->SetMarkerStyle(1);
+  out_f_hist->Draw("SAME P");
   
   char name2 [] = "Simulated rate of freely decaying muons";
   TGraphErrors* out_s_hist = new TGraphErrors(n_bins, bin_means_s, d_bins_s, bin_sigmas, d_bin_s_ers);
@@ -135,24 +149,15 @@ void replot_rates() {
   out_s_hist->SetFillColor(0);
   out_s_hist->SetLineWidth(1);
   out_s_hist->SetMarkerSize(0.75);
+  // out_s_hist->SetMarkerSize(1);
   out_s_hist->SetMarkerColor(2);
-  out_s_hist->SetMarkerStyle(8);
+  out_s_hist->SetMarkerStyle(2);
   out_s_hist->Draw("SAME P");
   
   TLegend* leg = can->BuildLegend(0.6, 0.7, 0.9, 0.9, "Muon momentum distribution");
   leg->SetFillColor(0);
   leg->SetFillStyle(0);
-  
-  char name99 [] = "Adjusted rate of freely decaying muons (errors due to MPPC efficiency)";
-  TGraphErrors* out_f_hist = new TGraphErrors(n_bins, bin_means_r, d_bins, bin_sigmas, d_bin_ers);
-  out_f_hist->SetTitle(name99);
-  out_f_hist->SetLineColor(4);
-  out_f_hist->SetFillColor(0);
-  out_f_hist->SetLineWidth(0);
-  out_f_hist->SetMarkerSize(0.75);
-  out_f_hist->SetMarkerColor(4);
-  out_f_hist->SetMarkerStyle(8);
-  out_f_hist->Draw("SAME P");
+  out_f_hist_exec_eff->Draw("SAME P");
   
   can->SaveAs("adjusted_muon_rates.eps");
   can->SaveAs("adjusted_muon_rates.svg");

@@ -17,7 +17,8 @@ void replot_rates_cu() {
   const int n_runs = 6;
   const int n_bins = 4;
   // From fit systematic.ipnb taken the largest difference from 50ns bin/50 ns l_bound (for 75ns l_bound)
-  const float max_systematic_err = 381.26;
+  // const float max_systematic_err = 381.26;
+  const float max_systematic = 0.5585; // fraction of value
   TString filename("/Users/scook/code/MuSIC/offline_analysis_music5/MuSIC5_offline_analysis/MuSIC5_offline_analysis/scripts/images/analysis_g4bl_sin_phase_exec_d4_d5_l_bound50bin_16tight/out.root");
   
   TFile* in_file = new TFile(filename.Data(), "READ");
@@ -54,8 +55,9 @@ void replot_rates_cu() {
   printf("Photon acceptance: %.3f +/- %.3f\n", photon_acceptance, photon_acceptance_er);
   
   // Combine efficiency & acceptance
-  double scale = 1.0/(efficiency*photon_acceptance);
-  double scale_er = scale * add_in_quad(efficiency, efficiency_err, photon_acceptance, photon_acceptance_er);
+  const double scale = 1.0/(efficiency*photon_acceptance);
+  const double scale_er = scale * add_in_quad(efficiency, efficiency_err, photon_acceptance, photon_acceptance_er);
+  const double scale_sys_er = (scale_er/max_systematic);
   
   // original bin values
   float o_bins    [n_runs];
@@ -77,6 +79,8 @@ void replot_rates_cu() {
   // destination bins
   double d_bins    [n_bins];
   double d_bin_ers [n_bins];
+  // Errors with the added systematic uncertainty
+  double d_bin_ers_incl_sys [n_bins];
   // Set of errors excluding the affect of the efficiency
   double d_bin_ers_exec_eff [n_bins];
   
@@ -85,6 +89,7 @@ void replot_rates_cu() {
   // origin index = 0, destination index = 0
   d_bins   [0] = scale * o_bins[0];
   d_bin_ers[0] = d_bins[0] * add_in_quad(scale, scale_er, o_bins[0], o_bin_ers[0]);
+  d_bin_ers_incl_sys[0] = d_bins[0] * add_in_quad(scale, scale_sys_er, o_bins[0], o_bin_ers[0]);
   d_bin_ers_exec_eff[0] = d_bins[0] * add_in_quad(photon_acceptance, photon_acceptance_er, o_bins[0], o_bin_ers[0]);
   // 2x0.5 mm Al values
   // origin index = 1 & 2, destination index = 1
@@ -92,11 +97,13 @@ void replot_rates_cu() {
   const double bin_sum_er1 = sqrt_sum_errors2(o_bin_ers[1], o_bin_ers[2])/2.0;
   d_bins   [1] = scale * bin_sum1;
   d_bin_ers[1] = d_bins[1] * add_in_quad(scale, scale_er, bin_sum1, bin_sum_er1);
+  d_bin_ers_incl_sys[1] = d_bins[1] * add_in_quad(scale, scale_sys_er, o_bins[1], o_bin_ers[1]);
   d_bin_ers_exec_eff[1] = d_bins[1] * add_in_quad(photon_acceptance, photon_acceptance_er, bin_sum1, bin_sum_er1);
   // 1mm Al
   // origin index = 3, destination index = 2
   d_bins   [2] = scale * o_bins[3];
   d_bin_ers[2] = d_bins[2] * add_in_quad(scale, scale_er, o_bins[3], o_bin_ers[3]);
+  d_bin_ers_incl_sys[2] = d_bins[2] * add_in_quad(scale, scale_sys_er, o_bins[2], o_bin_ers[2]);
   d_bin_ers_exec_eff[2] = d_bins[2] * add_in_quad(photon_acceptance, photon_acceptance_er, o_bins[3], o_bin_ers[3]);
   // 2x5mm Al
   // origin indexs = 4 & 5, destination index = 3
@@ -104,6 +111,7 @@ void replot_rates_cu() {
   const double bin_sum_er3 = sqrt_sum_errors2(o_bin_ers[4], o_bin_ers[5])/2.0;
   d_bins   [3] = scale * bin_sum3;
   d_bin_ers[3] = d_bins[3] * add_in_quad(scale, scale_er, bin_sum3, bin_sum_er3);
+  d_bin_ers_incl_sys[3] = d_bins[3] * add_in_quad(scale, scale_sys_er, bin_sum3, bin_sum_er3);
   d_bin_ers_exec_eff[3] = d_bins[3] * add_in_quad(photon_acceptance, photon_acceptance_er, bin_sum3, bin_sum_er3);
   
   const char bin_label_fmt [] = "%.0f #pm %.0f";
@@ -121,39 +129,43 @@ void replot_rates_cu() {
   out_f_hist_exec_eff->GetYaxis()->SetRangeUser(0, 50000);
   
   TCanvas* can = new TCanvas("c1", "c1", 1436, 856);
-  out_f_hist_exec_eff->SetLineColor(4);
+  out_f_hist_exec_eff->SetLineColor(1);
   out_f_hist_exec_eff->SetFillColor(0);
   out_f_hist_exec_eff->SetLineWidth(1);
   out_f_hist_exec_eff->SetMarkerSize(0.75);
-  out_f_hist_exec_eff->SetMarkerColor(4);
-  out_f_hist_exec_eff->SetMarkerStyle(8);
+  out_f_hist_exec_eff->SetMarkerColor(1);
+  out_f_hist_exec_eff->SetMarkerStyle(5);
   out_f_hist_exec_eff->GetYaxis()->SetRangeUser(0,2500);
   out_f_hist_exec_eff->Draw("A P");
   
-  // TGraphErrors* out_s_hist = new TGraphErrors(n_bins, bin_means_s, d_bins_s, bin_sigmas, d_bin_s_ers);
-  
-  // out_s_hist->SetLineColor(2);
-  // out_s_hist->SetFillColor(0);
-  // out_s_hist->SetLineWidth(1);
-  // out_s_hist->SetMarkerSize(0.75);
-  // out_s_hist->SetMarkerColor(2);
-  // out_s_hist->SetMarkerStyle(8);
-  // out_s_hist->Draw("SAME P");
+  char name99 [] = "Errors due to MPPC efficiency";
+  TGraphErrors* out_f_hist = new TGraphErrors(n_bins, bin_means_r, d_bins, bin_sigmas, d_bin_ers);
+  out_f_hist->SetTitle(name99);
+  out_f_hist->SetLineColor(2);
+  out_f_hist->SetFillColor(0);
+  out_f_hist->SetLineWidth(1);
+  out_f_hist->SetMarkerSize(0.75);
+  out_f_hist->SetMarkerColor(2);
+  out_f_hist->SetMarkerStyle(1);
+  out_f_hist->Draw("SAME P");
+
+  char name999 [] = "Systematic errors";
+  TGraphErrors* out_f_hist_incl_sys = new TGraphErrors(n_bins, bin_means_r, d_bins, bin_sigmas, d_bin_ers_incl_sys);
+  out_f_hist_incl_sys->SetTitle(name999);
+  out_f_hist_incl_sys->SetLineColor(4);
+  out_f_hist_incl_sys->SetFillColor(0);
+  out_f_hist_incl_sys->SetLineWidth(0);
+  out_f_hist_incl_sys->SetMarkerSize(0.75);
+  out_f_hist_incl_sys->SetMarkerColor(4);
+  out_f_hist_incl_sys->SetMarkerStyle(1);
+  out_f_hist_incl_sys->Draw("SAME P");
   
   TLegend* leg = can->BuildLegend(0.6, 0.8, 0.9, 0.9, "Muon momentum distribution");
   leg->SetFillColor(0);
   leg->SetFillStyle(0);
   
-  char name99 [] = "Adjusted rate of freely decaying muons (errors due to MPPC efficiency)";
-  TGraphErrors* out_f_hist = new TGraphErrors(n_bins, bin_means_r, d_bins, bin_sigmas, d_bin_ers);
-  out_f_hist->SetTitle(name99);
-  out_f_hist->SetLineColor(4);
-  out_f_hist->SetFillColor(0);
-  out_f_hist->SetLineWidth(0.25);
-  out_f_hist->SetMarkerSize(0.75);
-  out_f_hist->SetMarkerColor(4);
-  out_f_hist->SetMarkerStyle(8);
   out_f_hist->Draw("SAME P");
+  out_f_hist_exec_eff->Draw("SAME P");
   
   can->SaveAs("adjusted_muon_rates_cu.eps");
   can->SaveAs("adjusted_muon_rates_cu.svg");
@@ -161,8 +173,9 @@ void replot_rates_cu() {
   
   float means [n_bins] =    {41.03,      46.68, 50.29,      65.66};
   char* run_bins [n_bins] = {"448", "451, 452", "455", "458, 459"};
+  printf("means[i], run_bins[i], d_bins[i], d_bin_ers_incl_sys[i], d_bin_ers[i], d_bin_ers_exec_eff[i]\n");
   for(int i = 0; i < n_bins; ++i) {
-    printf("%.1f  &  %8s  &  %.0f  &  %.0f  &  %.0f  \\\\\n", means[i], run_bins[i], d_bins[i], d_bin_ers[i], d_bin_ers_exec_eff[i]);
+    printf("%.1f  &  %8s  &  %.0f  &  %.0f  &  %.0f  &  %.0f  \\\\\n", means[i], run_bins[i], d_bins[i], d_bin_ers_incl_sys[i], d_bin_ers[i], d_bin_ers_exec_eff[i]);
   }
   
 }

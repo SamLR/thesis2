@@ -151,6 +151,7 @@ Registers are similar to the gate modules discussed above except that they are e
 % subsubsection registers (end)
 % subsection nim_and_camac (end)
 % section experimental_technique (end)
+\clearpage
 % chapter introduction (end)
 \section{Charged Particle flux} % (fold)
 \label{cha:charged_particle_flux}
@@ -405,7 +406,9 @@ Comparing the measured and simulated rates yields some interesting features. The
 \end{figure}
 
 % section analysis (end)
+\clearpage
 % chapter charged_particle_flux (end)
+
 \section{Muon Lifetime} % (fold)
 \label{cha:muon_lifetime}
 Measurement of the muon lifetime was done to confirm the presence of muons in the beam. As has been discussed muons have a relatively long lifetime (\(2.197~\mu\)s) that is reasonably distinct from any others, this acts as a useful method of identification. To make the measurement two scintillators are placed on either side of a stopping target. The entire detector is placed perpendicular to the muon's direction of travel. The muons loose energy as they traverse the stopping target and some number of them will decay emitting an electron. By measuring the time differences between a detection at the upstream scintillator (the muon) and a detection at the downstream scintillator (the decay electron) we can plot the characteristic exponential decay plot and measure the muon lifetime. The curve produced is actually the sum of two separate decay curves: the decay of free muons and a component due to the decay of captured negative muons.
@@ -448,98 +451,101 @@ The data is then fitted with either one or two exponential decay functions and a
 As can be seen in figures~\ref{fig:music2_mu_lifetime} and \ref{fig:music3_muon_lifetime} the exponential decays are good fits to the data with reasonable chi-squared values (\(192.6/114\) and \( 728.7/240 \) respectively). The muon lifetimes measured are in good agreement with the canonical value of \(2.1969811\pm0.0000022\)~\cite{pdg}. The lifetime measurement for the first run is low but this is to be expected as the fit doesn't account for the capture of negative muons which has a much shorter lifetime. Whilst both measurements have a large amount of background this does not remove from the core fact that large numbers of muons were detected and they exhibited the expected properties. The second measurement also produces a measurement of the muonic-copper lifetime which is good agreement with that measured by others~\cite{mu_neg_cu_lifetime}.
 
 % section analysis (end)
+\clearpage
 % chapter muon_lifetime (end)
 \section{Momentum Spectrum} % (fold)
 \label{cha:momentum_spectrum}
-The final experiment carried out at MuSIC that we will discuss is the measurement of the muon momentum spectrum. The experiment was also extended so that rather than a single narrow scintillator several scintillators forming a basic hodoscope were employed giving coarse vertical flux information as well the desired momentum measurements.
+Measurement of the muon momentum spectrum was carried out using an extension of the muon lifetime measurement technique. The number of scintillators was increased to improve coverage of the beam-pipe. To make the momentum measurement a range of degraders were used to select different (initial) ranges of muon momenta that would then stop. To determine the relation between degrader and stopped muon momentum the simulation was used.
+
+% The final experiment carried out at MuSIC that we will discuss is the measurement of the muon momentum spectrum. The experiment was also extended so that rather than a single narrow scintillator several scintillators forming a basic hodoscope were employed giving coarse vertical flux information as well the desired momentum measurements.
 
 \subsection{Experimental Set Up} % (fold)
 \label{sec:experimental_set_up}
-To measure the muon momentum spectrum the detector had two separate problems to solve: how to identify muons and how to measure their momentum. Identification was carried out via extension of the previous techniques in measuring the muon lifetime, determination of the muon's momentum was done by using a degrader that masked the momentum properties of the beam hence allowing us to measure a narrow band of momenta. This section is split into two: first a discussion of the experimental set up and then a discussion of the DAQ system.
+The core of the experimental set up was the same as used for the muon lifetime measurement. The key changes were the introduction of a set of aluminium degraders of various depths for momentum selection, the increase in the number of scintillators and the change of scintillator geometry to improve detection.
 
 \subsubsection{Detector} % (fold)
 \label{sub:detector}
-The detector consisted of an aluminium degrader who's thickness could be varied to select different momentum ranges, a thin (0.5~mm) upstream counter and a thicker (3.5~mm) downstream counter on either side of a 0.5~mm copper stopping target. A schematic of the detector can be seen in figure~\ref{fig:m5_setup}. Based on simulation (PART~\ref{TBC}) we predicted the mean momentum of muons that decay for different degrader thicknesses, the momentum distributions for the muons that stop can be seen in figure~\ref{fig:stopped_muon_mom} whilst the initial muon momentum distribution is given in figure~\ref{fig:initial_muon_momentum}, the mean momentums are also tabulated in table~\ref{tab:stopped_muon_mom}.
+The detector consisted of an aluminium degrader who's thickness could be varied to select different momentum ranges, a thin (0.5~mm) upstream counter and a thicker (3.5~mm) downstream counter on either side of a 0.5~mm copper stopping target, table~\ref{tab:detector_dimensions} gives details of the dimensions used. A schematic of the detector can be seen in figure~\ref{fig:m5_setup}. Based on simulation (see chapter~\ref{prt:simulation}) we predicted the mean momentum of muons that decay for different degrader thicknesses, the momentum distributions for the muons that stop can be seen in figure~\ref{fig:images_momentum_spectrum_stopped_muon_momentum} whilst the initial muon momentum distribution is given in figure~\ref{fig:images_momentum_spectrum_muon_momentum_at_beam_pipe_exit}, the mean momentums are also tabulated in table~\ref{tab:stopped_muon_mom}.
+\begin{table}
+  \begin{center}
+  \begin{tabular}{l | c | c | c | c | c}
+    \multirow{2}{*}{Component}  &  \multirow{2}{*}{Material}  
+                                            &  \multicolumn{3}{c|}{Dimensions (mm)}  &  \multirow{2}{*}{Number} \\
+                                &           &      X      &      Y     &       Z     &                          \\
+    \hline
+    Degrader                    &    Al     &     400     &     400    &  0.5, 1, 5  &  1                       \\
+    Upstream scintillator       &  EJ-212   &     380     &     30     &      0.5    &  8                       \\    
+    Stopping Target             &    Cu     &     370     &     310    &      0.5    &  1                       \\    
+    Downstream scintillator     &  EJ-212   &     380     &     50     &      3.5    &  5                       \\    
+  \end{tabular}
+  \end{center}
+  \caption{Dimensions of the various detector components. The `Z' is the beam direction, `Y' is vertical and `X' is horizontal. The layout of the detector can be seen in figure~\ref{fig:m5_setup}.}
+  \label{tab:detector_dimensions}
+\end{table}
+
 \begin{figure}[htbp]
     \centering
         \includegraphics[scale=0.5]{images/momentum_spectrum/Detector_setup_music5.png}
-    \caption{Experimental set up of the detector for MuSIC~5 (not to scale)}
+    \caption{Experimental set up of the detector for MuSIC~5 (widths not to scale), see table~\ref{tab:detector_dimensions} for actual sizes. The upstream scintillators are outlined with blue dashes whilst the downstream ones are red dots.}
     \label{fig:m5_setup}
 \end{figure}  
 
+\begin{figure}[hptb]
+  \centering
+    \includegraphics[width=.9\textwidth]{images/momentum_spectrum/stopped_muon_momentum.eps}
+  \caption{Momenta at the end of the beam pipes of muons that subsequently stopped. This shows the momenta that the different degraders `select'. The number of initial muons simulated was 95,700. The plot has been normalised to the number of muons per \(\mu\)A of proton beam}
+  \label{fig:images_momentum_spectrum_stopped_muon_momentum}
+\end{figure}
+
+\begin{figure}[hptb]
+  \centering
+    \includegraphics[width=.9\textwidth]{images/momentum_spectrum/muon_momentum_at_beam_pipe_exit.eps}
+  \caption{Total muon momenta at the end of the beam pipe. The number of initial muons simulated was 95,700. The plot has been normalised to the number of muons per \(\mu\)A of proton beam.}
+  \label{fig:images_momentum_spectrum_muon_momentum_at_beam_pipe_exit}
+\end{figure}
+
+\begin{table}
+  \lineup
+  \begin{center}
+  \begin{tabular}{c | r@{\(\pm\)}l | r@{\(\pm\)}l }
+    Degrader  &  \multicolumn{4}{c}{Momentum (MeV/c)}        \\
+      (mm)    &  \multicolumn{2}{c|}{Mean}  
+                                 &  \multicolumn{2}{c}{RMS}  \\
+    \hline
+      0.0     &  43.8  & 1.2   &  19.13 & 0.82               \\
+      0.5     &  48.7  & 1.0   &  16.62 & 0.74               \\
+      1.0     &  51.6  & 1.1   &  16.33 & 0.81               \\
+      5.0     &  64.55 & 0.93  &  11.18 & 0.66               \\
+  \end{tabular}
+  \end{center}
+  \caption{Simulated mean and Root Mean Squared (RMS) momenta of muons, that subsequently stop, at the end of the beam pipe. The degrader is the thickness of the aluminium, the width and height are both 400~mm. The Geant4 simulation was used; in total 95,700 initial muons were simulated, for further details see chapter~\ref{prt:simulation}.}
+  \label{tab:stopped_muon_mom}
+\end{table}
+
 The counters used were mylar wrapped scintillators with read-out performed by MPPCs mounted on either end of a wave length shifting fibre bounded along the long axis of the scintillator using optical cement. The signals from each pair of MPPCs are combined and amplified before being passed to the data acquisition system (DAQ) for processing.
 
-Two important considerations were made with the chose of scintillators: the upstream scintillator had to minimise perturbation of the beam whilst providing a suitable trigger and the downstream scintillator had to be highly effective at detecting muons. To this end a thin (0.5~mm) upstream scintillator and thicker (3.5~mm) downstream scintillator were chosen. One downside of this set up is that in using a thin upstream scintillator the efficiency for detecting minimally ionising particles is reduced.
+Two important considerations were made with the chose of scintillators: the upstream scintillator had to minimise perturbation of the beam whilst providing a suitable trigger from muons and the downstream scintillator had to be effective at detecting their electrons. To this end a thin (0.5~mm) upstream scintillator and thicker (3.5~mm) downstream scintillator were chosen. One downside of this set up is that in using a thin upstream scintillator the efficiency for detecting minimally ionising particles is reduced but as only stopping muons were desired this has a negligible affect.
 
 \subsubsection{Data Acquisition} % (fold)
 \label{sub:data_acquisition}
-The DAQ system used was a simple evolution of that used in the previous experiments: a discriminator unit with paired logic block formed a trigger on a suitably strong upstream signal with no downstream signal. The triggering signal was recorded using ADC and a MH-TDC was used to record hit times at the downstream scintillator within 20~\( \mu \)s of the trigger.
+The DAQ system used was a simple evolution of that used in the previous experiments: a discriminator unit with paired logic block formed a trigger on a suitably strong upstream signal with no downstream signal within a 50~ns veto window. The triggering signal was recorded using QDC (although it is not analysed here) and a MH-TDC was used to record hit times at all scintillators \(\pm\)20~\(\mu\)s of the trigger. To increase the accuracy of the MH-TDC the trigger time is recorded on a separate channel to the individual MPPC signals called `TDC0' which can then be removed later.
 
-% The Data Acquisition (DAQ) took two measurements: the time at which signals arrived from the MPPC and the strength of those signals. The timing measurements are of the primary concern for this analysis. The DAQ itself had 3 distinct stages: discrimination, trigger formation and readout.
-% 
-% MPPCs are inherently noisy devices and discrimination is required to separate signal due to scintillation events from the MPPC's noise. A voltage threshold was set which (when exceeded) created a digital signal. Two thresholds were used: a lower one for the upstream counter and a higher one for the downstream counter. The lower threshold for the, thinner, upstream counters enabled better detection of minimally ionising muons whilst the higher downstream threshold enabled better detection of the more ionising electrons produced by muon decay. 
-% 
-% Using the signals from the discriminator a trigger was created based on the signature of muonic decay: the anti-coincidence of the up and downstream counters. It was assumed that a muon that doesn't decay in the detector region will be seen in both counters within a very small window of time ($<$50~ns). The only other constraint on the formation of a trigger was that the system wasn't busy in which case the trigger couldn't be accepted.
+For a signal to be recorded or used as a trigger the discriminator was set to exclude events with fewer than eight photons in the upstream scintillator and fewer than ten in the downstream. The reason for these high values is that each analogue signal, as passed to the discriminator, is the combination of the signals from both the MPPCs on a scintillator. The thinner upstream scintillator has a lower threshold as it's aimed at selecting slow muons that will stop, unfortunately this means it cannot detect mips but these are unlikely to stop. Conversely the downstream scintillator has been set up to select electrons which will deposit more energy and the higher threshold will help reduce background.
 
-The trigger, once formed, signalled the start of readout. There were 3 modules to be read out via VMEbus (VME): a charge to Digital Converter (QDC), a scaler and a Multi-hit Time to Digital Converter (MTDC) which is of primary concern for this analysis. The MTDC recorded all signals  within a 20~\(\mu\)s period following the trigger that passed discrimination and that were anti-coincident with the other counter. Using a MTDC ensured that even if some beam remnant or dark event created a signal then the real signal would also be recorded and determined with background removal. The channel assignment used for the MTDC can be seen in table~\ref{tab:mtdc_ch}. To increase the accuracy of the MTDC the trigger time is recorded on a seperate channel called `TDC0'.
-\begin{table}
-    \begin{center}
-    \begin{tabular}{c|c|c}
-        Channel & Signal & Notes\\
-        \hline
-        0  & TDC0 & Time at which the trigger was formed \\
-        \hline
-        1  & U1   & \multirow{8}{*}{Upstream Counter}\\
-        2  & U2   & \\
-        3  & U3   & \\
-        4  & U4   & \\
-        5  & U5   & \\
-        6  & U6   & \\
-        7  & U7   & \\
-        8  & U8   & \\
-        \hline
-        9  & D1   & \multirow{5}{*}{Downstream counter}\\
-        10 & D2   & \\
-        11 & D3   & \\
-        12 & D4   & \\
-        13 & D5   & \\
-        \hline
-        14 & Ge1  & \multirow{2}{*}{Germanium counter (not used in this analysis)}\\
-        15 & Ge2  & \\
-    \end{tabular}
-    \end{center}
-    \caption{Channel assignment for the MTDC. QDC channel assignment follows the same scheme but has no entry for channel 0 (as TDC 0 will be one of the upstream counters by design).}
-    \label{tab:mtdc_ch}
-\end{table}
-
-A scaler was used to record system diagnostics (e.g. the trigger rate) by polling the scaler regularly during each run. The QDC recorded the strength of the trigging signal by integrating its charge over 100~ns. This information has not be incorporated into the current analysis but may be used in later analysis, for example to apply more stringent energy cuts at trigger time or for selection of regions of interest. The QDC had the same channel assignment as the TDC but without the germanium detector (as it had its own analogue to digital converter) and TDC0 (which was a digital signal).
-\begin{table}
-    \centering
-    \begin{tabular}{c|c|l}
-        Channel & Signal & Notes\\
-        \hline
-        0 & SEC & Measure of the proton current\\
-        1 & Trigger & number of t0's\\
-        2 & U and $\overline{\text{D}}$ & count of potential triggers\\
-        3 & U & Upstream only\\
-        4 & D & Downstream only\\
-        5 & Scint & -\\
-        6 & unused & -\\
-        7 & clk & Record of time passed\\
-    \end{tabular}
-    \caption{Table of scaler channels and their designation}
-    \label{tab:scaler_chs}
-\end{table}
+A scaler was used to record system diagnostics through regular polling. The values recorded were:
+\begin{enumerate}
+  \item SEC output.
+  \item Triggers (i.e.\ \textsc{u and }\(\overline{\textsc{d}}\)\textsc{ and }\(\overline{\textsc{busy}}\)\footnote{Where `\textsc{u}' is a suitable upstream signal, `\(\overline{\textsc{d}}\)' is no signal in the downstream scintillator and `\(\overline{\textsc{busy}}\)' indicates that the system is not busy.}).
+  \item Potential triggers (i.e.\ \textsc{u and }\(\overline{\textsc{d}}\)).
+  \item A clock (for accurate run measurement).
+\end{enumerate}
+Obviously the clock and SEC were used for normalisation whilst the triggers and potential triggers were used for calculation of dead time (see section~\ref{sub:dead_time})
 
 % subsection data_acquisition (end)
 % section experimental_set_up (end)
 \subsection{Data Processing} % (fold)
-\label{sec:run_data}
-There are 5 stages in preparing the experimental data for analysis (receipt of the data from MIDAS, de-serialisation, calibration, restructuring and histogramming). These will will be explained in more detail in the following sub-sections but the general process will be discussed here. The first stage is the receipt of data from the DAQ via MIDAS, this creates files of raw data which has to be de-serialised in the next stage before having calibration applied to it. The final stages are to restructure the data according to channel and then create histograms of the TDC values ready for analysis. 
-
-These processes are split across 4 programs: MIDAS; mu\_analysis and mid2root\_converter (which act on .root and .mid MIDAS files respectively); and finally tdc\_file.py which is a python script for creating the TDC histograms.
-
-For the analysis 6 runs were chosen, all using the 0.5~mm copper stopping target. For 5 of the runs an aluminium degrader was used. The run information is summarised in table~\ref{tab:run_summary}.
+\label{sec:data_processing}
+There were five stages in preparing the data for analysis: reading from VME, calibration and binning. At the end of these processes the data was analysed and the final measurements made. Six data sets were chosen for this analysis, the run conditions are listed in table~\ref{tab:run_summary}.
 \begin{table}
 	\begin{center}
 	\begin{tabular}{c|c|c|c}
@@ -556,191 +562,116 @@ For the analysis 6 runs were chosen, all using the 0.5~mm copper stopping target
 	\caption{Summary of the runs selected for this analysis. The degrader used aluminium and the stopping target 0.5~mm copper.}
 	\label{tab:run_summary}
 \end{table} 
-\subsubsection{Data from MIDAS} % (fold)
-\label{sub:data_from_midas}
-MIDAS is `a general purpose data acquisition system for small and medium scale experiments'~\cite{ritt2012midas} and is the primary interface to the DAQ via VME. 
 
-MIDAS stored the raw data from each run as a single file either in its own binary xml format (.mid files) or in ROOT~\cite{Brun199781} format (.root). Data was read from the VME crate in two asynchronous modes: `Trigger' and `Scaler' each corresponded to a separate tree structure in the resulting file. The majority of the time the system operated in trigger-mode: whenever a trigger was formed the controlling PC was informed and once the data had been gathered readout of the MTDC and QDC occurred via the VME. Scaler mode occurred at regular intervals and consisted of reading the diagnostics data gathered by the scaler, this did not reset the module which continued to accumulate data. 
+The data was read from VME using the MIDAS program (`a general purpose data acquisition system for small and medium scale experiments'~\cite{ritt2012midas}), this dealt with the low level interface to CAMAC and allowed basic plotting of the information.
 
-Each tree contained a branch per module being read, the trigger tree also had also branch for errors (named `ERR'). The branches all had the same structure: an integer that recorded the number of values read and an array of integers containing those values. For the scaler and QDC modules the number of values read out was the same for every trigger as both had a fixed number of channels and took one measurement on each. The MTDC had a variable number of values to read out as it could record multiple hits on each channel.
-% subsubsection data_from_midas (end)
-\subsubsection{De-Serialisation} % (fold)
-\label{sub:de_serialisation}
-The first raw data from MIDAS for the MTDC and QDC were serialised and mangled with the channel number this means that they require processing before the real values can be extracted. Below are brief summaries of the algorithms used to de-serialise the MTDC data (listing~\ref{lst:mtdc_algo}), for full listings, including de-serialisation methods for QDC, see appendix~\ref{app:deserialisation}.
-%
-\begin{listing}[htbp]
-    \begin{minted}[gobble=4]{c++}
-    tdc_value      =  raw_val & 0x001f ffff
-    tdc_channel    = (raw_val & 0x03e0 0000) >> 21
-    tdc_valid_read = (raw_val & 0xf800 0000) == 0x0
-    \end{minted}
-    \caption{Method for de-serialising CAEN V1290N~\cite{CAENV1290N} data}
-    \label{lst:mtdc_algo}
-\end{listing}
-% subsection de_serialisation (end)
-\subsubsection{Calibration} % (fold)
-\label{sub:calibration}
-The MTDC has a stated least significant bit resolution of \(\sim\)25~ps with a 21 bits of data per value, this gives a maximum value of 52~\(\mu\)s. Conversion from the stored value to real, trigger aligned, time is done using the formula:
+Once the data was saved it was calibrated to convert it to convert it to real world measurements. The calibration formula for the MH-TDC was:
 \begin{align}\label{equ:tdc_calibration}
-    t'   &= 0.024414(t - \text{TDC}0)
+    t'   &= 0.024414(t - \text{TDC0})
 \end{align}
-where $t'$ is the calibrated time, $t$ is the de-serialised MTDC value and TDC$0$ is the de-serialised trigger time. The value $0.024414$ is the calibration co-efficient as determined in Tran Nam's work~\cite{timecalibNam2012}
-% subsection calibration (end)
+where \(t'\) is the calibrated time, \(t\) is the de-serialised MTDC value and TDC0 is the de-serialised trigger time. The value \(0.024414\) was the calibration co-efficient as determined in Tran Nam's work~\cite{timecalibNam2012}.
 
-\subsubsection{Restructure} % (fold)
-\label{sub:restructure}
-In order for the MIDAS data to be easily manipulated it was restructured. The initial format was a simple structure of one branch for each module (i.e. one for MTDC one for the QDC and a final one for errors). A second tree was used to store the scaler values. Each branch had a leaf for the number of values and a leaf with the array of values.
+The final stage of data preparation was to bin the data, this was done to make later analysis quicker. Each channel had it's MH-TDC times combined in 1~ns bins. This left suitable accuracy whilst vastly reducing the data set's size.
 
-In the restructured file each channel is a branch of a tree with the following leaves: QDC, TDC0, nHITS, TDC[nHITS]. The QDC value is self-explanatory, TDC0 was the trigger time, nHITS was the number of entries recorded by the MTDC for that channel and TDC was an array of the values. The error data was ignored as was the scaler tree as these can be read from the original file if needed and neither was required for de-serialisation or calibration.
-% subsection restructure (end)
-\subsubsection{Histogramming} % (fold)
-\label{sub:Histogramming}
-Once the data has been restructured it is trivial to create a histogram of the TDC data for each channel which forms the basis of the later analysis. A basic bin width of 1~ns was used and a range from 0 to 20~\(\mu\)s. A time of 0 was used for the lowest bin as, although the data window began at 50~ns, the MTDC recorded data as a sliding window so some values prior to the trigger were also recorded. All the histograms for (i.e. for all channels for all runs) were saved in the same root file.
-% subsection histogramming (end)
 \subsection{Secondary calculations} % (fold)
 \label{sec:secondary_calculations}
-There are two secondary calculations that need to be performed to calculate the muon yield. These are the acceptance, the fraction of the total beam we can expect to detect, and the dead time, a measure of how much of the time the detector is unable to process new data due to being busy.
-\subsubsection{Acceptance} % (fold)
-\label{sub:acceptance}
-To calculate the acceptance the ratio of initial muons to muons that passed a `trigger' cut was calculated. This is done by counting the number of muons in simulated G4BL output (section~\ref{sub:g4bl_particle_production}) and then using a macro similar to that used to digitise the simulation output (section~\ref{sub:digitisation_histogramming}) to mimic the triggering process.
+Using the scaler information two checks could be made: the dead time and the Periodic Trigger Rate (PTR). The dead time of the system is a measure of how many events are lost because the system is busy. The PTR is a check that the rate of triggering events is reasonably constant, deviations from a constant rate would indicate possible problems with the data.
 
-The main difference between the acceptance macro (appendix~\ref{appsub:acceptance}) and the digitisation macro (appendix~\ref{appsub:digitisation_macro}) were in the cuts applied to select the particles. Rather than any possible parent particle in the upstream detector only muons are selected, similarly, in the downstream detector only electrons who had a parent muon are selected. A final requirement is that the time difference between muon and electron is greater than 50~ns.
-
-The acceptance is then the ratio of muon/electron pairs to the initial number of muons:
-\begin{align}
-    \text{Acceptance} &= \frac{\text{Decay muons}}{\text{Initial Muons}} \label{equ:acceptance}
-\end{align}
-It is worth noting that given the above definition and method the acceptance changes due to the thickness and type of degrader used. Obviously a degrader that removed the majority of the muons from the beam will have a smaller acceptance as a smaller fraction of the beam will have survived to be detected. The results of the acceptance calculations are given in table~\ref{tab:acceptance}, the macro used can be seen in appendix~\ref{appsub:acceptance}.
-\begin{table}
-    \begin{center}
-    \begin{tabular}{c| r@{ $\pm$ }l | r@{ $\pm$ }l | r@{ $\pm$ }l | r@{ $\pm$ }l }
-        Degrader (mm) & \multicolumn{2}{|c}{Count (no cut)} &
-                        \multicolumn{2}{|c}{Count ($\Delta t>50$~ns)} &
-                        \multicolumn{2}{|c}{Initial Muons} &
-                        \multicolumn{2}{|c}{Acceptance (\%)}\\
-        \hline
-              Air 5.0 & 6330 & 80 & 4540 & 67.4 & 95719 & 309.4 & 4.7 & 0.1\\
-        Aluminium 0.5 & 5636 & 75 & 3999 & 63.2 & 95719 & 309.4 & 4.2 & 0.1\\
-        Aluminium 1.0 & 5222 & 72 & 3689 & 60.7 & 95719 & 309.4 & 3.9 & 0.1\\
-        Aluminium 5.0 & 3632 & 60 & 2472 & 49.7 & 95719 & 309.4 & 2.6 & 0.1\\
-        
-    \end{tabular}
-    \end{center}
-    \caption{The variance of acceptance with degrader thickness. In the final acceptance a cut on $\Delta t$ requiring it to be $>$50~ns was used to account for the anti-coincidence of the downstream counter. The number of initial muons is from the G4Beamline simulation.}
-    \label{tab:acceptance}
-\end{table}
-% subsection acceptance (end)
 \subsubsection{Dead time} % (fold)
 \label{sub:dead_time}
-The calculation of the dead time is unlike that of the acceptance as it was calculated based on the real data rather than simulation. Using the scaler it is possible to estimate how much of the time the DAQ was busy and hence what percentage of data was missed. 
-
-As was stated in section~\ref{sub:data_acquisition} the scaler was used to record diagnostics on the DAQ. To calculate the dead time only two are needed, the trigger count and the potential trigger count which can be used to calculate the dead time thus:
+As was stated in section~\ref{sub:data_acquisition} the scaler was used to record diagnostics on the DAQ. To calculate the dead time the trigger count and the potential trigger count are needed which can be used thus:
 \begin{align}
-    D = \frac{\text{Potential Triggers}}{\text{Good Triggers}}
+    \text{Dead time} = \frac{\text{Potential Triggers}}{\text{Triggers}}
 \end{align}
-Where potential triggers are considered any anti-coincidence of the up without the downstream counter and a good trigger is one in which this occurs without the system being busy. The results for are given in table~\ref{tab:dead_time}. Obviously, the dead time is not used in the yield calculations using the simulated data.
+Where potential triggers are those with a signal in the upstream scintillator and no corresponding signal downstream within the 50~ns veto window. A good trigger is potential trigger that occurs without the system being busy. The results of this calculation are given in table~\ref{tab:dead_time}.
 \begin{table}
     \begin{center}
     \begin{tabular}{c|c|c|r@{ $\pm$ }l|r@{ $\pm$ }l|r@{ $\pm$ }l }
-        Run & Degrader (mm of Al) & Run time (s) &
-                              \multicolumn{2}{|c}{Good Triggers} &      
-                              \multicolumn{2}{|c}{Potential Triggers} &
-                              \multicolumn{2}{|c}{Dead time (\%)} \\
+        \multirow{2}{*}{Run} 
+             &  Degrader  &  Length 
+                              & \multicolumn{4}{c|}{Triggers (\(\times10^3\))} 
+                              & \multicolumn{2}{c}{Dead time} 
+                              \\
+             & (mm)       & (s)               
+                              & \multicolumn{2}{c|}{Good} 
+                              & \multicolumn{2}{c|}{Potential} 
+                              & \multicolumn{2}{c}{(\%)} 
+                              \\    
         \hline
-        448 & 0.0 & 9221 & 9652965 & 3106 & 15678757 & 3959 & 61.57 & 0.03 \\
-        451 & 0.5 & 1001 &  767321 & 875  &  1070366 & 1034 & 71.69 & 0.11 \\
-        452 & 0.5 & 4944 & 3459886 & 1860 &  4667767 & 2160 & 74.12 & 0.05 \\
-        455 & 1.0 & 6307 & 4090246 & 2022 &  5372409 & 2317 & 76.13 & 0.05 \\
-        458 & 5.0 & 5144 & 2049077 & 1431 &  2454952 & 1566 & 83.47 & 0.08 \\
-        459 & 5.0 & 2452 &  915314 & 956  &  1077534 & 1038 & 84.95 & 0.12 \\
+        448  &  0.0  &  9221  &  9653.0 & 3.1   &  15678.8 & 4.0  &  61.57 & 0.03 \\
+        451  &  0.5  &  1001  &  767.32 & 0.88  &   1070.4 & 1.0  &  71.69 & 0.11 \\
+        452  &  0.5  &  4944  &  3459.9 & 1.9   &   4667.8 & 2.2  &  74.12 & 0.05 \\
+        455  &  1.0  &  6307  &  4090.2 & 2.0   &   5372.4 & 2.3  &  76.13 & 0.05 \\
+        458  &  5.0  &  5144  &  2049.1 & 1.4   &   2455.0 & 1.6  &  83.47 & 0.08 \\
+        459  &  5.0  &  2452  &  915.31 & 0.96  &   1077.5 & 1.0  &  84.95 & 0.12 \\
     \end{tabular}
     \end{center}
     \caption{Dead time for each run along with the number of potential and good triggers. Run time is included to show the origin of the different counts.}
     \label{tab:dead_time}
 \end{table}
 % subsection dead_time (end)
-\subsubsection{Gain stability} % (fold)
+\subsubsection{Trigger Rate} % (fold)
 \label{sub:gain_stability}
-In order to better understand possible sources of systematics in the experiment the total trigger rate for each run was plotted over time. The gain stability should then be proportional to this trigger rate, giving a measure of how well the detector was working and highlighting any possible problems in the run. To plot this value the events produced in a run were divided into 10 sections, each containing an equal number of events. Using the values recorded by the scaler the length of each section in seconds could be determined (channel 7, see table~\ref{tab:scaler_chs}) as could the number of triggers seen in that section (channel 1). The results are plotted in figure~\ref{fig:gain_stability}, note that as the degrader thickness is increased the fit value decreases which is consistent with fewer particles reaching the detector. Full listings for plotting the gain stability can be found in appendix~\ref{appsub:gain_stability}.
+To ensure that there were no problems during data taking the trigger rate was checked. The trigger rate gives a measure of how consistent the detector was as well as highlighting any possible problems in the run. Each run was split into 100 equal sections and the trigger rate determined using the values recorded by the scaler. In this case the trigger used were potentials to remove any limiting affects of the dead time. The results are plotted in figure~\ref{fig:gain_stability} and fitted with a flat function. As can be seen as the degrader's thickness increases the trigger rate goes down. There are also some peaks in the first run (448), it is unclear what caused this. There are a few brief drops in rate in runs 458 and 459, it is suspected these are due to technical problems (e.g.\ loose cables).
 %
-
 \begin{sidewaysfigure}
   % \begin{figure}%[htbp]
       \centering
-          \includegraphics[width=\textwidth]{images/momentum_spectrum/gain_stability.png}
-      \caption{Gain stability for each run, the black lines indicate the gain stability for that period of time (each is  \(\frac{1}{10}\) of the run) whilst the blue histogram plots the cumulative number of triggers. The gain stability has bit fitted with an order 0 polynomial who's parameters are given.}
+          \includegraphics[width=\textwidth]{images/momentum_spectrum/gain_stability.eps}
+      \caption{Trigger rate of each run, split over 100 measurements. The triggers used were potential and so exclude any rate limiting due to dead time. The central 90~\% of the data has been fitted with an order 0 polynomial who's parameters are given.}
       \label{fig:gain_stability}
   % \end{figure}
 \end{sidewaysfigure}
 
-%
-\begin{table}
-    \begin{center}
-        \begin{threeparttable}
-            \begin{tabular}{c|c|c|c|r@{ $\pm$ }l}
-                Run & Al degrader thickness (mm) & $\chi^2$ 
-                                                 & N.D.F. \tnote{a}
-                                                 & \multicolumn{2}{|c}{Gain} \\
-                \hline
-                448  &  0.0  &  52.94   &  9  &  1.682  &  0.015  \\
-                451  &  0.5  &  0.8361  &  9  &  1.065  &  0.029  \\
-                452  &  0.5  &  14.7    &  9  &  0.940  &  0.011  \\
-                455  &  1.0  &  83.68   &  9  &  0.8331 &  0.0089 \\
-                458  &  5.0  &  83.41   &  9  &  0.4634 &  0.0055 \\
-                459  &  5.0  &  1.964   &  9  &  0.4363 &  0.0075 \\
-            \end{tabular}
-            \caption{Gains as determined by the fits to the gain stability in figure~\ref{fig:gain_stability}.}
-            \begin{tablenotes}
-                \item [a] Number of Degrees of Freedom
-            \end{tablenotes}
-            \label{tab:gain_stability_paramters}
-        \end{threeparttable}
-    \end{center}
-\end{table}
+% %
+% \begin{table}
+%     \begin{center}
+%         \begin{threeparttable}
+%             \begin{tabular}{c|c|c|c|r@{ $\pm$ }l}
+%                 Run & Al degrader thickness (mm) & $\chi^2$ 
+%                                                  & N.D.F. \tnote{a}
+%                                                  & \multicolumn{2}{|c}{Gain} \\
+%                 \hline
+%                 448  &  0.0  &  52.94   &  9  &  1.682  &  0.015  \\
+%                 451  &  0.5  &  0.8361  &  9  &  1.065  &  0.029  \\
+%                 452  &  0.5  &  14.7    &  9  &  0.940  &  0.011  \\
+%                 455  &  1.0  &  83.68   &  9  &  0.8331 &  0.0089 \\
+%                 458  &  5.0  &  83.41   &  9  &  0.4634 &  0.0055 \\
+%                 459  &  5.0  &  1.964   &  9  &  0.4363 &  0.0075 \\
+%             \end{tabular}
+%             \caption{Gains as determined by the fits to the gain stability in figure~\ref{fig:gain_stability}.}
+%             \begin{tablenotes}
+%                 \item [a] Number of Degrees of Freedom
+%             \end{tablenotes}
+%             \label{tab:gain_stability_paramters}
+%         \end{threeparttable}
+%     \end{center}
+% \end{table}
 
 % subsection gain_stability (end)
 % section secondary_calculations (end)
 \subsection{Results} % (fold)
 \label{sec:results}
-As has been discussed there are 6 data sets that were used for this analysis, the details of them are given in table~\ref{tab:music5_run_summary}. For each run the TDC data was collected using the described method and calibrated. Each histogram was then fitted using the formula:
+As has been discussed there are six data sets that were used for this analysis, the details of them are given in table~\ref{tab:run_summary}. For this analysis only the downstream scintillators are used as this was the scintillator best configured to detect them. Each run was analysed in the same way, once processing was complete (section~\ref{sec:data_processing}) the binned data was converted into a histogram and fitted using:
 \begin{align}
   N_{f}\exp(\frac{-t}{\tau_{f}}) + N_{c}\exp(\frac{-t}{\tau_{c}}) + N_{s}\sin(2\pi\frac{t-\phi}{T}) + N_{b} \label{equ:fit}
 \end{align}
-Where the `\(N\)' terms are  scaling factors and `\(\tau\)' terms are lifetimes. The \(f\) terms refer to the free decay of muons; the \(c\) terms are muonic decays in copper; the \(s\) term is a sinusoidal source of noise with period \(T\) and phase \(\phi\), the \(b\) term is a constant background term.
+\(t\) is the time in ns. The four terms each have their own subscript based on what they describe: free muon decay (\(f\)); decay of negative muons captured by the stopping target (\(c\)); a sinusoidal background (\(s\)) and a flat background (\(b\)). The two muon decay terms are parameterised with a scale factor (\(N\)) and a lifetime (\(\tau\)). The sinusoidal term has a period (\(T\)) and phase, relative to the trigger time, (\(\phi\)). 
 
-Once the data was fitted using Root the \(f\) and \(c\) portions were integrated individually to calculate the number of free and copper decays the muons underwent. The fit results are shown in figures~\ref{fig:images_momentum_spectrum_448}~to~\ref{fig:images_momentum_spectrum_459} and summarised in table~\ref{tab:fit_res}. To improve the \(\chi^2\) values of the fits \(\tau_{f}\) and \(\tau_{c}\) were fixed at their given values of \(2,196.9811\pm0.0022 \)~ns~\ref{PDG} and \( 163.5\pm1 \)~ns~\ref{Suzuki Cu tau} respectively. The period, \(T\), was constrained to \(60\pm5\)~ns as this was determined to be a good value from fitting the noise (see figure~\ref{fig:images_momentum_spectrum_448_D1_noise_fit}). 
-
-Fitting of the period of the background was done separately to the rest of the fit as this seemed to be something that ROOT struggled to do simultaneously with the other aspects of the fit. As can be seen a sinusoidal fit is not a very accurate description of the background but makes for a reasonable first-order approximation. 
+Originally only a flat background was used but this was found to be insufficient to describe the data and the sinusoidal component was introduced. The sinusoidal affect is thought to be minor bunching of the protons due to the AVF acceleration system which has a stated frequency of 6--18~MHz~\cite{AVF info} (or a period of 167--56~ns respectively). The flat background is made travelling particles that don't form a trigger but are recorded by the MH-TDC.
 
 In order to have good statistics whilst maintaining sensitivity to the relatively fast copper component of the decays a bin width of 16~ns was used. A large bin width (e.g.\ 100~ns) could have been used to smooth the sinusoidal noise but this would result in very few bins in which the copper component was significant. Whilst the ideal solution would be to use binning such that the sinusoidal component was cancelled out this was not feasible due to limitations of the fitting program. In the end a bin width was chosen that resulted in a small \(\chi^2\) whilst remaining sensitive to copper.
 
-The number of muons was normalised between runs to the proton beam current using:
-\begin{align}
-  R &= \frac{N_{\mu}}{I_p D E} \label{equ:rate}
-\end{align}
-Where \( R \) is the normalised rate of muon decays (in nA\(^{-1}\)), \(N_{\mu}\) is the number of muon decays (either free or from muonic copper), \( I_p \) is the proton current in nA, \( D \) is the duration of the run in s and \( E \) is the dead time (as given in table~\ref{tab:dead_time}). The rates and number of muon decays are given in table~\ref{tab:rates_res} along with the \(\chi^2\) values for each fit. Again the majority of the beam is clearly towards the top of the beam pipe as has previously been seen.
+Fitting all the parameters could not easily be done freely due to the range of values to which it was being fitted; some features (e.g.\ the periodic noise) had a scale of \(\mathcal{O}\)(60)~ns compared to the free decay \(\mathcal{O}\)(2,000)~ns and the entire fit range \(\mathcal{O}\)(20,000)~ns. To mitigate the problem of scale the known values, \(\tau_{f}\) and \(\tau_{c}\), were fixed at their given values of \(2,196.9811\pm0.0022 \)~ns~\ref{PDG} and \( 163.5\pm1 \)~ns~\ref{Suzuki Cu tau} respectively. The period, \(T\), was constrained to \(60\pm5\)~ns which was determined to be a good value from fitting the noise in isolation (see figure~\ref{fig:images_momentum_spectrum_448_D1_noise_fit}).
 
-Figures~\ref{fig:images_momentum_spectrum_run_muon_rate_in_f}~and~\ref{fig:images_momentum_spectrum_run_muon_rate_in_cu} show the rates of decays from free muons and muonic copper respectively. These plots are the `pure' rates based solely on the measured values. Between the pairs of runs (e.g.\ runs 451/452 and 458/459) there is good agreement and the general shape suggests that (unsurprisingly) as larger degraders are used there are fewer decays of stopped muons. As can be seen Further refinements can be made to enable more accurate comparison to simulation: inclusion of the acceptance and the detector efficiency as well as conversion of the degrader thickness to the simulated average momentums.
+\begin{figure}[hptb]
+  \centering
+    \includegraphics[width=.9\textwidth]{images/momentum_spectrum/448_D1_noise_fit.eps}
+  \caption{Zoomed region (8,000~to~8,600~ns) of run 448, channel D1, showing the sinusoidal component of the background, the background has been fitted using \(N_b + N_s\sin(2\pi\frac{t-\phi}{T})\).}
+  \label{fig:images_momentum_spectrum_448_D1_noise_fit}
+\end{figure}
 
-As can be seen in the fit data the \(\chi^2\) values for the fitting of channels D4 and D5 are generally poor because of this they were removed from the final, summed, rate calculation. The main cause of the poor \(\chi^2\) value is likely the low statistics compounded by the fact that, as the counters share a common trigger those scintillators that are further away from the beam spot will record a greater fraction of noise. Also clear is that even for the channels with better \(\chi^2\) values equation~\eqref{equ:fit} is not a full description of the data. This affect can be seen more clearly when the values for \( \tau_c \) and \( \tau_f \) are also fitted using ROOT, as shown in figures~\ref{fig:images_plot_generating_scripts_per_ch_copper_lifetime} and~\ref{fig:images_plot_generating_scripts_per_ch_free_lifetime} respectively. Both of these plots show that ROOT moves the fit away from the canonical values whilst simultaneously providing a worse \(\chi^2\) than is seen with the constrained values.
-
-\begin{table}
-  \begin{center}
-  \begin{tabular}{c|c|c|c}
-    \multirow{2}{*}{Run ID}  &  Degrader  &  Time  &  Proton Current  \\
-                             &   (mm)     &   (s)  &   (pA)           \\
-    \hline
-    448  &  0.0   &   9221  &  15  \\
-    451  &  0.5   &   1001  &  15  \\
-    452  &  0.5   &   4944  &  13  \\
-    455  &  1.0   &   6307  &  13  \\
-    458  &  5.0   &   5144  &  14  \\
-    459  &  5.0   &   2452  &  12  \\
-  \end{tabular}
-  \end{center}
-  \caption{Summary of the run conditions. The degrader was aluminium and the stopping target was fixed at 0.5~mm~copper.}
-  \label{tab:music5_run_summary}
-\end{table}
+Once the data was fitted using ROOT the \(f\) and \(c\) terms were integrated individually to calculate the number of free and copper decays the muons underwent. The fitted histograms are shown in figures~\ref{fig:images_momentum_spectrum_448}~to~\ref{fig:images_momentum_spectrum_459} and the results are summarised in table~\ref{tab:fit_res}. 
 
 \begin{table}
   \lineup % enable \0, \- & \.
@@ -748,7 +679,7 @@ As can be seen in the fit data the \(\chi^2\) values for the fitting of channels
   \begin{tabular}{ c | c | r@{\(\,\pm\,\)}l | r@{\(\,\pm\,\)}l | r@{\(\,\pm\,\)}l | r@{\(\,\pm\,\)}l | r@{\(\,\pm\,\)}l }
   % \begin{tabular}{ c | c | S@{\(\pm\)}S | S@{\(\pm\)}S | S@{\(\pm\)}S | S@{\(\pm\)}S | S@{\(\pm\)}S }
     Run  
-      &  Channel  
+      &  Ch.  
              & \multicolumn{2}{c|}{\(N_b\)} 
                                  &  \multicolumn{2}{c|}{\(N_s\)}
                                                      &  \multicolumn{2}{c|}{\(\phi\)}  
@@ -801,6 +732,63 @@ As can be seen in the fit data the \(\chi^2\) values for the fitting of channels
   \caption{Summary of the fitted values for equation~\eqref{equ:fit}. These are the values used for the calculation of the integrals and, ultimately, the muon rates. The two lifetime parameters, \( \tau_f \) and \( \tau_c \), were fixed at the values \(2,196.9811\pm0.0022 \)~ns~\ref{PDG} and \( 163.5\pm1 \)~ns~\ref{Suzuki Cu tau} respectively, \( T \) was fixed at 60~ns.}
   \label{tab:fit_res}
 \end{table}
+
+\begin{sidewaysfigure}
+    \centering
+      \includegraphics[scale=1]{images/momentum_spectrum/448.eps}
+    \caption{Per channel fitting of data for run 448, for this run there was no degrader.}
+    \label{fig:images_momentum_spectrum_448}
+\end{sidewaysfigure}
+%
+\begin{sidewaysfigure}
+    \centering
+      \includegraphics[scale=1]{images/momentum_spectrum/451.eps}
+    \caption{Per channel fitting of data for run 451, for this run a 0.5~mm aluminium degrader was used.}
+    \label{fig:images_momentum_spectrum_451}
+\end{sidewaysfigure}
+%
+\begin{sidewaysfigure}
+    \centering
+      \includegraphics[scale=1]{images/momentum_spectrum/452.eps}
+    \caption{Per channel fitting of data for run 452, for this run a 0.5~mm aluminium degrader was used.}
+    \label{fig:images_momentum_spectrum_452}
+\end{sidewaysfigure}
+%
+\begin{sidewaysfigure}
+    \centering
+      \includegraphics[scale=1]{images/momentum_spectrum/455.eps}
+    \caption{Per channel fitting of data for run 455, for this run a 1~mm aluminium degrader was used.}
+    \label{fig:images_momentum_spectrum_455}
+\end{sidewaysfigure}
+%
+\begin{sidewaysfigure}
+    \centering
+      \includegraphics[scale=1]{images/momentum_spectrum/458.eps}
+    \caption{Per channel fitting of data for run 458, for this run a 5~mm aluminium degrader was used.}
+    \label{fig:images_momentum_spectrum_458}
+\end{sidewaysfigure}
+%
+\begin{sidewaysfigure}
+    \centering
+      \includegraphics[scale=1]{images/momentum_spectrum/459.eps}
+    \caption{Per channel fitting of data for run 459, for this run a 5~mm aluminium degrader was used.}
+    \label{fig:images_momentum_spectrum_459}
+\end{sidewaysfigure}
+
+
+\clearpage
+
+Once calculated via integration the number of muons was normalised between runs to the proton beam current using:
+\begin{align}
+  R &= \frac{N_{\mu}}{I_p D E} \label{equ:rate}
+\end{align}
+Where \( R \) is the normalised rate of muon decays (in nA\(^{-1}\)), \(N_{\mu}\) is the number of muon decays (either free or from muonic copper), \( I_p \) is the proton current in nA, \( D \) is the duration of the run in seconds and \( E \) is the dead time (as given in table~\ref{tab:dead_time}). The rates and number of muon decays are given in table~\ref{tab:rates_res} along with the \(\chi^2\) values for each fit. Again the majority of the beam is clearly towards the top of the beam pipe as has previously been seen (section~\ref{sec:flux_results}).
+
+Figures~\ref{fig:images_momentum_spectrum_run_muon_rate_in_f}~and~\ref{fig:images_momentum_spectrum_run_muon_rate_in_cu} show the rates of decays from free muons and muonic copper respectively. These plots are the `pure' rates based solely on the measured values. Between the pairs of runs (e.g.\ runs 451/452 and 458/459) there is good agreement and the general shape suggests that (unsurprisingly) as larger degraders are used there are fewer decays of stopped muons. 
+
+% As can be seen further refinements can be made to enable more accurate comparison to simulation: inclusion of the acceptance and the detector efficiency as well as conversion of the degrader thickness to the simulated average momentums.
+
+As can be seen in the fit data the \(\chi^2\) values for the fitting of channels D4 and D5 are generally poor because of this they were removed from the final, summed, rate calculation. The main cause of the poor \(\chi^2\) value is likely the low statistics compounded by the fact that, as the counters share a common trigger those scintillators that are further away from the beam spot will record a greater fraction of noise. Also clear is that even for the channels with better \(\chi^2\) values equation~\eqref{equ:fit} is not a full description of the data. This affect can be seen more clearly when the values for \( \tau_c \) and \( \tau_f \) are also fitted using ROOT, as shown in figures~\ref{fig:images_plot_generating_scripts_per_ch_free_lifetime}~and~\ref{fig:images_plot_generating_scripts_per_ch_copper_lifetime} respectively. Both of these plots show that ROOT moves the fit away from the canonical values whilst simultaneously providing a worse \(\chi^2\) than is seen with the constrained values, this is likely made worse by the range problem discussed earlier.
 
 \begin{table}
   \lineup
@@ -867,53 +855,18 @@ As can be seen in the fit data the \(\chi^2\) values for the fitting of channels
   \label{tab:rates_res}
 \end{table}
 
-\begin{sidewaysfigure}
-    \centering
-      \includegraphics[scale=1]{images/momentum_spectrum/448.eps}
-    \caption{Per channel fitting of data for run 448, for this run there was no degrader.}
-    \label{fig:images_momentum_spectrum_448}
-\end{sidewaysfigure}
-%
-\begin{sidewaysfigure}
-    \centering
-      \includegraphics[scale=1]{images/momentum_spectrum/451.eps}
-    \caption{Per channel fitting of data for run 451, for this run a 0.5~mm aluminium degrader was used.}
-    \label{fig:images_momentum_spectrum_451}
-\end{sidewaysfigure}
-%
-\begin{sidewaysfigure}
-    \centering
-      \includegraphics[scale=1]{images/momentum_spectrum/452.eps}
-    \caption{Per channel fitting of data for run 452, for this run a 0.5~mm aluminium degrader was used.}
-    \label{fig:images_momentum_spectrum_452}
-\end{sidewaysfigure}
-%
-\begin{sidewaysfigure}
-    \centering
-      \includegraphics[scale=1]{images/momentum_spectrum/455.eps}
-    \caption{Per channel fitting of data for run 455, for this run a 1~mm aluminium degrader was used.}
-    \label{fig:images_momentum_spectrum_455}
-\end{sidewaysfigure}
-%
-\begin{sidewaysfigure}
-    \centering
-      \includegraphics[scale=1]{images/momentum_spectrum/458.eps}
-    \caption{Per channel fitting of data for run 458, for this run a 5~mm aluminium degrader was used.}
-    \label{fig:images_momentum_spectrum_458}
-\end{sidewaysfigure}
-%
-\begin{sidewaysfigure}
-    \centering
-      \includegraphics[scale=1]{images/momentum_spectrum/459.eps}
-    \caption{Per channel fitting of data for run 459, for this run a 5~mm aluminium degrader was used.}
-    \label{fig:images_momentum_spectrum_459}
-\end{sidewaysfigure}
+\begin{figure}[hptb]
+  \centering
+    \includegraphics[width=.9\textwidth]{images/momentum_spectrum/run_muon_rate_in_f.eps}
+  \caption{Integrated number of free muon decays summed over all channels.}
+  \label{fig:images_momentum_spectrum_run_muon_rate_in_f}
+\end{figure}
 
 \begin{figure}[hptb]
   \centering
-    \includegraphics[width=.9\textwidth]{images/momentum_spectrum/448_D1_noise_fit.eps}
-  \caption{Zoomed region (8,000~to~8,600~ns) of run 448, channel D1, showing the sinusoidal component of the background, the background has been fitted using \(N_b + N_s\sin(2\pi\frac{t-\phi}{T})\).}
-  \label{fig:images_momentum_spectrum_448_D1_noise_fit}
+    \includegraphics[width=.9\textwidth]{images/momentum_spectrum/run_muon_rate_in_cu.eps}
+  \caption{Integrated number of muon decays in copper summed over all channels.}
+  \label{fig:images_momentum_spectrum_run_muon_rate_in_cu}
 \end{figure}
 
 \begin{figure}[hptb]
@@ -929,34 +882,77 @@ As can be seen in the fit data the \(\chi^2\) values for the fitting of channels
   \label{fig:images_plot_generating_scripts_per_ch_copper_lifetime}
 \end{figure}
 
-\begin{figure}[hptb]
-  \centering
-    \includegraphics[width=.9\textwidth]{images/plot_generating_scripts/Ratio.eps}
-  \caption{Ratio of copper to free decays. The X-axis shows the degrader thickness whilst the colour indicates channel.}
-  \label{fig:images_plot_generating_scripts_Ratio}
-\end{figure}
+% \begin{figure}[hptb]
+%   \centering
+%     \includegraphics[width=.9\textwidth]{images/plot_generating_scripts/Ratio.eps}
+%   \caption{Ratio of copper to free decays. The X-axis shows the degrader thickness whilst the colour indicates channel.}
+%   \label{fig:images_plot_generating_scripts_Ratio}
+% \end{figure}
 
-\begin{figure}[hptb]
-  \centering
-    \includegraphics[width=.9\textwidth]{images/momentum_spectrum/run_muon_rate_in_f.eps}
-  \caption{Integrated number of free muon decays summed over all channels.}
-  \label{fig:images_momentum_spectrum_run_muon_rate_in_f}
-\end{figure}
-
-\begin{figure}[hptb]
-  \centering
-    \includegraphics[width=.9\textwidth]{images/momentum_spectrum/run_muon_rate_in_cu.eps}
-  \caption{Integrated number of muon decays in copper summed over all channels.}
-  \label{fig:images_momentum_spectrum_run_muon_rate_in_cu}
-\end{figure}
 \clearpage
-Once the muon rates (figure~\ref{fig:images_momentum_spectrum_run_muon_rate_in_f}) have been calculated they can be adjusted to account for other affects. This is shown in figure~\ref{fig:images_plot_generating_scripts_adjusted_muon_rates} where additional terms have been incorporated to account for the photon acceptance, the systematic errors due to fitting of curve and the efficiency of the MPPCs. The photon acceptance is taken to be the ratio of muon that decay in a detectable manner to those decay events that produce detected photons. A detectable decay is one where a muon is present in the upstream scintillator and its daughter electron in the downstream scintillator whilst the requirements for detected photons are that the photons must exceed the threshold of that scintillator as well as having an upstream/downstream separation of greater than 50~ns. The efficiency is taken to be twice the product of the average efficiency of one MPPC from section~\ref{sec:detector_efficiency}. The adjusted decay rate, \(R_a\), is then given by:
-\begin{align}
-    R_a &= \frac{N_{\mu}}{I_p D E \epsilon_{\text{MPPC}}^2 A } \label{equ:adj_rate}
-\end{align}
-Where the symbols \(I_p\), \(D\) and \(E\) have the same meaning as in equation~\eqref{equ:rate}. Furthermore \(\epsilon_{\text{MPPC}}\) is the average efficiency of an MPPC as determined in section~\ref{sec:detector_efficiency} and \(A\) is the photon acceptance as determined by simulation (see section~\ref{WRITE THIS SECTION ON PHOTON ACCEPTANCE}). 
+Once the muon rates (figure~\ref{fig:images_momentum_spectrum_run_muon_rate_in_f}) have been calculated they can be adjusted to account for other affects. This is shown in figure~\ref{fig:images_plot_generating_scripts_adjusted_muon_rates} where additional terms have been incorporated to account for the photon acceptance, the MPPC efficiency and the systematic errors due to the fitting procedure. 
 
-The same protocol can be applied to the muonic copper decays to get an adjusted rate that is shown in figure~\ref{fig:images_plot_generating_scripts_adjusted_muon_rates_cu} and table~\ref{tab:adjusted_cu_rates}.
+The photon acceptance was calculated using the optical simulation and defined to be the ratio of muons that decay in a detectable manner (`potential decays') to those that produce photons that are detected (`detected decays'):
+\begin{align}
+  A &= \frac{\text{Potential decays}}{\text{Detected decays}} \label{equ:photon_acceptance}
+\end{align}
+Whilst this doesn't include geometrical acceptance for the muons this was elided as it would require knowledge of how many muons, of which momenta, survived through the degrader and too tightly couple the measurement to the simulation. A detectable muon is considered to be one that traverses the upstream detector and has a corresponding daughter electron traverse the downstream detector with a separation of at least 50~ns between these events. The requirement for a detected photons are that the number of photons seen exceed the threshold (eight and ten photons for the up and downstream MPPC respectively, see section~\ref{sub:data_acquisition}) as well as having a greater than 50~ns separation. Putting the values from the simulation into equation~\eqref{equ:photon_acceptance}:
+\begin{align}
+  A &= \frac{5974}{7687} \\
+    &= 77.7\%
+\end{align}
+
+The efficiency of any single scintillator was taken to be the square of the average efficiency of a MPPC:
+\begin{align}
+  \epsilon_{\textsc{mppc}}^2 &= 0.186 \pm 0.041 
+\end{align}
+Where \(\epsilon_{\textsc{mppc}}\) is the efficiency of a single MPPC from section~\ref{sec:detector_efficiency}. Whilst the efficiency measured was for a different experimental set up and different MPPCs for the final run it was not possible to make a measurement of the efficiency so this acts as a reasonable approximation.
+
+The systematic errors were largely assumed to be due to the inaccuracies in the method of fitting and integrating the data. Sources of this have already been discussed but to quantify it the key values were varied to show the affects of changing the parameters of the fit itself, rather than the parameters that were fitted (e.g.\ \(\tau_f\)). The key parameters were determined to be the point from which the fit was applied (the `lower bound') and the width of the bins used to fit the data. The bin width was varied to 8 and 32~ns whilst the lower bound could only be increased so was changed to 75~ns (there is no data before 50~ns). Using these values all the data was re-fit and the difference from measured value taken. The results are given in table~\ref{tab:systematic_fits}. The maximal fractional differences from the standard measured using 16~ns bins and a 50~ns lower bound were used as the systematic error. The systematic errors were 55.85\% and 1.14\% for copper and free decay counts respectively. As is clear the systematics on the copper fit is much higher but this is what we would expect. The systematic error on the copper count is included in the adjusted rate but not for the free rate as the error on the efficiency is the dominant term then.
+
+\begin{table}
+  \begin{center}
+  \begin{tabular}{c | c | c | c | c | c | c | c | c}
+    \multirow{2}{*}{Run}  &  
+          Bin         &  Lower       & \multicolumn{3}{c|}{Copper}     & \multicolumn{3}{c}{Free}       \\
+       &  width (ns)  &  bound (ns)  & Decays & Difference & Fraction  & Decays & Difference & Fraction \\
+    \hline
+     448  & \multirow{6}{*}{50} & \multirow{6}{*}{8} 
+              &  228.66  &    0.17  &  0.0007  &  6064.08  &    0.69  &  0.0001 \\ 
+     451  & & &  179.62  &    0.54  &  0.0030  &  4080.08  &    0.27  &  0.0001 \\ 
+     452  & & &  193.81  &    0.17  &  0.0009  &  4159.70  &    1.28  &  0.0003 \\ 
+     455  & & &  186.84  &    0.22  &  0.0012  &  3845.32  &    1.36  &  0.0004 \\ 
+     458  & & &  160.44  &    0.35  &  0.0022  &  2502.20  &    0.11  &  0.0000 \\ 
+     459  & & &  172.77  &    0.64  &  0.0037  &  2549.44  &    0.79  &  0.0003 \\ 
+    \hline
+    448  & \multirow{6}{*}{50} & \multirow{6}{*}{32} 
+             &  184.25  &   44.24  &  0.1936  &  6097.10  &   32.33  &  0.0053 \\ 
+    451  & & &  139.95  &   40.21  &  0.2232  &  4103.83  &   24.03  &  0.0059 \\ 
+    452  & & &  148.37  &   45.27  &  0.2338  &  4191.79  &   30.81  &  0.0074 \\ 
+    455  & & &  141.78  &   44.84  &  0.2403  &  3874.43  &   27.75  &  0.0072 \\ 
+    458  & & &  110.46  &   49.63  &  0.3100  &  2530.72  &   28.42  &  0.0114 \\ 
+    459  & & &  126.63  &   45.50  &  0.2643  &  2577.57  &   27.34  &  0.0107 \\
+    \hline
+    448  & \multirow{6}{*}{75} & \multirow{6}{*}{16} 
+             &  132.05  &   96.44  &  0.4221  &  6047.05  &   17.72  &  0.0029 \\ 
+    451  & & &   93.76  &   86.39  &  0.4796  &  4078.37  &    1.43  &  0.0004 \\ 
+    452  & & &  105.99  &   87.66  &  0.4527  &  4157.79  &    3.20  &  0.0008 \\ 
+    455  & & &   99.67  &   86.95  &  0.4659  &  3846.58  &    0.10  &  0.0000 \\ 
+    458  & & &   70.68  &   89.41  &  0.5585  &  2517.28  &   14.97  &  0.0060 \\ 
+    459  & & &   84.21  &   87.92  &  0.5108  &  2561.92  &   11.69  &  0.0046 \\
+  \end{tabular}
+  \end{center}
+  \caption{Results of the systematics fits. The maximal values for copper and free decays were taken as the systematic errors for each value (55.85\% and 1.14\% respectively).}
+  \label{tab:systematic_fits}
+\end{table}
+
+The adjusted muon decay rate, \( R_a \), is then:
+\begin{align}
+    R_a &= \frac{N_{\mu}}{I_p D E A \epsilon_{\textsc{mppc}}^2 } \label{equ:adj_rate}
+\end{align}
+Where the symbols \(I_p\), \(D\) and \(E\) have the same meaning as in equation~\eqref{equ:rate}. The symbols:  \(\epsilon_{\textsc{mppc}}\) and \( A \) are the average efficiency of an MPPC and the photon acceptance respectively. Table~\ref{tab:adjusted_free_decay_rates} shows the results of this calculation and figure~\ref{fig:images_plot_generating_scripts_adjusted_muon_rates} compares it to simulation. As can be seen there is good agreement between the adjusted rate of muon decay and what is expected from simulation.
+
+The same protocol can be applied to the muonic copper decays as well as adding the systematic error to get an adjusted rate that is shown in figure~\ref{fig:images_plot_generating_scripts_adjusted_muon_rates_cu} and table~\ref{tab:adjusted_cu_rates}. Unfortunately due to the limitations of the simulation not enough negative muons are produced for accurate comparison and so only the measured values are shown here.
 
 \begin{table}
   \begin{center}
@@ -976,43 +972,32 @@ The same protocol can be applied to the muonic copper decays to get an adjusted 
 
 \begin{table}
   \begin{center}
-  \begin{tabular}{c | c | c | c | c}
-    Momentum  & \multirow{2}{*}{Runs}  &  Rate           &  \multicolumn{2}{c}{Error (nA\(^{-1}\))} \\
-     (MeV/c)  &                        &  (nA\(^{-1}\))  &     (incl.\ eff.)  &  (excl.\ eff.)      \\
+  \begin{tabular}{c | c | c | c | c | c}
+    Momentum  & \multirow{2}{*}{Runs}  &  Rate           &  \multicolumn{3}{c}{Error (nA\(^{-1}\))}   \\
+     (MeV/c)  &                        &  (nA\(^{-1}\))  &  Total  &  (excl.\ sys.)  &  (excl.\ eff.) \\
     \hline
-    41.0  &       448  &  1580  &  352  &  42  \\
-    46.7  &  451, 452  &  1293  &  289  &  45  \\
-    50.3  &       455  &  1291  &  288  &  36  \\
-    65.7  &  458, 459  &  1149  &  256  &  29  \\
+    41.0  &       448  &  1580  &  628  &  352  &  42  \\
+    46.7  &  451, 452  &  1293  &  519  &  289  &  45  \\
+    50.3  &       455  &  1291  &  514  &  288  &  36  \\
+    65.7  &  458, 459  &  1149  &  457  &  256  &  29  \\
   \end{tabular}
   \end{center}
-  \caption{Adjusted rates of muonic copper decay. Errors are split into the dominant portion (due to MPPC efficiency) and other sources.}
+  \caption{Adjusted rates of muonic copper decay. Errors are split into three: total error (including systematics and MPPC efficiency); error excluding systematics but including MPPC efficiency; and error excluding both systematic and efficiency contributions (i.e.\ statistical).}
   \label{tab:adjusted_cu_rates}
 \end{table}
 
 \begin{figure}[hptb] 
   \centering
-    \includegraphics[width=.9\textwidth]{images/plot_generating_scripts/adjusted_muon_rates.eps}
-  \caption{Adjusted free muon decay rate and simulated free muon decay rate. The thin error lines for the measured rate indicate the error due to MPPC efficiency whilst the thicker line are due to the remainder of the errors (mainly statistical).}
+    \includegraphics[width=\textwidth]{images/plot_generating_scripts/adjusted_muon_rates.eps}
+  \caption{Adjusted free muon decay rate and simulated free muon decay rate. The red lines are the simulated results, the blue lines the measured results including the MPPC efficiency error and the black lines are the measured values without the MPPC efficiency error.}
   \label{fig:images_plot_generating_scripts_adjusted_muon_rates}
 \end{figure}
 
 \begin{figure}[hptb]
   \centering
-    \includegraphics[width=.9\textwidth]{images/plot_generating_scripts/adjusted_muon_rates_cu.eps}
-  \caption{Adjusted decay rate of muonic copper. The simulated rates are not shown as the statistics for muonic copper decays were too low to extract reasonable values from. As with the freely decaying muons the thinner error lines are due to the uncertainty on the MPPC efficiency and the thicker lines due to statistics and the other factors.}
+    \includegraphics[width=\textwidth]{images/plot_generating_scripts/adjusted_muon_rates_cu.eps}
+  \caption{Adjusted decay rate of muonic copper. The simulated rates are not shown as the statistics for muonic copper decays were too low to extract reasonable values from. The blue line indicates the error due to systematic error, the red line is the MPPC efficiency error and the black line the statistical error.}
   \label{fig:images_plot_generating_scripts_adjusted_muon_rates_cu}
 \end{figure}
 
-\subsection{Systematics} % (fold)
-\label{sub:systematics}
-
 % subsection systematics (end)
-% 
-% \label{sec:results}
-% % section results (end)
-% \section{Analysis} % (fold)
-% \label{sec:analysis}
-
-
-
