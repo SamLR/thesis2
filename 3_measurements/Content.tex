@@ -778,11 +778,11 @@ Once the data was fitted using ROOT the \(f\) and \(c\) terms were integrated in
 
 \clearpage
 
-Once calculated via integration the number of muons was normalised between runs to the proton beam current using:
+Once calculated via integration the number of muons can be summed for all the channels in a run. The summed value can then be normalised between runs to the proton beam current using:
 \begin{align}
-  R &= \frac{N_{\mu}}{I_p D E} \label{equ:rate}
+  R &= \frac{N_{\mu}}{I_p T D} \label{equ:rate}
 \end{align}
-Where \( R \) is the normalised rate of muon decays (in nA\(^{-1}\)), \(N_{\mu}\) is the number of muon decays (either free or from muonic copper), \( I_p \) is the proton current in nA, \( D \) is the duration of the run in seconds and \( E \) is the dead time (as given in table~\ref{tab:dead_time}). The rates and number of muon decays are given in table~\ref{tab:rates_res} along with the \(\chi^2\) values for each fit. Again the majority of the beam is clearly towards the top of the beam pipe as has previously been seen (section~\ref{sec:flux_results}).
+Where \( R \) is the normalised rate of muon decays (in nA\(^{-1}\)), \(N_{\mu}\) is the number of muon decays (either free or from muonic copper), \( I_p \) is the proton current in nA, \( T \) is the duration of the run in seconds and \( D \) is the dead time (as given in table~\ref{tab:dead_time}). The rates and number of muon decays are given in table~\ref{tab:rates_res} along with the \(\chi^2\) values for each fit. Again the majority of the beam is clearly towards the top of the beam pipe as has previously been seen (section~\ref{sec:flux_results}).
 
 Figures~\ref{fig:images_momentum_spectrum_run_muon_rate_in_f}~and~\ref{fig:images_momentum_spectrum_run_muon_rate_in_cu} show the rates of decays from free muons and muonic copper respectively. These plots are the `pure' rates based solely on the measured values. Between the pairs of runs (e.g.\ runs 451/452 and 458/459) there is good agreement and the general shape suggests that (unsurprisingly) as larger degraders are used there are fewer decays of stopped muons. 
 
@@ -791,69 +791,93 @@ Figures~\ref{fig:images_momentum_spectrum_run_muon_rate_in_f}~and~\ref{fig:image
 As can be seen in the fit data the \(\chi^2\) values for the fitting of channels D4 and D5 are generally poor because of this they were removed from the final, summed, rate calculation. The main cause of the poor \(\chi^2\) value is likely the low statistics compounded by the fact that, as the counters share a common trigger those scintillators that are further away from the beam spot will record a greater fraction of noise. Also clear is that even for the channels with better \(\chi^2\) values equation~\eqref{equ:fit} is not a full description of the data. This affect can be seen more clearly when the values for \( \tau_c \) and \( \tau_f \) are also fitted using ROOT, as shown in figures~\ref{fig:images_plot_generating_scripts_per_ch_free_lifetime}~and~\ref{fig:images_plot_generating_scripts_per_ch_copper_lifetime} respectively. Both of these plots show that ROOT moves the fit away from the canonical values whilst simultaneously providing a worse \(\chi^2\) than is seen with the constrained values, this is likely made worse by the range problem discussed earlier.
 
 \begin{table}
-  \lineup
   \begin{center}
-  \begin{tabular}{c | c | r@{\(\,\pm\,\)}l | r@{\(\,\pm\,\)}l | r@{\(\,\pm\,\)}l | r@{\(\,\pm\,\)}l | r | l }
-   \multirow{2}{*}{Run} 
-     & \multirow{2}{*}{Channel}
-          &  \multicolumn{2}{c|}{Copper}
-                         &  \multicolumn{2}{c|}{Free}  
-                                          & \multicolumn{2}{c|}{Rate (copper)}
-                                                                 &\multicolumn{2}{c|}{Rate (free)}
-                                                                     &\multicolumn{1}{c|}{\multirow{2}{*}{\(\chi^2\)}}
-                                                                                     & \multicolumn{1}{c}{\multirow{2}{*}{NDF}}  \\ 
-     &    & \multicolumn{2}{c|}{decays}
-                         &  \multicolumn{2}{c|}{decays}  
-                                           & \multicolumn{2}{c|}{(nA\(^{-1}\))}
-                                                                & \multicolumn{2}{c|}{(nA\(^{-1}\))}
-                                                                                     &         &      \\
-   \hline
-   \multirow{5}{*}{448}
-     & D1 &   4098 & 232  &  184833 & 758  &    47.1\0& 2.7   &  2122.7  &  8.8   &    2772 & 1239  \\
-     & D2 &  11377 & 286  &  259990 & 928  &   130.7\0& 3.3   &  2986\.\0& 11     &    5815 & 1239  \\
-     & D3 &   4420 & 153  &   83253 & 458  &    50.8\0& 1.8   &   956.1  &  5.3   &    2116 & 1239  \\
-     & D4 &   1462 &  85  &   23189 & 228  &    16.79 & 0.98  &   266.3  &  2.6   &  115129 & 1239  \\
-     & D5 &    188 &  59  &   12223 & 183  &     2.16 & 0.68  &   140.4  &  2.1   &   37059 & 1239  \\
-   \hline
-   \multirow{5}{*}{451}
-     & D1 &    220 &  60  &   13602 & 202  &    19.8\0& 5.4   &  1226\.\0& 18    &   2887 & 1239  \\ 
-     & D2 &   1140 &  84  &   23915 & 261  &   102.8\0& 7.6   &  2155\.\0& 24    &   1592 & 1239  \\ 
-     & D3 &    639 &  49  &    7751 & 132  &    57.6\0& 4.4   &   699\.\0& 12    &   1759 & 1239  \\ 
-     & D4 &    193 &  26  &    2227 &  66  &    17.4\0& 2.3   &   200.7  &  6.0  &   3020 & 1239  \\ 
-     & D5 &     55 &  19  &    1178 &  53  &     5.0\0& 1.8   &   106.1  &  4.8  &   2040 & 1239  \\ 
-   \hline
-   \multirow{5}{*}{452}
-     & D1 &   1550 & 128  &   58446 & 413  &    32.2\0& 2.7   &  1214.5  &  8.6  &   1672 & 1239  \\
-     & D2 &   5268 & 175  &  106013 & 538  &   109.5\0& 3.7   &  2203\.\0& 11    &   2416 & 1239  \\
-     & D3 &   2501 & 100  &   35787 & 277  &    52.0\0& 2.1   &   743.6  &  5.8  &   1680 & 1239  \\
-     & D4 &    957 &  57  &   10282 & 141  &    19.9\0& 1.2   &   213.7  &  2.9  &  32046 & 1239  \\
-     & D5 &    196 &  39  &    5195 & 110  &     4.08 & 0.81  &   108.0  &  2.3  &   9906 & 1239  \\
-   \hline
-   \multirow{5}{*}{455}
-     & D1 &   1976 & 142  &   72348 & 453  &    30.9\0& 2.2   &   1131.0 &  7.1  &   1766 & 1239  \\
-     & D2 &   6689 & 194  &  129903 & 589  &   104.6\0& 3.0   &   2030.8 &  9.3  &   2726 & 1239  \\
-     & D3 &   3273 & 112  &   43808 & 304  &    51.1\0& 1.8   &    684.9 &  4.8  &   1865 & 1239  \\
-     & D4 &   1457 &  65  &   11730 & 151  &    22.8\0& 1.0   &    183.4 &  2.4  &  56096 & 1239  \\
-     & D5 &    318 &  44  &    6308 & 121  &     4.97 & 0.69  &     98.6 &  1.9  &  15454 & 1239  \\
-   \hline
-   \multirow{5}{*}{458}
-     & D1 &   1633 & 109  &   46999 & 328  &    27.9\0& 1.9   &    803.4 &  5.7  &   1418 & 1239  \\
-     & D2 &   5968 & 149  &   75477 & 414  &   102.0\0& 2.6   &   1290.2 &  7.2  &   2265 & 1239  \\
-     & D3 &   1765 &  82  &   23907 & 214  &    30.2\0& 1.4   &    408.7 &  3.7  &   1477 & 1239  \\
-     & D4 &    542 &  44  &    6607 & 107  &     9.27 & 0.75  &    112.9 &  1.8  &  12516 & 1239  \\
-     & D5 &    145 &  32  &    3773 &  87  &     2.48 & 0.54  &     64.5 &  1.5  &   5842 & 1239  \\
-   \hline
-   \multirow{5}{*}{459}
-     & D1 &    861 &  74  &   20803 & 216  &    33.4\0& 2.9   &    806.5 &  8.5  &   1314 & 1239  \\
-     & D2 &   2757 & 100  &   34085 & 275  &   106.9\0& 3.9   &   1321.4 & 10.8  &   1780 & 1239  \\
-     & D3 &    822 &  55  &   10893 & 143  &    31.9\0& 2.1   &    422.3 &  5.6  &   1596 & 1239  \\
-     & D4 &    293 &  37  &    2954 &  73  &    11.4\0& 1.4   &    114.5 &  2.8  &   3981 & 1239  \\
-     & D5 &     61 &  21  &    1708 &  58  &     2.35 & 0.81  &     66.2 &  2.2  &   2110 & 1239  \\
+  \begin{tabular}{c | c | c | c | r@{\(\pm\)}l | r@{\(\pm\)}l | r@{\(\pm\)}l | r@{\(\pm\)}l  }
+    \multirow{2}{*}{Run}  &  \(I_{p}\)  &  \(T\)  &  \multirow{2}{*}{\(D\)}  
+         &  \multicolumn{4}{c|}{Copper Decays}   
+                                          & \multicolumn{4}{c}{Free Decays}\\
+                          &  (nA)       &   (s)   &
+         &  \multicolumn{2}{c|}{Count}
+                         &  \multicolumn{2}{c|}{ Rate (nA\(^{-1}\))}
+                                          &  \multicolumn{2}{c|}{Count}
+                                                            &  \multicolumn{2}{c}{Rate (nA\(^{-1}\))} \\
+    \hline
+    448  &  0.01534  &  9221  &  0.6157  &  19895 & 400  &  228.5 & 4.6   &  528076 & 1283  &  6065 & 15  \\
+    451  &  0.01546  &  1001  &  0.7169  &   1999 & 114  &  180.2 & 10.3  &   45269 & 355   &  4080 & 33  \\
+    452  &  0.01313  &  4944  &  0.7412  &   9319 & 240  &  193.6 & 5.0   &  200246 & 732   &  4161 & 15  \\
+    455  &  0.01332  &  6307  &  0.7613  &  11937 & 265  &  186.6 & 4.1   &  246059 & 803   &  3847 & 13  \\
+    458  &  0.01363  &  5144  &  0.8347  &   9365 & 202  &  160.1 & 3.5   &  146384 & 570   &  2502 & 10  \\
+    459  &  0.01238  &  2452  &  0.8495  &   4440 & 136  &  172.1 & 5.3   &   65781 & 378   &  2550 & 15  \\
   \end{tabular}
   \end{center}
-  \caption{Summary of the results of integrating equation~\eqref{equ:fit} and using the values from table~\ref{tab:fit_res}. The rates are the initial values calculated using equation~\eqref{equ:rate}.}
-  \label{tab:rates_res}
+  \caption{Decay counts and rates, summed over all downstream scintillators.}
+  \label{label}
 \end{table}
+
+% \begin{table}
+%   \lineup
+%   \begin{center}
+%   \begin{tabular}{c | c | r@{\(\,\pm\,\)}l | r@{\(\,\pm\,\)}l | r@{\(\,\pm\,\)}l | r@{\(\,\pm\,\)}l | r | l }
+%    \multirow{2}{*}{Run} 
+%      & \multirow{2}{*}{Channel}
+%           &  \multicolumn{2}{c|}{Copper}
+%                          &  \multicolumn{2}{c|}{Free}  
+%                                           & \multicolumn{2}{c|}{Rate (copper)}
+%                                                                  &\multicolumn{2}{c|}{Rate (free)}
+%                                                                      &\multicolumn{1}{c|}{\multirow{2}{*}{\(\chi^2\)}}
+%                                                                                      & \multicolumn{1}{c}{\multirow{2}{*}{NDF}}  \\ 
+%      &    & \multicolumn{2}{c|}{decays}
+%                          &  \multicolumn{2}{c|}{decays}  
+%                                            & \multicolumn{2}{c|}{(nA\(^{-1}\))}
+%                                                                 & \multicolumn{2}{c|}{(nA\(^{-1}\))}
+%                                                                                      &         &      \\
+%    \hline
+%    \multirow{5}{*}{448}
+%      & D1 &   4098 & 232  &  184833 & 758  &    47.1\0& 2.7   &  2122.7  &  8.8   &    2772 & 1239  \\
+%      & D2 &  11377 & 286  &  259990 & 928  &   130.7\0& 3.3   &  2986\.\0& 11     &    5815 & 1239  \\
+%      & D3 &   4420 & 153  &   83253 & 458  &    50.8\0& 1.8   &   956.1  &  5.3   &    2116 & 1239  \\
+%      & D4 &   1462 &  85  &   23189 & 228  &    16.79 & 0.98  &   266.3  &  2.6   &  115129 & 1239  \\
+%      & D5 &    188 &  59  &   12223 & 183  &     2.16 & 0.68  &   140.4  &  2.1   &   37059 & 1239  \\
+%    \hline
+%    \multirow{5}{*}{451}
+%      & D1 &    220 &  60  &   13602 & 202  &    19.8\0& 5.4   &  1226\.\0& 18    &   2887 & 1239  \\ 
+%      & D2 &   1140 &  84  &   23915 & 261  &   102.8\0& 7.6   &  2155\.\0& 24    &   1592 & 1239  \\ 
+%      & D3 &    639 &  49  &    7751 & 132  &    57.6\0& 4.4   &   699\.\0& 12    &   1759 & 1239  \\ 
+%      & D4 &    193 &  26  &    2227 &  66  &    17.4\0& 2.3   &   200.7  &  6.0  &   3020 & 1239  \\ 
+%      & D5 &     55 &  19  &    1178 &  53  &     5.0\0& 1.8   &   106.1  &  4.8  &   2040 & 1239  \\ 
+%    \hline
+%    \multirow{5}{*}{452}
+%      & D1 &   1550 & 128  &   58446 & 413  &    32.2\0& 2.7   &  1214.5  &  8.6  &   1672 & 1239  \\
+%      & D2 &   5268 & 175  &  106013 & 538  &   109.5\0& 3.7   &  2203\.\0& 11    &   2416 & 1239  \\
+%      & D3 &   2501 & 100  &   35787 & 277  &    52.0\0& 2.1   &   743.6  &  5.8  &   1680 & 1239  \\
+%      & D4 &    957 &  57  &   10282 & 141  &    19.9\0& 1.2   &   213.7  &  2.9  &  32046 & 1239  \\
+%      & D5 &    196 &  39  &    5195 & 110  &     4.08 & 0.81  &   108.0  &  2.3  &   9906 & 1239  \\
+%    \hline
+%    \multirow{5}{*}{455}
+%      & D1 &   1976 & 142  &   72348 & 453  &    30.9\0& 2.2   &   1131.0 &  7.1  &   1766 & 1239  \\
+%      & D2 &   6689 & 194  &  129903 & 589  &   104.6\0& 3.0   &   2030.8 &  9.3  &   2726 & 1239  \\
+%      & D3 &   3273 & 112  &   43808 & 304  &    51.1\0& 1.8   &    684.9 &  4.8  &   1865 & 1239  \\
+%      & D4 &   1457 &  65  &   11730 & 151  &    22.8\0& 1.0   &    183.4 &  2.4  &  56096 & 1239  \\
+%      & D5 &    318 &  44  &    6308 & 121  &     4.97 & 0.69  &     98.6 &  1.9  &  15454 & 1239  \\
+%    \hline
+%    \multirow{5}{*}{458}
+%      & D1 &   1633 & 109  &   46999 & 328  &    27.9\0& 1.9   &    803.4 &  5.7  &   1418 & 1239  \\
+%      & D2 &   5968 & 149  &   75477 & 414  &   102.0\0& 2.6   &   1290.2 &  7.2  &   2265 & 1239  \\
+%      & D3 &   1765 &  82  &   23907 & 214  &    30.2\0& 1.4   &    408.7 &  3.7  &   1477 & 1239  \\
+%      & D4 &    542 &  44  &    6607 & 107  &     9.27 & 0.75  &    112.9 &  1.8  &  12516 & 1239  \\
+%      & D5 &    145 &  32  &    3773 &  87  &     2.48 & 0.54  &     64.5 &  1.5  &   5842 & 1239  \\
+%    \hline
+%    \multirow{5}{*}{459}
+%      & D1 &    861 &  74  &   20803 & 216  &    33.4\0& 2.9   &    806.5 &  8.5  &   1314 & 1239  \\
+%      & D2 &   2757 & 100  &   34085 & 275  &   106.9\0& 3.9   &   1321.4 & 10.8  &   1780 & 1239  \\
+%      & D3 &    822 &  55  &   10893 & 143  &    31.9\0& 2.1   &    422.3 &  5.6  &   1596 & 1239  \\
+%      & D4 &    293 &  37  &    2954 &  73  &    11.4\0& 1.4   &    114.5 &  2.8  &   3981 & 1239  \\
+%      & D5 &     61 &  21  &    1708 &  58  &     2.35 & 0.81  &     66.2 &  2.2  &   2110 & 1239  \\
+%   \end{tabular}
+%   \end{center}
+%   \caption{Summary of the results of integrating equation~\eqref{equ:fit} and using the values from table~\ref{tab:fit_res}. The rates are the initial values calculated using equation~\eqref{equ:rate}.}
+%   \label{tab:rates_res}
+% \end{table}
 
 \begin{figure}[hptb]
   \centering
@@ -869,18 +893,6 @@ As can be seen in the fit data the \(\chi^2\) values for the fitting of channels
   \label{fig:images_momentum_spectrum_run_muon_rate_in_cu}
 \end{figure}
 
-\begin{figure}[hptb]
-  \centering
-    \includegraphics[width=.9\textwidth]{images/plot_generating_scripts/per_ch_free_lifetime.eps}
-  \caption{Fitted values of free muon lifetime dependent on degrader and channel. The dashed line indicates the true value (\(2,196.9811\pm0.0022\)~ns~\ref{PDG}).}
-  \label{fig:images_plot_generating_scripts_per_ch_free_lifetime}
-\end{figure}
-\begin{figure}[hptb]
-  \centering
-    \includegraphics[width=.9\textwidth]{images/plot_generating_scripts/per_ch_copper_lifetime.eps}
-  \caption{Fitted values of copper muon lifetime dependent on degrader and channel. The dashed line indicates the true value (\(163.5\pm1\)~ns~\ref{Suzuki cu tau}).}
-  \label{fig:images_plot_generating_scripts_per_ch_copper_lifetime}
-\end{figure}
 
 % \begin{figure}[hptb]
 %   \centering
@@ -1000,4 +1012,7 @@ The same protocol can be applied to the muonic copper decays as well as adding t
   \label{fig:images_plot_generating_scripts_adjusted_muon_rates_cu}
 \end{figure}
 
-% subsection systematics (end)
+\subsection{Analysis} % (fold)
+\label{sub:mom_analysis}
+As can be seen from the agreement between the adjusted rates and simulation (figure~\ref{fig:images_plot_generating_scripts_adjusted_muon_rates}) there good agreement between simulation and experiment. The largest source of errors for this experiment was the lack of accurate information on the detector efficiency. 
+% subsection mom_analysis (end)
