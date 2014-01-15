@@ -43,7 +43,7 @@ As discussed in section~\ref{sec:introduction_scintillation} scintillating mater
 
 The scintillator surface is highly vulnerable to damage either through scratches or grease. Damage to the surface of the scintillator is problematic as it inhibits light collected through total internal reflection (TIR). Anything that reduces the amount of TIR increases the amount of light absorbed outside of the scintillator, where it cannot be detected. In order to prevent scratches, scintillators must be handled carefully and protective films are only removed at the last moment. As well as careful handling, the scintillators are cleaned to remove dirt and dust by polishing them with iso-propanol, this removes grease that can also degrade the surface.
 
-Scintillators are generally wrapped with two thin layers: an inner reflective material and an outer blackout material. The inner layer is normally aluminium-mylar or foil, this is wrapped loosely in order to leave a small air gap that has been shown to increase the amount of TIR (and hence light collection)~\cite{air gap to increase light collection}. The outer layer is normally a black plastic wrap. This is carefully sealed with tape to prevent light leakage (another aid to this is obviously turning any lights off in the experimental area). An important consideration is to keep the layers as thin as possible in order to minimise energy deposition; to this end overlaps are kept to a minimum.
+Scintillators are generally wrapped with two thin layers: an inner reflective material and an outer blackout material. The inner layer is normally aluminium-mylar or foil, this is wrapped loosely in order to leave a small air gap that has been shown to increase the amount of TIR (and hence light collection). The outer layer is normally a black plastic wrap. This is carefully sealed with tape to prevent light leakage (another aid to this is obviously turning any lights off in the experimental area). An important consideration is to keep the layers as thin as possible in order to minimise energy deposition; to this end overlaps are kept to a minimum.
 
 In order to attach sections of the scintillators together and to attach detectors to the scintillator optical cement and grease were used. Optical cement was used when a permanent fixing was required while grease was used if the components would need to be separated. To use the cement the components were cleaned using iso-propanol, then the two-part glue mixed and applied. A foam jig was used to hold the pieces in place whilst the cement set. When non-permanent joins were required, e.g.\ to attach MPPCs to WLS-fibres, optical grease was used to form the connection. Optical cement and grease have refractive indexes close to (if not the same as) that of the scintillators to maximise transmission either between sections of the scintillator (e.g.\ from the scintillator bulk to the WLS-fibre) or from the scintillator to the MPPC.
 % Whilst a significant proportion of scintillator construction is dedicated to increasing reflection back into the scintillator, at the boundary to the MPPC it must be minimised to maximise the amount of light hitting the MPPC (rather than being reflected back into the scintillator).
@@ -55,14 +55,14 @@ Multi-Photon Pixel Counters (MPPCs, see figure~\ref{fig:images_intro_MPPC_from_h
 \begin{figure}[hptb]
   \centering
     \includegraphics[width=.3\textwidth]{images/intro/MPPC_from_hammamatsu_report.png}
-  \caption{Photograph of an MPPC (type S10362-11 with ceramic package) from the Hamamatsu technical report~\cite{hamamatsu_mppc_tech_report}}
+  \caption{Photograph of an MPPC (type S10362-11 with ceramic package) from the Hamamatsu technical report~\cite{hamamatsu_mppc}}
   \label{fig:images_intro_MPPC_from_hammamatsu_report}
 \end{figure}
 
 \begin{figure}[hptb]
   \centering
     \includegraphics[width=.6\textwidth]{images/intro/hamamatsu_mppc_waveform_and_counts.png}
-  \caption{Oscilloscope waveform for an MPPC with a histogram of peak voltage on the left. The histogram shows the clear discrimination between number of photons available on a MPPC. This type of MPPC has \(400\times50\times50 \mu\text{m}^2\) APDs in a \(1\times1\text{mm}^2\) package taken from~\cite{hamamatsu_mppc_tech_report}.}
+  \caption{Oscilloscope waveform for an MPPC with a histogram of peak voltage on the left. The histogram shows the clear discrimination between number of photons available on a MPPC. This type of MPPC has \(400\times50\times50 \mu\text{m}^2\) APDs in a \(1\times1\text{mm}^2\) package taken from~\cite{hamamatsu_mppc}.}
   \label{fig:images_intro_hamamatsu_mppc_waveform_and_counts}
 \end{figure}
 
@@ -79,7 +79,7 @@ An MPPC has several key attributes: Photon-Detection Efficiency (PDE), peak sens
 \begin{figure}[hptb]
   \centering
     \includegraphics[width=.5\textwidth]{images/intro/hamamatsu_pde_vs_wavelength.png}
-  \caption{MPPC Photon Detection Efficiency (PDE) as a function of photon wavelength. A range of pixel densities are shown (100, 400, 1600 pixels/\( 1\times1\text{mm}^2\) for the 100U, 050U and 025U models respectively) demonstrating the prime taken from~\cite{hamamatsu_mppc_tech_report}.}
+  \caption{MPPC Photon Detection Efficiency (PDE) as a function of photon wavelength. A range of pixel densities are shown (100, 400, 1600 pixels/\( 1\times1\text{mm}^2\) for the 100U, 050U and 025U models respectively) demonstrating the prime taken from~\cite{hamamatsu_mppc}.}
   \label{fig:images_intro_hamamatsu_pde_vs_wavelength}
 \end{figure}
 
@@ -126,7 +126,7 @@ Logic units were generally used for simple tests such as checking that all MPPCs
 A scaler is a counting module. It receives a digital input, that when asserted, increments its counter. The most important factor of a scaler is its maximum speed (the maximum input frequency). Events that occur more rapidly than the input frequency will not be properly counted (either not being counted at all or counted as a single event), a typical maximum input frequency is 100~MHz. Most scalers can be daisy-chained together in case their maximum value is exceeded and some allow multiple inputs that can be counted independently. NIM scalers will generally some form of direct readout (e.g.\ a display) whilst VME/CAMAC modules will be readout via their data-bus. 
 
 % One of the simplest forms of read out is a count of triggers, this is what a scaler does. The primary concern with a scaler is the input specification to trigger a count as well as the maximum speed at which the unit can count. Modules can either be used with NIM, CAMAC or VME. When the rate is high or the maximum count is low multiple scalers can be daisy-chained together to provide carry over. 
-z
+
 % subsubsection scaler (end)
 \subsection{Analogue to Digital Converter} % (fold)
 \label{ssub:analogue_to_digital_converter}
@@ -166,7 +166,7 @@ The DAQ used for these experiments was designed to have a lot greater functional
 % These early experiments had DAQ designs that were ultimately superfluous as the data it yielded was not used; this design is included for completeness.
 \subsection{Experimental Set Up} % (fold)
 \label{sec:experimental_set_up}
-The experimental design for both measurements was broadly the same: the scintillators both had four MPPCs attached (see figure~\ref{fig:schematic_of_mppc_layouts}), NIM was used logic for basic triggering whilst read-out was performed via CAMAC, data was recorded on a PC and analysed afterwards. The scintillators were both wrapped with aluminium foil and black wrap and the MPPCs attached via optical cement (see table~\ref{tab:charged_particle_flux_scint_details}). The scintillators were mounted on aluminium supports at the end of the beam-pipe.
+The experimental design for both measurements was broadly the same: the scintillators both had four MPPCs attached. In the first measurement a long strip scintillator was used and the MPPCs were distributed evenly across the short ends, for the second measurement the disk had the four MPPCs placed evenly around the circumference. NIM was used logic for basic triggering whilst read-out was performed via CAMAC, data was recorded on a PC and analysed afterwards. The scintillators were both wrapped with aluminium foil and black wrap and the MPPCs attached via optical cement (see table~\ref{tab:charged_particle_flux_scint_details}). The scintillators were mounted on aluminium supports at the end of the beam-pipe.
 \begin{table}
   \begin{center}
     \begin{tabular}{c|c|c|c}
@@ -448,7 +448,7 @@ The data is then fitted with either one or two exponential decay functions and a
 % section results (end)
 \subsection{Analysis} % (fold)
 \label{sec:analysis}
-As can be seen in figures~\ref{fig:music2_mu_lifetime} and \ref{fig:music3_muon_lifetime} the exponential decays are good fits to the data with reasonable chi-squared values (\(192.6/114\) and \( 728.7/240 \) respectively). The muon lifetimes measured are in good agreement with the canonical value of \(2.1969811\pm0.0000022\)~\cite{pdg}. The lifetime measurement for the first run is low but this is to be expected as the fit doesn't account for the capture of negative muons which has a much shorter lifetime. Whilst both measurements have a large amount of background this does not remove from the core fact that large numbers of muons were detected and they exhibited the expected properties. The second measurement also produces a measurement of the muonic-copper lifetime which is good agreement with that measured by others~\cite{mu_neg_cu_lifetime}.
+As can be seen in figures~\ref{fig:music2_mu_lifetime} and \ref{fig:music3_muon_lifetime} the exponential decays are good fits to the data with reasonable chi-squared values (\(192.6/114\) and \( 728.7/240 \) respectively). The muon lifetimes measured are in good agreement with the canonical value of \(2.1969811\pm0.0000022\)~\cite{pdg}. The lifetime measurement for the first run is low but this is to be expected as the fit doesn't account for the capture of negative muons which has a much shorter lifetime. Whilst both measurements have a large amount of background this does not remove from the core fact that large numbers of muons were detected and they exhibited the expected properties. The second measurement also produces a measurement of the muonic-copper lifetime which is good agreement with that measured by others~\cite{suzuki_mu_capture_rates}.
 
 % section analysis (end)
 \clearpage
@@ -563,13 +563,13 @@ There were five stages in preparing the data for analysis: reading from VME, cal
 	\label{tab:run_summary}
 \end{table} 
 
-The data was read from VME using the MIDAS program (`a general purpose data acquisition system for small and medium scale experiments'~\cite{ritt2012midas}), this dealt with the low level interface to CAMAC and allowed basic plotting of the information.
+The data was read from VME using the MIDAS program (`a general purpose data acquisition system for small and medium scale experiments'~\cite{midas_daq}), this dealt with the low level interface to CAMAC and allowed basic plotting of the information.
 
 Once the data was saved it was calibrated to convert it to convert it to real world measurements. The calibration formula for the MH-TDC was:
 \begin{align}\label{equ:tdc_calibration}
     t'   &= 0.024414(t - \text{TDC0})
 \end{align}
-where \(t'\) is the calibrated time, \(t\) is the de-serialised MTDC value and TDC0 is the de-serialised trigger time. The value \(0.024414\) was the calibration co-efficient as determined in Tran Nam's work~\cite{timecalibNam2012}.
+where \(t'\) is the calibrated time, \(t\) is the de-serialised MH-TDC value and TDC0 is the de-serialised trigger time. The calibration co-efficient of \(0.024414\) was determined using a known clock as input to the MH-TDC and then detecting a set number of ticks that could then be read off as MH-TDC values.
 
 The final stage of data preparation was to bin the data, this was done to make later analysis quicker. Each channel had it's MH-TDC times combined in 1~ns bins. This left suitable accuracy whilst vastly reducing the data set's size.
 
@@ -658,11 +658,11 @@ As has been discussed there are six data sets that were used for this analysis, 
 \end{align}
 \(t\) is the time in ns. The four terms each have their own subscript based on what they describe: free muon decay (\(f\)); decay of negative muons captured by the stopping target (\(c\)); a sinusoidal background (\(s\)) and a flat background (\(b\)). The two muon decay terms are parameterised with a scale factor (\(N\)) and a lifetime (\(\tau\)). The sinusoidal term has a period (\(T\)) and phase, relative to the trigger time, (\(\phi\)). 
 
-Originally only a flat background was used but this was found to be insufficient to describe the data and the sinusoidal component was introduced. The sinusoidal affect is thought to be minor bunching of the protons due to the AVF acceleration system which has a stated frequency of 6--18~MHz~\cite{AVF info} (or a period of 167--56~ns respectively). The flat background is made travelling particles that don't form a trigger but are recorded by the MH-TDC.
+Originally only a flat background was used but this was found to be insufficient to describe the data and the sinusoidal component was introduced. The sinusoidal affect is thought to be minor bunching of the protons due to the AVF acceleration system which has a stated frequency of 6--18~MHz~\cite{avf_facility} (or a period of 167--56~ns respectively). The flat background is made travelling particles that don't form a trigger but are recorded by the MH-TDC.
 
 In order to have good statistics whilst maintaining sensitivity to the relatively fast copper component of the decays a bin width of 16~ns was used. A large bin width (e.g.\ 100~ns) could have been used to smooth the sinusoidal noise but this would result in very few bins in which the copper component was significant. Whilst the ideal solution would be to use binning such that the sinusoidal component was cancelled out this was not feasible due to limitations of the fitting program. In the end a bin width was chosen that resulted in a small \(\chi^2\) whilst remaining sensitive to copper.
 
-Fitting all the parameters could not easily be done freely due to the range of values to which it was being fitted; some features (e.g.\ the periodic noise) had a scale of \(\mathcal{O}\)(60)~ns compared to the free decay \(\mathcal{O}\)(2,000)~ns and the entire fit range \(\mathcal{O}\)(20,000)~ns. To mitigate the problem of scale the known values, \(\tau_{f}\) and \(\tau_{c}\), were fixed at their given values of \(2,196.9811\pm0.0022 \)~ns~\ref{PDG} and \( 163.5\pm1 \)~ns~\ref{Suzuki Cu tau} respectively. The period, \(T\), was constrained to \(60\pm5\)~ns which was determined to be a good value from fitting the noise in isolation (see figure~\ref{fig:images_momentum_spectrum_448_D1_noise_fit}).
+Fitting all the parameters could not easily be done freely due to the range of values to which it was being fitted; some features (e.g.\ the periodic noise) had a scale of \(\mathcal{O}\)(60)~ns compared to the free decay \(\mathcal{O}\)(2,000)~ns and the entire fit range \(\mathcal{O}\)(20,000)~ns. To mitigate the problem of scale the known values, \(\tau_{f}\) and \(\tau_{c}\), were fixed at their given values of \(2,196.9811\pm0.0022 \)~ns~\cite{pdg} and \( 163.5\pm1 \)~ns~\cite{suzuki_mu_capture_rates} respectively. The period, \(T\), was constrained to \(60\pm5\)~ns which was determined to be a good value from fitting the noise in isolation (see figure~\ref{fig:images_momentum_spectrum_448_D1_noise_fit}).
 
 \begin{figure}[hptb]
   \centering
@@ -729,7 +729,7 @@ Once the data was fitted using ROOT the \(f\) and \(c\) terms were integrated in
       &  D5  &    1.496 & 0.043  &    0.615 & 0.063  &   0.0\0& 1.0     &     8.0  &\02.8  &    12.73 & 0.43  \\
   \end{tabular}
   \end{center}
-  \caption{Summary of the fitted values for equation~\eqref{equ:fit}. These are the values used for the calculation of the integrals and, ultimately, the muon rates. The two lifetime parameters, \( \tau_f \) and \( \tau_c \), were fixed at the values \(2,196.9811\pm0.0022 \)~ns~\ref{PDG} and \( 163.5\pm1 \)~ns~\ref{Suzuki Cu tau} respectively, \( T \) was fixed at 60~ns.}
+  \caption{Summary of the fitted values for equation~\eqref{equ:fit}. These are the values used for the calculation of the integrals and, ultimately, the muon rates. The two lifetime parameters, \( \tau_f \) and \( \tau_c \), were fixed at the values \(2,196.9811\pm0.0022 \)~ns~\cite{pdg} and \( 163.5\pm1 \)~ns~\cite{suzuki_mu_capture_rates} respectively, \( T \) was fixed at 60~ns.}
   \label{tab:fit_res}
 \end{table}
 
@@ -782,13 +782,7 @@ Once calculated via integration the number of muons can be summed for all the ch
 \begin{align}
   R &= \frac{N_{\mu}}{I_p T D} \label{equ:rate}
 \end{align}
-Where \( R \) is the normalised rate of muon decays (in nA\(^{-1}\)), \(N_{\mu}\) is the number of muon decays (either free or from muonic copper), \( I_p \) is the proton current in nA, \( T \) is the duration of the run in seconds and \( D \) is the dead time (as given in table~\ref{tab:dead_time}). The rates and number of muon decays are given in table~\ref{tab:rates_res} along with the \(\chi^2\) values for each fit. Again the majority of the beam is clearly towards the top of the beam pipe as has previously been seen (section~\ref{sec:flux_results}).
-
-Figures~\ref{fig:images_momentum_spectrum_run_muon_rate_in_f}~and~\ref{fig:images_momentum_spectrum_run_muon_rate_in_cu} show the rates of decays from free muons and muonic copper respectively. These plots are the `pure' rates based solely on the measured values. Between the pairs of runs (e.g.\ runs 451/452 and 458/459) there is good agreement and the general shape suggests that (unsurprisingly) as larger degraders are used there are fewer decays of stopped muons. 
-
-% As can be seen further refinements can be made to enable more accurate comparison to simulation: inclusion of the acceptance and the detector efficiency as well as conversion of the degrader thickness to the simulated average momentums.
-
-As can be seen in the fit data the \(\chi^2\) values for the fitting of channels D4 and D5 are generally poor because of this they were removed from the final, summed, rate calculation. The main cause of the poor \(\chi^2\) value is likely the low statistics compounded by the fact that, as the counters share a common trigger those scintillators that are further away from the beam spot will record a greater fraction of noise. Also clear is that even for the channels with better \(\chi^2\) values equation~\eqref{equ:fit} is not a full description of the data. This affect can be seen more clearly when the values for \( \tau_c \) and \( \tau_f \) are also fitted using ROOT, as shown in figures~\ref{fig:images_plot_generating_scripts_per_ch_free_lifetime}~and~\ref{fig:images_plot_generating_scripts_per_ch_copper_lifetime} respectively. Both of these plots show that ROOT moves the fit away from the canonical values whilst simultaneously providing a worse \(\chi^2\) than is seen with the constrained values, this is likely made worse by the range problem discussed earlier.
+Where \( R \) is the normalised rate of muon decays (in nA\(^{-1}\)), \(N_{\mu}\) is the number of muon decays (either free or from muonic copper), \( I_p \) is the proton current in nA, \( T \) is the duration of the run in seconds and \( D \) is the dead time (as given in table~\ref{tab:dead_time}). The rates and number of muon decays, summed over all channels, are given in table~\ref{tab:rates_res}. Again the majority of the beam is clearly towards the top of the beam pipe as has previously been seen (section~\ref{cha:charged_particle_flux}).
 
 \begin{table}
   \begin{center}
@@ -811,8 +805,42 @@ As can be seen in the fit data the \(\chi^2\) values for the fitting of channels
   \end{tabular}
   \end{center}
   \caption{Decay counts and rates, summed over all downstream scintillators.}
-  \label{label}
+  \label{tab:rates_res}
 \end{table}
+
+Figures~\ref{fig:images_momentum_spectrum_run_muon_rate_in_f}~and~\ref{fig:images_momentum_spectrum_run_muon_rate_in_cu} show the rates of decays from free muons and muonic copper respectively. These plots are the `pure' rates based solely on the measured values. Between the pairs of runs (e.g.\ runs 451/452 and 458/459) there is good agreement and the general shape suggests that (unsurprisingly) as larger degraders are used there are fewer decays of stopped muons. 
+
+\begin{figure}[hptb]
+  \centering
+    \includegraphics[width=.9\textwidth]{images/momentum_spectrum/run_muon_rate_in_f.eps}
+  \caption{Integrated number of free muon decays summed over all channels.}
+  \label{fig:images_momentum_spectrum_run_muon_rate_in_f}
+\end{figure}
+
+\begin{figure}[hptb]
+  \centering
+    \includegraphics[width=.9\textwidth]{images/momentum_spectrum/run_muon_rate_in_cu.eps}
+  \caption{Integrated number of muon decays in copper summed over all channels.}
+  \label{fig:images_momentum_spectrum_run_muon_rate_in_cu}
+\end{figure}
+
+% As can be seen further refinements can be made to enable more accurate comparison to simulation: inclusion of the acceptance and the detector efficiency as well as conversion of the degrader thickness to the simulated average momentums.
+
+As can be seen in the fit histograms, the \(\chi^2\) values for the fitting of channels D4 and D5 are generally poor because of this they were removed from the final, summed, rate calculation. The main cause of the poor \(\chi^2\) value is likely the low statistics compounded by the fact that, as the counters share a common trigger those scintillators that are further away from the beam spot will record a greater fraction of noise. Also clear is that even for the channels with better \(\chi^2\) values equation~\eqref{equ:fit} is not a full description of the data. This affect can be seen more clearly when the values for \( \tau_c \) and \( \tau_f \) are also fitted using ROOT, as shown in figures~\ref{fig:images_plot_generating_scripts_per_ch_free_lifetime}~and~\ref{fig:images_plot_generating_scripts_per_ch_copper_lifetime} respectively. Both of these plots show that ROOT moves the fit away from the canonical values whilst simultaneously providing a worse \(\chi^2\) than is seen with the constrained values, this is likely made worse by the range problem discussed earlier.
+
+\begin{figure}[hptb]
+  \centering
+    \includegraphics[width=.9\textwidth]{images/plot_generating_scripts/per_ch_free_lifetime.eps}
+  \caption{Comparison of fitted value of free muon lifetime for the different channels in each run. The dashed line is the canonical value~\cite{pdg}.}
+  \label{fig:images_plot_generating_scripts_per_ch_free_lifetime}
+\end{figure}
+
+\begin{figure}[hptb]
+  \centering
+    \includegraphics[width=.9\textwidth]{images/plot_generating_scripts/per_ch_copper_lifetime.eps}
+  \caption{Comparison of fitted value of muonic copper lifetime for the different channels in each run. The dashed line is the canonical value~\cite{pdg}.}
+  \label{fig:images_plot_generating_scripts_per_ch_copper_lifetime}
+\end{figure}
 
 % \begin{table}
 %   \lineup
@@ -878,21 +906,6 @@ As can be seen in the fit data the \(\chi^2\) values for the fitting of channels
 %   \caption{Summary of the results of integrating equation~\eqref{equ:fit} and using the values from table~\ref{tab:fit_res}. The rates are the initial values calculated using equation~\eqref{equ:rate}.}
 %   \label{tab:rates_res}
 % \end{table}
-
-\begin{figure}[hptb]
-  \centering
-    \includegraphics[width=.9\textwidth]{images/momentum_spectrum/run_muon_rate_in_f.eps}
-  \caption{Integrated number of free muon decays summed over all channels.}
-  \label{fig:images_momentum_spectrum_run_muon_rate_in_f}
-\end{figure}
-
-\begin{figure}[hptb]
-  \centering
-    \includegraphics[width=.9\textwidth]{images/momentum_spectrum/run_muon_rate_in_cu.eps}
-  \caption{Integrated number of muon decays in copper summed over all channels.}
-  \label{fig:images_momentum_spectrum_run_muon_rate_in_cu}
-\end{figure}
-
 
 % \begin{figure}[hptb]
 %   \centering
@@ -1014,5 +1027,41 @@ The same protocol can be applied to the muonic copper decays as well as adding t
 
 \subsection{Analysis} % (fold)
 \label{sub:mom_analysis}
-As can be seen from the agreement between the adjusted rates and simulation (figure~\ref{fig:images_plot_generating_scripts_adjusted_muon_rates}) there good agreement between simulation and experiment. The largest source of errors for this experiment was the lack of accurate information on the detector efficiency. 
+As can be seen from figure~\ref{fig:images_plot_generating_scripts_adjusted_muon_rates} there good agreement between simulation and experiment. The largest source of errors for this measurement was the lack of accurate information on the detector efficiency and in further measurements this should be corrected. Whilst the stopped muons over all runs account for only \(\sim27\%\) of the total muon beam (assuming the simulation is correct) they do measure the range of momenta that make up the majority of the beam (the total mean momentum is 62.84~MeV/c compared to maximum mean stopped muon momentum of 66.09~MeV/c) and this gives us a reasonable understanding of the shape of the momentum distribution.
+
+The accurate counts on the number of stopped muons also give a good handle on the number of muons being produced per Ampere of proton beam. Using run 448 as a bench mark we can see that there were a total of 6,292~stopped~muons~s\(^{-1}\)~nA\(^{-1}\), this compares favourable with, e.g.\ PSI which generates 240~muons~s\(^{-1}\)~nA\(^{-1}\)~\cite{mue4_psi}. This is a vast improvement and gives a total muon flux of \( 7.8\times10^7 \)~muons~s\(^{-1}\) if the RCNP's proton beam is used at maximum current (1~\(\mu\)A) and the stopped muons account for \(8.2\%\) of the total beam (as per the simulation). 
+
+As has been noted the lack of information on the detector's efficiency was a severe hinderance in the calculation of the muon rate. Further improvements are needed, not only to reduce errors and better understand the detector but to allow testing of the simulation. Work at CoMET suggests that there are differences in the particle rates between various simulations (e.g.\ MARS and G4BL), understanding of this will be vital in those measurements.
+
 % subsection mom_analysis (end)
+
+
+% \chapter{Conclusion} % (fold)
+% \label{cha:conclusion}
+% %  \(6\times10^8\)~muons/nA)
+% Over the course of two years three different measurements of the MuSIC beam-line have been made; each building on the knowledge gathered in the previous. The total charged particle flux was measured and compared to simulation; the muon lifetime was determined and used to confirm their presence; and the number of muon decays under different configurations has been used to determine the momentum flux (as well as the muon flux).
+% 
+% The three measurements have gone a long way to testing the simulation of MuSIC and to confirming that it is a reasonable approximation to the reality. Further measurements will hopefully refine our knowledge of the beam and maybe begin testing the different models used in the simulation. Work on simulating CoMET has already shown that there are differences in the predicted rates of different particles, determining how which simulation is correct will make further work easier and more accurate.
+% 
+% MuSIC has been shown to perform as expected, producing more muons per proton than any other beam. Even incomplete it's already being used to make new measurements (precisions measurements of decays from muon activated molybdenum) and it is hoped that further funding will help complete this powerful tool. 
+% 
+% Currently the largest problems with the measurements at MuSIC are in the errors on the measurements but as these are refined more detailed simulations will also be needed. There are two key improvements that can be made to the simulation: larger G4BL run and better digitisation. A larger G4BL run will increase the number of copper stopped muons that will allow detailed investigation of the rates of negative muons stopping in copper, it is also necessary to start making comparisons between different hadron production codes and may provide useful data for refining these at low energy. The second improvement, digitisation, will allow analysis of simulation that's more directly comparable to what's measured. This will be key in understanding backgrounds and having clear understanding of the fine properties of the beam. 
+% 
+
+\chapter{Executive Summary} % (fold)
+\label{cha:executive_summary}
+The Muon Science Innovative Commission (MuSIC) is a prototype muon production system being developed at the Research Centre for Nuclear Physics (RCNP) in Osaka, Japan. It uses a novel Pion Capture Solenoid (PCS) that aims to capture a much larger number of pions for every proton than is normally the case. The increased pion production ratio in turn increases the number of muons that remain at the end of Muon Transport Solenoid (MTS). Ultimately, MuSIC produces more muons per proton than any other beam currently in use. 
+
+A high flux, low power muon beam will enable the creation of dedicated muon Spin Resonance (\(\mu\)SR) devices, are a first step in making neutrino factories as well as being vital in particle physics studies such as rare decays (e.g.\ \(\mu\rightarrow eee\)). A key use of MuSIC will be as a prototype for the Coherent Muon-to-Electron Transition (CoMET) experiment being planned to be built at J-PARC in Tokai, Japan. 
+
+Over the last three years the simulation of MuSIC has been refined and tuned using data gathered over several periods of beam time. The simulation was written in G4Beamline to cover the bulk portions and Geant4 to test the detectors used. They were also used to compare to the data gathered during the beam-times.
+
+The three measurements were made over five periods of beam time. Each beam time lasted between 24 and 72 hours. The first measurements were of the charged particle flux, then the muon lifetime was measured and finally the muon momentum distribution was measured. Each measurement was made using simple plastic scintillator detectors with Data Acquisition (DAQ) performed using off the shelf crate systems (NIM, CAMAC and VME). 
+
+The measurement of the charged particle flux confirmed the beam location to the top and the left of the beam pipe. It also set a benchmark for the particle flux which confirmed the bounds of the maximum muon flux. The measurement determined that the peak particle flux was 90,800\(\pm\)7,000~particles~nA\(^{-1}\) of proton~beam positioned 5~cm above the beam centre (at a distance of 6~cm). The second measurement of the particle flux determined that the beam spot 85~cm from the end of the beam pipe was 25~cm above and 17~cm to the left of the beam centre, with a flux of 10,800\(\pm\)2,100~particles~nA\(^{-1}\). 
+
+
+
+% chapter executive_summary (end)
+
+% chapter conclusion (end)
