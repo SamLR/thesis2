@@ -8,6 +8,7 @@
 #include "TStyle.h"
 #include "TPaveStats.h"
 #include "TLegend.h"
+#include "TMath.h"
 
 void charged_particle_flux_sim (){
     gStyle->SetOptStat(2220);
@@ -20,9 +21,9 @@ void charged_particle_flux_sim (){
     hist_1d->GetXaxis()->SetTitle("Vertical position (mm)");
     hist_1d->GetYaxis()->SetTitle("Charged particle rate (nA^{-1})");
     hist_1d->GetYaxis()->SetTitleOffset(1.4);
-    TString selection = TString("(abs(PDGid)==211||abs(PDGid)==13||abs(PDGid)==11||PDGid==2212)&&")+     // charged particles only
-                        TString("(abs(y)<15||(35<abs(y)&&abs(y)<65)||(135<abs(y)&&abs(y)<165))&&")+ // vertical positions
-                        TString("(abs(x)<190)");                                                         // horizontal range
+    TString selection = TString("(abs(PDGid)==211||abs(PDGid)==13||abs(PDGid)==11||PDGid==2212)&&")+ // charged particles only
+                        TString("(abs(y)<15||(35<abs(y)&&abs(y)<65)||(135<abs(y)&&abs(y)<165))&&")+  // vertical positions
+                        TString("(abs(x)<190)");                                                     // horizontal range
     TCanvas* can1 = new TCanvas("c1", "c1", 1436,856);
     tree->Draw("-y>>hist_1D", selection.Data(), "e");
     can1->Update();
@@ -58,14 +59,21 @@ void charged_particle_flux_sim (){
                          TString("(abs(x)<35&&225<(-y)&&(-y)<285)||")+         //   0,  20
                          TString("(-205<x&&x<-135&&225<(-y)&&(-y)<285)");      // -17,  20
     tree->Draw("-y:x>>hist_2D", selection2.Data(), "LEGO2FB0");
+
+    hist_2d->Scale(scale_factor);
+    can2->Update();
     
     // Values for the TGraphErrors
     const Int_t n_points = 9;
-    Double_t pos     [n_points] = {  -00.5,   -50.0,  -149.5,  -150.5,    50.5,    49.5,   150.5,   149.5,    00.5};
-    Double_t pos_er  [n_points] = {   15.0,    15.0,    15.0,    15.0,    15.0,    15.0,    15.0,    15.0,    15.0};
-    Double_t flux    [n_points] = {72200.0, 47000.0, 15800.0, 17800.0, 89300.0, 92200.0, 55600.0, 58800.0, 70600.0};
-    Double_t flux_er [n_points] = { 3600.0,  2300.0,   810.0,   920.0,  4600.0,  5300.0,  2800.0,  2900.0,  3600.0};
-    TCanvas* can3 = new TCanvas("c3", "c3", 1436,856);
+    const double sec_factor = 0.03408;
+    Double_t pos     [n_points] = {-00.5,   -50.0,  -149.5,  -150.5,    50.5,     49.5,   150.5,   149.5, 00.5};
+    Double_t pos_er  [n_points] = { 15.0,    15.0,    15.0,    15.0,    15.0,     15.0,    15.0,    15.0, 15.0};
+
+    // Calculated using https://docs.google.com/spreadsheet/ccc?key=0Ahpo2ep0Rqg5dGNBZk9EZTZmc2w1N0RiR2UwSHZkQ0E#gid=0
+    Double_t flux    [n_points] = {72239,   46645,   15772,   17832,   91338,    94360,   56898,   60177,   72239};
+    Double_t flux_er [n_points] = { 3343,    2105,     758,     860,    4027,     4758,    2437,    2513,    3169};
+    
+     TCanvas* can3 = new TCanvas("c3", "c3", 1436,856);
     TGraphErrors* measured_flux_1d = new TGraphErrors(n_points,pos,flux,pos_er, flux_er);
     measured_flux_1d->SetTitle("Measured charged particle rate (1D)");
     measured_flux_1d->GetXaxis()->SetTitle("Vertical position (mm)");
@@ -76,11 +84,15 @@ void charged_particle_flux_sim (){
     
     // for the 2D graph error
     const Int_t n_points_2d = 13;
+    
+
+    // % Values calculated in https://docs.google.com/spreadsheet/ccc?key=0Ahpo2ep0Rqg5dGNBZk9EZTZmc2w1N0RiR2UwSHZkQ0E#gid=4
+    // % and get_average_hit_rates used to calculate the rates
     Double_t p_er [n_points_2d]  = {  35.0,   35.0,   35.0,   35.0,   35.0,   35.0,   35.0,   35.0,   35.0,   35.0,   35.0,    35.0,   35.0};
     Double_t x    [n_points_2d]  = {  00.0, -170.0, -170.0, -170.0,  170.0,  170.0,  170.0,   00.0,   00.0,   00.0,   00.0,  -170.0,   00.0};
     Double_t y    [n_points_2d]  = {  00.0,  200.0, -160.0,   00.0,   00.0,  200.0, -160.0, -160.0,  200.0,   00.0,  250.0,   250.0,  200.0};
-    Double_t z    [n_points_2d]  = {5400.0, 9300.0, 2200.0, 5010.0, 3110.0, 5590.0, 1540.0, 2400.0, 8600.0, 4360.0, 7300.0, 10800.0, 9200.0};
-    Double_t z_er [n_points_2d]  = {1000.0, 1700.0,  330.0,  710.0,  430.0,  810.0,  230.0,  350.0, 1300.0,  660.0, 1500.0,  2100.0, 1500.0};
+    Double_t z    [n_points_2d]  = {5398.0, 9266.0, 2210.0, 5011.0, 3109.0, 5593.0, 1535.0, 2396.0, 8554.0, 4364.0, 6780.0,  9987.0, 8554.0};
+    Double_t z_er [n_points_2d]  = {1000.0, 1713.0,  332.0,  713.0,  431.0,  811.0,  234.0,  356.0, 1333.0,  667.0, 2053.0,  2998.0, 2387.0};
     // Double_t z    [n_points_2d]  = {54.0,   93.0,   22.1,   50.0,  31.0,  56.0,   15.3,   24.0,  86.0, 44.0,  73.0,  108.0,  92.0};
     // Double_t z_er [n_points_2d]  = {22.0,   37.0,    8.3,   19.0,  11.0,  21.0,    5.8,    9.0,  32.0, 16.0,  38.0,   56.0,  46.0};
     TCanvas* can4 = new TCanvas("c4", "c4", 1436,856);

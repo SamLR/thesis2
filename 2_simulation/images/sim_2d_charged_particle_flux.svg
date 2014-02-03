@@ -4,8 +4,8 @@
 sim_2d_charged_particle_flux.svg
 </title>
 <desc>
-Creator: ROOT Version 5.34/09
-CreationDate: Sun Oct 20 17:00:55 2013</desc>
+Creator: ROOT Version 5.34/14
+CreationDate: Sat Jan 18 22:05:08 2014</desc>
 <defs>
 </defs>
 <rect x="0" y="0" width="567" height="328" fill="white"/>
@@ -8649,19 +8649,28 @@ RMS y
 0
 </text>
 <text x="541" y="247" fill="black" font-size="11" font-family="Helvetica">
-2000
+2
 </text>
 <text x="541" y="195" fill="black" font-size="11" font-family="Helvetica">
-4000
+4
 </text>
 <text x="541" y="142" fill="black" font-size="11" font-family="Helvetica">
-6000
+6
 </text>
 <text x="541" y="90" fill="black" font-size="11" font-family="Helvetica">
-8000
+8
 </text>
 <text x="541" y="38" fill="black" font-size="11" font-family="Helvetica">
-10000
+10
+</text>
+<text x="556" y="26" fill="black" font-size="7" font-family="Helvetica">
+3
+</text>
+<text x="544" y="31" fill="black" font-size="11" font-family="Helvetica">
+10
+</text>
+<text x="538" y="31" fill="black" font-size="11" font-family="Times">
+&#0215;
 </text>
 <rect x="340" y="33" width="170" height="66" fill="white"/>
 <path d="M340,99h 170" fill="none" stroke="black"/>

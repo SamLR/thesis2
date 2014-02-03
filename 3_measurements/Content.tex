@@ -2,7 +2,7 @@
 \label{prt:characterising_the_beam}
 \section{Introduction} % (fold)
 \label{cha:introduction}
-Characterisation of the MuSIC beam was carried out over several years and through a number of experiments. Over the course of two years there were five runs making three significant measurements were made to characterise the beam: the total charged particle flux; the muon flux (by measuring the muon lifetime); and the muon momentum spectrum. The details of the runs are covered in table~\ref{tab:summary_music_beam_time} along with which experiments were carried out. Several other experiments were also carried out by other groups but these are not discussed here (i.e.\ neutron flux measurements, muonic x-ray measurements and Mo muon-bombardment experiment).
+Characterisation of the MuSIC beam was carried out over two years and through a number of experiments. Over the course of two years there were five runs making three significant measurements to characterise the beam: the total charged particle flux; the muon flux (by measuring the muon lifetime); and the muon momentum spectrum. The details of the runs are covered in table~\ref{tab:summary_music_beam_time} along with which experiments were carried out. Several other experiments were also carried out by other groups but these are not discussed here (e.g.\ neutron flux measurements and Mo muon-bombardment experiment).
 \begin{table}[htpb]
   \begin{center}
     \begin{tabular}{c|c|c}
@@ -34,12 +34,11 @@ Characterisation of the MuSIC beam was carried out over several years and throug
   \label{tab:summary_music_beam_time}
 \end{table}
 
-This chapter has been split into four sections: the rest of this section will cover be an introduction to the equipment used for the measurements, each of which will then be treated individually. Each measurement section will start by covering the set up, the results and analysis of the data.
+This chapter has been split into four sections: the rest of this section will be an introduction to the equipment used for the measurements, with each of the three measurements then treated individually. Each measurement section will start by covering the set up, the results and analysis of the data.
 
-The rest of this introduction will cover the equipment used to carry out each measurement as most of it was common to all the measurements.
 \subsection{Scintillators Preparation} % (fold)
 \label{sub:scintillator_preparation}
-As discussed in section~\ref{sec:introduction_scintillation} scintillating materials produce light when charged particles travel through them. There are several categories of scintillator, those used for our measurements were plastic as they are easy to work with, inexpensive and available in a range of sizes. There are two main considerations in preparing a plastic scintillator: maximising light collection and preventing external light contamination. The standard approach to deal with both of these considerations is to polish and wrap the scintillator.
+As discussed in chapter~\ref{prt:introduction} scintillating materials produce light when charged particles travel through them. There are several categories of scintillator, those used for our measurements were plastic as they are easy to work with, inexpensive and available in a range of sizes. There are two main considerations in preparing a plastic scintillator: maximising light collection and preventing external light contamination. The standard approach to deal with both of these considerations is to polish and wrap the scintillator.
 
 The scintillator surface is highly vulnerable to damage either through scratches or grease. Damage to the surface of the scintillator is problematic as it inhibits light collected through total internal reflection (TIR). Anything that reduces the amount of TIR increases the amount of light absorbed outside of the scintillator, where it cannot be detected. In order to prevent scratches, scintillators must be handled carefully and protective films are only removed at the last moment. As well as careful handling, the scintillators are cleaned to remove dirt and dust by polishing them with iso-propanol, this removes grease that can also degrade the surface.
 
@@ -51,11 +50,11 @@ In order to attach sections of the scintillators together and to attach detector
 % subsection scintillator_preparation (end)
 \subsection{Multi-Photon Pixel Counters} % (fold)
 \label{sub:multi_photon_pixel_counters}
-Multi-Photon Pixel Counters (MPPCs, see figure~\ref{fig:images_intro_MPPC_from_hammamatsu_report}) are highly sensitive devices able to accurately count photons over a wide range of intensities. An MPPC is a small device (normally \( \mathcal{O}(1\times1) \)~mm\(^2\)) made from many Avalanche PhotoDiodes (APD) operated in `Geiger-mode'. Each individual APD is a single pixel within the MPPC. The APDs are connected together so that the MPPC's output is the sum of the outputs of the individual pixels. As can be seen in figure~\ref{fig:images_intro_hamamatsu_mppc_waveform_and_counts} there is clear banding that corresponds to the number of incident photons making an accurate obtainable as long as the system operates within the MPPC's limitations (discussed below).
+Multi-Photon Pixel Counters (MPPCs, see figure~\ref{fig:images_intro_MPPC_from_hammamatsu_report}) are highly sensitive devices able to accurately count photons over a wide range of intensities. An MPPC is a small device (normally \( \mathcal{O}(1\times1) \)~mm\(^2\)) made from many Avalanche PhotoDiodes (APD) operated in `Geiger-mode'. Each individual APD is a single pixel within the MPPC. The APDs are connected together so that the MPPC's output is the sum of the outputs of the individual pixels. As can be seen in figure~\ref{fig:images_intro_hamamatsu_mppc_waveform_and_counts} there is clear banding that corresponds to the number of incident photons making counts, accurate to the single photon, obtainable when operating within the MPPC's limitations (see below).
 \begin{figure}[hptb]
   \centering
     \includegraphics[width=.3\textwidth]{images/intro/MPPC_from_hammamatsu_report.png}
-  \caption{Photograph of an MPPC (type S10362-11 with ceramic package) from the Hamamatsu technical report~\cite{hamamatsu_mppc}}
+  \caption{Photograph of an MPPC (type S10362-11 with ceramic package) from the Hamamatsu technical report~\cite{hamamatsu_mppc}.}
   \label{fig:images_intro_MPPC_from_hammamatsu_report}
 \end{figure}
 
@@ -79,7 +78,7 @@ An MPPC has several key attributes: Photon-Detection Efficiency (PDE), peak sens
 \begin{figure}[hptb]
   \centering
     \includegraphics[width=.5\textwidth]{images/intro/hamamatsu_pde_vs_wavelength.png}
-  \caption{MPPC Photon Detection Efficiency (PDE) as a function of photon wavelength. A range of pixel densities are shown (100, 400, 1600 pixels/\( 1\times1\text{mm}^2\) for the 100U, 050U and 025U models respectively) demonstrating the prime taken from~\cite{hamamatsu_mppc}.}
+  \caption{MPPC Photon Detection Efficiency (PDE) as a function of photon wavelength. A range of pixel densities are shown (100, 400, 1600 pixels/\( 1\times1\text{mm}^2\) for the 100U, 050U and 025U models respectively). Taken from~\cite{hamamatsu_mppc}.}
   \label{fig:images_intro_hamamatsu_pde_vs_wavelength}
 \end{figure}
 
@@ -100,7 +99,7 @@ Rather than develop custom data acquisition hardware, a modular crate system was
 NIM modules were primarily used to provide signal processing and data acquisition logic. The CAMAC and VME crates were used for data readout. Ultimate control and storage was carried out using a PC which recorded the data for later analysis. The rest of this section will discuss the basic modules used in NIM, CAMAC and VME.
 \subsection{Discriminators} % (fold)
 \label{ssub:discriminators}
-A discriminator works by producing a digital signal when an analogue input-signal exceeds some preset threshold. Converting the analogue signal to digital makes it much easier to manipulate as many other modules can only use a digital signal. The discriminators were powered by NIM modules and had their thresholds set manually.
+A discriminator works by producing a digital signal when an analogue input signal exceeds some preset threshold. Converting the analogue signal to digital makes it much easier to manipulate as many other modules can only use a digital signal. The discriminators were powered by NIM modules and had their thresholds set manually.
 
 Discriminators were used to signal when a certain number of photons were detected by an MPPC i.e.\ when a particle had passed through the scintillator. As the discriminators have a minimum threshold of \(\sim\)25~mV the MPPC signals were amplified to make them useable. As every MPPC has a different gain the thresholds for the discriminators had to be set individually. To normalise between MPPCs the discriminator thresholds were set based on the number of photons the analogue signal corresponded to (see figure~\ref{fig:images_intro_hamamatsu_mppc_waveform_and_counts}). The trigger level (in p.e.)\ was the same for all MPPCs and was chosen to maximise the signal to noise ratio, a typical value was \(\sim2.5\)~p.e. which suppressed most of the dark current without compromising sensitivity to charged particles. An oscilloscope could then used to translate the photon (p.e.)\ threshold into a voltage threshold (in mV) that can be used by the discriminator.
 
@@ -118,7 +117,7 @@ Gates are a set of modules that generally have several related functions. Depend
 \label{ssub:logic_units}
 Logic units provide boolean logic (`AND', `OR', `NOT') for processing digital signals. The limiting factor is the number of inputs that can be combined and the complexity of the combinations. Normally signals are combined in a block with a single module having several discrete blocks. Each block will perform a single logical operation (OR or AND) on its inputs. The inputs of a block can either be normal or negated. A block (or sometimes the entire module) will generally have a veto signal that will stop outputs until the veto is cleared.
 
-Logic units were generally used for simple tests such as checking that all MPPCs on a scintillator had triggered, this helped reduce the number of false positives in addition to the application of a discriminator. Logic units were also used to prevent attempts process to events at once: if a second event arrived before the previous event was fully processed then the second event was ignored. This leads to `dead time' but is unavoidable.
+Logic units were generally used for simple tests such as checking that all MPPCs on a scintillator had triggered, this helped reduce the number of false positives in addition to the application of a discriminator. Logic units were also used to prevent attempts to process two events at once: if a second event arrived before the previous event was fully processed then the second event was ignored. This leads to `dead time' but is unavoidable.
 
 % subsubsection logic_units (end)
 \subsection{Scaler} % (fold)
@@ -130,11 +129,11 @@ A scaler is a counting module. It receives a digital input, that when asserted, 
 % subsubsection scaler (end)
 \subsection{Analogue to Digital Converter} % (fold)
 \label{ssub:analogue_to_digital_converter}
-There are two primary attributes of an MPPC signal that were measured: its size and its separation from other signals. In order to measure the size of the MPPC signal an Analogue to Digital Converter (ADC) was used. ADCs work in a variety of ways depending on the exact type of measurement they are making, two common versions used at MuSIC were Peak Sensing ADC (PS-ADC) and Charge-integrating ADCs (QDC). Both types of ADC measure a component of the input analogue signal, the PS type measures the peak voltage whilst the CI measures the integrated charge, both make these measurements only when enabled by the ADC's `gate'. The ADC's gate is normally set to be slightly longer than the expected signal from an MPPC, i.e.\ \( \sim \)50~ns. 
+There are two primary attributes of an MPPC signal that were measured: its size and its separation from other signals. In order to measure the size of the MPPC signal an Analogue to Digital Converter (ADC) was used. ADCs work in a variety of ways depending on the exact type of measurement they are making, two common versions used at MuSIC were Peak Sensing ADC (PS-ADC) and Charge-integrating ADCs (QDC). Both types of ADC measure a component of the input analogue signal, the PS type measures the peak voltage whilst the QDC measures the integrated charge, both make these measurements only when enabled by the ADC's `gate'. The ADC's gate is normally set to be slightly longer than the expected signal from an MPPC, i.e.\ \( \sim \)50~ns. 
 
-Several factors define the ADC: the number of bits it is able to read out, the range of input signals that it can measure, its linearity, digitisation/read time (`dead time') and number of channels. The number of bits the ADC has, the range and its linearity work together to determine the accuracy of the ADC; the number of bits determines the resolution between any two values, the range determines the the values that the ADC can measure whilst the linearity maps measured values to actual voltages. Dead time measures how long is required to measure the analogue signal and how long it takes to then send the digitised values to the controlling PC i.e.\ for how long the module is inoperative, `dead'. The number of channels on an ADC is a measure of how many inputs it can measure simultaneously, normally one is ascribed to each MPPC so that the triggering signal can be recorded.
+Several factors define the ADC: the number of bits it is able to read out, the range of input signals that it can measure, its linearity, digitisation/read time (`dead time') and number of channels. The number of bits the ADC has, the range and its linearity work together to determine the accuracy of the ADC; the number of bits determines the resolution between any two values, the range determines the values that the ADC can measure whilst the linearity maps measured values to actual voltages. Dead time measures how long is required to measure the analogue signal and how long it takes to then send the digitised values to the controlling PC i.e.\ for how long the module is inoperative, `dead'. The number of channels on an ADC is a measure of how many inputs it can measure simultaneously, normally one is ascribed to each MPPC so that the triggering signal can be recorded.
 
-A key feature of using an ADC is the pedestal, obviously any analogue signal is going to have some noise that represents its zero level, in an ADC this manifests as a large peak in the lower bins of the ADC, removal of the pedestal is often done by the ADC itself and through DAQ but it does sometimes have to be removed from the data as well.
+A key feature of using an ADC is the pedestal, obviously any analogue signal is going to have some noise that represents its zero level, in an ADC this manifests as a large peak in the lower bins of the ADC, removal of the pedestal is often done by the ADC itself and through the DAQ but it does sometimes have to be removed from the data as well.
 
 % subsubsection analogue_to_digital_converter (end)
 \subsection{Time to Digital Converter} % (fold)
@@ -144,7 +143,9 @@ A Time to Digital Converter (TDC) measures the time difference between two (or m
 % subsubsection time_to_digital_converter (end)
 \subsection{Registers} % (fold)
 \label{ssub:registers}
-Registers are similar to the gate modules discussed above except that they are either or written directly by the PC. Registers are two key uses in our systems: either indicating (an `interrupt') to the controlling PC that their is data to be read or to reset the DAQ after a successful read. Interrupts were formed using a logic unit and a gate: once a trigger had be formed by the logic unit the gate would delay the interrupt signal long enough for the ADC and TDC digitisation to complete then signal the controlling PC. The PC's reset signal was used to unlatch the veto signals that prevented doubling up of data as well as clear any other latches used by the system.
+Registers are modules that allow simple logical signals to be sent to or from a PC. In our systems they have two key uses: either indicating to the controlling PC that there is data to be read (an `interrupt') or for the PC to indicate that all the data has been read and that the DAQ should be reset. The interrupt time had to be carefully delayed such that there was long enough for the digitisation to complete whilst minimising dead time. The DAQ reset signal was sent by the PC once it had read all the modules to indicate that data taking could resume.
+
+ % Interrupts were formed using a logic unit and a gate: once a trigger had be formed by the logic unit the gate would delay the interrupt signal long enough for the ADC and TDC digitisation to complete then signal the controlling PC. The PC's reset signal was used to unlatch the veto signals that prevented doubling up of data as well as clear any other latches used by the system.
 
 % Control registers are fairly simple devices but very useful in general control, they act as a simple toggle that can either send or receive a signal to the controlling PC. The main use of registers is to form an interrupt; used this way once data has been taken the ready state of the system can be signalled to the PC and the PC can begin read-out. The interrupt is often delayed so that full digitisation can occur although has to be carefully gauged to prevent excessive dead time. The second common use is to reset the system once read-out has completed, this normally means resetting a latched gate that has been holding the system in veto.
 
@@ -153,20 +154,20 @@ Registers are similar to the gate modules discussed above except that they are e
 % section experimental_technique (end)
 \clearpage
 % chapter introduction (end)
-\section{Charged Particle flux} % (fold)
+\section{Charged Particle Flux} % (fold)
 \label{cha:charged_particle_flux}
 % TODO Pictures of set ups
 % TODO Diagrams of set ups
-The first experiment carried out at MuSIC aimed to measure the total flux of charged particles. As well as yielding useful data it was also a test-bed for the technology and techniques used in later experiments.
+The first experiment carried out at MuSIC aimed to measure the total flux of charged particles. As well as this measurement it was also a test-bed for the technology and techniques used in later experiments.
 
 Two separate measurements of the charged particle flux were made: one using a long strip scintillator that measured the flux at a range of vertical positions and a second that used a smaller disk that measured the flux at a number of points across the face of the disc.
 
-The DAQ used for these experiments was designed to have a lot greater functionality that was ultimately used. The original design aimed to use the difference of arrival times at the various MPPCs for greater positional accuracy whilst the ADC measurements were intended to measure the energy of the particle neither of these techniques were successful but the full DAQ is included for completeness.
+The DAQ used for these experiments was designed to have a lot greater functionality than was ultimately used. The original design aimed to use the difference of arrival times at the various MPPCs for greater positional accuracy whilst the ADC measurements were intended to measure the energy of the particle neither of these techniques were successful but the full DAQ is included for completeness.
 
 % These early experiments had DAQ designs that were ultimately superfluous as the data it yielded was not used; this design is included for completeness.
 \subsection{Experimental Set Up} % (fold)
 \label{sec:experimental_set_up}
-The experimental design for both measurements was broadly the same: the scintillators both had four MPPCs attached. In the first measurement a long strip scintillator was used and the MPPCs were distributed evenly across the short ends, for the second measurement the disk had the four MPPCs placed evenly around the circumference. NIM was used logic for basic triggering whilst read-out was performed via CAMAC, data was recorded on a PC and analysed afterwards. The scintillators were both wrapped with aluminium foil and black wrap and the MPPCs attached via optical cement (see table~\ref{tab:charged_particle_flux_scint_details}). The scintillators were mounted on aluminium supports at the end of the beam-pipe.
+The experimental design for both measurements was broadly the same: the scintillators both had four MPPCs attached. In the first measurement a long strip scintillator was used and the MPPCs were distributed evenly across the short ends, for the second measurement the disk had the four MPPCs placed evenly around the circumference (see table~\ref{tab:charged_particle_flux_scint_details}). NIM crates housed the modules for the triggering logic, digitisation was performed via CAMAC modules and the read out data was recorded on a PC to be analysed afterwards. The scintillators were both wrapped with aluminium foil and black wrap and the MPPCs attached via optical cement. The scintillators were mounted on aluminium supports at the end of the beam-pipe.
 \begin{table}
   \begin{center}
     \begin{tabular}{c|c|c|c}
@@ -208,7 +209,7 @@ This can be seen as a schematic in figure~\ref{fig:MuSIC1_DAQ_Block}.
   \label{fig:MuSIC1_DAQ_Block}
 \end{figure}
 
-To make the final measurement of the trigger rate, the majority of the DAQ was ignored and the four-fold coincidence counted using a scaler. By counting the raw triggers, affects of dead time could be negated and a truer value for the number of interactions obtained. For the 1D experiment measurements were made over 50~s with control done via hand, this obviously had limitations 
+To make the final measurement of the trigger rate, the majority of the DAQ was ignored and the four-fold coincidence counted using a scaler. By counting the raw triggers, effects of dead time could be negated and a truer value for the number of interactions obtained. For the 1D experiment, measurements were made over 50~s with control done via hand, this obviously had limitations 
 
 The positions of the two experiments are given in table~\ref{tab:flux_setup} with respect to the centre of the beam-pipe. `By-eye' readout of the 1D measurement was done using a display mounted on the scaler used to count triggers. For the 2D measurement a CAMAC module was used that was read out by computer. It's important to note that not only were the detectors very different but due to experimental constraints the 2D measurement was made significantly further from the end of the beam pipe than the 1D experiment (85~cm compared to 6~cm).
 \begin{table}
@@ -230,7 +231,7 @@ The positions of the two experiments are given in table~\ref{tab:flux_setup} wit
 \label{sec:detector_efficiency}
 As well as making measurements of the charged particle flux another important measurement, made soon after the second beam time, was measurement of the efficiency of the circular detector. This was done using three large (\( 40\times40\times1 \)~cm\(^3\)) scintillator paddles. Light from the scintillators was detected using Photo-Multiplier Tubes (PMT). The three large paddles were positioned sandwiching the circular scintillator, two above and one below. 
 
-The circular detector's efficiency was calculated using the ratio of detections by the PMTs to detection by the MPPCs (once size considerations had been taken into account). It was assumed that the rate of detection by the circular scintillator was proportional to the detection rate in the three large scintillators. The first test was the efficiency of all three remaining MPPCs (one had become irrevocably damaged during beam time) then the efficiency of pairs of MPPCs was tested. Testing consisted of counting the occurrence of three-fold coincidence on the PMTs and either two or three fold coincidence on the MPPCs. Data was taken for approximately one day for each configuration. The MPPCs were not individually to ensure that dark current events were not included, although these were reduced by using a discriminator to produce the signals. The results of this measurement are shown in table~\ref{tab:music2_eff}.
+The circular detector's efficiency was calculated using the ratio of detections by the PMTs to detection by the MPPCs (once size considerations had been taken into account). It was assumed that the rate of detection by the circular scintillator was proportional to the detection rate in the three large scintillators. The first test was the efficiency of all three remaining MPPCs (one had become irrevocably damaged during beam time) then the efficiency of pairs of MPPCs was tested. Testing consisted of counting the occurrence of three-fold coincidence on the PMTs and either two or three fold coincidence on the MPPCs. Data was taken for approximately one day for each configuration. The MPPCs were not tested individually to ensure that dark current events were not included, although these were reduced by using a discriminator to produce the signals. The results of this measurement are shown in table~\ref{tab:music2_eff}.
 
 \begin{table}
   \begin{center}
@@ -251,7 +252,7 @@ The circular detector's efficiency was calculated using the ratio of detections 
   \label{tab:music2_eff}
 \end{table}
 
-Assuming that the total efficiency (\( \epsilon_t \)) is the product of the individual efficiencies (\( \epsilon_{1,2,3} \)) then the it can be expressed as:
+Assuming that the total efficiency (\( \epsilon_t \)) is the product of the individual efficiencies (\( \epsilon_{1,2,3} \)) then it can be expressed as:
 \begin{align}
   \epsilon_t &= \epsilon_1  \epsilon_2  \epsilon_3
 \end{align}
@@ -280,11 +281,11 @@ Where \( \epsilon_i \) is a single efficiency we want to calculate and \( \epsil
       \( 123_{Calc} \)  &  0.0775  &  0.0016  \\
       \( 123_{Meas} \)  &  0.0591  &  0.0015  \\
       \hline 
-      \( \epsilon_{\text{MPPC}} \)  &  0.431\0 & 0.067 \\
+      \( \epsilon_{\text{Ave.}} \)  &  0.431\0 & 0.067 \\
          
     \end{tabular}
   \end{center}
-  \caption{Efficiencies of individual MPPCs calculated using the values from table~\ref{tab:music2_eff}, and equation~\eqref{equ:individual_eff}. The two values below the line represent the total efficiency as calculated using the individual values and the measured value. Note: these values also include any acceptance effects and the light collection efficiencies of the scintillator.}
+  \caption{Efficiencies of individual MPPCs calculated using the values from table~\ref{tab:music2_eff}, and equation~\eqref{equ:individual_eff}. The two values below the line represent the total efficiency as calculated using the individual values and the measured value. The final value, \(\epsilon_{\text{Ave.}}\) is the mean efficiency of the three individual efficiencies, it's error is the standard deviation of those values. Note: these values include any acceptance effects, the light collection efficiencies of the scintillator and any effects due to the DAQ.}
   \label{tab:calculated_individual_eff}
 \end{table}
 
@@ -293,48 +294,52 @@ Where \( \epsilon_i \) is a single efficiency we want to calculate and \( \epsil
 \subsection{Results} % (fold)
 \label{sec:results}
 
-Prior to the main experiments the conversion factors from SEC count to proton current was determined, these values were determined to be, respectively for the 1D and 2D measurement: 0.03408~nA and 0.01514~nA . The results from the measurements are presented in table~\ref{tab:1d_res}, for the 1D case, and table~\ref{tab:2d_res} in the 2D case. The counts were converted to rates and the flux calculated using:
+Prior to the main experiments the conversion factors from SEC count to proton current was determined, these values were determined to be, respectively for the 1D and 2D measurement: 0.03408~nA and 1.514~nA. The results from the measurements are presented in table~\ref{tab:1d_res}, for the 1D case, and table~\ref{tab:2d_res} in the 2D case. The counts were converted to rates and the flux calculated using:
 \begin{align}
   j &= \frac{F(C - C_{off})}{I_{p}} \\
   I_{p} &= K(S - S_{off})
 \end{align}
-where \(j\) is the flux, \(F\) is a scaling factor, \(C\) is the trigger count with the beam on, \(C_{off}\) is the background trigger rate (i.e.\ with the beam off), \( I_{p} \) is the proton current, \(S\) is the SEC count, \(S_{off}\) is the SEC count with the beam off and \(K\) is the SEC to current conversion factor. The scaling factor, \(F\), was  used in normalise runs with different conditions. For the 1D measurement there was a discrepancy between the first four and last five measurements due to damage to the MPPCs (one broke and another became detached from the scintillator). The 2D measurements were made at a larger distance than the 1D measurements as there was another experiment upstream that prevented closer positioning. The upstream experiment was making the muon lifetime measurement discussed below, it consisted of two scintillators on either side of stopping target. The stopping target was initially 5~mm of copper  that was changed to 20~mm of magnesium for the final 3 runs.
+where \(j\) is the flux, \(F\) is a scaling factor, \(C\) is the trigger count with the beam on, \(C_{off}\) is the background trigger rate (i.e.\ with the beam off), \( I_{p} \) is the proton current, \(S\) is the SEC count, \(S_{off}\) is the SEC count with the beam off and \(K\) is the SEC to current conversion factor. The scaling factor, \(F\), was  used in normalise runs with different conditions, it was taken to be the ratio of the measurements made at the same location. I.e.\ the scaling factor for the 1D case was the ratio of the two measurements made at 0~cm. For the 1D measurement there was a difference between the first four and last five measurements due to damage to the MPPCs (one broke and another became detached from the scintillator). The 2D measurements were made at a larger distance than the 1D measurements as there was another experiment upstream that prevented closer positioning. The upstream experiment was used to make the muon lifetime measurement discussed below, it consisted of two scintillators on either side of stopping target. The stopping target was initially 20~mm of magnesium that was changed to 5~mm of copper for the final 3 runs.
 
-% During the 2D measurements some of the runs were made with an upstream experiment in a different configuration; a stopping target of 5~mm of copper to 20~mm was used initially and changed to to magnesium for the last 3 runs.
+
 \begin{table}
   \begin{center}
     \begin{tabular}{ r | r | c | c | c | c | r@{~\(\pm\)~}r } 
-      Height  &  \multicolumn{2}{c|}{Trigger Count} &  \multicolumn{2}{c|}{SEC Count}  &  Factor  &  \multicolumn{2}{c}{Flux}          \\
-      (cm)    &        Beam on  &  Beam off         &  Beam on &  Beam off             &          &  \multicolumn{2}{c}{(nA\(^{-1}\))} \\
+      Height   &  \multicolumn{2}{c|}{Trigger Count}    &  \multicolumn{2}{c|}{SEC Count}  &  Factor   &  \multicolumn{2}{c}{Flux}          \\
+      (cm)     &  \multicolumn{1}{c|}{(\(C\))}  
+                             &  (\(C_{off}\))           &    (\(S\))   &   (\(S_{off}\))   &  (\(F\))  &  \multicolumn{2}{c}{(nA\(^{-1}\))} \\
       \hline
-        0      &  2,151,736  &    \multirow{4}{*}{30}   &   1,255  &  \multirow{4}{*}{381} &  \multirow{4}{*}{\( 1.0\pm0.0 \)}  
-                                                                                                  &  72,200  & 3,600 \\
-      \(-5 \)  &  1,438,685  &                          &   1,286  &                       &          &  47,000  & 2,300 \\
-      \(-15\)  &    446,302  &                          &   1,212  &                       &          &  15,800  &   810 \\
-      \(-15\)  &    502,596  &                          &   1,208  &                       &          &  17,800  &   920 \\
+        0      &  2,151,736  &    \multirow{4}{*}{30}   &   1,255  &  \multirow{4}{*}{381} &  \multirow{4}{*}{\(1.0\pm0.0\)}  
+                                                                                                      &  72,200 & 3,300  \\
+      \(-5 \)  &  1,438,685  &                          &   1,286  &                       &          &  46,600 & 2,100  \\
+      \(-15\)  &    446,302  &                          &   1,212  &                       &          &  15,770 &   760  \\
+      \(-15\)  &    502,596  &                          &   1,208  &                       &          &  17,830 &   860  \\
       \hline            
-        5      &  1,663,702  &   \multirow{4}{*}{83}    &   1,298  &  \multirow{4}{*}{398} &  \multirow{4}{*}{\( 1.646\pm0.023 \)}  
-                                                                                                  &  89,300 & 4,600  \\
-        5      &  1,420,836  &                          &   1,142  &                       &          &  92,200 & 5,300  \\
-       15      &  1,080,170  &                          &   1,336  &                       &          &  55,600 & 2,800  \\
-       15      &  1,185,051  &                          &   1,371  &                       &          &  58,800 & 2,900  \\    
+        5      &  1,663,702  &   \multirow{4}{*}{83}    &   1,298  &  \multirow{4}{*}{398} &  \multirow{4}{*}{\(1.684\pm0.034\)}  
+                                                                                                      &  91,300 & 4,000  \\
+        5      &  1,420,836  &                          &   1,142  &                       &          &  94,340 & 4,800  \\
+       15      &  1,080,170  &                          &   1,336  &                       &          &  56,900 & 2,400  \\
+       15      &  1,185,051  &                          &   1,371  &                       &          &  60,200 & 2,500  \\    
        \hline
-        0      &  1,307,015  &         34               &   1,298  &             404       & \(1.646\pm0.023\)
-                                                                                                  &  70,600 & 3,600  \\
+        0      &  1,307,015  &         34               &   1,298  &             404       & \(1.684\pm0.078\)
+                                                                                                      &  72,200 & 3,200  \\
     \end{tabular}
   \end{center}
-  \caption{Summary of the results from the measurement of the vertical charged particle flux. The errors on the counts are the square root of the value. Counts were taken for \( 50\pm0.5 \)~s, the errors on both count and time are included in the final flux calculation. The factor was taken to be the ratio of two measurements made at 0~cm. The 0~cm measurements were used as this was the only pair of measurements that were made with the experiment in both conditions (i.e.\ all MPPCs functional and later, with one broken and another damaged). The error on the factor is the errors on the two 0~cm values added in quadrature.}
+  \caption{Summary of the results from the measurement of the vertical charged particle flux. The errors are statistical whilst the error on \(F\) is calculated as the errors on the un-scaled measurements at 0~cm added in quadrature. The error on the flux is calculated as the propagated errors of the other values. Counts were taken for 50~s. The factor was taken to be the ratio of two measurements made at 0~cm. The 0~cm measurements were used as this was the only pair of measurements that were made with the experiment in both conditions (i.e.\ all MPPCs functional and later, with one broken and another damaged).}
   \label{tab:1d_res}
 \end{table}
 
 
 \begin{figure}[hptb]
   \centering
-  \includegraphics[width=.8\textwidth]{images/plot_generating_scripts/measured_1d_charged_flux.png}
+  \includegraphics[width=.8\textwidth]{images/plot_generating_scripts/measured_1d_charged_flux.eps}
   \caption{Measurement of the 1D charged particle flux as given in table~\ref{tab:1d_res}. Where two measurements were made at a single location an offset has been applied to the point to allow clearer reading of the plot, the measurements were actually at the same position. The errors on the vertical position are the width of the scintillator used.}
   \label{fig:images_hit_rate_rescaled}
 \end{figure}
 
+
+% Values calculated in https://docs.google.com/spreadsheet/ccc?key=0Ahpo2ep0Rqg5dGNBZk9EZTZmc2w1N0RiR2UwSHZkQ0E#gid=4
+% and get_average_hit_rates used to calculate the rates
 \begin{table}
   \begin{center}
     \begin{tabular}{r|r|r|c|c|c|r@{~\(\pm\)~}r}
@@ -346,28 +351,28 @@ where \(j\) is the flux, \(F\) is a scaling factor, \(C\) is the trigger count w
       \(-17\)  &   20      &          117,947 & 58                &   51        &          &   9,300  &  1,700 \\
       \hline
       \(-17\)  &  \(-16\)  &           39,528 & 48                &   68        & \multirow{8}{*}{\(1.0\pm0.0\)}  
-                                                                                           &   2,200  &    330 \\
-      \(-17\)  &    0      &           97,190 & 78                &   73        &          &   5,010  &    710 \\
-       17      &    0      &           63,160 & 91                &   76        &          &   3,110  &    430 \\
-       17      &   20      &          105,097 & 88                &   71        &          &   5,590  &    810 \\
-       17      &  \(-16\)  &           27,010 & 55                &   67        &          &   1,540  &    230 \\
-        0      &  \(-16\)  &           43,634 & 97                &   69        &          &   2,400  &    350 \\
-        0      &   20      &          142,536 & 73                &   64        &          &   8,600  &  1,300 \\
-        0      &    0      &           75,376 & 60                &   66        &          &   4,360  &    660 \\
+                                                                                           &   2,210  &   330 \\
+      \(-17\)  &    0      &           97,190 & 78                &   73        &          &   5,010  &   710 \\
+       17      &    0      &           63,160 & 91                &   76        &          &   3,110  &   430 \\
+       17      &   20      &          105,097 & 88                &   71        &          &   5,590  &   810 \\
+       17      &  \(-16\)  &           27,010 & 55                &   67        &          &   1,540  &   230 \\
+        0      &  \(-16\)  &           43,634 & 97                &   69        &          &   2,400  &   360 \\
+        0      &   20      &          142,536 & 73                &   64        &          &   8,600  & 1,300 \\
+        0      &    0      &           75,376 & 60                &   66        &          &   4,360  &   670 \\
       \hline
-         0      &   25     &           45,950 & 35                &   46        &   \multirow{3}{*}{\(1.784\pm0.008\)}
-                                                                                           &   7,300  &  1,500 \\
-       \(-17\)  &   25     &           69,582 & 119               &   47        &          &  10,800  &  2,100 \\
-         0      &   20     &           80,088 & 238               &   60        &          &   9,200  &  1,500 \\
+         0      &   25     &           45,950 & 35                &   46        &   \multirow{3}{*}{\(1.65\pm0.37\)}
+                                                                                           &   6,800  &  2,100 \\
+       \(-17\)  &   25     &           69,582 & 119               &   47        &          &  10,000  &  3,000 \\
+         0      &   20     &           80,088 & 238               &   60        &          &   8,600  &  2,400 \\
     \end{tabular}
   \end{center}
-  \caption{Table of the results from the 2D measurement. All measurements were made over \( 20\pm0.001 \)~s apart from the first two measurements of the trigger count with the beam off which were made over \( 11\pm0.001 \)~s. Counts were made using a CAMAC controlled scaler and an enable gate triggered via interrupt register. The column for `SEC, beam off' is elided as it was constant at 9. The errors on the counts are the square root of the value, errors on the time are also propagated through the calculation.}
+  \caption{Table of the results from the 2D measurement. The trigger count measurements were made over 20~s apart from the first two measurements of the trigger count with the beam off which were made over 11~s. The SEC measurements were made over 100~s. Counts were made using a CAMAC controlled scaler and an enable gate triggered via interrupt register. The column for `SEC, beam off' is elided as it was constant at 9. As with the 1D measurement the errors are statistical. The last three values also include an error due to the calculation of the scaling factor.}
   \label{tab:2d_res}
 \end{table}
  
 \begin{figure}[hptb]
   \centering
-  \includegraphics[width=.8\textwidth]{images/plot_generating_scripts/measured_2d_charged_flux.png}
+  \includegraphics[width=.8\textwidth]{images/plot_generating_scripts/measured_2d_charged_flux.eps}
   \caption{2D plot of the charged particle flux across the front of the MuSIC beam pipe. The final three measurements were rescaled using the ratio of the two measurements at \((0,20)\)~cm.}
   \label{fig:2D_flux}
 \end{figure}
@@ -375,7 +380,9 @@ where \(j\) is the flux, \(F\) is a scaling factor, \(C\) is the trigger count w
 % section results (end)
 \subsection{Analysis} % (fold)
 \label{sec:analysis}
-As can be seen from the figures~\ref{fig:images_hit_rate_rescaled}~and~\ref{fig:2D_flux} the beam spot is positioned slightly up and to the left of the centre of the pipe. As figure~\ref{fig:sim_2d_charged_flux} shows both measurements agree on the general position of the beam spot. The measurements are not directly comparable due to the differences in both scintillator volume and position with respect to the end of the beam-pipe. Obviously the flux for the 2D measurement is generally lower due to smaller scintillator and greater distance from the beam-pipe.
+As can be seen from the figures~\ref{fig:images_hit_rate_rescaled}~and~\ref{fig:2D_flux} the beam spot is positioned slightly up and to the left of the centre of the pipe. The repeat measurements from both runs are also consistent with one another suggesting that they are correct. The agreement between the measurements and the simulation is less good as shown by figure~\ref{fig:images_plot_generating_scripts_1D_charged_particle_flux} where clearly the simulated rate and the measured rate are off by a significant amount (although both have the same shape).
+
+As figure~\ref{fig:sim_2d_charged_flux} shows both measurements agree on the general position of the beam spot. The measurements are not directly comparable due to the differences in both scintillator volume and position with respect to the end of the beam-pipe. Obviously the flux for the 2D measurement is generally lower due to smaller scintillator and greater distance from the beam-pipe.
 
 The detector efficiency measurement for the 2D apparatus allows a more accurate calculation of the flux for this case whilst also providing a bench-mark efficiency for future uses of the scintillator/MPPC configuration (where it wasn't always possible to make an analogous measurement). 
 
@@ -400,7 +407,7 @@ Comparing the measured and simulated rates yields some interesting features. The
   
 \begin{figure}[hptb]
   \centering  
-    \includegraphics[width=.9\textwidth]{images/plot_generating_scripts/sim_2d_charged_flux.png}
+    \includegraphics[width=.9\textwidth]{images/plot_generating_scripts/sim_2d_charged_flux.eps}
   \caption{Simulated results for the 2D charged particle rate normalised to a proton current of 1~nA. Colour is equal to the rate as given by the z-axis. Simulated using \( 9\times10^8 \) in G4BL, the rate was taken to be those particles seen within the area of the scintillator used.}
   \label{fig:sim_2d_charged_flux}
 \end{figure}
@@ -651,7 +658,7 @@ To ensure that there were no problems during data taking the trigger rate was ch
 % subsection gain_stability (end)
 % section secondary_calculations (end)
 \subsection{Results} % (fold)
-\label{sec:results}
+\label{sec:momenta_results}
 As has been discussed there are six data sets that were used for this analysis, the details of them are given in table~\ref{tab:run_summary}. For this analysis only the downstream scintillators are used as this was the scintillator best configured to detect them. Each run was analysed in the same way, once processing was complete (section~\ref{sec:data_processing}) the binned data was converted into a histogram and fitted using:
 \begin{align}
   N_{f}\exp(\frac{-t}{\tau_{f}}) + N_{c}\exp(\frac{-t}{\tau_{c}}) + N_{s}\sin(2\pi\frac{t-\phi}{T}) + N_{b} \label{equ:fit}

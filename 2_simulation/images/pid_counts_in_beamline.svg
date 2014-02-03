@@ -4,8 +4,8 @@
 pid_counts_in_beamline.svg
 </title>
 <desc>
-Creator: ROOT Version 5.34/09
-CreationDate: Sun Nov 10 15:20:23 2013</desc>
+Creator: ROOT Version 5.34/14
+CreationDate: Sat Jan 18 21:42:47 2014</desc>
 <defs>
 </defs>
 <rect x="0" y="0" width="567" height="328" fill="white"/>
@@ -132,14 +132,14 @@ Count (per 10
 <path d="M63,52h -6" fill="none" stroke="black"/>
 <path d="M63,43h -6" fill="none" stroke="black"/>
 <path d="M63,36h -6" fill="none" stroke="black"/>
-<path d="M57,259h 64v -92h 65v -33h 65v -68h 65v 168h 65v -45h 64v -31h 65" fill="none" stroke="#ff0000"/>
-<path d="M57,238h 64v -76h 65v -34h 65v -71h 65v 160h 65v -39h 64v -24h 65" fill="none" stroke="#00ff00"/>
+<path d="M57,238h 64v -76h 65v -34h 65v -71h 65v 160h 65v -39h 64v -24h 65" fill="none" stroke="#ff0000"/>
+<path d="M57,259h 64v -92h 65v -33h 65v -68h 65v 168h 65v -45h 64v -31h 65" fill="none" stroke="#00ff00"/>
 <rect x="397" y="33" width="113" height="66" fill="white"/>
 <path d="M397,99h 113" fill="none" stroke="black"/>
 <path d="M510,99v -66" fill="none" stroke="black"/>
 <path d="M510,33h -113" fill="none" stroke="black"/>
 <path d="M397,33v 66" fill="none" stroke="black"/>
-<text x="425" y="46" fill="black" font-size="7" font-family="Helvetica">
+<text x="425" y="48" fill="black" font-size="7" font-family="Helvetica">
 Position 1 particle counts
 </text>
 <path d="M401,52h 20v -16h -20z" fill="white"/>
@@ -147,16 +147,16 @@ Position 1 particle counts
 <g stroke="black" stroke-width="1" fill="none">
 <line x1="410" y1="44" x2="411" y2="44"/>
 </g>
-<text x="425" y="68" fill="black" font-size="7" font-family="Helvetica">
-Position 3 particle counts
+<text x="425" y="71" fill="black" font-size="7" font-family="Helvetica">
+Position 2 particle counts
 </text>
 <path d="M401,73h 20v -15h -20z" fill="white"/>
 <path d="M401,66h 20" fill="none" stroke="#ff0000"/>
 <g stroke="black" stroke-width="1" fill="none">
 <line x1="410" y1="66" x2="411" y2="66"/>
 </g>
-<text x="425" y="90" fill="black" font-size="7" font-family="Helvetica">
-Position 2 particle counts
+<text x="425" y="92" fill="black" font-size="7" font-family="Helvetica">
+Position 3 particle counts
 </text>
 <path d="M401,95h 20v -15h -20z" fill="white"/>
 <path d="M401,88h 20" fill="none" stroke="#00ff00"/>

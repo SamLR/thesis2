@@ -4,8 +4,8 @@
 measured_1d_charged_flux.svg
 </title>
 <desc>
-Creator: ROOT Version 5.34/09
-CreationDate: Mon Dec  2 21:12:31 2013</desc>
+Creator: ROOT Version 5.34/14
+CreationDate: Mon Feb  3 00:11:57 2014</desc>
 <defs>
 </defs>
 <rect x="0" y="0" width="567" height="328" fill="white"/>
@@ -190,30 +190,30 @@ Charged particle rate (nA
 </text>
 <g stroke="black" stroke-width="1" fill="none">
 <line x1="282" y1="106" x2="283" y2="106"/>
-<line x1="225" y1="172" x2="226" y2="172"/>
+<line x1="225" y1="173" x2="226" y2="173"/>
 <line x1="112" y1="254" x2="113" y2="254"/>
-<line x1="111" y1="249" x2="112" y2="249"/>
-<line x1="340" y1="61" x2="341" y2="61"/>
-<line x1="339" y1="53" x2="340" y2="53"/>
-<line x1="454" y1="149" x2="455" y2="149"/>
-<line x1="453" y1="141" x2="454" y2="141"/>
-<line x1="283" y1="110" x2="284" y2="110"/>
+<line x1="111" y1="248" x2="112" y2="248"/>
+<line x1="340" y1="56" x2="341" y2="56"/>
+<line x1="339" y1="48" x2="340" y2="48"/>
+<line x1="454" y1="146" x2="455" y2="146"/>
+<line x1="453" y1="137" x2="454" y2="137"/>
+<line x1="283" y1="106" x2="284" y2="106"/>
 </g>
 <path d="M283,106h -17" fill="none" stroke="black"/>
 <path d="M266,107v -2" fill="none" stroke="black"/>
 <path d="M283,106h 17" fill="none" stroke="black"/>
 <path d="M300,107v -2" fill="none" stroke="black"/>
-<path d="M283,106v -10" fill="none" stroke="black"/>
-<path d="M282,96h 2" fill="none" stroke="black"/>
+<path d="M283,106v -9" fill="none" stroke="black"/>
+<path d="M282,97h 2" fill="none" stroke="black"/>
 <path d="M283,106v 9" fill="none" stroke="black"/>
 <path d="M282,115h 2" fill="none" stroke="black"/>
-<path d="M226,172h -17" fill="none" stroke="black"/>
-<path d="M209,173v -2" fill="none" stroke="black"/>
-<path d="M226,172h 17" fill="none" stroke="black"/>
-<path d="M243,173v -2" fill="none" stroke="black"/>
-<path d="M226,172v -6" fill="none" stroke="black"/>
-<path d="M226,166h 1" fill="none" stroke="black"/>
-<path d="M226,172v 6" fill="none" stroke="black"/>
+<path d="M226,173h -17" fill="none" stroke="black"/>
+<path d="M209,174v -2" fill="none" stroke="black"/>
+<path d="M226,173h 17" fill="none" stroke="black"/>
+<path d="M243,174v -2" fill="none" stroke="black"/>
+<path d="M226,173v -6" fill="none" stroke="black"/>
+<path d="M226,167h 1" fill="none" stroke="black"/>
+<path d="M226,173v 5" fill="none" stroke="black"/>
 <path d="M226,178h 1" fill="none" stroke="black"/>
 <path d="M113,254h -17" fill="none" stroke="black"/>
 <path d="M96,255v -2" fill="none" stroke="black"/>
@@ -223,54 +223,54 @@ Charged particle rate (nA
 <path d="M112,252h 2" fill="none" stroke="black"/>
 <path d="M113,254v 2" fill="none" stroke="black"/>
 <path d="M112,256h 2" fill="none" stroke="black"/>
-<path d="M112,249h -18" fill="none" stroke="black"/>
+<path d="M112,248h -18" fill="none" stroke="black"/>
 <path d="M94,249v -1" fill="none" stroke="black"/>
-<path d="M112,249h 17" fill="none" stroke="black"/>
+<path d="M112,248h 17" fill="none" stroke="black"/>
 <path d="M129,249v -1" fill="none" stroke="black"/>
-<path d="M112,249v -3" fill="none" stroke="black"/>
+<path d="M112,248v -2" fill="none" stroke="black"/>
 <path d="M111,246h 1" fill="none" stroke="black"/>
-<path d="M112,249v 2" fill="none" stroke="black"/>
+<path d="M112,248v 3" fill="none" stroke="black"/>
 <path d="M111,251h 1" fill="none" stroke="black"/>
-<path d="M341,61h -17" fill="none" stroke="black"/>
-<path d="M324,62v -2" fill="none" stroke="black"/>
-<path d="M341,61h 17" fill="none" stroke="black"/>
-<path d="M358,62v -2" fill="none" stroke="black"/>
-<path d="M341,61v -12" fill="none" stroke="black"/>
-<path d="M340,49h 2" fill="none" stroke="black"/>
-<path d="M341,61v 12" fill="none" stroke="black"/>
-<path d="M340,73h 2" fill="none" stroke="black"/>
-<path d="M340,53h -17" fill="none" stroke="black"/>
-<path d="M323,54v -1" fill="none" stroke="black"/>
-<path d="M340,53h 17" fill="none" stroke="black"/>
-<path d="M357,54v -1" fill="none" stroke="black"/>
-<path d="M340,53v -13" fill="none" stroke="black"/>
-<path d="M339,40h 2" fill="none" stroke="black"/>
-<path d="M340,53v 14" fill="none" stroke="black"/>
-<path d="M339,67h 2" fill="none" stroke="black"/>
-<path d="M455,149h -17" fill="none" stroke="black"/>
-<path d="M438,150v -1" fill="none" stroke="black"/>
-<path d="M455,149h 17" fill="none" stroke="black"/>
-<path d="M472,150v -1" fill="none" stroke="black"/>
-<path d="M455,149v -7" fill="none" stroke="black"/>
-<path d="M455,142h 1" fill="none" stroke="black"/>
-<path d="M455,149v 8" fill="none" stroke="black"/>
-<path d="M455,157h 1" fill="none" stroke="black"/>
-<path d="M454,141h -17" fill="none" stroke="black"/>
-<path d="M437,142v -2" fill="none" stroke="black"/>
-<path d="M454,141h 17" fill="none" stroke="black"/>
-<path d="M471,142v -2" fill="none" stroke="black"/>
-<path d="M454,141v -8" fill="none" stroke="black"/>
-<path d="M453,133h 2" fill="none" stroke="black"/>
-<path d="M454,141v 8" fill="none" stroke="black"/>
-<path d="M453,149h 2" fill="none" stroke="black"/>
-<path d="M284,110h -17" fill="none" stroke="black"/>
-<path d="M267,111v -2" fill="none" stroke="black"/>
-<path d="M284,110h 17" fill="none" stroke="black"/>
-<path d="M301,111v -2" fill="none" stroke="black"/>
-<path d="M284,110v -9" fill="none" stroke="black"/>
-<path d="M283,101h 2" fill="none" stroke="black"/>
-<path d="M284,110v 10" fill="none" stroke="black"/>
-<path d="M283,120h 2" fill="none" stroke="black"/>
+<path d="M341,56h -17" fill="none" stroke="black"/>
+<path d="M324,56v -1" fill="none" stroke="black"/>
+<path d="M341,56h 17" fill="none" stroke="black"/>
+<path d="M358,56v -1" fill="none" stroke="black"/>
+<path d="M341,56v -11" fill="none" stroke="black"/>
+<path d="M340,45h 2" fill="none" stroke="black"/>
+<path d="M341,56v 10" fill="none" stroke="black"/>
+<path d="M340,66h 2" fill="none" stroke="black"/>
+<path d="M340,48h -17" fill="none" stroke="black"/>
+<path d="M323,49v -2" fill="none" stroke="black"/>
+<path d="M340,48h 17" fill="none" stroke="black"/>
+<path d="M357,49v -2" fill="none" stroke="black"/>
+<path d="M340,48v -13" fill="none" stroke="black"/>
+<path d="M339,35h 2" fill="none" stroke="black"/>
+<path d="M340,48v 12" fill="none" stroke="black"/>
+<path d="M339,60h 2" fill="none" stroke="black"/>
+<path d="M455,146h -17" fill="none" stroke="black"/>
+<path d="M438,147v -2" fill="none" stroke="black"/>
+<path d="M455,146h 17" fill="none" stroke="black"/>
+<path d="M472,147v -2" fill="none" stroke="black"/>
+<path d="M455,146v -6" fill="none" stroke="black"/>
+<path d="M455,140h 1" fill="none" stroke="black"/>
+<path d="M455,146v 6" fill="none" stroke="black"/>
+<path d="M455,152h 1" fill="none" stroke="black"/>
+<path d="M454,137h -17" fill="none" stroke="black"/>
+<path d="M437,138v -1" fill="none" stroke="black"/>
+<path d="M454,137h 17" fill="none" stroke="black"/>
+<path d="M471,138v -1" fill="none" stroke="black"/>
+<path d="M454,137v -6" fill="none" stroke="black"/>
+<path d="M453,131h 2" fill="none" stroke="black"/>
+<path d="M454,137v 7" fill="none" stroke="black"/>
+<path d="M453,144h 2" fill="none" stroke="black"/>
+<path d="M284,106h -17" fill="none" stroke="black"/>
+<path d="M267,107v -2" fill="none" stroke="black"/>
+<path d="M284,106h 17" fill="none" stroke="black"/>
+<path d="M301,107v -2" fill="none" stroke="black"/>
+<path d="M284,106v -9" fill="none" stroke="black"/>
+<path d="M283,97h 2" fill="none" stroke="black"/>
+<path d="M284,106v 8" fill="none" stroke="black"/>
+<path d="M283,114h 2" fill="none" stroke="black"/>
 <text x="157" y="16" fill="black" font-size="16" font-family="Helvetica">
 Measured charged particle rate (1D)
 </text></svg>
