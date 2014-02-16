@@ -1037,16 +1037,17 @@ The same protocol can be applied to the muonic copper decays as well as adding t
 
 \subsection{Analysis} % (fold)
 \label{sub:mom_analysis}
-As can be seen from figure~\ref{fig:images_plot_generating_scripts_adjusted_muon_rates} there is a good agreement between simulation and experiment. The largest source of errors for this measurement was the lack of accurate information on the detector efficiency and in further measurements this should be corrected. Despite the large errors the data shows a clear reduction in the number of stopped muons as the degrader thickness increases and this is stable between the repeat measurements. Throughout the entire experiment there was a gradual decline in the total trigger rate has is seen in figure~\ref{fig:gain_stability} but it is unlikely that this is the cause of the much larger changes seen in the data. As an affect it is also mitigated due to the requirements placed on the analysis technique which removes a large part of the noise.
+As can be seen from figure~\ref{fig:images_plot_generating_scripts_adjusted_muon_rates} there is a good agreement between simulation and experiment. The largest source of errors for this measurement was the lack of accurate information on the detector efficiency and in further measurements this should be corrected. Despite the large errors the data shows a clear reduction in the number of stopped muons as the degrader thickness increases and that this reduction is stable between the repeat measurements. 
 
-A point of interest in the data is the difference between the first and subsequent runs. In the first run the simulation predicts a lower rate whilst in all other runs the simulation predicts a higher rate. This suggests that there may be some other effect that needs to be accounted for in either the simulation of the analysis. Another area that needs more accurate modelling is the inclusion of beam effects in order to better understand the sinusoidal noise seen in all data. 
+Throughout the entire experiment there was a gradual decline in the total trigger rate (even between matched configurations) as is seen in figure~\ref{fig:gain_stability}. The cause of the reduction in trigger rate is unclear but should be investigated, its effect on the results is corrected for through the dead time calculation. 
 
+A point of interest in the data is the difference between the first and subsequent runs. In the first run the simulation predicts a lower rate whilst in all other runs the simulation predicts a higher rate. This suggests that there may be some other effect that needs to be accounted for in either the simulation or the analysis. Another area that needs more accurate modelling is the inclusion of beam effects in order to better understand the sinusoidal noise seen in all data and account for it.
 
-Based on the simulation the stopped muons account for a small portion of the beam, between 4 and 8~\% of the total muon flux and using these ratios we can calculate the total muon flux at full power using:
+Based on the simulation the stopped muons account for a small portion of the beam, no more than 8~\% of the total muon flux. Using the simulation the fraction of the beam which is stopped for each degrader can be estimated. Using these ratios we can calculate the total muon flux for the RCNP's maximum 1~\(\mu\)A beam:
 \begin{align}\label{equ:total_rate}
   T &= 1,000\times\frac{R}{C}
 \end{align}
-Where \(T\) is the total muon rate per second, \(R\) is the measured muon rate per~nA and \(C\) is the fraction of the beam that was simulated to stop in that configuration. The factor of 1,000 converts from nA to \(\mu\)A and hence to s\(^{-1}\) when using all of the RCNP's 1~\(\mu\)A proton beam. The calculated values for the total muon flux at MuSIC given a 1~\(\mu\)A proton beam (the maximum available at the RCNP) are shown in table~\ref{tab:total_muon_rates}.
+Where \(T\) is the total muon flux per second, \(R\) is the measured muon rate per~nA and \(C\) is the fraction of the beam that was simulated to stop in that configuration. The factor of 1,000 converts from nA to \(\mu\)A and hence to s\(^{-1}\) for a 1~\(\mu\)A proton beam. The calculated values for the total muon flux are shown in table~\ref{tab:total_muon_rates} along with the per~Watt efficiency, using the RCNP's 400~W beam at 1~\(\mu\)A.
 
 \begin{table}
   \lineup
@@ -1054,7 +1055,7 @@ Where \(T\) is the total muon rate per second, \(R\) is the measured muon rate p
   \begin{tabular}{c | r@{\(\pm\)}l | r@{\(\pm\)}l | r@{\(\pm\)}l | r@{\(\pm\)}l}
     Momentum  &  \multicolumn{2}{c|}{Component}
                                   &  \multicolumn{2}{c|}{Rate}
-                                                    &  \multicolumn{2}{c|}{Total rate}
+                                                    &  \multicolumn{2}{c|}{Total flux}
                                                                      &  \multicolumn{2}{c}{Efficiency} \\
     (MeV/c)   &  \multicolumn{2}{c|}{(\%)}
                                   &  \multicolumn{2}{c|}{(\(\times10^3\) nA\(^{-1}\))}
@@ -1073,9 +1074,9 @@ Where \(T\) is the total muon rate per second, \(R\) is the measured muon rate p
   \label{tab:total_muon_rates}
 \end{table}
 
-Two things are clear from table~\ref{tab:total_muon_rates} at full power MuSIC should be capable of producing the design goal of \((4.16\pm0.53)\times10^8\)~muons~s\(^{-1}\). This table also shows the production efficiency of MuSIC is much higher than seen at any other muon facility, e.g. the production efficiency at PSI is 292~muons~W\(^{-1}\) whilst MuSIC has an average efficiency of \((8.3\pm1.1)\times10^5\)~muons~W\(^{-1}\).
+Two things are clear from table~\ref{tab:total_muon_rates}: at full power MuSIC should be capable of producing the design goal of \(>10^8\)~muons~s\(^{-1}\) and it should be one of the most intense muon beams in the world. The average intensity, \((4.16\pm0.53)\times10^8\)~muons~s\(^{-1}\), is comparable PSI's most intense muon beam (\(4.8\times10^8\)~muons~s\(^{-1}\)~\cite{mue4_psi}) but achieved with a proton beam significantly less powerful. This last point is best highlighted by comparing the number of muons produced per~Watt of proton beam: PSI produces 292~muons~W\(^{-1}\) whilst MuSIC is predicted to produce \((8.3\pm1.1)\times10^5\)~muons~W\(^{-1}\).
 
-As has been noted the lack of information on the detector's efficiency was a severe hinderance in the calculation of the muon rate. Further improvements are needed, not only to reduce errors and better understand the detector but to allow testing of the simulation. Work at CoMET suggests that there are differences in the particle rates between various simulations (e.g.\ MARS and G4BL), understanding of this will be vital in those measurements.
+% As has been noted the lack of information on the detector's efficiency was a severe hinderance in the calculation of the muon rate. Further improvements are needed, not only to reduce errors and better understand the detector but to allow testing of the simulation. Work at CoMET suggests that there are differences in the particle rates between various simulations (e.g.\ MARS and G4BL), understanding of this will be vital in those measurements.
 
 % subsection mom_analysis (end)
 
@@ -1091,35 +1092,6 @@ As has been noted the lack of information on the detector's efficiency was a sev
 % 
 % Currently the largest problems with the measurements at MuSIC are in the errors on the measurements but as these are refined more detailed simulations will also be needed. There are two key improvements that can be made to the simulation: larger G4BL run and better digitisation. A larger G4BL run will increase the number of copper stopped muons that will allow detailed investigation of the rates of negative muons stopping in copper, it is also necessary to start making comparisons between different hadron production codes and may provide useful data for refining these at low energy. The second improvement, digitisation, will allow analysis of simulation that's more directly comparable to what's measured. This will be key in understanding backgrounds and having clear understanding of the fine properties of the beam. 
 % 
-
-\chapter{Executive Summary} % (fold)
-\label{cha:executive_summary}
-The Muon Science Innovative Commission (MuSIC) is a prototype muon production system being developed at the Research Centre for Nuclear Physics (RCNP) in Osaka, Japan. It uses a novel Pion Capture Solenoid (PCS) that aims to capture a much larger fraction of the pions produced than is normally the case. The increased pion capture rate in turn increases the number of muons that remain at the end of Muon Transport Solenoid (MTS). Ultimately, MuSIC aims to produce more muons per Watt of proton beam than any other beam currently in use. 
-
-High flux, low power muon beams will enable the creation of dedicated muon Spin Resonance (\(\mu\)SR) devices, they are a first step in making neutrino factories as well as being vital in particle physics studies such as the measurement of rare decays (e.g.\ \(\mu\rightarrow eee\)). As well as cutting edge research muon beams can be used in the research and development of secondary technologies. As well as being a prototype MuSIC will be used to conduct research into Fixed Field Alternating Gradient (FFAG) storage rings and test their viability as an acceleration technology for muons.
-
-A key use of MuSIC will be as a prototype for the Coherent Muon-to-Electron Transition (CoMET) experiment being planned to be built at J-PARC in Tokai, Japan. CoMET will use a similar, albeit larger, pion capture solenoid to produce a pulsed beam of \(10^{11}\)~muons~s\(^{-1}\) that will enable it to make the most precise measurements of the rare muon decay: \(\mu X\rightarrow eX\). 
-
-In order to better understand it was simulated using Geant4 and G4Beamline. The simulation allowed the detailed testing of different detector configurations as well predictions of its performance to be made. Later the simulations were used to test analysis techniques and refine procedures without working on data. 
-
-Currently only the PCS and the first 36\(^{\circ}\) of the planned 180\(^{\circ}\) MTS exist but these are enough to begin testing the efficacy of MuSIC. Over two years there have been five periods of between 24 and 72 hours in which the RCNP's proton beam was available for use with MuSIC. During these five beam times detectors and data acquisition (DAQ) have been installed, tested and used to make three different measurements that will be discussed here.
-
-The three measurements were of the total charged particle flux, the muon lifetime and the muon momentum spectrum. Each experiment used plastic scintillators to detect particles and Multi-Photon Pixel Counters (MPPC) for read out. 
-
-The charged particle flux was measured in two separate beam times, firstly with a long strip scintillator (1\(\times\)3\(\times\)38~cm) and then with a disk scintillator (3.5\(\times\)2~cm). The first measurement was made 6~cm from the end of the MTS and recorded a peak charged particle flux of (94.3\(\pm\)4.0)\(\times10^3\)~particles~nA\(^{-1}\) at \(5\)~cm above the beam pipe's centre. The second measurement was made 85~cm from the end of the beam pipe where the particle beam was more dispersed. The peak flux for the second measurement, of (11.16\(\pm\)0.11)\(\times10^3\)~particles~nA\(^{-1}\), was at a position, \((0, 20)\)~cm, directly above the beam pipe's centre whilst. The second most intense location was at \((-17, 0)\)~cm, to the left of the beam centre (facing it). Both these measurements show that the most intense part of the beam is above the centre and the second also shows that the this spot is slightly offset towards the left, which agrees with the simulation although not on the predicted intensity.
-
-The muon lifetime was measured many times as it formed a key part of the momentum spectrum analysis but it was the focus of study for two beam runs as a method of proving the presence of muons in the beam. The measurement was made by using two scintillators on either side of a copper stopping target. By plotting the time between isolated events in one then the other scintillator the muon decay spectrum could be constructed and the muon's lifetime measured. The first measurement of the muon lifetime was made during the same beam time as the second charged particle measurement and recorded a lifetime of (2,016\(\pm\)88.6)~ns which is lower than the canonical value of (2,196.9811\()\pm\)0.0022)~ns although this is likely due to the presence of a stopping target which would have reduced the negative muon's lifetime. The second measurement attempted to account for the presence of the stopping target by fitting the muon lifetime with two exponentials and hence measured the free muon lifetime to be (2,202\(\pm\)20)~ns and the lifetime of negative muons in copper to be (195\(\pm\)17)~ns which is slightly higher than the measurement of (163.5\(\pm\)1)~ns measured in by Suzuki~et~al~\cite{suzuki_mu_capture_rates}.
-
-The final measurement, the muon momentum spectrum, was the most complex. Six measurements were made using one of four different thickness aluminium degraders. The degraders reduced the energy of any charged particles and so filtered out different momentums to stop on the copper stopping target. By plotting the decay spectrum and integrating the area under the exponential portion it was then possible to count the number of stopped muons and hence estimate the number of muons of that momentum. The momentum spectrum measured for freely decaying muons is shown in figure~\ref{fig:exec_summary_muon_momentum_spectrum}. This figure also shows the reasonable agreement between the simulation and the measurement although the errors on the measurement obviously need improvement. 
-
-\begin{figure}[htpb]
-  \centering
-    \includegraphics[width=.9\textwidth]{images/plot_generating_scripts/adjusted_muon_rates.eps}
-  \caption{Muon momentum spectrum for freely decaying muons.}
-  \label{fig:exec_summary_muon_momentum_spectrum}
-\end{figure}
-
-Using the data from the measurement it was possible to predict the total muon flux at MuSIC when operated at full power\footnote{To prevent excessive dead time in the equipment currents of \(>\)1~nA were used rather than the RCNP's maximum current of 1~\(\mu\)A.} and this was calculated to be \((4.16\pm0.53)\times10^8\)~muons~s\(^{-1}\) which is on par with the world's most intense muon source, PSI, which has a peak flux of \(4.8\times10^8\)~muons~s\(^{-1}\). The key difference between MuSIC and PSI is that PSI produces its muons using a 1.2~MW proton beam compared to the RCNP's 400~W beam, giving per-Watt efficacies of \((8.3\pm1.1)\times10^5\)~muons~W\(^{-1}\) and 292~muons~W\(^{-1}\) respectively.
 
 % Over the last three years the simulation of MuSIC has been refined and tuned using data gathered over several periods of beam time. The simulation was written in G4Beamline to cover the bulk portions and Geant4 to test the detectors used. They were also used to compare to the data gathered during the beam-times.
 % 
