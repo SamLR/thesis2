@@ -97,7 +97,7 @@ To provide maximum flexibility (as well as minimum repetition) all generics are 
 \begin{table}[htbp]
   \begin{center}
     \begin{tabulary}{\textwidth}{l| c | c | L}
-      Name                       & Type       & Affected entities & Notes \\
+      Name                       & Type       & Entities       & Notes \\
       \hline
       WORD\_LENGTH               & integer    & TL, V, T        & Length of ASIC command words, default:22.    \\
       MAX\_NVETOS                & integer    & TL, V, T        & Maximum of no-vetos to accept, default:512.  \\
@@ -698,7 +698,7 @@ After the \texttt{START} signal is received from the CCC the appropriate flag (\
 
 Based on the general requirements it's clear that the correct responses are being sent (and hence the state-changes are occurring as required), the commands are synchronised with the bunch clock and the latency is as required: 6~clocks for commands and 7 for vetoes (the extra length for vetoes is due to the three rather than four bit command).
 
-\begin{sidewaysfigure}[H]
+\begin{sidewaysfigure}[hptb]
     \centering
     \includegraphics[width=\textwidth]{images/isim/edited/start-veto-stop.png}
     \caption{A \texttt{START}, \texttt{NO-VETO}, \texttt{STOP} sequence with a single \texttt{NO-VETO} prior to the stop signal. The blue braces indicate either input/output word sequences whilst the red lines show logical sequences.}
@@ -711,7 +711,7 @@ Based on the general requirements it's clear that the correct responses are bein
 \label{sec:veto_no_veto}
 Figure~\ref{fig:isim_veto_no_veto} shows the dynamic veto mode in operation, 3 vetoes followed by 6 no-vetoes. The main lines to note are between \texttt{veto\_from\_ccc} and \texttt{veto\_to\_tx}. The general operation is: first the signal is received and flagged (on either of the two lines, \texttt{veto\_from\_rx} and \texttt{nveto\_from\_rx}), the decision is made by the veto-filter (\texttt{veto\_to\_tx}) and the response sent to the ASIC. The different responses can be seen in the single \texttt{NOP} for \texttt{VETO}s whilst the \texttt{TRIGGER\_FLAG\_SET} (0x10) is sent for \texttt{NO-VETO}. 
 
-\begin{sidewaysfigure}[H]
+\begin{sidewaysfigure}[hptb]
   \centering
   \includegraphics[width=\textwidth]{images/isim/edited/veto_no_veto.png}
   \caption{A selection of vetos/no-vetos.}
@@ -722,13 +722,13 @@ Figure~\ref{fig:isim_veto_no_veto} shows the dynamic veto mode in operation, 3 v
 \subsection{Reset Command} % (fold)
 \label{sec:reset_command}
 Figure~\ref{fig:isim_reset_cmd} shows the reset sequence being sent in response to the \texttt{RESET} command from the CCC, first the word arrives, then we see the delayed signal from the receiver and then the thee words sent to the ASIC. The first word of the \texttt{RESET} command sequence is a \texttt{RSYNC} so the \texttt{rsync\_sent\_flag} is asserted also it contains a \texttt{NOP} command so the appropriate state change occurs and a single \texttt{NOP} is sent. Figure~\ref{fig:isim_reset_rdma} shows the same process being triggered via the control register which is set via RDMA, i.e.\ the `reset-mode'.
-\begin{sidewaysfigure}[H]
+\begin{sidewaysfigure}[hptb]
   \centering
   \includegraphics[width=\textwidth]{images/isim/edited/reset_cmd.png}
   \caption{The reset sequence being triggered by the cmd line from the CCC.}
   \label{fig:isim_reset_cmd}
 \end{sidewaysfigure}
-\begin{sidewaysfigure}[H]
+\begin{sidewaysfigure}[hptb]
   \centering
   \includegraphics[width=\textwidth]{images/isim/edited/reset_rdma.png}
   \caption{The reset sequence being triggered via the control register.}
@@ -740,14 +740,14 @@ Figure~\ref{fig:isim_reset_cmd} shows the reset sequence being sent in response 
 \label{sec:stop_downscaler}
 For this test the operation of the down-scaler for the v~1.0 ASIC checked. Prior to the yellow-dashed line in figure~\ref{fig:isim_stop-downscaler} the \texttt{clk\_to\_asic} is running at 100~MHz, after it runs at 1~MHz. The order of events is more clearly show in the close up, figure~\ref{fig:isim_stop-downscaler-zoom}, which corresponds to the region between the dashed and solid lines in figure~\ref{fig:isim_stop-downscaler}. Once the \texttt{STOP} command is received the first word, the down-scaler trigger, is sent to the ASIC, once this is sent the next word (in this case \texttt{READ\_OUT\_DATA}) is sent at the selected speed. Note that the \texttt{READ\_OUT\_DATA} flag is set and held for one clock at the down-scaled speed.
 
-\begin{sidewaysfigure}[H]
+\begin{sidewaysfigure}[hptb]
   \centering
   \includegraphics[width=\textwidth]{images/isim/edited/stop-downscaler.png}
   \caption{The \texttt{clk\_to\_asic} down-scaled by a factor of 100. The section delimitated by the yellow guides is shown in figure~\ref{fig:isim_stop-downscaler-zoom}. Note that the second word sent (after the down-scaler trigger) is the \texttt{READ\_OUT\_START} command, the flag is also down-scaled.}
   \label{fig:isim_stop-downscaler}
 \end{sidewaysfigure}
     
-\begin{sidewaysfigure}[H]
+\begin{sidewaysfigure}[hptb]
   \centering  
   \includegraphics[width=\textwidth]{images/isim/edited/stop-downscaler-zoom.png}
   \caption{The \texttt{STOP} command and down-scaler start word being sent. Note the LocalLink transfer on the `ll\_' lines.}
@@ -758,7 +758,7 @@ For this test the operation of the down-scaler for the v~1.0 ASIC checked. Prior
 \subsection{RDMA} % (fold)
 \label{sec:rdma}
 Figure~\ref{fig:isim_rdma} shows a simple test of the RDMA accessible registers and BRAMs. The first four addresses of each entity is read out. These were checked by hand against the values written at the start.
-\begin{sidewaysfigure}[H]
+\begin{sidewaysfigure}[hptb]
   \centering
   \includegraphics[width=\textwidth]{images/isim/edited/rdma.png}
   \caption{Read back of the first 4 locations of every entity accessible via RDMA.}
@@ -770,7 +770,7 @@ Figure~\ref{fig:isim_rdma} shows a simple test of the RDMA accessible registers 
 \subsection{Local Link} % (fold)
 \label{sec:local_link}
 A sample read-out of the veto-log is shown in figure~\ref{fig:isim_locallink}. The LocalLink specification requires that data transfer starts as soon as both source and destination are read. In this test all bunches were vetoed apart from the first \(n\) of each 256 bunches (where \( n\) is the \( n^{th} \) block of 256 bunches), this resulted in the top bits being filled with 0's; the first word is 0-padded and contains the header information (i.e.\ the train ID and the bunch pattern ID).
-\begin{sidewaysfigure}[H]
+\begin{sidewaysfigure}[hptb]
   \centering
   \includegraphics[width=\textwidth]{images/isim/edited/locallink.png}
   \caption{Read-out of the veto log for 3072 bunches.}

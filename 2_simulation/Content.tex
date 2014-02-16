@@ -313,7 +313,13 @@ The modification used was to the `G4StopElementSelector' class where the functio
 % section physics_list (end)
 \subsection{The Field} % (fold)
 \label{sec:the_field}
-Field maps for the entire detector region were available but to improve efficiency only the region directly surrounding the detector was simulated, this is shown in figure~\ref{fig:images_top_for_combo_with_field}. Geant4 uses interpolation to find values for the magnetic field that weren't present in the file. The file listed position and the magnetic field at each position. To save space the file relied on the vertical symmetry to account for the lower half of the detector. 
+Field maps for the entire detector region were available but to improve efficiency only the region directly surrounding the detector was simulated, this is shown in figure~\ref{fig:images_field_map_edited}. Geant4 uses interpolation to find values for the magnetic field that weren't present in the file. The file listed position and the magnetic field at each position. To save space the file relied on the vertical symmetry to account for the lower half of the detector. 
+\begin{figure}[hptb]
+  \centering
+    \includegraphics[width=.9\textwidth]{images/field_map_edited.eps}
+  \caption{The magnetic field strength for the region of interest.}
+  \label{fig:images_field_map_edited}
+\end{figure}
 
 \subsubsection{Stepping Action} % (fold)
 \label{sub:stepping_action}

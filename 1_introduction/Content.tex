@@ -2,7 +2,7 @@
 \label{cha:preface}
 This thesis is divided into two parts. The first part covers work done at the Muon Science Innovative Channel (MuSIC) beam-line and the second part, an appendix, discusses some work carried out on the European X-ray Free Electron Laser (EuXFEL).
 
-The first part, discussing MuSIC, has two main themes: simulation and measurement. An introduction (chapter~\ref{prt:introduction}) covers the essentials of the project and the physics behind it. Chapter~\ref{prt:simulation} describes the development of the MuSIC simulation  and its deployment in creating a rigorous analysis. Finally chapter~\ref{prt:measurement} discusses the results of the measurements made at MuSIC.
+The first part, discussing MuSIC, has two main themes: simulation and measurement. An introduction (chapter~\ref{prt:introduction}) covers the essentials of the project and the physics behind it. Chapter~\ref{prt:simulation} describes the development of the MuSIC simulation  and its deployment in creating a rigorous analysis. Finally chapter~\ref{prt:characterising_the_beam} discusses the results of the measurements made at MuSIC.
 
 The second part is concerned with creation of the firmware interface between the Clock and Control Card (CCC) and the Large Pixel Detector (LPD). It discusses the design, implementation and testing of the firmware ahead of use in EuXFEL.
 
@@ -47,7 +47,7 @@ Over the course of the five sessions of beam time three core measurements have b
   \item Muon lifetime.
   \item Muon momentum spectrum.
 \end{enumerate}
-All of these experiments have had the aim of characterising the beam at MuSIC and confirming the efficiency of muon production. The measurements themselves are discussed in chapter~\ref{prt:measurements}.
+All of these experiments have had the aim of characterising the beam at MuSIC and confirming the efficiency of muon production. The measurements themselves are discussed in chapter~\ref{prt:characterising_the_beam}.
 
 While still incomplete, enough of MuSIC exists to test the efficacy of the PCS and existing MTS. The PCS uses a novel design in order to to maximise muon production. This new design is predicted to be several orders of magnitude more efficient than current methods.
 
@@ -261,7 +261,7 @@ As has been noted negative muons can undergo an additional interaction with matt
 \end{align}
 where \( \Delta_t \) is the total interaction rate; \( \Delta_c \) is the rate of nuclear muon capture; \( \Delta_d \) is the rate of decay for positive muons (i.e.\ \( \tau_{\mu^+} = (\Delta_d)^{-1}  \)) modified by the `Huff-factor', \( Q \), which compensates for the reduction in energy available for a bound muon to decay. The positive, rather than negative, muon decay rate is used as the negative rate is less precisely known because of it's ability to bind to a nucleus.
 
-When a negative muon is captured by a nucleus its lifetime is reduced compared to the positive muon. This reduction is due to the muon forming a muonic atom with its captor that allows it to rapidly shed energy via X-rays as it cascades through various shells until it enters the \( 1s \) state. The muonic cascade is a very rapid event, in most materials it occurs in less than \( 10^{-13}\)s~\cite{review_nuclear_physics_mu_capture_measday}, once in the \( 1s \) state the muon will decay much sooner having lost most of its energy. As will be discussed in parts~\ref{part:simulation}~and~\ref{part:measurement} these differing lifetimes give us some insight into the ratio of positive to negative muons.
+When a negative muon is captured by a nucleus its lifetime is reduced compared to the positive muon. This reduction is due to the muon forming a muonic atom with its captor that allows it to rapidly shed energy via X-rays as it cascades through various shells until it enters the \( 1s \) state. The muonic cascade is a very rapid event, in most materials it occurs in less than \( 10^{-13}\)s~\cite{review_nuclear_physics_mu_capture_measday}, once in the \( 1s \) state the muon will decay much sooner having lost most of its energy. As will be discussed in parts~\ref{prt:simulation}~and~\ref{prt:characterising_the_beam} these differing lifetimes give us some insight into the ratio of positive to negative muons.
 
 A theoretical approximation to \( \Delta_c \) as a function of atomic mass, \( A \), and atomic number, \( Z \), was devised by Primakoff and Goulard~\cite{goulard_primakoff}:
 \begin{align}
@@ -352,7 +352,7 @@ To study the general features of a model that includes measurable cLFV an effect
 \end{align}
 where \(L\) and \(R\) are chirality; \(F^{\mu\nu}\) is the photon field strength and \( m_{\mu} \) is the muon mass. The operators are parameterised using two constants: \(\Lambda\), the effective mass scale, and \( \kappa \), a dimensionless parameter that determines the relative size of the Lagrangians' operators. In effect \(\kappa\) predicts the relative branching ratios between the different cLFV processes whilst \(\Lambda\) predicts at what mass new physics will occur. It's important to note that other effective Lagrangians exist but this is a good illustrative example. Figure~\ref{fig:images_clfv_type2} shows the relationship between \(\kappa\) and \(\Lambda\), as can be seen already excluded are mass scales up to 300~TeV. Should MuSIC improve on SINDRUM~I's limit for \( \mu\rightarrow eee \) by the predicted factor of 100 then the region up to 1,000~TeV will also be excluded. 
 
-\begin{figure}[h]
+\begin{figure}[htbp]
   \centering
     \includegraphics[width=.8\textwidth]{images/clfv_type2.png}
   \caption{Effective mass scale for expected sensitivities of \( \mu\rightarrow eee \) and \( \mu\rightarrow e\gamma \) experiments as a function of the scale parameter \( \kappa \), assuming a cLFV Lagrangian similar to equation~\eqref{equ:type2}. The target sensitivity for \( \mu\rightarrow eee \) measurements at MuSIC is shown in the solid black line.}
