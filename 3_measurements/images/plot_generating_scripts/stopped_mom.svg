@@ -4,8 +4,8 @@
 stopped_mom.svg
 </title>
 <desc>
-Creator: ROOT Version 5.34/09
-CreationDate: Mon Jan  6 16:50:23 2014</desc>
+Creator: ROOT Version 5.34/14
+CreationDate: Sun Feb  9 00:27:03 2014</desc>
 <defs>
 </defs>
 <rect x="0" y="0" width="567" height="328" fill="white"/>
@@ -294,7 +294,7 @@ RMS
 <path d="M510,66v -33" fill="none" stroke="black"/>
 <path d="M510,33h -170" fill="none" stroke="black"/>
 <path d="M340,33v 33" fill="none" stroke="black"/>
-<text x="382" y="43" fill="black" font-size="5" font-family="Helvetica">
+<text x="382" y="45" fill="black" font-size="5" font-family="Helvetica">
 Decay muon momentum spectrum
 </text>
 <path d="M347,47h 29v -12h -29z" fill="white"/>
@@ -302,13 +302,13 @@ Decay muon momentum spectrum
 <g stroke="black" stroke-width="1" fill="none">
 <line x1="360" y1="41" x2="361" y2="41"/>
 </g>
-<text x="476" y="59" fill="black" font-size="5" font-family="Helvetica">
+<text x="476" y="61" fill="black" font-size="5" font-family="Helvetica">
  t &gt; 50ns
 </text>
-<text x="473" y="59" fill="black" font-size="5" font-family="Times">
+<text x="473" y="61" fill="black" font-size="5" font-family="Times">
 &#0916;
 </text>
-<text x="382" y="59" fill="black" font-size="5" font-family="Helvetica">
+<text x="382" y="61" fill="black" font-size="5" font-family="Helvetica">
 Decay muon momentum spectrum with 
 </text>
 <path d="M347,63h 29v -11h -29z" fill="white"/>

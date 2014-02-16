@@ -63,6 +63,16 @@ void charged_particle_flux_sim (){
     hist_2d->Scale(scale_factor);
     can2->Update();
     
+    for(int bin_x = 0; bin_x <= hist_2d->GetNbinsX(); ++bin_x) {
+        for(int bin_y = 0; bin_y <= hist_2d->GetNbinsY(); ++bin_y) {
+            const int bin_id = hist_2d->GetBin(bin_x, bin_y);
+            const float content = hist_2d->GetBinContent(bin_id);
+            if (content) {
+                printf("%d %d %f\n", bin_x, bin_y, content);
+            }
+        }
+    }
+    
     // Values for the TGraphErrors
     const Int_t n_points = 9;
     const double sec_factor = 0.03408;
@@ -98,7 +108,7 @@ void charged_particle_flux_sim (){
     TCanvas* can4 = new TCanvas("c4", "c4", 1436,856);
     TGraph2DErrors* measured_flux_2d = new TGraph2DErrors(n_points_2d, x, y, z, p_er, p_er, z_er);
     // TGraph2D* measured_flux_2d = new TGraph2D(n_points_2d, x, y, z);
-    measured_flux_2d->SetTitle("Measured Charged particle rate (2D)");
+    measured_flux_2d->SetTitle("Measured charged particle rate (2D)");
     measured_flux_2d->GetXaxis()->SetTitle("Horizontal position (mm)");
     measured_flux_2d->GetXaxis()->SetTitleOffset(1.65);
     measured_flux_2d->GetYaxis()->SetTitle("Vertical position (mm)");

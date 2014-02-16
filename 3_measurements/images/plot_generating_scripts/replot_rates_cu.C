@@ -43,10 +43,12 @@ void replot_rates_cu() {
   printf("Efficiency (2 MPPCs): %.3f +/- %.3f\n", efficiency, efficiency_err);
   // photon acceptance is the number of decays / number of times the threshold & 50ns cut are passed
   // From calc acceptance
-  const double sim_mu_decay    = 7687.0;
+  // const double sim_mu_decay    = 7687.0;
+  const double sim_mu_decay    = 10500.0;
   const double sim_mu_decay_er = TMath::Sqrt(sim_mu_decay);
   printf("Number of muon decays in detector: %.0f +/- %.0f\n", sim_mu_decay, sim_mu_decay_er);
-  const double sim_mu_decay_detected    = 5974.0;
+  // const double sim_mu_decay_detected    = 5974.0;
+  const double sim_mu_decay_detected    = 8362.0;
   const double sim_mu_decay_detected_er = TMath::Sqrt(sim_mu_decay_detected);
   printf("Number photon producing muon decays in detector: %.0f +/- %.0f\n", sim_mu_decay_detected, sim_mu_decay_detected_er);
   
@@ -115,12 +117,12 @@ void replot_rates_cu() {
   d_bin_ers_exec_eff[3] = d_bins[3] * add_in_quad(photon_acceptance, photon_acceptance_er, bin_sum3, bin_sum_er3);
   
   const char bin_label_fmt [] = "%.0f #pm %.0f";
-  // Actual values are          41.03, 46.68, 50.29, 65.66  
-  double bin_means_r[n_bins] = {41.13, 46.78, 50.39, 65.76}; // run values round & take 
-  double bin_means_s[n_bins] = {40.93, 46.58, 50.19, 65.56}; // offsets at +/- 0.25
+  // Actual values are 45, 50, 52 and 66 
+  double bin_means_r[n_bins]  = {44.95, 49.95, 51.95, 65.95};
+  double bin_means_s[n_bins] =  {45.05, 50.05, 52.05, 66.05}; 
   double bin_sigmas [n_bins] = { 0.00,  0.00,  0.00,  0.00};
   
-  char name [] = "Adjusted rate of muons decaying in copper (statistical errors)";
+  char name [] = "Adjusted rate of muons decaying in copper";
   TGraphErrors* out_f_hist_exec_eff = new TGraphErrors(n_bins, bin_means_r, d_bins, bin_sigmas, d_bin_ers_exec_eff);
   out_f_hist_exec_eff->SetTitle(name);
   out_f_hist_exec_eff->GetXaxis()->SetTitle("Momentum (MeV/c)");
