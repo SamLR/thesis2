@@ -1,0 +1,248 @@
+<?xml version="1.0" standalone="no"?>
+<svg width="567" height="328" viewBox="0 0 567 328" xmlns="http://www.w3.org/2000/svg">
+<title>
+adjusted_muon_rates_exec_summary_version.svg
+</title>
+<desc>
+Creator: ROOT Version 5.34/14
+CreationDate: Sun Mar  2 17:52:14 2014</desc>
+<defs>
+</defs>
+<rect x="0" y="0" width="567" height="328" fill="white"/>
+<rect x="57" y="33" width="453" height="262" fill="white"/>
+<rect x="57" y="33" width="453" height="262" fill="none" stroke="black"/>
+<rect x="57" y="33" width="453" height="262" fill="white"/>
+<rect x="57" y="33" width="453" height="262" fill="none" stroke="black"/>
+<path d="M57,295h 453" fill="none" stroke="black"/>
+<text x="417" y="317" fill="black" font-size="11" font-family="Helvetica">
+Momentum (MeV/c)
+</text>
+<path d="M95,287v 8" fill="none" stroke="black"/>
+<path d="M113,291v 4" fill="none" stroke="black"/>
+<path d="M131,291v 4" fill="none" stroke="black"/>
+<path d="M149,291v 4" fill="none" stroke="black"/>
+<path d="M167,291v 4" fill="none" stroke="black"/>
+<path d="M185,287v 8" fill="none" stroke="black"/>
+<path d="M203,291v 4" fill="none" stroke="black"/>
+<path d="M221,291v 4" fill="none" stroke="black"/>
+<path d="M239,291v 4" fill="none" stroke="black"/>
+<path d="M257,291v 4" fill="none" stroke="black"/>
+<path d="M275,287v 8" fill="none" stroke="black"/>
+<path d="M293,291v 4" fill="none" stroke="black"/>
+<path d="M311,291v 4" fill="none" stroke="black"/>
+<path d="M329,291v 4" fill="none" stroke="black"/>
+<path d="M347,291v 4" fill="none" stroke="black"/>
+<path d="M365,287v 8" fill="none" stroke="black"/>
+<path d="M383,291v 4" fill="none" stroke="black"/>
+<path d="M401,291v 4" fill="none" stroke="black"/>
+<path d="M419,291v 4" fill="none" stroke="black"/>
+<path d="M437,291v 4" fill="none" stroke="black"/>
+<path d="M455,287v 8" fill="none" stroke="black"/>
+<path d="M95,287v 8" fill="none" stroke="black"/>
+<path d="M77,291v 4" fill="none" stroke="black"/>
+<path d="M59,291v 4" fill="none" stroke="black"/>
+<path d="M455,287v 8" fill="none" stroke="black"/>
+<path d="M473,291v 4" fill="none" stroke="black"/>
+<path d="M491,291v 4" fill="none" stroke="black"/>
+<path d="M509,291v 4" fill="none" stroke="black"/>
+<text x="89" y="306" fill="black" font-size="11" font-family="Helvetica">
+45
+</text>
+<text x="179" y="306" fill="black" font-size="11" font-family="Helvetica">
+50
+</text>
+<text x="269" y="306" fill="black" font-size="11" font-family="Helvetica">
+55
+</text>
+<text x="359" y="306" fill="black" font-size="11" font-family="Helvetica">
+60
+</text>
+<text x="449" y="306" fill="black" font-size="11" font-family="Helvetica">
+65
+</text>
+<path d="M57,295v -262" fill="none" stroke="black"/>
+<g transform="rotate(-90,14,35)">
+<text x="14" y="35" fill="black" font-size="11" font-family="Helvetica">
+)
+</text>
+</g>
+<g transform="rotate(-90,10,41)">
+<text x="10" y="41" fill="black" font-size="7" font-family="Helvetica">
+-1
+</text>
+</g>
+<g transform="rotate(-90,14,136)">
+<text x="14" y="136" fill="black" font-size="11" font-family="Helvetica">
+Muon rate (muons s
+</text>
+</g>
+<path d="M70,295h -13" fill="none" stroke="black"/>
+<path d="M63,286h -6" fill="none" stroke="black"/>
+<path d="M63,276h -6" fill="none" stroke="black"/>
+<path d="M63,267h -6" fill="none" stroke="black"/>
+<path d="M63,257h -6" fill="none" stroke="black"/>
+<path d="M70,248h -13" fill="none" stroke="black"/>
+<path d="M63,238h -6" fill="none" stroke="black"/>
+<path d="M63,228h -6" fill="none" stroke="black"/>
+<path d="M63,219h -6" fill="none" stroke="black"/>
+<path d="M63,209h -6" fill="none" stroke="black"/>
+<path d="M70,200h -13" fill="none" stroke="black"/>
+<path d="M63,190h -6" fill="none" stroke="black"/>
+<path d="M63,181h -6" fill="none" stroke="black"/>
+<path d="M63,171h -6" fill="none" stroke="black"/>
+<path d="M63,162h -6" fill="none" stroke="black"/>
+<path d="M70,152h -13" fill="none" stroke="black"/>
+<path d="M63,143h -6" fill="none" stroke="black"/>
+<path d="M63,133h -6" fill="none" stroke="black"/>
+<path d="M63,124h -6" fill="none" stroke="black"/>
+<path d="M63,114h -6" fill="none" stroke="black"/>
+<path d="M70,104h -13" fill="none" stroke="black"/>
+<path d="M63,95h -6" fill="none" stroke="black"/>
+<path d="M63,85h -6" fill="none" stroke="black"/>
+<path d="M63,76h -6" fill="none" stroke="black"/>
+<path d="M63,66h -6" fill="none" stroke="black"/>
+<path d="M70,57h -13" fill="none" stroke="black"/>
+<path d="M70,57h -13" fill="none" stroke="black"/>
+<path d="M63,47h -6" fill="none" stroke="black"/>
+<path d="M63,38h -6" fill="none" stroke="black"/>
+<text x="48" y="299" fill="black" font-size="11" font-family="Helvetica">
+0
+</text>
+<text x="25" y="251" fill="black" font-size="11" font-family="Helvetica">
+10000
+</text>
+<text x="25" y="204" fill="black" font-size="11" font-family="Helvetica">
+20000
+</text>
+<text x="25" y="156" fill="black" font-size="11" font-family="Helvetica">
+30000
+</text>
+<text x="25" y="108" fill="black" font-size="11" font-family="Helvetica">
+40000
+</text>
+<text x="25" y="61" fill="black" font-size="11" font-family="Helvetica">
+50000
+</text>
+<g stroke="black" stroke-width="1" fill="none">
+<line x1="93" y1="99" x2="95" y2="101"/><line x1="93" y1="101" x2="95" y2="99"/>
+<line x1="183" y1="162" x2="185" y2="164"/><line x1="183" y1="164" x2="185" y2="162"/>
+<line x1="219" y1="170" x2="221" y2="172"/><line x1="219" y1="172" x2="221" y2="170"/>
+<line x1="471" y1="213" x2="473" y2="215"/><line x1="471" y1="215" x2="473" y2="213"/>
+</g>
+<path d="M94,100v -3" fill="none" stroke="black"/>
+<path d="M94,97h 1" fill="none" stroke="black"/>
+<path d="M94,100v 3" fill="none" stroke="black"/>
+<path d="M94,103h 1" fill="none" stroke="black"/>
+<path d="M184,163v -2" fill="none" stroke="black"/>
+<path d="M184,161h 1" fill="none" stroke="black"/>
+<path d="M184,163v 2" fill="none" stroke="black"/>
+<path d="M184,165h 1" fill="none" stroke="black"/>
+<path d="M220,171v -1" fill="none" stroke="black"/>
+<path d="M220,170h 1" fill="none" stroke="black"/>
+<path d="M220,171v 2" fill="none" stroke="black"/>
+<path d="M220,173h 1" fill="none" stroke="black"/>
+<path d="M472,214v -1" fill="none" stroke="black"/>
+<path d="M472,213h 1" fill="none" stroke="black"/>
+<path d="M472,214v 1" fill="none" stroke="black"/>
+<path d="M472,215h 1" fill="none" stroke="black"/>
+<path d="M94,100v -43" fill="none" stroke="#0000ff"/>
+<path d="M94,57h 1" fill="none" stroke="#0000ff"/>
+<path d="M94,100v 43" fill="none" stroke="#0000ff"/>
+<path d="M94,143h 1" fill="none" stroke="#0000ff"/>
+<path d="M184,163v -30" fill="none" stroke="#0000ff"/>
+<path d="M184,133h 1" fill="none" stroke="#0000ff"/>
+<path d="M184,163v 29" fill="none" stroke="#0000ff"/>
+<path d="M184,192h 1" fill="none" stroke="#0000ff"/>
+<path d="M220,171v -27" fill="none" stroke="#0000ff"/>
+<path d="M220,144h 1" fill="none" stroke="#0000ff"/>
+<path d="M220,171v 28" fill="none" stroke="#0000ff"/>
+<path d="M220,199h 1" fill="none" stroke="#0000ff"/>
+<path d="M472,214v -18" fill="none" stroke="#0000ff"/>
+<path d="M472,196h 1" fill="none" stroke="#0000ff"/>
+<path d="M472,214v 18" fill="none" stroke="#0000ff"/>
+<path d="M472,232h 1" fill="none" stroke="#0000ff"/>
+<g stroke="#0000ff" stroke-width="1" fill="none">
+<line x1="93" y1="100" x2="94" y2="100"/>
+<line x1="183" y1="163" x2="184" y2="163"/>
+<line x1="219" y1="171" x2="220" y2="171"/>
+<line x1="471" y1="214" x2="472" y2="214"/>
+</g>
+<path d="M96,118v -2" fill="none" stroke="#ff0000"/>
+<path d="M95,116h 2" fill="none" stroke="#ff0000"/>
+<path d="M96,118v 2" fill="none" stroke="#ff0000"/>
+<path d="M95,120h 2" fill="none" stroke="#ff0000"/>
+<path d="M186,139v -2" fill="none" stroke="#ff0000"/>
+<path d="M185,137h 2" fill="none" stroke="#ff0000"/>
+<path d="M186,139v 2" fill="none" stroke="#ff0000"/>
+<path d="M185,141h 2" fill="none" stroke="#ff0000"/>
+<path d="M222,148v -2" fill="none" stroke="#ff0000"/>
+<path d="M221,146h 2" fill="none" stroke="#ff0000"/>
+<path d="M222,148v 3" fill="none" stroke="#ff0000"/>
+<path d="M221,151h 2" fill="none" stroke="#ff0000"/>
+<path d="M474,195v -2" fill="none" stroke="#ff0000"/>
+<path d="M473,193h 2" fill="none" stroke="#ff0000"/>
+<path d="M474,195v 2" fill="none" stroke="#ff0000"/>
+<path d="M473,197h 2" fill="none" stroke="#ff0000"/>
+<g stroke="#ff0000" stroke-width="1" fill="none">
+<line x1="95" y1="118" x2="97" y2="118"/><line x1="96" y1="117" x2="96" y2="119"/>
+<line x1="185" y1="139" x2="187" y2="139"/><line x1="186" y1="138" x2="186" y2="140"/>
+<line x1="221" y1="148" x2="223" y2="148"/><line x1="222" y1="147" x2="222" y2="149"/>
+<line x1="473" y1="195" x2="475" y2="195"/><line x1="474" y1="194" x2="474" y2="196"/>
+</g>
+<rect x="340" y="33" width="170" height="66" fill="none" stroke="black"/>
+<path d="M340,99h 170" fill="none" stroke="black"/>
+<path d="M510,99v -66" fill="none" stroke="black"/>
+<path d="M510,33h -170" fill="none" stroke="black"/>
+<path d="M340,33v 66" fill="none" stroke="black"/>
+<text x="344" y="45" fill="black" font-size="6" font-family="Helvetica">
+Muon momentum distribution
+</text>
+<text x="382" y="61" fill="black" font-size="6" font-family="Helvetica">
+Rate of freely decaying muons
+</text>
+<path d="M347,63h 29v -11h -29z" fill="white"/>
+<path d="M347,58h 29" fill="none" stroke="black"/>
+<g stroke="black" stroke-width="1" fill="none">
+<line x1="360" y1="57" x2="362" y2="59"/><line x1="360" y1="59" x2="362" y2="57"/>
+</g>
+<text x="382" y="77" fill="black" font-size="6" font-family="Helvetica">
+Errors due to MPPC efficiency
+</text>
+<path d="M347,80h 29v -12h -29z" fill="white"/>
+<path d="M347,74h 29" fill="none" stroke="#0000ff"/>
+<g stroke="#0000ff" stroke-width="1" fill="none">
+<line x1="360" y1="74" x2="361" y2="74"/>
+</g>
+<text x="382" y="94" fill="black" font-size="6" font-family="Helvetica">
+Simulated rate of freely decaying muons
+</text>
+<path d="M347,96h 29v -11h -29z" fill="white"/>
+<path d="M347,90h 29" fill="none" stroke="#ff0000"/>
+<g stroke="#ff0000" stroke-width="1" fill="none">
+<line x1="360" y1="90" x2="362" y2="90"/><line x1="361" y1="89" x2="361" y2="91"/>
+</g>
+<path d="M94,100v -3" fill="none" stroke="black"/>
+<path d="M94,97h 1" fill="none" stroke="black"/>
+<path d="M94,100v 3" fill="none" stroke="black"/>
+<path d="M94,103h 1" fill="none" stroke="black"/>
+<path d="M184,163v -2" fill="none" stroke="black"/>
+<path d="M184,161h 1" fill="none" stroke="black"/>
+<path d="M184,163v 2" fill="none" stroke="black"/>
+<path d="M184,165h 1" fill="none" stroke="black"/>
+<path d="M220,171v -1" fill="none" stroke="black"/>
+<path d="M220,170h 1" fill="none" stroke="black"/>
+<path d="M220,171v 2" fill="none" stroke="black"/>
+<path d="M220,173h 1" fill="none" stroke="black"/>
+<path d="M472,214v -1" fill="none" stroke="black"/>
+<path d="M472,213h 1" fill="none" stroke="black"/>
+<path d="M472,214v 1" fill="none" stroke="black"/>
+<path d="M472,215h 1" fill="none" stroke="black"/>
+<g stroke="black" stroke-width="1" fill="none">
+<line x1="93" y1="99" x2="95" y2="101"/><line x1="93" y1="101" x2="95" y2="99"/>
+<line x1="183" y1="162" x2="185" y2="164"/><line x1="183" y1="164" x2="185" y2="162"/>
+<line x1="219" y1="170" x2="221" y2="172"/><line x1="219" y1="172" x2="221" y2="170"/>
+<line x1="471" y1="213" x2="473" y2="215"/><line x1="471" y1="215" x2="473" y2="213"/>
+</g>
+<text x="177" y="16" fill="black" font-size="16" font-family="Helvetica">
+Rate of freely decaying muons
+</text></svg>

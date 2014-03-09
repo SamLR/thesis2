@@ -113,7 +113,8 @@ void replot_rates() {
   // double bin_sigmas [n_bins] =  {21.00, 19.00, 18.00, 15.00};
   double bin_sigmas [n_bins] = { 0.00,  0.00,  0.00,  0.00};
   
-  char name [] = "Adjusted rate of freely decaying muons";
+  char name   [] = "Adjusted rate of freely decaying muons";
+  char name__ [] = "Rate of freely decaying muons";
   TGraphErrors* out_f_hist_exec_eff = new TGraphErrors(n_bins, bin_means_r, d_bins, bin_sigmas, d_bin_ers_exec_eff);
   out_f_hist_exec_eff->SetTitle(name);
   out_f_hist_exec_eff->GetXaxis()->SetTitle("Momentum (MeV/c)");
@@ -164,6 +165,23 @@ void replot_rates() {
   
   can->SaveAs("adjusted_muon_rates.eps");
   can->SaveAs("adjusted_muon_rates.svg");
+  
+  
+  // Make the alt version of the plot for the executive summary
+  TCanvas* can2 = new TCanvas("c2", "c2", 1436, 856);
+  out_f_hist_exec_eff->SetTitle(name__);
+  out_f_hist_exec_eff->GetYaxis()->SetTitle("Muon rate (muons s^{-1})");
+  out_f_hist_exec_eff->Draw("A P");
+  out_f_hist->Draw("SAME P");
+  out_s_hist->Draw("SAME P");
+  
+  TLegend* leg2 = can2->BuildLegend(0.6, 0.7, 0.9, 0.9, "Muon momentum distribution");
+  leg2->SetFillColor(0);
+  leg2->SetFillStyle(0);
+  out_f_hist_exec_eff->Draw("SAME P");
+  
+  can2->SaveAs("adjusted_muon_rates_exec_summary_version.eps");
+  can2->SaveAs("adjusted_muon_rates_exec_summary_version.svg");
   
   
   float means [n_bins] =    {41.03,      46.68, 50.29,      65.66};
