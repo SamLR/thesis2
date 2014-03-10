@@ -5,7 +5,7 @@ adjusted_muon_rates.svg
 </title>
 <desc>
 Creator: ROOT Version 5.34/14
-CreationDate: Sun Mar  2 17:52:14 2014</desc>
+CreationDate: Mon Mar 10 00:16:31 2014</desc>
 <defs>
 </defs>
 <rect x="0" y="0" width="567" height="328" fill="white"/>
@@ -198,7 +198,7 @@ Muon rate (nA
 Muon momentum distribution
 </text>
 <text x="382" y="61" fill="black" font-size="6" font-family="Helvetica">
-Adjusted rate of freely decaying muons
+Corrected rate of freely decaying muons
 </text>
 <path d="M347,63h 29v -11h -29z" fill="white"/>
 <path d="M347,58h 29" fill="none" stroke="black"/>
@@ -243,6 +243,6 @@ Simulated rate of freely decaying muons
 <line x1="219" y1="170" x2="221" y2="172"/><line x1="219" y1="172" x2="221" y2="170"/>
 <line x1="471" y1="213" x2="473" y2="215"/><line x1="471" y1="215" x2="473" y2="213"/>
 </g>
-<text x="146" y="16" fill="black" font-size="16" font-family="Helvetica">
-Adjusted rate of freely decaying muons
+<text x="143" y="16" fill="black" font-size="16" font-family="Helvetica">
+Corrected rate of freely decaying muons
 </text></svg>

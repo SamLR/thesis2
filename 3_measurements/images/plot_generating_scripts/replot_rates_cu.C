@@ -122,7 +122,7 @@ void replot_rates_cu() {
   double bin_means_s[n_bins] =  {45.05, 50.05, 52.05, 66.05}; 
   double bin_sigmas [n_bins] = { 0.00,  0.00,  0.00,  0.00};
   
-  char name [] = "Adjusted rate of muons decaying in copper";
+  char name [] = "Corrected rate of muons decaying in copper";
   TGraphErrors* out_f_hist_exec_eff = new TGraphErrors(n_bins, bin_means_r, d_bins, bin_sigmas, d_bin_ers_exec_eff);
   out_f_hist_exec_eff->SetTitle(name);
   out_f_hist_exec_eff->GetXaxis()->SetTitle("Momentum (MeV/c)");

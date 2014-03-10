@@ -5,7 +5,7 @@ adjusted_muon_rates_cu.svg
 </title>
 <desc>
 Creator: ROOT Version 5.34/14
-CreationDate: Sun Feb  9 00:44:32 2014</desc>
+CreationDate: Mon Mar 10 00:16:47 2014</desc>
 <defs>
 </defs>
 <rect x="0" y="0" width="567" height="328" fill="white"/>
@@ -195,7 +195,7 @@ Muon rate (nA
 Muon momentum distribution
 </text>
 <text x="382" y="47" fill="black" font-size="6" font-family="Helvetica">
-Adjusted rate of muons decaying in copper
+Corrected rate of muons decaying in copper
 </text>
 <path d="M347,48h 29v -6h -29z" fill="white"/>
 <path d="M347,45h 29" fill="none" stroke="black"/>
@@ -262,6 +262,6 @@ Systematic errors
 <line x1="219" y1="162" x2="221" y2="164"/><line x1="219" y1="164" x2="221" y2="162"/>
 <line x1="471" y1="177" x2="473" y2="179"/><line x1="471" y1="179" x2="473" y2="177"/>
 </g>
-<text x="133" y="16" fill="black" font-size="16" font-family="Helvetica">
-Adjusted rate of muons decaying in copper
+<text x="129" y="16" fill="black" font-size="16" font-family="Helvetica">
+Corrected rate of muons decaying in copper
 </text></svg>

@@ -113,7 +113,7 @@ void replot_rates() {
   // double bin_sigmas [n_bins] =  {21.00, 19.00, 18.00, 15.00};
   double bin_sigmas [n_bins] = { 0.00,  0.00,  0.00,  0.00};
   
-  char name   [] = "Adjusted rate of freely decaying muons";
+  char name   [] = "Corrected rate of freely decaying muons";
   char name__ [] = "Rate of freely decaying muons";
   TGraphErrors* out_f_hist_exec_eff = new TGraphErrors(n_bins, bin_means_r, d_bins, bin_sigmas, d_bin_ers_exec_eff);
   out_f_hist_exec_eff->SetTitle(name);

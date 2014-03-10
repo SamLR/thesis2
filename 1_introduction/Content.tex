@@ -1,3 +1,13 @@
+\chapter*{Acknowledgements} % (fold)
+\label{cha:acknowledgements}
+
+This thesis has been the work of too many years, with the aid by too many people, to accurately and fully thank all of those who deserve to be thanked. That being said, with the hope of doing something to repay their kindness, I'd like to briefly acknowledge those who've helped this work come to fruition.
+
+Firstly, my supervisor, without who's tireless support, corrections and ready need for caffeine this would never have happened. My lab-mates and peers at UCL, particularly Richard and Andrew who endured more hours underground with me than anyone should. Kuno-Sensei, Sato-Sensei and all my colleagues in Japan who were both excellent hosts and teachers. My supervisor at RAL, John, and all those who I worked with on the LPD/CCC interface for Eu-XFEL.
+
+I'd like to thank my friends (particularly Antonio) and family for their forbearance over the last few years of dark mutterings when ever the subject of my studies has been brought up, it was never that bad (although maybe that tiring) and your continued support made it possible. Finally I'd like to thank my wonderful partner, Morag.
+
+% chapter acknowledgements (end)
 \chapter*{Preface} % (fold)
 \label{cha:preface}
 This thesis is divided into two parts. The first part covers work done at the Muon Science Innovative Channel (MuSIC) beam-line and the second part, discusses work carried out on the European X-ray Free Electron Laser (EuXFEL).
@@ -36,7 +46,7 @@ The final measurement, the muon momentum spectrum, was the most complex. Six mea
   \label{fig:exec_summary_muon_momentum_spectrum}
 \end{figure}
 
-Using the data from the momentum spectrum measurement it was possible to predict the total muon flux at MuSIC when operated at full power\footnote{To prevent excessive dead time in the equipment currents of \(<\)1~nA were used rather than the RCNP's maximum current of 1~\(\mu\)A.} and this was calculated to be \((4.16\pm0.53)\times10^8\)~muons~s\(^{-1}\) which is on par with the world's most intense muon source, PSI, which has a peak flux of \(4.8\times10^8\)~muons~s\(^{-1}\). The key difference between MuSIC and PSI is that PSI produces its muons using a 1.2~MW proton beam compared to the RCNP's 400~W beam, giving per-Watt yields of \((8.3\pm1.1)\times10^5\)~muons~W\(^{-1}\) and 292~muons~W\(^{-1}\) respectively therefore MuSIC is the most efficient muon source in the world.
+Using the data from the momentum spectrum measurement it was possible to predict the total muon flux at MuSIC when operated at full power\footnote{To prevent excessive dead time in the equipment currents of \(<\)1~nA were used rather than the RCNP's maximum current of 1~\(\mu\)A.} and this was calculated to be \((4.16\pm0.92)\times10^8\)~muons~s\(^{-1}\) which is on par with the world's most intense muon source, PSI, which has a peak flux of \(4.8\times10^8\)~muons~s\(^{-1}\). The key difference between MuSIC and PSI is that PSI produces its muons using a 1.2~MW proton beam compared to the RCNP's 400~W beam, giving per-Watt yields of \((10.55\pm2.3)\times10^5\)~muons~W\(^{-1}\) and 292~muons~W\(^{-1}\) respectively therefore MuSIC is the most efficient muon source in the world.
 
 % chapter preface (end)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -80,12 +90,12 @@ There are currently several dedicated muon sources\footnote{In theory any proton
 \begin{table}[htpb]
   \begin{center}
   \begin{tabular}{c | c | c | c | c | c | c}
-    Name       &  \multicolumn{3}{c|}{Muon beam}                 &  \multicolumn{2}{c|}{Proton Beam}  &   Ref \\
-               &  Flux (muons/s)     &  Type  & \( P \) (MeV/c)  &  Power (W)    & \(I\) (\(\mu\)A)   &       \\
+    Name       &  \multicolumn{3}{c|}{Muon beam}                  &  \multicolumn{2}{c|}{Proton Beam}  &   Ref        \\
+               &  Flux (muons/s)     &  Type   & \( P \) (MeV/c)  &  Power (W)    & \(I\) (\(\mu\)A)   &              \\
     \hline    
-    PSI        &  \(4.8\times10^8\)  &  Cont.  &  28  &  \(1.2\times10^6\)  &  2000  &  \cite{mue4_psi}   \\ 
-    RIKEN-RAL  &  \(6\times10^5\)    &  Pulse  &  27  &  \(1.6\times10^3\)  &  200   &  \cite{riken_ral}       \\
-    TRIUMF     &  \(3.5\times10^6\)  &  Pulse  &  25--85  &  \(7.0\times10^4\)  &  140   &  \cite{triumf_m20a} \\
+    PSI        &  \(4.8\times10^8\)  &  Cont.  &  28              &  \(1.2\times10^6\)  &  2000  &  \cite{mue4_psi}    \\ 
+    RIKEN-RAL  &  \(6\times10^5\)    &  Pulse  &  27              &  \(1.6\times10^3\)  &  200   &  \cite{riken_ral}   \\
+    TRIUMF     &  \(3.5\times10^6\)  &  Pulse  &  25--85          &  \(7.0\times10^4\)  &  140   &  \cite{triumf_m20a} \\
   \end{tabular}
   \end{center}
   \caption{Comparison of several leading muon sources. As most sources have multiple muon beam-lines the highest flux station at each source was chosen: \(\mu\)E4 at PSI; port-1 of the RIKEN-RAL facility and the M20A beam-line at TRIUMF. The difference in momenta is due to both \(\mu\)E4 and port-1 using surface muons whilst M20A uses cloud muons. Beam type refers to whether the beam is continuous or pulsed. \( P \) is the muon momentum (either as an average if reasonably mono-energetic or a range), \( I \) is the proton beam's current.}
@@ -283,9 +293,9 @@ Where the values \(G_{1-4}\) are parameters to be fitted and \( Z_{eff} \) is th
 \begin{table}
   \begin{center}
   \begin{tabular}{c | r@{.}l }
-                                                              & \multicolumn{2}{c|}{Experimental Value} \\
+                                                              & \multicolumn{2}{c}{Value} \\
     \hline
-    Number of data                                            & \multicolumn{2}{c|}{30}                 \\
+    Number of data                                            & \multicolumn{2}{c}{30}                 \\
     \hline
     \( G_1 \)                                                 &             260 &                       \\
     \( G_2 \)                                                 &              -0 & 040                   \\

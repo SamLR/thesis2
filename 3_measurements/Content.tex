@@ -172,7 +172,7 @@ The DAQ used for these experiments was designed to have a lot greater functional
 \subsection{Experimental Set Up} % (fold)
 \label{sec:experimental_set_up}
 The experimental design for both measurements was broadly the same: the scintillators both had four MPPCs attached. In the first measurement a long strip scintillator was used and the MPPCs were distributed evenly across the short ends, for the second measurement the disk had the four MPPCs placed evenly around the circumference (see table~\ref{tab:charged_particle_flux_scint_details}). NIM crates housed the modules for the triggering logic, digitisation was performed via CAMAC modules and the read out data was recorded on a PC to be analysed afterwards. The scintillators were both wrapped with aluminium foil and black wrap and the MPPCs attached via optical cement. The scintillators were mounted on aluminium supports at the end of the beam-pipe.
-\begin{table}
+\begin{table}[hptb]
   \begin{center}
     \begin{tabular}{c|c|c|c}
       Shape  &  Volume (mm\(^3\))           &  MPPCs  &  MPPC positions                    \\
@@ -439,7 +439,7 @@ The DAQ used was a simple extension of the previous versions. This time, rather 
 \label{sec:results} 
 Figures~\ref{fig:music2_mu_lifetime} and \ref{fig:music3_muon_lifetime} show the TDC measurements that were made to record the muon lifetime. The TDC bin values are converted to ns using:
 \begin{align}
-  t = K*(T - T_0)
+  t = K(T - T_0)
 \end{align}
 where \(t\) is the real time, in ns, \(K\) is the calibration constant (0.025, measured by manufacturer), \(T\) is the value recorded in the MH-TDC and \(T_0\) is the time when the start signal for the TDC was sent, as recorded by the MH-TDC on a dedicated channel.
 
@@ -688,7 +688,7 @@ Fitting all the parameters could not easily be done freely due to the range of v
 
 Once the data was fitted the \(f\) and \(c\) terms were integrated individually to calculate the number of free and copper decays the muons underwent. The fitted histograms are shown in figures~\ref{fig:images_momentum_spectrum_448}~to~\ref{fig:images_momentum_spectrum_459} and the results are summarised in table~\ref{tab:fit_res}. The fitting shows that the bottom channels (D4 and D5) have the worst fit results, often chi-squared values of \(>10,000 / 1,239\)~(ndf), this is compared to values of \(\mathcal{O}(2,000) / 1,239\) for the other channels. Of the other channels D1 and D3 are generally best but D2 is consistently good enough to be useable (unlike channels D4 and D5 which are removed from later analysis).
 
-\begin{table}
+\begin{table}[hptb]
   \lineup % enable \0, \- & \.
   \begin{center}
   \begin{tabular}{ c | c | r@{\(\,\pm\,\)}l | r@{\(\,\pm\,\)}l | r@{\(\,\pm\,\)}l | r@{\(\,\pm\,\)}l | r@{\(\,\pm\,\)}l }
@@ -846,14 +846,14 @@ As can be seen in the fit histograms, the \(\chi^2\) values for the fitting of c
 \begin{figure}[hptb]
   \centering
     \includegraphics[width=.9\textwidth]{images/plot_generating_scripts/per_ch_free_lifetime.eps}
-  \caption{Comparison of fitted value of free muon lifetime for the different channels in each run. The dashed line is the canonical value~\cite{pdg}.}
+  \caption{Comparison of fitted value of free muon lifetime for the different channels in each run. The dashed line is the canonical value, \((2.1969811\pm0.0000022)\)~\(\mu\)s~\cite{pdg}.}
   \label{fig:images_plot_generating_scripts_per_ch_free_lifetime}
 \end{figure}
 
 \begin{figure}[hptb]
   \centering
     \includegraphics[width=.9\textwidth]{images/plot_generating_scripts/per_ch_copper_lifetime.eps}
-  \caption{Comparison of fitted value of muonic copper lifetime for the different channels in each run. The dashed line is the canonical value~\cite{pdg}.}
+  \caption{Comparison of fitted value of muonic copper lifetime for the different channels in each run. The dashed line is the canonical value, \((163.5\pm1)\)~ns~\cite{suzuki_mu_capture_rates}.}
   \label{fig:images_plot_generating_scripts_per_ch_copper_lifetime}
 \end{figure}
 
@@ -1067,21 +1067,21 @@ Where \(T\) is the total muon flux per second, \(R\) is the measured muon rate p
     (MeV/c)   &  \multicolumn{2}{c|}{(\%)}
                                   &  \multicolumn{2}{c|}{(\(\times10^3\) nA\(^{-1}\))}
                                                     &  \multicolumn{2}{c|}{(\(\times10^8\) s\(^{-1}\))}
-                                                                     &  \multicolumn{2}{c}{(\(\times10^5\) W\(^{-1}\))} \\
+                                                                     &  \multicolumn{2}{c}{(\(\times10^5\)~muons~W\(^{-1}\))} \\
     \hline
-    448       &  \.8.158 & 0.096  & \042.5 & 13     & \05.21 & 1.62  &   \0\0\010.4 & 3.3  \\
-    451       &  \.7.356 & 0.091  & \028.8 & \09.0  & \03.91 & 1.22  &  \0\0\0\07.8 & 2.4  \\
-    452       &  \.7.356 & 0.091  & \029.4 & \09.2  & \04.00 & 1.25  &  \0\0\0\08.0 & 2.5  \\
-    455       &  \.6.742 & 0.087  & \027.3 & \08.5  & \04.04 & 1.26  &  \0\0\0\08.1 & 2.5  \\
-    458       &  \.4.665 & 0.071  & \018.0 & \05.6  & \03.86 & 1.20  &  \0\0\0\07.7 & 2.4  \\
-    459       &  \.4.665 & 0.071  & \018.4 & \05.7  & \03.94 & 1.23  &  \0\0\0\07.9 & 2.5  \\
+    448       &  \.8.158 & 0.096  & \042.5 & 13     & \05.21 & 1.62  &   \0\0\013.0 & 4.1  \\
+    451       &  \.7.356 & 0.091  & \028.8 & \09.0  & \03.91 & 1.22  &  \0\0\0\09.8 & 3.1  \\
+    452       &  \.7.356 & 0.091  & \029.4 & \09.2  & \04.00 & 1.25  &   \0\0\010.0 & 3.1  \\
+    455       &  \.6.742 & 0.087  & \027.3 & \08.5  & \04.04 & 1.26  &   \0\0\010.1 & 3.2  \\
+    458       &  \.4.665 & 0.071  & \018.0 & \05.6  & \03.86 & 1.20  &  \0\0\0\09.7 & 3.0  \\
+    459       &  \.4.665 & 0.071  & \018.4 & \05.7  & \03.94 & 1.23  &  \0\0\0\09.9 & 3.1  \\
   \end{tabular}
   \end{center}
-  \caption{Calculated muon production efficiencies and total fluxes at 1~\(\mu\)A. `Component' is the simulated fraction of the total beam that stops in each set up. `Rate' is the sum of the corrected rates for free and copper decays. The total flux was calculated using equation~\eqref{equ:total_rate}. The average total flux is \((4.16\pm0.53)\times10^8\)~muons~s\(^{-1}\). The efficiency is the total flux divided by the full beam power (400~W). The average efficiency of MuSIC is calculated to be \((8.3\pm1.1)\times10^5\)~muons~W\(^{-1}\).}
+  \caption{Calculated muon production efficiencies and total fluxes at 1~\(\mu\)A. `Component' is the simulated fraction of the total beam that stops in each set up. `Rate' is the sum of the corrected rates for free and copper decays. The total flux was calculated using equation~\eqref{equ:total_rate}. The average total flux is \( (4.16\pm0.92) \times10^8\)~muons~s\(^{-1}\) where the error is the same fractional error as is on the MPPC efficiency, \(\Delta\epsilon_{\textsc{mppc}}^2\sim 22\)~\%. The efficiency is the total flux divided by the full beam power (400~W). The average efficiency of MuSIC is calculated to be \((10.55\pm2.3)\times10^5\)~muons~W\(^{-1}\) which has the same, \(\epsilon_{\textsc{mppc}}^2\) dominated, error as the total flux.}
   \label{tab:total_muon_rates}
 \end{table}
 
-Two things are clear from table~\ref{tab:total_muon_rates}: at full power MuSIC should be capable of producing the design goal of \(>10^8\)~muons~s\(^{-1}\) and it should be one of the most intense muon beams in the world. The average intensity, \((4.16\pm0.53)\times10^8\)~muons~s\(^{-1}\), is comparable PSI's most intense muon beam (\(4.8\times10^8\)~muons~s\(^{-1}\)~\cite{mue4_psi}) but achieved with a proton beam significantly less powerful. This last point is best highlighted by comparing the number of muons produced per~Watt of proton beam: PSI produces 292~muons~W\(^{-1}\) whilst MuSIC is predicted to produce \((8.3\pm1.1)\times10^5\)~muons~W\(^{-1}\).
+Two things are clear from table~\ref{tab:total_muon_rates}: at full power MuSIC should be capable of producing the design goal of \(>10^8\)~muons~s\(^{-1}\) and it should be one of the most intense muon beams in the world. The average intensity, \((4.16\pm0.92)\times10^8\)~muons~s\(^{-1}\), is comparable PSI's most intense muon beam (\(4.8\times10^8\)~muons~s\(^{-1}\)~\cite{mue4_psi}) but achieved with a proton beam significantly less powerful. This last point is best highlighted by comparing the number of muons produced per~Watt of proton beam: PSI produces 292~muons~W\(^{-1}\) whilst MuSIC is predicted to produce \((10.55\pm2.3)\times10^5\)~muons~W\(^{-1}\).
 
 % As has been noted the lack of information on the detector's efficiency was a severe hinderance in the calculation of the muon rate. Further improvements are needed, not only to reduce errors and better understand the detector but to allow testing of the simulation. Work at COMET suggests that there are differences in the particle rates between various simulations (e.g.\ MARS and G4BL), understanding of this will be vital in those measurements.
 
