@@ -348,7 +348,9 @@ The MPPC data attempted to more closely approximate the actual data produced by 
 \section{Simulation Analysis} % (fold)
 \label{cha:simulation_analysis}
 
-As well as providing a method to test the affects of different detector constructions the simulation was also used to verify the analysis technique used in the final measurements. This was done using an approximate particle distribution rather than the G4BL results. The approximation was used as it was possibly to generate very large sets of data for testing. The large data sets were particularly useful for testing the analysis technique with negative muons which the G4BL distribution was low in. Unfortunately the approximation was not accurate enough to be a substitution for full simulation of the beam done using G4BL.
+As well as providing a method to test the affects of different detector constructions the Geant4 simulation was also used to verify the analysis technique used in the final measurements. To do this a large data set of only positive and negative muons was generated using a gaussian distribution. The distribution was modelled on the output of the G4BL simulation.
+
+% This was done using an approximate particle distribution rather than the G4BL results. The approximation was used as it was possibly to generate very large sets of data for testing. The large data sets were particularly useful for testing the analysis technique with negative muons which the G4BL distribution was low in. Unfortunately the approximation was not accurate enough to be a substitution for full simulation of the beam done using G4BL.
 
  % As has been noted attempts to approximate the particle distribution produced by G4BL produced significantly different momenta distributions. The approximations could be used to test the accuracy of the integration technique used to estimate the number of stopped muons, this was especially useful for the stopped negative muons which were much less common in the initial G4BL distribution.
 
