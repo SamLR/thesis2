@@ -1,0 +1,12 @@
+    6911 ./1_introduction/Content.tex
+     297 ./1_introduction/part_wrapper.tex
+    6185 ./2_simulation/Content.tex
+     330 ./2_simulation/part_wrapper.tex
+     102 ./3_measurements/.part_wrapper.tex
+   15879 ./3_measurements/Content.tex
+     306 ./3_measurements/part_wrapper.tex
+    4324 ./4_appendix_XFEL/appendix_xfel_intro.tex
+   10226 ./4_appendix_XFEL/Content.tex
+     958 ./4_appendix_XFEL/RAL_manual.tex
+     386 ./thesis.tex
+   45904 total

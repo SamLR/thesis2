@@ -28,7 +28,7 @@ A modular system is one in which the problem is divided in to smaller units. Eac
 
 A good example of this modularity was the control registers. Whilst each version was customised for the specific use case, each one was built from the same core design and once that was established further versions were quick and easy to develop and also had a much lower chance of failure.
 
-The flexibility of a design is strongly coupled to how modular it is. Smaller, simpler, entities are generally more re-useable than larger ones. Obviously at some point the small modules have to be combined and there are certain things that can't be achieved without a certain, minimum amount of complexity. To address this as many aspects of the design as possible were made using VHDLs generics. This meant that the same solution could be used in a number of different situations.
+The flexibility of a design is strongly coupled to how modular it is. Smaller, simpler entities are generally more re-useable than larger ones. Obviously at some point the small modules have to be combined and there are certain things that can't be achieved without a certain, minimum amount of complexity. To address this as many aspects of the design as possible were made using VHDLs generics. This meant that the same solution could be used in a number of different situations.
 
 For example, given the number of different clock speeds that might be used with the system, the divisor to convert the fast clock into the bunch clock was set using a generic. By using a generic to describe the ratio of one clock to the other as long as the ratio remains within certain bounds the system can be easily re-configured.
 
@@ -437,7 +437,7 @@ The LocalLink interface is implemented by wrapping the FIFO's 256b \texttt{data\
 \label{sec:transmitter}
 The transmitter entity's main task is to act as the interpreter for the signals received from the CCC, translating them into command sequences that the ASIC can understand and act upon. As has been discussed above there are four signals that need to be translated for the ASIC: \texttt{START}, \texttt{STOP}, \texttt{RESET} and (\texttt{NO-})\texttt{VETO}. The first three command signals all require an arbitrary number of words be sent to the ASIC whilst the veto signals are responded to by one of two words.
     
-The transmitter can run in one of two mode; `dynamic veto mode' and `reset mode'. Dynamic veto mode is intended to be the normal mode of operation for XFEL whilst reset mode is intended for static runs with simple veto patterns (e.g.\ for testing). A comparison of the two can be seen in table~\ref{tab:dynamic_vs_reset_mode}. Reset mode is enabled by strobing bit 0 of the main control register (see section~\ref{sub:ctrl_reg} for details). The transmitter also has an optional minor mode called `down-scaler mode'; this is primarily for v~1.0 of the ASIC that requires a slower clock duringread-outt. When enabled it uses a multiplier (set by generic) to slow the clock, after a set number of cycles normal speed is resumed. 
+The transmitter can run in one of two modes; `dynamic veto mode' and `reset mode'. Dynamic veto mode is intended to be the normal mode of operation for XFEL whilst reset mode is intended for static runs with simple veto patterns (e.g.\ for testing). A comparison of the two can be seen in table~\ref{tab:dynamic_vs_reset_mode}. Reset mode is enabled by strobing bit 0 of the main control register (see section~\ref{sub:ctrl_reg} for details). The transmitter also has an optional minor mode called `down-scaler mode'; this is primarily for v~1.0 of the ASIC that requires a slower clock duringread-outt. When enabled it uses a multiplier (set by generic) to slow the clock, after a set number of cycles normal speed is resumed. 
     
 \begin{table}[htbp]
   \begin{center}
@@ -496,7 +496,7 @@ The in ports to the transmitter are all flags from the receiver; with the standa
     
 The out ports fall into 3 categories: signals to the ASIC (\texttt{ASIC\_in} and \texttt{clk\_in}), flags (marked \texttt{\_sent}) and \texttt{start\_nwords\_o}. The ASIC commands are defined in the specification. The flags have been discussed above with regards to their generic-defined trigger words. The final out port is a wrapper to the value of the \texttt{start\_nwords} register (see section~\ref{sub:tx_registers}) which is used in setting the delay for \texttt{veto\_start}.
     
-The two RDMA interfaces are used for access to the command sequence BRAM and the control registers (sections~\ref{sub:tx_bram} respectively).
+The two RDMA interfaces are used for access to the command sequence BRAM and the control registers (section~\ref{sub:tx_bram}).
     
 \begin{table}[htbp]
   \begin{center}

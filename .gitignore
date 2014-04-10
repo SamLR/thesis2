@@ -25,3 +25,5 @@ _region_.tex
 *-eps-converted-to.pdf
 thesis.pdf
 */part_wrapper.pdf
+*.lof
+*.lot
