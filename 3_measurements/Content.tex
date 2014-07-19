@@ -633,7 +633,8 @@ To ensure that there were no problems during data taking the trigger rate was ch
   % \begin{figure}%[htbp]
       \centering
           \includegraphics[width=\textwidth]{images/momentum_spectrum/gain_stability.eps}
-      \caption{Trigger rate of each run, split over 100 measurements. The triggers used were potential and so exclude any rate limiting due to dead time. The central 90~\% of the data has been fitted with an order 0 polynomial with the parameters given.}
+      % \caption{Trigger rate of each run, split over 100 measurements. The triggers used were potential and so exclude any rate limiting due to dead time. The central 90~\% of the data has been fitted with an order 0 polynomial with the parameters given.}
+      \caption{Trigger rate of each run (black) with the raw SEC count (blue). 100 samples were taken from the scaler data. Potential triggers were used to exclude any rate limiting due to dead time. The central 90~\% of the data has been fitted with an order 0 polynomial with the parameters given. The SEC values are the differences of the count at the start of the time window and the end, this was done because the SEC value was not reset between measurements within a run. The SEC data suggests that the fluctuations in the trigger rate are not due to changes in the beam.}
       \label{fig:gain_stability}
   % \end{figure}
 \end{sidewaysfigure}
