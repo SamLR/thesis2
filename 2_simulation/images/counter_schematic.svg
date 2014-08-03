@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="688px"
+	 height="349.5px" viewBox="0 0 688 349.5" enable-background="new 0 0 688 349.5" xml:space="preserve">
+<g id="Layer_2">
+</g>
+<g id="Layer_4">
+</g>
+<g id="Layer_5">
+	<text transform="matrix(1 0 0 1 16.6831 26.667)" font-family="'MyriadPro-Regular'" font-size="20">SIDE VIEW</text>
+	<g>
+		<g>
+			<rect x="51.5" y="62" fill="#FFFFFF" stroke="#0000FF" stroke-miterlimit="10" width="16" height="231"/>
+			<g>
+				<circle fill="none" stroke="#0000FF" stroke-miterlimit="10" cx="70.725" cy="177.583" r="2.576"/>
+				<circle fill="none" stroke="#0000FF" stroke-miterlimit="10" cx="70.725" cy="177.583" r="3.072"/>
+				<path fill="none" stroke="#0000FF" stroke-miterlimit="10" d="M69.625,180.451l-1.941,4.755
+					c-3.025-1.209-5.165-4.166-5.165-7.624c0-3.447,2.125-6.397,5.137-7.611l1.828,4.8"/>
+			</g>
+		</g>
+		<g>
+			<text transform="matrix(1 0 0 1 39.3496 314.167)" font-family="'MyriadPro-Regular'" font-size="12">3.5mm</text>
+			<g>
+				<g>
+					<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="52" y1="300" x2="68" y2="300"/>
+					<g>
+						<rect x="51" y="296.5" width="1" height="7"/>
+					</g>
+					<g>
+						<rect x="67" y="296.5" width="1" height="7"/>
+					</g>
+				</g>
+			</g>
+		</g>
+		<g>
+			<g>
+				<g>
+					<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="45.5" y1="62.5" x2="45.5" y2="293.5"/>
+					<g>
+						<rect x="42" y="61.5" width="6" height="1"/>
+					</g>
+					<g>
+						<rect x="42" y="292.5" width="6" height="1"/>
+					</g>
+				</g>
+			</g>
+			<text transform="matrix(1 0 0 1 5.1724 181.0215)" font-family="'MyriadPro-Regular'" font-size="12">50 mm</text>
+		</g>
+	</g>
+	<g>
+		<g>
+			<g>
+				<g>
+					<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="166" y1="323" x2="665" y2="323"/>
+					<g>
+						<rect x="166" y="319.5" width="1" height="7"/>
+					</g>
+					<g>
+						<rect x="665" y="319.5" width="1" height="7"/>
+					</g>
+				</g>
+			</g>
+			<text transform="matrix(1 0 0 1 386.4863 333.834)" font-family="'MyriadPro-Regular'" font-size="12">500 mm</text>
+		</g>
+		<g>
+			<g>
+				<g>
+					<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="226" y1="307" x2="607" y2="307"/>
+					<g>
+						<rect x="226" y="303.5" width="1" height="7"/>
+					</g>
+					<g>
+						<rect x="607" y="303.5" width="1" height="7"/>
+					</g>
+				</g>
+			</g>
+			<text transform="matrix(1 0 0 1 384.4863 317.834)" font-family="'MyriadPro-Regular'" font-size="12">380 mm</text>
+		</g>
+		<g>
+			<g>
+				<polyline fill="none" stroke="#0000FF" stroke-miterlimit="10" points="430,62 607.5,62 607.5,292 418,292 				"/>
+				<polyline fill="none" stroke="#0000FF" stroke-miterlimit="10" points="424,180 665.5,180 665.5,174 424,174 				"/>
+				<polyline fill="none" stroke="#0000FF" stroke-miterlimit="10" points="424,183 607.5,183 607.5,171 424,171 				"/>
+			</g>
+			<g>
+				<polyline fill="none" stroke="#0000FF" stroke-miterlimit="10" points="402,292 226.5,292 226.5,62 414,62 				"/>
+				<polyline fill="none" stroke="#0000FF" stroke-miterlimit="10" points="408,180 166.5,180 166.5,174 408,174 				"/>
+				<polyline fill="none" stroke="#0000FF" stroke-miterlimit="10" points="408,183 226.5,183 226.5,171 408,171 				"/>
+			</g>
+			<g>
+				<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="414.667" y1="41.25" x2="401.667" y2="302.75"/>
+				<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="430.667" y1="41.25" x2="417.667" y2="302.75"/>
+			</g>
+		</g>
+	</g>
+	<text transform="matrix(1 0 0 1 384.4863 26.667)" font-family="'MyriadPro-Regular'" font-size="20">TOP VIEW</text>
+</g>
+<g id="Layer_3">
+	<text transform="matrix(1 0 0 1 99.4951 136.667)" font-family="'MyriadPro-Regular'" font-size="12">Scintillator</text>
+	<text transform="matrix(1 0 0 1 101.5532 171.334)" font-family="'MyriadPro-Regular'" font-size="12">WLS Fibre</text>
+	<text transform="matrix(1 0 0 1 87.2554 197.333)" font-family="'MyriadPro-Regular'" font-size="12">Optical Cement</text>
+	<g>
+		<g>
+			<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="86.207" y1="192.26" x2="73.895" y2="185.521"/>
+			<g>
+				<path d="M68.601,182.624c2.997,0.439,6.951,0.554,9.781-0.068l-3.792,3.346l-0.773,4.997
+					C72.814,188.18,70.586,184.911,68.601,182.624z"/>
+			</g>
+		</g>
+	</g>
+	<g>
+		<g>
+			<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="100.167" y1="167.667" x2="79.551" y2="174.183"/>
+			<g>
+				<path d="M73.797,176.001c2.39-1.86,5.208-4.637,6.717-7.11l-0.207,5.053l3.073,4.016
+					C80.723,176.802,76.822,176.149,73.797,176.001z"/>
+			</g>
+		</g>
+	</g>
+	<g>
+		<g>
+			<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="151.333" y1="168.502" x2="160.156" y2="171.856"/>
+			<g>
+				<path d="M165.797,174.001c-3.029-0.024-6.961,0.404-9.68,1.408l3.298-3.835l0.082-5.056
+					C160.862,169.075,163.517,172.008,165.797,174.001z"/>
+			</g>
+		</g>
+	</g>
+	<g>
+		<g>
+			<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="166.333" y1="194.502" x2="220.579" y2="183.793"/>
+			<g>
+				<path d="M226.5,182.624c-2.582,1.584-5.69,4.03-7.464,6.321l0.767-4.999l-2.609-4.332
+					C219.705,181.06,223.51,182.142,226.5,182.624z"/>
+			</g>
+		</g>
+	</g>
+	<g>
+		<g>
+			<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="99" y1="134" x2="74" y2="134"/>
+			<g>
+				<path d="M67.5,133.501c2.84-1.054,6.363-2.852,8.547-4.756l-1.72,4.756l1.72,4.755C73.863,136.352,70.34,134.554,67.5,133.501z"
+					/>
+			</g>
+		</g>
+	</g>
+	<g>
+		<g>
+			<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="154" y1="134" x2="220" y2="134"/>
+			<g>
+				<path d="M226.5,133.501c-2.84,1.054-6.363,2.852-8.547,4.756l1.72-4.756l-1.72-4.755
+					C220.137,130.65,223.66,132.448,226.5,133.501z"/>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>

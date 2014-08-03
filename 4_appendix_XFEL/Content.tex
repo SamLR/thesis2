@@ -37,11 +37,11 @@ The final principle, simplicity, should be key in making the firmware a long-liv
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The Design} % (fold)
 \label{sec:the_design}
-As discussed above each entity should have a clear task and as much as possible a simple interface to achieve it. The overall design process was to break the problem down into ever smaller entities until an entity that encompassed the most basic behaviour was encountered e.g.\ the veto receiver entity de-serialises the veto information and checks it for commands. Certain entities couldn't be fully decomposed without introducing non-uniform latencies. This was especially true for implementing the veto logic in the transmitter entity, in such cases the core requirements won out over design principles.
+As discussed above each entity should have a clear task and as much as possible a simple interface to achieve it. The overall design process was to break the problem down into ever smaller entities until an entity that encompassed the most basic behaviour was encountered e.g.\ the veto receiver entity de-serialises the veto information and checks it for commands. Certain entities couldn't be fully decomposed without introducing non-uniform latencies, avoiding these situations was considered paramount. The main reason for the strict requirement for simple latencies is to simplify fan-out of the signals, which is carried out by dedicated FPGAs. This was especially true for implementing the veto logic in the transmitter entity, in such cases the core requirements won out over design principles.
 
 Ultimately the design was split into three sections: receiver, transmitter and the veto filter. The receiver entity is designed to read the signals from the CCC, process them and flag which words it had received. The veto filter combines the bunch pattern, maximum number of writes the ASIC can make and veto signals whilst logging the decisions. Finally the transmitter interprets the flags set by the other two entities and send the correct word to the ASIC.
 
-Each section used a state-machine for the logic. The veto-filter and transmitter also used BRAM and registers for large scale storage and configuration. In each entity, the number of signals in or out, was minimised to avoid confusion. Softcore access to the BRAMs and registers was done via a standardised 32b Remote Direct Memory Access (RDMA) interface. Communication with the other firmware units was implemented using std\_logic flags apart from the transfer of header information via LocalLink to the read-outt entity.
+Each section used a state-machine for the logic. The veto-filter and transmitter also used BRAM and registers for large scale storage and configuration. In each entity, the number of signals in or out, was minimised to avoid confusion. Softcore access to the BRAMs and registers was done via a standardised 32b Remote Direct Memory Access (RDMA) interface. Communication with the other firmware units was implemented using std\_logic flags apart from the transfer of header information via LocalLink to the read-out entity.
 % section the_design (end)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % chapter design (end)
@@ -61,7 +61,7 @@ The top level of the CCC interface consists of three core and two ancillary enti
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{images/pdfs/ccc_interface_block.pdf}
-  \caption{Top level block diagram. The \texttt{clk} and \texttt{rst} signals are supplied to each block and have been elided from block diagrams unless otherwise noted.}
+  \caption{Top level block diagram. The \texttt{clk} and \texttt{rst} signals are supplied to each block and have been elided from block diagrams unless otherwise noted. \texttt{clk} can either be an internal signal if the board is running in a standalone mode or is the clock received from the CCC. \texttt{rst} is an internal board reset, not to be confused with the \texttt{RESET} command which is intended to reset the ASIC (not the FEE).}
   \label{fig:ccc_interface_entity}
 \end{figure}
 
@@ -79,7 +79,7 @@ The top level interface is given in table~\ref{tab:top_ccc_interface}, the gener
       cmd\_from\_ccc                & & sl & Serial CMD line from CCC.                                       \\
       veto\_from\_ccc               & & sl & Serial VETO line form CCC.                                      \\
       \hline
-      cmd\_to\_asic                 & \multirow{2}{*}{out}
+      serial\_to\_asic                 & \multirow{2}{*}{out}
                                       & sl               & AKA `asic\_in' at ASIC.             \\
       clk\_to\_asic                 & & sl               & AKA `clk\_in' at ASIC.              \\
       \hline
@@ -193,11 +193,11 @@ As stated in the introduction there are five signals that are sent by the CCC, t
     STOP     & 0b1010 & n/a     & End of the train \\
     RESET    & 0b1001 & n/a     & Reset the FEM and ASIC \\
     \hline
-    VETO     & 0b110  & 8b      & Veto this bunch \\
+    VETO     & 0b110  & 12b     & Veto this bunch \\
     NO-VETO  & 0b101  &         & Record this bunch \\
   \end{tabular}
   \end{center}
-  \caption{The full set of commands received from the CCC. The payload for the \texttt{START} is the train ID (32b), the bunch pattern ID (8b) and a check-sum (8b). The (\texttt{NO-})\texttt{VETO} payloads are the same, the 8b bunch ID.}
+  \caption{The full set of commands received from the CCC. The payload for the \texttt{START} is the train ID (32b), the bunch pattern ID (8b) and a check-sum (8b). The (\texttt{NO-})\texttt{VETO} payloads are the same, the 12b bunch ID.}
   \label{tab:ccc_commands}
 \end{table}
 
@@ -253,25 +253,25 @@ The receiver module is split into two state machines, one for each of the two co
   \label{fig:rx_entity}
 \end{figure}
   
-The designs uses strobes to signal which type of command has been received and buses to hold the ID information. The ID-buses (train, bunch pattern, checksum and bunch) are cleared at the start of the next command, this means that the data is available until it gets replaced.
+The designs uses strobes to signal which type of command has been received and buses to hold the ID information. The ID-buses (train, bunch pattern, checksum and bunch) are cleared at the start of the next fast command (not veto commands), this means that the data is available until it gets replaced.
   
 The two entities use simple state-machines designs (figures~\ref{fig:cmd_rx_flow} and \ref{fig:veto_rx_flow}) that can be summarised as: `IDLE \( \rightarrow \) LOG\_COMMAND \( \rightarrow \) STROBE\_COMMAND \( \rightarrow \) [LOG\_PAYLOAD \( \rightarrow \)] IDLE'. For both command and veto lines the state machine is triggered by the line going high. The stream is de-serialised by passing the serial commands to a shift register. Once a command is matched then the appropriate strobes is set. If the command has an attached payload then that is passed to a shift register until the appropriate number of payload bits have been received when they are written to a bus and the machine returns to `IDLE'.
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.7\textwidth]{images/pdfs/cmd_rx_flow.pdf}
-  \caption{Flow diagram of the command receiver. The serial signals are read and flags set as required. The `START' payload i.e.\  train ID, bunch pattern ID and checksum) are stored and remain available until cmd\_i next goes high i.e.\  the start of the next command).}
+  \caption{Flow diagram of the command receiver. The serial signals are read and flags set as required. The `START' payload i.e.\  train ID, bunch pattern ID and checksum) are stored and remain available until cmd\_i next goes high i.e.\  the start of the next command). This system has a weakness in that if malformed commands are sent and then the loop will attempt to `execute' what ever follows (e.g.\ the train ID.) and ultimately entering an unknown state.}
   \label{fig:cmd_rx_flow}
 \end{figure}
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.5\textwidth]{images/pdfs/veto_rx_flow.pdf}
-  \caption{Flow diagram of the veto receiver entity. This de-serialises and splits the veto signals into the command and its payload, the Bunch id.}
+  \caption{Flow diagram of the veto receiver entity. This de-serialises and splits the veto signals into the command and its payload, the Bunch ID. Note that this system also has the same flaw as the command receiver, i.e. it doesn't count bits as they are received so it can enter an undefined state if a malformed veto signal is sent.}
   \label{fig:veto_rx_flow}
 \end{figure}
 
 As every command on the \texttt{veto} port has the same format:
 \begin{align}
-  <\texttt{COMMAND} 3:0><\texttt{BUNCH~ID} 11:0>
+  <\texttt{COMMAND} 2:0><\texttt{BUNCH~ID} 11:0>
 \end{align}
 the veto receiver (figure~\ref{fig:veto_rx_flow}) only implements two states: CMD and BUNCH\_ID with the command (either VETO or NO-VETO) being flagged once it's received and the Bunch ID being recorded regardless. In the command receiver (figure~\ref{fig:cmd_rx_flow}) there are five states: IDLE, CMD, TRAIN, BUNCH\_PATTERN and CHECKSUM. The TRAIN, BUNCH\_PATTERN and CHECKSUM are used to record the \texttt{START} command's payloads. If the \texttt{STOP} or \texttt{RESET} commands are received, the flow returns to IDLE to await the next command. 
 % subsection implementation (end)
@@ -688,6 +688,9 @@ The second process, the state-machine, is mainly concerned with maintaining posi
 \chapter{Testing} % (fold)
 \label{cha:testing}
 This chapter is concerned with the testing regime used on the design. It is split into two sections, first the methodology is discussed and then the results. The aim of testing is to ensure that firstly the design meets the requirements (see chapter~\ref{cha:design}) and secondly that the limitations of the system are understood.
+
+Due to the both the nature of the equipment and time constraints no hardware based testing could be carried out. Hardware testing has since been carried out at the both the PETRA and LCLS test beams~\cite{lpd_at_lcls}. The rest of this chapter is concerned with simulated logic testing of the firmware rather than on chip or radiation testing.
+
 \section{Methodology} % (fold)
 \label{sec:methodology}
 The methodology used for testing was to iterate rapidly, working from smaller to larger entities and limiting changes to the outermost entity being tested, changes made in sub-entities restarted the processes from that entity to confirm functionality at each level. 

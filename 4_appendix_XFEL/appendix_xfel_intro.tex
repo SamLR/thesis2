@@ -132,7 +132,7 @@ The CCC communicates with FEMs via RJ45 (see figure~\ref{fig:CCC_RJ45_diagram}),
   \centering
     \includegraphics[width=.9\textwidth]{images/Other/CCC_RJ45_diagram.png}
     % \includegraphics[width=.9\textwidth]{4_appendix_XFEL/images/Other/CCC_RJ45_diagram.png}
-  \caption{The CCC RJ45 wiring diagram.}
+  \caption{The CCC RJ45 wiring diagram. Arrows on the inputs/outputs to FEE indicate signal direction, apart from the status line all are input to the FEE, i.e.\ the status line is the only line expected to send signals from the FEE to the CCC.}
   \label{fig:CCC_RJ45_diagram}
 \end{figure}
 
@@ -152,9 +152,9 @@ This timing structure forces the detectors to use the time between bunches for d
 
 Note: there is some vagueness as to the exact clock speeds used as, at time of writing a definitive value has yet to be decided on, the bunch clock is expected to remain between 4 and 5~MHz with the fast clock expected to be a simple divisor of this that results in a rate of roughly 100~MHz. 
 % subsection clock_signal (end)
-\subsubsection{Control signal} % (fold)
+\subsubsection{Fast control} % (fold)
 \label{sub:control_signal}
-The control signal is used to convey information about each train. This information comes in four parts: when the next train will start, when it will stop, what its ID is and what bunch pattern should be used (see section~\ref{sub:veto_signal}, below). There is also a reset command to indicate that the ASIC and FEM should be reset to a known state. 
+The fast control is used to convey information about each train. This information comes in four parts: when the next train will start, when it will stop, what its ID is and what bunch pattern should be used (see section~\ref{sub:veto_signal}, below). There is also a reset command to indicate that the ASIC and FEM should be reset to a known state. 
 
 The expected use of the control signal is shown in table~\ref{tab:fast_commands}, a \texttt{START} signal arrives with attached train ID and bunch pattern ID, after some number of vetos the \texttt{STOP} signal is received. Rarely, either when there is a fault or if, for example, the detector's been switched off, the \texttt{RESET} signal will restore the FEM and ASIC to a prepared state.
 \begin{table}[htbp]
@@ -181,7 +181,7 @@ Given the previous discussion of the 2D detectors at EuXFEL (section~\ref{sub:de
 
 The bunch pattern veto is derived from the global configuration of the machine: if, for example, the first half of the electron beam is being sent to another experimental station the detector will receive a pattern that tells it to veto that portion of the train. The patterns act as masks: for each bunch in a train the pattern states whether it should be vetoed or not. The bunch patterns are decided ahead of time, and a selection of patterns\footnote{Predicted to be fewer than 10.} are loaded when the FEM is configured, the bunch pattern to be used for each train is included in that train's header information as part of the start signal sent via the command line.
 
-The online vetos are mainly situational, if the beam doesn't produce any X-rays or there is a fault then there is rarely any point taking data, in which case those bunches should be vetoed. These online vetos can have any source and the signals are supplied to a dedicated veto unit that is external to the CCC. The CCC will in turn pass on the veto or no-veto signal to the FEM of the detector, either with an attached bunch ID or with a fixed latency from the bunch in question depending on the specifications of the detector. Online vetos are what is received via the veto line and they have a format given in table~\ref{tab:veto_spec}, currently LPD makes no use of the bunch ID.
+The online vetos are mainly situational, if the beam doesn't produce any X-rays or there is a fault then there is rarely any point taking data, in which case those bunches should be vetoed. These online vetos can have any source and the signals are supplied to a dedicated veto unit that is external to the CCC. The CCC will in turn pass on the veto or no-veto signal to the FEM of the detector, either with an attached bunch ID or with a fixed latency from the bunch in question depending on the specifications of the detector. Online vetos are what is received via the veto line and they have a format given in table~\ref{tab:veto_spec}, currently LPD makes no use of the bunch ID. The CCC promises that for every bunch either a VETO or a NOVETO signal will be sent, if neither is received then the interface will assume a NOVETO.
 \begin{table}[htbp]
   \begin{center}
   \begin{tabular}{c|c|c|c}

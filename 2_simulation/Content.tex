@@ -98,27 +98,32 @@ The evolution of the final distribution is shown in figure~\ref{fig:images_pid_c
 
 \begin{table}[hptb]
   \begin{center}
-  \begin{tabular}{c | r | r@{\(\pm\)}l | r@{\(\pm\)}l }
+  \begin{tabular}{c | r | r@{\(\pm\)}l | r@{\(\pm\)}l | r@{\(\pm\)}l | r@{\(\pm\)}l}
     \multicolumn{1}{c|}{\multirow{2}{*}{Particle}} 
                &   \multicolumn{1}{c|}{\multirow{2}{*}{Count}} 
-                              &  \multicolumn{4}{c}{Mean position (mm)}    \\
-               &              &  \multicolumn{2}{c|}{Horizontal}  
-                                              &  \multicolumn{2}{c}{Vertical} \\
+                             &  \multicolumn{4}{c|}{Horizonal position (mm)}
+                                              &  \multicolumn{4}{c}{Vertical position (mm)}    \\
+               &             &  \multicolumn{2}{c|}{Mean}  
+                                                   &  \multicolumn{2}{c|}{RMS}  
+                                                         &  \multicolumn{2}{c|}{Mean}  
+                                                                    &  \multicolumn{2}{c|}{RMS}  \\
     \hline
-      e\(^-\)  &  1,362,161  &  \(-\)62 & 62  &       99 & 45  \\
-      e\(^+\)  &    183,074  &  \(-\)37 & 68  &       50 & 66  \\
-    \(\mu^-\)  &      8,940  &  \(-\)45 & 71  &       65 & 66  \\
-    \(\mu^+\)  &     86,480  &  \(-\)26 & 79  &   \(-\)2 & 79  \\
-    \(\pi^-\)  &      4,169  &  \(-\)58 & 64  &       85 & 56  \\
-    \(\pi^+\)  &     53,406  &  \(-\)44 & 73  &  \(-\)29 & 74  \\
-       p       &     60,589  &  \(-\)43 & 73  &  \(-\)26 & 77  \\
+      e\(^-\)  &  1,362,161  &  \(-\)61.55 & 0.05  &  62.29 & 0.04  &       98.73 & 0.04  &  44.62 & 0.03  \\
+      e\(^+\)  &    183,074  &  \(-\)37.10 & 0.16  &  67.91 & 0.11  &       50.20 & 0.15  &  66.03 & 0.11  \\
+    \(\mu^-\)  &      8,940  &  \(-\)45.10 & 0.75  &  70.97 & 0.53  &       65.35 & 0.69  &  65.54 & 0.49  \\
+    \(\mu^+\)  &     86,480  &  \(-\)26.12 & 0.27  &  79.55 & 0.19  &   \(-\)1.75 & 0.27  &  79.16 & 0.19  \\
+    \(\pi^-\)  &      4,169  &  \(-\)57.50 & 0.99  &  63.99 & 0.70  &       84.65 & 0.87  &  56.27 & 0.62  \\
+    \(\pi^+\)  &     53,406  &  \(-\)44.19 & 0.32  &  72.79 & 0.22  &  \(-\)28.50 & 0.32  &  74.04 & 0.23  \\
+       p       &     60,589  &  \(-\)43.37 & 0.30  &  73.15 & 0.21  &  \(-\)26.28 & 0.31  &  76.80 & 0.22  \\
     \(\overline{\text{p}}\)
                &          0  & \multicolumn{2}{c|}{n/a}  
-                                              &  \multicolumn{2}{c}{n/a}  \\
-       n       &     88,553  &   \(-\)8 & 99  &        0 & 93  \\
+                                                   &  \multicolumn{2}{c}{n/a}
+                                                                    & \multicolumn{2}{c}{n/a}
+                                                                               &  \multicolumn{2}{c}{n/a}  \\
+       n       &     88,553  &   \(-\)8.31 & 0.33  &  98.84 & 0.23  &        0.10 & 0.31  &  92.78 & 0.22  \\
   \end{tabular}
   \end{center}
-  \caption{General information of the charged particle distributions at the end of the MuSIC beam-pipe. The errors on the mean positions are the respective RMS values.}
+  \caption{Summary of the particle distributions at the end of the MuSIC beam-pipe for 900~million initial protons. The number of particles of that type are given along with the mean and RMS of their distribution along the horizontal and vertical axis.}
   \label{tab:g4bl_particle_counts}
 \end{table}
 
@@ -168,21 +173,38 @@ The messengers were used to specify parameters to be used in the following run. 
 % subsection geant4 (end)
 \subsection{Detector Constructor} % (fold)
 \label{sec:detector_constructor}
-The detector constructor is by far the most complex of the classes used in the simulation. The implementation of the detector construction was split over several functions, this discussion will follow similar lines. The materials will be discussed, then the optical properties and finally the geometry of the detector.
+The detector constructor is by far the most complex of the classes used in the simulation. The implementation of the detector construction was split over several functions, this discussion will follow similar lines. The materials will be discussed, then the optical properties and finally the geometry of the detector. Prior to these more detailed discussions a more holistic view of the detector will be given.
+
+The detector simulated is the same as that used in the final measurements of the muon momentum spectrum. A schematic of the detector is shown in figure~\ref{fig:images_Detector_setup_music5}. The detector has four core components: the degrader, two counters and a stopping target. The layout of the components is: degrader; thin, upstream counter; stopping target; then finally the thicker downstream counter. The degrader and stopping target of plates of pure metal (aluminium and copper respectively). The counters are each composed of several strips of scintillator (8 in the upstream counter and 5 in the downstream). Each scintillator strip has a Wave-Length Shifting (WLS) fibre mounted on the back of it which (in the experiment) was connected to a Multi-Pixel Photon Counter (MPPC). A schematic of a strip can be seen in figure~\ref{fig:images_counter_schematic}.
+
+\begin{figure}[hptb]
+  \centering
+    \includegraphics[width=.9\textwidth]{images/Detector_setup_music5.png}
+  \caption{Schematic of the detector configuration for simulation.}
+  \label{fig:images_Detector_setup_music5}
+\end{figure}
+
+\begin{figure}[hptb]
+  \centering
+    \includegraphics[width=.9\textwidth]{images/counter_schematic.png}
+  \caption{Schematic of a downstream paddle. The upstream paddles have the same layout but are have a different width and height (0.5~mm and 30~mm respectively). The WLS fibre protrudes from the scintillator for easy attachment of the MPPCs to the support structure.}
+  \label{fig:images_counter_schematic}
+\end{figure}
+
 
 \subsubsection{Materials} % (fold)
 \label{ssub:implementation_materials}
 
 To simulate the detectors at MuSIC a fairly simple selection of materials were required, the elemental metals used for the stopping target and degrader; and several plastics that made up the scintillators. Geant4 treats materials as either pure elements or as mixtures (even if they're a compound). For the materials used at MuSIC only six elements were needed (H, C, N, O, Al and Cu), these had their standard values for mass number, atomic number and, where needed, density. The majority of these were used as components of plastics and for approximating the composition of air but copper and aluminium were used in their pure form (hence the inclusion of their density). 
 
-The compounds and mixtures (table~\ref{tab:sim_compounds_and_mixtures}) were, with the exception of air, components of the scintillators. Mylar was used to wrap the scintillators; EJ-212~\cite{ej_212} (a trade name for NE-102A, based on polyvinyltoluene) is the core scintillating material; and BCF-91A~\cite{bcf_91a} is the Wave-Length Shifting (WLS) fibre, which has a polystyrene core with a PMMA cladding. The optical properties that were included in the simulation were:
+The compounds and mixtures (table~\ref{tab:sim_compounds_and_mixtures}) were, with the exception of air, components of the scintillators. Mylar was used to wrap the scintillators; EJ-212~\cite{ej_212} (a trade name for NE-102A, based on polyvinyltoluene) is the core scintillating material; and BCF-91A~\cite{bcf_91a} is the (WLS) fibre, which has a polystyrene core with a PMMA cladding. The optical properties that were included in the simulation were:
 \begin{enumerate}
   \item The refractive index, n.
   \item The emission spectrum that described the scintillation light produced by ionising particles.
   \item Absorption spectrum, used in concert with an additional emission spectrum this described the WLS fibres.
   \item Scintillation yield, for EJ-212 this was 10,000~MeV\(^{-1}\) as stated by the manufacturer and assumes a linear response.
 \end{enumerate}
-These properties were only implemented for the materials involved in the optical system. The emission and absorption spectra for the scintillator and WLS fibres were approximated to the curves given in the material data sheets (\cite{ej_212} and \cite{bcf_91a}), the values used are plotted in  figures~\ref{fig:images_ej-212-g4}~and~\ref{fig:images_bcf-91a-g4} respectively.
+These properties were only implemented for the materials involved in the optical system. The emission and absorption spectra for the scintillator and WLS fibres were approximated to the curves given in the material data sheets (\cite{ej_212} and \cite{bcf_91a}), the values used are plotted in figures~\ref{fig:images_ej-212-g4}~and~\ref{fig:images_bcf-91a-g4} respectively.
 
 \begin{table}
   \begin{center}
@@ -197,7 +219,7 @@ These properties were only implemented for the materials involved in the optical
                                                                 &        \\
     \hline
     Air        &     N, O      &     4 : 1     &  1.290  &  1.00  & --        \\
-    Mylar      &   H, C, O     &  4 : 5 : 2    &  1.40   &   --   & \cite{groom2001_mylar_ref} \\
+    Mylar      &   H, C, O     &   4 : 5 : 2   &  1.40   &   --   & \cite{groom2001_mylar_ref} \\
     EJ-212     &     H, C      &  5.17 : 4.69  &  1.023  &  1.58  & \cite{ej_212}      \\
     BCF-91A (core)  &  H, C    &  4.82 : 4.85  &  1.05   &  1.60  & \cite{bcf_91a}    \\
     BCF-91A (clad)  & H, C, O  &   8 : 5 : 2   &  1.2    &  1.49  & \cite{bcf_91a}    \\
@@ -248,21 +270,7 @@ The degrader and stopping target were configured so that their material and thic
   \label{tab:st_and_deg_dimensions}
 \end{table}
 
-The counters were more complex. Each counter was split into a number of `paddles' (eight upstream, five downstream). A paddle was composed of a main scintillator, a 45\(^{\circ}\) section of pipe (also made of scintillator material) that mimicked the optical cement and a length of wavelength shifting fibre (made of a core and shell). Mylar was then used to define an optical surface that existed at the boundary between scintillator and air. An optical surface is a special construct in Geant4 that is not a full volume but a set of physical effects that occur when optical photons move from one volume to the next, in this way the reflective effect of mylar wrapping was created. A \(1\times1\times1\)~mm\(^3\) volume of air is placed at the end of each wavelength shifting fibre to act as a Multi-Pixel Photon Counter (MPPC) detector region. A side on view of the layout of a paddle can be seen in figure~\ref{fig:images_Geometry_full_strip}, the dimensions used for the paddles are are given in table~\ref{tab:dimensions_of_paddles} the entire layout can be seen in figure~\ref{fig:images_Detector_setup_music5}. 
-
-\begin{figure}[hptb]
-  \centering
-    \includegraphics[scale=0.5, angle=90]{images/Geometry/full_strip.png}
-  \caption{Side-on view of a counter strip, the square surrounding the wavelength shifting fibre is the MPPC region.}
-  \label{fig:images_Geometry_full_strip}
-\end{figure}
-
-\begin{figure}[hptb]
-  \centering
-    \includegraphics[width=.9\textwidth]{images/Detector_setup_music5.png}
-  \caption{Schematic of the detector configuration for simulation.}
-  \label{fig:images_Detector_setup_music5}
-\end{figure}
+The counters were more complex. Each counter was split into a number of `strips' (eight upstream, five downstream). A strip was composed of a scintillator, a 135\(^{\circ}\) section of pipe (also made of scintillator material) that mimicked the optical cement and a length of wavelength shifting fibre (made of a core and shell). Mylar was then used to define an optical surface that existed at the boundary between scintillator and air. An optical surface is a special construct in Geant4 that is not a full volume but a set of physical effects that occur when optical photons move from one volume to the next, in this way the reflective effect of mylar wrapping was created. A \(1\times1\times1\)~mm\(^3\) volume of air is placed at the end of each wavelength shifting fibre to act as a Multi-Pixel Photon Counter (MPPC) detector region. A side on view of the layout of a paddle can be seen in figure~\ref{fig:images_Geometry_full_strip}, the dimensions used for the paddles are are given in table~\ref{tab:dimensions_of_paddles} the entire layout can be seen in figure~\ref{fig:images_Detector_setup_music5}.
 
 \begin{table}
   \begin{center}
@@ -295,21 +303,21 @@ At MuSIC the key task of the primary action generator was to either import the p
 \label{sec:physics_list}
 Geant4 provides the majority of physics processes as precompiled lists that cover the major aspects of a simulation. For MuSIC the key attribute of each list was the accuracy at low energies. In this respect the most important lists were those dealing with electromagnetic processes. To cover this `option3' and the `extra' lists were used which have improved low energy simulations and more detailed processes. Most importantly the `extra' list implements muon capture at rest. The few hadronic processes were simulated with the `HP' QGSP-BERT and the elastic physics models, both of which have better methods for simulating low energy neutrons.
 
-One problem with the default supplied physics lists is that the implementation of muon capture at rest is based mainly on theoretical work that doesn't accurately model the capture rate of muons on copper. This is obviously a problem as copper is the main stopping target used at MuSIC. The lifetime for muonic copper produced using unmodified Geant4 is \(\sim1.1\)~\(\mu\)s compared to the experimental value of 163.5~ns~\cite{suzuki_mu_capture_rates}. This difference can be seen in  figure~\ref{fig:images_mu-_lifetime_in_cu_unmodded_g4} and figure~\ref{fig:images_mu-_lifetime_in_cu_modded_g4} which show the muon decay spectra of negative muons with the modified and un-modified versions of Geant4 respectively. 
+One problem with the default supplied physics lists is that the implementation of muon capture at rest is based mainly on theoretical work that doesn't accurately model the capture rate of muons on copper. This is obviously a problem as copper is the main stopping target used at MuSIC. The lifetime for muonic copper produced using unmodified Geant4 is \(\sim1.1\)~\(\mu\)s compared to the experimental value of 163.5~ns~\cite{suzuki_mu_capture_rates} or the theoretical value of 194~ns (calculated using equation~\cite{eq:primakoff_and_goulard}). This difference can be seen in  figure~\ref{fig:images_mu-_lifetime_in_cu_unmodded_g4} and figure~\ref{fig:images_mu-_lifetime_in_cu_modded_g4} which show the muon decay spectra of negative muons with the modified and un-modified versions of Geant4 respectively.
 
-The modification used was to the `G4StopElementSelector' class where the function `GetMuonCaptureRate' had an additional element added to its precompiled lists of capture rates to correspond to the capture rate for muons in copper, which is \(5.72\pm0.05\times10^6\)~s\(^{-1}\). Without this modification the muon lifetime, as calculated by Geant4, is 6.9 times greater than measured.
+The modification used was to the `G4StopElementSelector' class where the function `GetMuonCaptureRate' had an additional element added to its precompiled lists of capture rates to correspond to the capture rate for muons in copper, which is \(5.72\pm0.05\times10^6\)~s\(^{-1}\). This was acknowledged as a bug by the Geant4 development team and has been fixed in more recent versions of the framework (i.e. more later than \( 4.9.6 \)~patch~02).
 
 \begin{figure}[hptb]
   \centering
     \includegraphics[width=.7\textwidth]{images/mu-_lifetime_in_cu_unmodded_g4.eps}
-  \caption{Decay spectrum of \(1\times10^6\) negative muons hitting a 1~mm copper target using an unmodified version of Geant4. The decay times are fitted using \(N_f\exp(-x/\tau_f) +  N_{cu}\exp(-x/\tau_{cu})\). The poor fit for \(\tau_f\) is due to the lack of differentiating power between the free muon lifetime and Geant4's copper lifetime.}
+  \caption{Decay spectrum of \(1\times10^6\) negative muons hitting a 1~mm copper stopping target using an unmodified version of Geant4. The decay times are fitted using \(N\exp(-x/\tau)\). As can be seen the Geant4 value, 1,161~ns, does not agree with either the experimentally determined value of 163.5~ns~\cite{suzuki_mu_capture_rates} or the theoretical value of 194~ns (calculated using the equation~\ref{eq:primakoff_and_goulard}. This bug has been fixed in more recent versions of Geant4 (versions \(>\)~\( 4.9.6 \)~patch~02).}
   \label{fig:images_mu-_lifetime_in_cu_unmodded_g4}
 \end{figure}
 
 \begin{figure}[hptb]
   \centering
     \includegraphics[width=.7\textwidth]{images/mu-_lifetime_in_cu_modded_g4.eps}
-  \caption{Decay spectrum of \(1\times10^6\) negative muons hitting a 1~mm copper target using a version of Geant4 modified with the experimental muonic copper lifetime of 163.5~ns. The spectrum is fitted using \(N_f\exp(-x/\tau_f) +  N_{cu}\exp(-x/\tau_{cu})\). \(\tau_f\) is lower than the canonical value by the presence of nitrogen and oxygen (air) between the scintillators and stopping target which have lifetimes of 1906.8~ns and 1795.4~ns respectively. Attempts to improve the fit using an exponential for each component of air fail due to the relative closeness of their lifetimes.}
+  \caption{Decay spectrum of \(1\times10^6\) negative muons hitting a 1~mm copper stopping target using a version of Geant4 modified to use the experimental muonic copper lifetime of 163.5~ns. The spectrum is fitted using \(N\exp(-x/\tau)\).}
   \label{fig:images_mu-_lifetime_in_cu_modded_g4}
 \end{figure}
 
@@ -348,7 +356,9 @@ The MPPC data attempted to more closely approximate the actual data produced by 
 \section{Simulation Analysis} % (fold)
 \label{cha:simulation_analysis}
 
-As well as providing a method to test the affects of different detector constructions the Geant4 simulation was also used to verify the analysis technique used in the final measurements. To do this a large data set of only positive and negative muons was generated using a gaussian distribution. The distribution was modelled on the output of the G4BL simulation.
+As well as providing a method to test the affects of different detector constructions the Geant4 simulation was also used to verify the analysis technique used in the final measurements.
+
+To aid this analysis a very large numbers of muons were needed (both positive and negative). Given that the G4BL data set only contained 95,420 muons an approximation to the G4BL output was used to test the analysis technique. To approximate the G4BL output gaussian distributions of the muons' position and momentum were used. This was not used for comparison to the data as the approximation was too poor but it was a useful tool to test the analysis method discussed below.
 
 % This was done using an approximate particle distribution rather than the G4BL results. The approximation was used as it was possibly to generate very large sets of data for testing. The large data sets were particularly useful for testing the analysis technique with negative muons which the G4BL distribution was low in. Unfortunately the approximation was not accurate enough to be a substitution for full simulation of the beam done using G4BL.
 
@@ -356,7 +366,7 @@ As well as providing a method to test the affects of different detector construc
 
 % In order to have suitable statistical significance a much larger number of muons were required than could be produced using the initial G4BL distribution of particles. Instead an approximation to the G4BL distribution was created and then used. The approximation was not close enough to the G4BL distribution to be used as a base of comparison in measurements of the beam but provided a reasonable number of positive and negative muons upon which analysis techniques could be tested.
 
-The core analysis technique used was to create muon lifetime distributions, fit them with a function and then use the integral of the appropriate portion of the function to calculate the number of muon decays that had occurred. This method could be used because no other constituent of the beam would have a lifetime comparable to that of the muons: electrons and protons have lifetimes measured in years whilst charged pions have a lifetime of \(26.003\pm0.005\)~ns~\cite{pdg} which is suitably short, even compared to muonic copper, to have little impact on the muon decay spectrum (neutral pions have a lifetime of \( 8.52\times10^{-8}\)~ns and don't produce charged daughters).
+The core analysis technique used was to create muon lifetime distributions, fit them with a function and then use the integral of the appropriate portion of the function to calculate the number of muon decays that had occurred. This method could be used because no other constituent of the beam would have a lifetime comparable to that of the muons: electrons and protons are stable whilst charged pions have a lifetime of \(26.003\pm0.005\)~ns~\cite{pdg} which is suitably short, even compared to muonic copper, to have little impact on the muon decay spectrum (neutral pions have a lifetime of \( 8.52\times10^{-8}\)~ns and don't produce charged daughters).
 
 The first step of the protocol was to create histograms of downstream\(-\)upstream hit times. In the measurements this was done by an item of hardware but for the simulation this was done by looking for muons in the upstream counter and their daughter-electrons in the downstream counter. The difference in times was then binned, any differences of less than 50~ns were ignored as this was a region that we were blind to in the experiment.
 
