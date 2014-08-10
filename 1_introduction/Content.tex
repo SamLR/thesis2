@@ -127,14 +127,14 @@ MuSIC is a proof of concept beam-line that aims to produce the most muons per pr
 \begin{figure}[htbp]
   \centering
     \includegraphics[width=.9\textwidth]{images/MuSIC_schematic_FFAG.png}
-  \caption{Schematic of the completed MuSIC complex.}
+  \caption{Schematic of the completed MuSIC complex. Taken from~\cite{music_cdr}.}
   \label{fig:images_MuSIC_schematic_FFAG}
 \end{figure}
 
 \begin{figure}[htbp]
   \centering
     \includegraphics[width=.9\textwidth]{images/MuSIC_current_schematic.png}
-  \caption{Schematic of the current status of MuSIC.}
+  \caption{Schematic of the current status of MuSIC. Taken from~\cite{first_measurements_at_music}}
   \label{fig:images_MuSIC_current_schematic}
 \end{figure}
 \begin{figure}[htbp]
@@ -215,7 +215,7 @@ All charged particles will ionise matter they pass through, the amount that any 
 \begin{equation}\label{eq:bethe_formaula}
   -\left\langle\frac{dE}{dx}\right\rangle = Kz^2\frac{Z}{A} \frac{1}{\beta^2}\left[\frac{1}{2}\ln\frac{2m_{e}c^{2}\beta^2\gamma^2T_{max}}{I^2} -\beta^2 - \frac{\delta(\beta\gamma)}{2}\right]
 \end{equation}
-Where:
+where:
 \begin{itemize}
   \item \( -\left\langle\frac{dE}{dx}\right\rangle \) is the average energy loss in MeVg\(^{-1}\)cm\(^2\)
   \item \( K = 4\pi N_A r^2_e m_e c^2\), (\( N_A \) is Avagadro's number and \( r_e \) is the classical electron radius) 
@@ -259,7 +259,7 @@ The decay of a muon, like any other decay, can be modelled using the distributio
 \begin{equation}\label{eq:poisson}
   P(t) = Ne^{-t/\tau}
 \end{equation}
-Where \( P(t) \) is the survival probability of a particle after time, \( t \); \( N \) is a scaling factor to the size of the initial population and \( \tau \) is the population's lifetime. For a free muon in vacuum the lifetime is \( \sim2.2\)~\( \mu \)s. As figure~\ref{fig:muon_decay_feynmann} shows the muon decay is mediated by a charged W boson, the presence of the two neutrinos mean that the only practically detectable result of the muon decay is the electron. The muon's (comparatively) long lifetime makes identification of them possible through plotting decay times; this is discussed in greater detail in chapter~\ref{prt:characterising_the_beam}.
+where \( P(t) \) is the survival probability of a particle after time, \( t \); \( N \) is a scaling factor to the size of the initial population and \( \tau \) is the population's lifetime. For a free muon in vacuum the lifetime is \( \sim2.2\)~\( \mu \)s. As figure~\ref{fig:muon_decay_feynmann} shows the muon decay is mediated by a charged W boson, the presence of the two neutrinos mean that the only practically detectable result of the muon decay is the electron. The muon's (comparatively) long lifetime makes identification of them possible through plotting decay times; this is discussed in greater detail in chapter~\ref{prt:characterising_the_beam}.
 
 \begin{figure}[hptb]
   \centering
@@ -287,7 +287,7 @@ A theoretical approximation to \( \Delta_c \), as a function of atomic mass, \( 
   \Delta_c(A,Z)&=Z^4_{eff} G_1 \left[ 1 + G_2 \frac{A}{2Z} - G_3 \frac{A-2Z}{2Z} - G_4 \left[\frac{A-Z}{2A} + \frac{A-2Z}{8AZ} \right] \right]
   \label{eq:primakoff_and_goulard}
 \end{align}
-Where the values \(G_{1-4}\) are parameters to be fitted and \( Z_{eff} \) is the effective value for the atomic number, as calculated by Ford and Wells~\cite{ford_and_wills_mesonic_atoms}, this accounts for the muon's \( 1s \) radius being much smaller than an electrons. The difference between the predicted capture rate and the measured rate is given in figure~\ref{fig:primakoff-goulard_vs_exp} with the fitted values of \(G\) shown in table~\ref{tab:g1_to_g4}. As can be seen there are still disagreements between theory and experiment, for this reason in later simulations the measured values of capture rates are preferred.
+where the values \(G_{1-4}\) are parameters to be fitted and \( Z_{eff} \) is the effective value for the atomic number, as calculated by Ford and Wells~\cite{ford_and_wills_mesonic_atoms}, this accounts for the muon's \( 1s \) radius being much smaller than an electrons. The difference between the predicted capture rate and the measured rate is given in figure~\ref{fig:primakoff-goulard_vs_exp} with the fitted values of \(G\) shown in table~\ref{tab:g1_to_g4}. As can be seen there are still disagreements between theory and experiment, for this reason in later simulations the measured values of capture rates are preferred.
 
 \begin{figure}[hptb]
   \centering
@@ -345,8 +345,8 @@ This extremely low branching ratio makes cLFV a `smoking gun' for new physics, s
 There are three core cLFV processes of interest: \( \mu\rightarrow e\gamma \), \( \mu\rightarrow eee \) and  \(\mu+X\rightarrow e+X \) (where \(X\) is an atomic nucleus), the current limits of these processes are given in table~\ref{tab:clfv}. At higher energies there are further processes involving taus (e.g.\ \(\tau\rightarrow\mu\gamma\)) and hadronic systems (e.g.\ \(K_L\rightarrow e\mu\)) but for brevity they will not be discussed here. 
 \begin{table}
   \begin{center}
-  \begin{tabular}{c | r@{\( \times \)}l | c}
-    Process                  &  \multicolumn{2}{c|}{Limit (90~\% C.L.)}  &  Experiment  & Ref.\\
+  \begin{tabular}{c | r@{\( \times \)}l | c | c}
+    Process                     &  \multicolumn{2}{c|}{Limit (90~\% C.L.)}  &  Experiment  & Ref.\\
     \hline
     \(\mu\rightarrow e\gamma\)  &  \(<2.4\) & \(10^{-12}\)  &  MEG         & \cite{meg_mu_e_gamma} \\
     \(\mu\rightarrow eee\)      &    \(<1\) & \(10^{-12}\)  &  SINDRUM     & \cite{sindrum_1_mu_eee} \\

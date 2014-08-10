@@ -120,7 +120,7 @@
     
     In order to control the ASIC via the CCC interface firmware was written to act as a translator unit. Translation was split into three separate sub-blocks: CCC-signal receiver, a veto filter and the ASIC command transmitter. Between the three blocks the messages from the CCC are interpreted, processed and encoded for the ASIC. 
     
-    Table~\ref{tab:ccc_spec} gives the specification of the CCC interface whilst table~\ref{tab:asic_spec} is the ASIC interface. The CCC specification specifies 5 command words for the cmd and veto lines that the interface needs to interpret: \texttt{START}, \texttt{STOP}, \texttt{RESET}, \texttt{VETO} and \texttt{NO-VETO} (full specification of these are given in table~\ref{tab:ccc_commands}). Each of these command words correspond to either a single word or a sequence that must be sent to the ASIC. \texttt{START}, \texttt{STOP} and \texttt{RESET} all have multi-word sequences associated to them whilst \texttt{VETO} and \texttt{NOVETO} are communicated with single words. The command sequences for the ASIC are specified in the LPD manual~\cite{lpd_manual}, the command words are given in appendix~\ref{cha:asic_command_words}.
+    Table~\ref{tab:ccc_spec} gives the specification of the CCC interface whilst table~\ref{tab:asic_spec} is the ASIC interface. The CCC specification specifies 5 command words for the cmd and veto lines that the interface needs to interpret: \texttt{START}, \texttt{STOP}, \texttt{RESET}, \texttt{VETO} and \texttt{NO-VETO} (full specification of these are given in table~\ref{tab:ccc_commands}). Each of these command words correspond to either a single word or a sequence that must be sent to the ASIC. \texttt{START}, \texttt{STOP} and \texttt{RESET} all have multi-word sequences associated to them whilst \texttt{VETO} and \texttt{NO-VETO} are communicated with single words. The command sequences for the ASIC are specified in the LPD manual~\cite{lpd_manual}, the command words are given in appendix~\ref{cha:asic_command_words}.
     
     \begin{table}
         \begin{center}
@@ -163,7 +163,7 @@
         
                 \multirow{2}{*}{Veto} 
                 & VETO   & 110 & \multirow{2}{*}{Bunch ID (8b)} & Veto this bunch \\
-                & NOVETO & 101 &                                & Record this bunch \\
+                & NO-VETO & 101 &                                & Record this bunch \\
             \end{tabulary}
         \end{center}
         \caption{Command definitions for the fast and veto lines from the CCC, see \cite{xfel_veto_spec} for more details.}

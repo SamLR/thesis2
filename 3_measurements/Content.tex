@@ -96,7 +96,7 @@ As well as studying the resultant beam, knowledge of the initial proton beam is 
 \label{sub:nim_and_camac}
 Rather than develop custom data acquisition hardware, a modular crate system was used. A crate system supplies power and mechanical fixings for a range of modules, these modules can then be connected together to produce a system. Three crate systems were used: Nuclear Instrument Module (NIM), Computer Automated Measurement And Control (CAMAC) and Versa Module Eurocard bus (VMEbus or VME). NIM supplies power only, whilst CAMAC and VME provide a `backplane' through which data can be transferred to a control card.
 
-NIM modules were primarily used to provide signal processing and data acquisition logic. The CAMAC and VME crates were used for data read-out. Ultimate control and storage was carried out using a PC which recorded the data for later analysis. The rest of this section will discuss the basic modules used in NIM, CAMAC and VME.
+NIM modules were primarily used to provide signal processing and data acquisition logic. The CAMAC and VME crates were used for data readout. Ultimate control and storage was carried out using a PC which recorded the data for later analysis. The rest of this section will discuss the basic modules used in NIM, CAMAC and VME.
 \subsection{Discriminators} % (fold)
 \label{ssub:discriminators}
 A discriminator works by producing a digital signal when an analogue input signal exceeds some preset threshold. Converting the analogue signal to digital makes it much easier to manipulate as many other modules can only use a digital signal. The discriminators were powered by NIM modules and had their thresholds set manually.
@@ -122,7 +122,7 @@ Logic units were generally used for simple tests such as checking that all MPPCs
 % subsubsection logic_units (end)
 \subsection{Scaler} % (fold)
 \label{ssub:scaler}
-A scaler is a counting module. It receives a digital input, that when asserted, increments its counter. The most important factor of a scaler is its maximum speed (the maximum input frequency). Events that occur more rapidly than the input frequency will not be properly counted (either not being counted at all or counted as a single event), a typical maximum input frequency is 100~MHz. Most scalers can be daisy-chained together in case their maximum value is exceeded and some allow multiple inputs that can be counted independently. NIM scalers will generally be read-out by eye (e.g.\ using a display) whilst VME/CAMAC modules will be read-out using the crate's data-bus. 
+A scaler is a counting module. It receives a digital input, that when asserted, increments its counter. The most important factor of a scaler is its maximum speed (the maximum input frequency). Events that occur more rapidly than the input frequency will not be properly counted (either not being counted at all or counted as a single event), a typical maximum input frequency is 100~MHz. Most scalers can be daisy-chained together in case their maximum value is exceeded and some allow multiple inputs that can be counted independently. NIM scalers will generally be readout by eye (e.g.\ using a display) whilst VME/CAMAC modules will be readout using the crate's data-bus. 
 
 % One of the simplest forms of read out is a count of triggers, this is what a scaler does. The primary concern with a scaler is the input specification to trigger a count as well as the maximum speed at which the unit can count. Modules can either be used with NIM, CAMAC or VME. When the rate is high or the maximum count is low multiple scalers can be daisy-chained together to provide carry over. 
 
@@ -138,9 +138,9 @@ A key feature of using an ADC is the pedestal, obviously any analogue signal is 
 % subsubsection analogue_to_digital_converter (end)
 \subsection{Time to Digital Converter} % (fold)
 \label{ssub:time_to_digital_converter}
-A Time to Digital Converter (TDC) measures the time difference between signals. The core parameters for a TDC are the number of bits of precision on each channel, the maximum duration the TDC can record, its linearity, its dead time and number of channels of input. A TDC measures time between a `start' and a `stop' signal. Normally a single start signal is provided to the entire TDC with each channel receiving a stop signal. The measured times between the global start signal and the individual stop signals are then read-out independently. 
+A Time to Digital Converter (TDC) measures the time difference between signals. The core parameters for a TDC are the number of bits of precision on each channel, the maximum duration the TDC can record, its linearity, its dead time and number of channels of input. A TDC measures time between a `start' and a `stop' signal. Normally a single start signal is provided to the entire TDC with each channel receiving a stop signal. The measured times between the global start signal and the individual stop signals are then readout independently. 
 
-An alternative TDC used in later experiments is the Multi-Hit TDC (MH-TDC). Rather than measure a single start/stop pair for each channel the MH-TDC has a ring-buffer to record data for each channel. A ring-buffer has a fixed length (the `window'), typically \(\mathcal{O}(50)\)~\(\mu\)s, when a signal (a `hit') is received its position within the window is marked. The ring-buffer records every hit it receives, regardless of the start signal. When the start signal is received the buffer is read-out, this can be done immediately or after a delay. By using a delay signals both before and after the start signal can be recorded.
+An alternative TDC used in later experiments is the Multi-Hit TDC (MH-TDC). Rather than measure a single start/stop pair for each channel the MH-TDC has a ring-buffer to record data for each channel. A ring-buffer has a fixed length (the `window'), typically \(\mathcal{O}(50)\)~\(\mu\)s, when a signal (a `hit') is received its position within the window is marked. The ring-buffer records every hit it receives, regardless of the start signal. When the start signal is received the buffer is readout, this can be done immediately or after a delay. By using a delay signals both before and after the start signal can be recorded.
 
  % When the `start' signal is received it signals that the current state of the buffer (and some trailing amount) should be recorded. Using this method, events proceeding the start signal can be recorded as well as those afterwards.
 
@@ -151,7 +151,7 @@ Registers are modules that allow simple logical signals to be sent to or from a 
 
  % Interrupts were formed using a logic unit and a gate: once a trigger had be formed by the logic unit the gate would delay the interrupt signal long enough for the ADC and TDC digitisation to complete then signal the controlling PC. The PC's reset signal was used to unlatch the veto signals that prevented doubling up of data as well as clear any other latches used by the system.
 
-% Control registers are fairly simple devices but very useful in general control, they act as a simple toggle that can either send or receive a signal to the controlling PC. The main use of registers is to form an interrupt; used this way once data has been taken the ready state of the system can be signalled to the PC and the PC can begin read-out. The interrupt is often delayed so that full digitisation can occur although has to be carefully gauged to prevent excessive dead time. The second common use is to reset the system once read-out has completed, this normally means resetting a latched gate that has been holding the system in veto.
+% Control registers are fairly simple devices but very useful in general control, they act as a simple toggle that can either send or receive a signal to the controlling PC. The main use of registers is to form an interrupt; used this way once data has been taken the ready state of the system can be signalled to the PC and the PC can begin readout. The interrupt is often delayed so that full digitisation can occur although has to be carefully gauged to prevent excessive dead time. The second common use is to reset the system once readout has completed, this normally means resetting a latched gate that has been holding the system in veto.
 
 % subsubsection registers (end)
 % subsection nim_and_camac (end)
@@ -202,7 +202,7 @@ The DAQ used to measure the trigger rate was a subset of the full DAQ, used to m
   \item Record the analogue MPPC signal using an ADC.
   \item Use the trigger and the first MPPC's signal to start the TDC.
   \item Delay three of the remaining signals to form the stops to the TDC (the delay can be removed to regain the accurate time).
-  \item Remove the veto on the system once read-out is complete.
+  \item Remove the veto on the system once readout is complete.
 \end{enumerate}
 This can be seen as a schematic in figure~\ref{fig:MuSIC1_DAQ_Block}. 
 
@@ -215,7 +215,7 @@ This can be seen as a schematic in figure~\ref{fig:MuSIC1_DAQ_Block}.
 
 To make the final measurement of the trigger rate, the majority of the DAQ was ignored and the four-fold coincidence counted using a scaler. By counting the raw triggers, effects of dead time could be negated and a truer value for the number of interactions obtained. One down side of this design is that by using a four-fold coincidence no cross-checking between channels could be carried out to find relative efficiencies, unfortunately this deficiency was not noticed until too late. For the 1D experiment, measurements were made over 50~s with control done via hand, this obviously had limitations.
 
-The positions of the two experiments are given in table~\ref{tab:flux_setup} with respect to the centre of the beam-pipe. `By-eye' read-out of the 1D measurement was done using a display mounted on the scaler used to count triggers. For the 2D measurement a CAMAC module was used that was read out by computer. It's important to note that not only were the detectors very different but due to experimental constraints the 2D measurement was made significantly further from the end of the beam pipe than the 1D experiment (85~cm compared to 6~cm).
+The positions of the two experiments are given in table~\ref{tab:flux_setup} with respect to the centre of the beam-pipe. `By-eye' readout of the 1D measurement was done using a display mounted on the scaler used to count triggers. For the 2D measurement a CAMAC module was used that was read out by computer. It's important to note that not only were the detectors very different but due to experimental constraints the 2D measurement was made significantly further from the end of the beam pipe than the 1D experiment (85~cm compared to 6~cm).
 \begin{table}
   \begin{center}
     \begin{tabular}{c|c|c|c|c|c}
@@ -260,7 +260,7 @@ Assuming that the total efficiency (\( \epsilon_t \)) is the product of the indi
 \begin{align}
   \epsilon_t &= \epsilon_1  \epsilon_2  \epsilon_3
 \end{align}
-With the measured efficiencies of the pairs of MPPCs we can calculate the individual efficiencies by solving:
+with the measured efficiencies of the pairs of MPPCs we can calculate the individual efficiencies by solving:
 \begin{align*}
   \epsilon_{12} &= \epsilon_{1} \epsilon_{2} &\implies   \epsilon_{1}  &= \frac{\epsilon_{12}}{\epsilon_{2}}                       \\
   \epsilon_{13} &= \epsilon_{1} \epsilon_{3} &\implies   \epsilon_{2}  &= \frac{\epsilon_{12}\epsilon_{3}}{\epsilon_{13}}          \\
@@ -270,11 +270,11 @@ This can be generalised to:
 \begin{align}
   \epsilon_{i} &= \sqrt{\frac{\epsilon_{ij}\epsilon_{ik}}{\epsilon_{jk}}} \label{equ:individual_eff}
 \end{align}
-Where \( \epsilon_i \) is a single efficiency we want to calculate and \( \epsilon_{jk} \) is the combined measurement of the other two efficiencies. Applying this to table~\ref{tab:music2_eff} we get the efficiencies for the MPPCs shown in table~\ref{tab:calculated_individual_eff}. It's important to note that these efficiencies represent more than just the individual MPPC's quantum efficiency but the entire gestalt of systematic effects that contribute to the efficiency of the specific MPPC including scintillator acceptance (both geometric and energetic), light collection and transmission. As can be seen the estimated total efficiency ends up being larger than what was actually measured this is likely due to the bias introduced by requiring coincidence. Using these values the average efficiency of a single MPPC can be calculated and given an error as seen in the final line of the table. The error on the average efficiency was taken to be the proportional difference between the calculated and measured efficiencies, i.e.:
+where \( \epsilon_i \) is a single efficiency we want to calculate and \( \epsilon_{jk} \) is the combined measurement of the other two efficiencies. Applying this to table~\ref{tab:music2_eff} we get the efficiencies for the MPPCs shown in table~\ref{tab:calculated_individual_eff}. It's important to note that these efficiencies represent more than just the individual MPPC's quantum efficiency but the entire gestalt of systematic effects that contribute to the efficiency of the specific MPPC including scintillator acceptance (both geometric and energetic), light collection and transmission. As can be seen the estimated total efficiency ends up being larger than what was actually measured this is likely due to the bias introduced by requiring coincidence. Using these values the average efficiency of a single MPPC can be calculated and given an error as seen in the final line of the table. The error on the average efficiency was taken to be the proportional difference between the calculated and measured efficiencies, i.e.:
 \begin{align}
   \Delta_\epsilon &= \epsilon_{\text{Ave.}} \times \frac{123_{Calc} - 123_{Meas}}{123_{Meas}} \label{equ:ave_eff_error}
 \end{align}
-As well as the discussed bias it is important to emphasise that this efficiency is strongly coupled to both the threshold used with for the discriminators and the physical set up of the detector. Its use in later calculations (specifically those in section~\ref{cha:momentum_spectrum}) is done with the understanding that is a better approximation to the efficiency that none but not a replacement for an actual measurement which could not be carried out.
+as well as the discussed bias it is important to emphasise that this efficiency is strongly coupled to both the threshold used with for the discriminators and the physical set up of the detector. Its use in later calculations (specifically those in section~\ref{cha:momentum_spectrum}) is done with the understanding that is a better approximation to the efficiency that none but not a replacement for an actual measurement which could not be carried out.
 
 \begin{table}
   \lineup
@@ -373,7 +373,7 @@ where \(j\) is the flux, \(F\) is a scaling factor, \(C\) is the trigger count w
          0      &   20     &           80,088 & 238               &   60        &          &   8,600  &  2,400  & 11,157 & 106 \\
     \end{tabular}
   \end{center}
-  \caption{Table of the results from the 2D measurement. The values above the double line were made with 20~mm Mg stopping target upstream whilst those below had 5~mm Cu. The scaling factor \(F\) for these sets of runs was made at \((0,20)\)~cm. The trigger count was measured over 20~s apart from the first two measurements \(C_{off}\) which were made over 11~s (these are the two measurements above the first horizontal line). The SEC measurements were made over 100~s. Counts were made using a CAMAC controlled scaler and an enable gate triggered via interrupt register. The column for the SEC bias, \(S_{off}\), is elided as it was constant at 9 and the SEC conversion factor, \(K\), was 1.514~nA. As with the 1D measurement the errors are statistical. The last three values also include an error due to the calculation of the scaling factor.}
+  \caption{Table of the results from the 2D measurement. The values above the double line were made with 20~mm Mg stopping target upstream whilst those below had 5~mm Cu. The scaling factor \(F\) for these sets of runs was made at \((0,20)\)~cm. The trigger count was measured over 20~s apart from the first two measurements \(C_{off}\) which were made over 11~s (these are the two measurements above the first horizontal line). The SEC measurements were made over 100~s. Counts were made using a CAMAC controlled scaler and an enable gate triggered via interrupt register. The column for the SEC bias, \(S_{off}\), is excluded as it was constant at 9 and the SEC conversion factor, \(K\), was 1.514~nA. As with the 1D measurement the errors are statistical. The last three values also include an error due to the calculation of the scaling factor.}
   \label{tab:2d_res}
 \end{table}
  
@@ -433,7 +433,7 @@ In total three measurements of the muon lifetime were taken: one concurrently wi
 
 \subsection{Experimental Set Up} % (fold)
 \label{sec:experimental_set_up}
-The basic experimental set up for muon lifetime measurement has already been discussed: two scintillators sandwiching a stopping target. Both measurements were made using the same scintillator and stopping target: two \( 380\times50\times3.5 \)~mm\(^3\) scintillators and a \( 370\times80\times6 \)~mm\(^3\) pure copper target. An MPPC was mounted at either end of both scintillators (4 MPPCs in total) to provide read-out.
+The basic experimental set up for muon lifetime measurement has already been discussed: two scintillators sandwiching a stopping target. Both measurements were made using the same scintillator and stopping target: two \( 380\times50\times3.5 \)~mm\(^3\) scintillators and a \( 370\times80\times6 \)~mm\(^3\) pure copper target. An MPPC was mounted at either end of both scintillators (4 MPPCs in total) to provide readout.
 
 The DAQ used was a simple extension of the previous versions. This time, rather than measuring the time differences between the different individual MPPCs the TDC was used to measure the time between a hit on the upstream scintillator and then a hit on the downstream. A `hit' was considered to be a co-incident signal on both MPPCs of that scintillator. As a measure to reduce spurious signals due to other charged particles, e.g.\ electrons, a veto window of 50~ns was used. The veto window was a period following the upstream hit in which no hits were allowed in the downstream scintillator. The veto-window is used to reject particles that didn't decay between the scintillators or which decay but aren't muons (e.g.\ pions, which have a 26~ns lifetime).
 
@@ -540,7 +540,7 @@ The detector consisted of an aluminium degrader whose thickness could be varied 
   \label{tab:stopped_muon_mom}
 \end{table}
 
-The counters used were mylar wrapped scintillators with read-out performed by MPPCs mounted on either end of a wavelength-shifting fibre bounded along the long axis of the scintillator using optical cement. The signals from each pair of MPPCs are combined and amplified before being passed to the data acquisition system (DAQ) for processing.
+The counters used were mylar wrapped scintillators with readout performed by MPPCs mounted on either end of a wavelength-shifting fibre bounded along the long axis of the scintillator using optical cement. The signals from each pair of MPPCs are combined and amplified before being passed to the data acquisition system (DAQ) for processing.
 
 Two important considerations were made with the choice of scintillators: the upstream scintillator had to minimise perturbation of the beam whilst providing a suitable trigger from muons and the downstream scintillator had to be effective at detecting electrons. To this end a thin (0.5~mm) upstream scintillator and thicker (3.5~mm) downstream scintillator were chosen. One downside of this set up is that in using a thin upstream scintillator the efficiency for detecting minimally ionising particles is reduced but as only stopping muons were desired this has a negligible effect.
 
@@ -603,7 +603,7 @@ As was stated in section~\ref{sub:data_acquisition} the scaler was used to recor
     \text{Live time} &= \frac{\text{Good Triggers}}{\text{Potential Triggers}} \\
     \text{Dead time} &= 1 - \text{Live Time}
 \end{align}
-Where potential triggers are those with a signal in the upstream scintillator and no corresponding signal downstream within the 50~ns veto window. A good trigger is a potential trigger that occurs without the system being busy. The results of this calculation are given in table~\ref{tab:dead_time}.
+where potential triggers are those with a signal in the upstream scintillator and no corresponding signal downstream within the 50~ns veto window. A good trigger is a potential trigger that occurs without the system being busy. The results of this calculation are given in table~\ref{tab:dead_time}.
 \begin{table}
     \begin{center}
     \begin{tabular}{c | c | c | r@{ $\pm$ }l | r@{ $\pm$ }l | r@{ $\pm$ }l | r@{ $\pm$ }l }
@@ -803,7 +803,7 @@ Once calculated via integration the number of muons can be summed for all the ch
 \begin{align}
   R &= \frac{N_{\mu}}{I_p D L} \label{equ:rate}
 \end{align}
-Where \( R \) is the normalised rate of muon decays (in nA\(^{-1}\)), \(N_{\mu}\) is the number of muon decays (either free or from muonic copper), \( I_p \) is the proton current in nA, \( D \) is the duration of the run in seconds and \(L\) is the live time (as given in table~\ref{tab:dead_time}). The rates and number of muon decays, summed over all channels, are given in table~\ref{tab:rates_res}. The results back up the earlier measurements made on the beam flux (section~\ref{cha:charged_particle_flux}) as the larger values of \(N_f\), \( N_c \) and \(N_b\) are seen in channels D1, D2 and D3, i.e.\ the beam position is in the upper portion of the detector.
+where \( R \) is the normalised rate of muon decays (in nA\(^{-1}\)), \(N_{\mu}\) is the number of muon decays (either free or from muonic copper), \( I_p \) is the proton current in nA, \( D \) is the duration of the run in seconds and \(L\) is the live time (as given in table~\ref{tab:dead_time}). The rates and number of muon decays, summed over all channels, are given in table~\ref{tab:rates_res}. The results back up the earlier measurements made on the beam flux (section~\ref{cha:charged_particle_flux}) as the larger values of \(N_f\), \( N_c \) and \(N_b\) are seen in channels D1, D2 and D3, i.e.\ the beam position is in the upper portion of the detector.
 
 \begin{table}
   \begin{center}
@@ -944,20 +944,20 @@ The photon acceptance was calculated using the optical simulation and a simple m
 \begin{align}
   A &= \frac{\text{Detected decays}}{\text{Potential decays}} \label{equ:photon_acceptance}
 \end{align}
-A detectable muon was considered to be one that traverses the upstream detector and has a corresponding daughter electron traverse the downstream detector. The requirement for detected photons are that the number of photons seen exceed the threshold (eight and ten photons for the up and downstream MPPCs respectively, see section~\ref{sub:data_acquisition}). Putting the values from the simulation into equation~\eqref{equ:photon_acceptance}:
+a detectable muon was considered to be one that traverses the upstream detector and has a corresponding daughter electron traverse the downstream detector. The requirement for detected photons are that the number of photons seen exceed the threshold (eight and ten photons for the up and downstream MPPCs respectively, see section~\ref{sub:data_acquisition}). Putting the values from the simulation into equation~\eqref{equ:photon_acceptance}:
 \begin{align}
   A &= \frac{8362}{10500} \\
     % &= 77.7\%
     % error calc: =100*(8362/10500)*sqrt(8362/(8362^2) + 10500/(10500^2))
     &= (79.6\pm1.2)\%
 \end{align}
-Obviously this is a value based purely on simulation of a complex system so introduces potentially large errors into the final results which cannot be easily quantified.
+obviously this is a value based purely on simulation of a complex system so introduces potentially large errors into the final results which cannot be easily quantified.
 
 The efficiency of any single detector was taken to be the square of the average efficiency of a MPPC, as measured in section~\ref{sec:detector_efficiency}:
 \begin{align}
   \epsilon_{\textsc{mppc}}^2 &= (18.6 \pm 11.6)\% 
 \end{align}
-Whilst this value was for a different detector configuration with different thresholds it is hoped that it's a reasonable first-order approximation to the actual efficiency of the MPPCs although, again as with \(A\), it is hard to quantify the total error introduced. This is especially true for the efficiency as it was measured under different circumstance, with different discriminator thresholds on a scintillator with different mounting system and geometry.
+whilst this value was for a different detector configuration with different thresholds it is hoped that it's a reasonable first-order approximation to the actual efficiency of the MPPCs although, again as with \(A\), it is hard to quantify the total error introduced. This is especially true for the efficiency as it was measured under different circumstance, with different discriminator thresholds on a scintillator with different mounting system and geometry.
 % Where \(\epsilon_{\textsc{mppc}}\) is the efficiency of a single MPPC from section~\ref{sec:detector_efficiency}. Whilst the efficiency measured was for a different experimental set up and different MPPCs for the final run it was not possible to make a measurement of the efficiency so this acts as a reasonable approximation.
 
 The systematic errors were largely assumed to be due to the inaccuracies in the method of fitting and integrating the data. Sources of this have already been discussed but to quantify it the key values were varied to show the effects of changing the parameters of the fit itself, rather than the parameters that were fitted (e.g.\ \(\tau_f\)). The key parameters were determined to be the point from which the fit was applied (the `lower bound') and the width of the bins used to fit the data. The bin width was varied to 8 and 32~ns whilst the lower bound could only be increased so was changed to 75~ns (there is no data before 50~ns). Using these values all the data was re-fit and the difference from measured value taken. The results are given in table~\ref{tab:systematic_fits}. The maximal fractional differences from the standard measured using 16~ns bins and a 50~ns lower bound were used as the systematic error. The systematic errors were 55.85\% and 1.14\% for copper and free decay counts respectively. As is clear, the systematic error on the copper fit is much higher but this is what we would expect. The systematic error on the copper count is included in the corrected rate but not for the free rate as the error on the efficiency is the dominant term then.
@@ -1070,7 +1070,7 @@ Based on the simulation the stopped muons account for a small portion of the bea
 \begin{align}\label{equ:total_rate}
   J &= 1,000\times\frac{R}{C}
 \end{align}
-Where \(J\) is the total muon flux per second, \(R\) is the measured muon rate per~nA and \(C\) is the fraction of the beam that was simulated to stop in that configuration. The factor of 1,000 converts from nA to \(\mu\)A and hence to s\(^{-1}\) for a 1~\(\mu\)A proton beam. The calculated values for the total muon flux are shown in table~\ref{tab:total_muon_rates} along with the per~Watt efficiency, calculated using the RCNP's 400~W beam at 1~\(\mu\)A.
+where \(J\) is the total muon flux per second, \(R\) is the measured muon rate per~nA and \(C\) is the fraction of the beam that was simulated to stop in that configuration. The factor of 1,000 converts from nA to \(\mu\)A and hence to s\(^{-1}\) for a 1~\(\mu\)A proton beam. The calculated values for the total muon flux are shown in table~\ref{tab:total_muon_rates} along with the per~Watt efficiency, calculated using the RCNP's 400~W beam at 1~\(\mu\)A.
 
 
 % This table made with 'final rates.ipynb'
