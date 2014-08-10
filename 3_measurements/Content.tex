@@ -42,9 +42,9 @@ As discussed in chapter~\ref{prt:introduction}, scintillating materials produce 
 
 The scintillator surface is highly vulnerable to damage either through scratches or grease. Damage to the surface of the scintillator is problematic as it inhibits light collected through total internal reflection (TIR). Anything that reduces the amount of TIR increases the amount of light absorbed outside of the scintillator, where it cannot be detected. In order to prevent scratches, scintillators must be handled carefully and protective films are only removed at the last moment. As well as careful handling, the scintillators are cleaned to remove dirt and dust by polishing them with iso-propanol, this removes grease that can also degrade the surface.
 
-Scintillators are generally wrapped with two thin layers: an inner reflective material and an outer blackout material. The inner layer is normally aluminium-mylar or foil, this is wrapped loosely in order to leave a small air gap that has been shown to increase the amount of TIR (and hence light collection). The outer layer is normally a black plastic wrap. This is carefully sealed with tape to prevent light leakage (another aid to this is obviously turning any lights off in the experimental area). An important consideration is to keep the layers as thin as possible in order to minimise energy deposition; to this end overlaps are kept to a minimum.
+Scintillators are generally wrapped with two thin layers: an inner reflective material and an outer blackout material. The inner layer is normally aluminium-mylar or foil, this is wrapped loosely in order to leave a small air gap which increases the amount of TIR (and hence light collection). The outer layer is normally a black plastic wrap. This is carefully sealed with tape to prevent light leakage (another aid to this is obviously turning any lights off in the experimental area). An important consideration is to keep the layers as thin as possible in order to minimise energy deposition; to this end overlaps are kept to a minimum.
 
-In order to attach sections of the scintillators together and to attach detectors to the scintillator optical cement and grease were used. Optical cement was used when a permanent fixing was required while grease was used if the components would need to be separated. To use the cement the components were cleaned using iso-propanol, then the two-part glue mixed and applied. A foam jig was used to hold the pieces in place whilst the cement set. When non-permanent joins were required, e.g.\ to attach MPPCs to WLS-fibres, optical grease was used to form the connection. Optical cement and grease have refractive indexes close to (if not the same as) that of the scintillators to maximise transmission either between sections of the scintillator (e.g.\ from the scintillator bulk to the WLS-fibre) or from the scintillator to the MPPC.
+In order to attach sections of the scintillators together and to attach detectors to the scintillator optical cement and grease were used. Optical cement was used when a permanent fixing was required while grease was used if the components would need to be separated. To use the cement the components were cleaned using iso-propanol, then the two-part glue mixed and applied. A foam jig was used to hold the pieces in place whilst the cement set. When non-permanent joins were required, e.g.\ to attach MPPCs to WLS-fibres, optical grease was used to form the connection. Optical cement and grease have refractive indices close to (if not the same as) that of the scintillators to maximise transmission either between sections of the scintillator (e.g.\ from the scintillator bulk to the WLS-fibre) or from the scintillator to the MPPC.
 % Whilst a significant proportion of scintillator construction is dedicated to increasing reflection back into the scintillator, at the boundary to the MPPC it must be minimised to maximise the amount of light hitting the MPPC (rather than being reflected back into the scintillator).
 
 % subsection scintillator_preparation (end)
@@ -164,7 +164,7 @@ Registers are modules that allow simple logical signals to be sent to or from a 
 % TODO Diagrams of set ups
 The first experiment carried out at MuSIC aimed to measure the total flux of charged particles. As well as this measurement it was also a test-bed for the technology and techniques used in later experiments.
 
-Two separate measurements of the charged particle flux were made: one using a long strip scintillator that measured the flux at a range of vertical positions and a second that used a smaller disk that measured the flux at a number of points across the face of the disc.
+Two separate measurements of the charged particle flux were made: one using a long strip scintillator that measured the flux at a range of vertical positions and a second that used a smaller disk that measured the flux at a number of points across the face of the disk.
 
 The DAQ used for these experiments was designed to have a lot greater functionality than was ultimately used. The original design aimed to use the difference of arrival times at the various MPPCs for greater positional accuracy whilst the ADC measurements were intended to measure the energy of the particle; neither of these techniques were successful but the full DAQ is included for completeness.
 
@@ -185,7 +185,9 @@ The experimental design for both measurements was broadly the same: the scintill
   \label{tab:charged_particle_flux_scint_details}
 \end{table}
 
-The aim of these early experiments was to make three measurements: the total trigger rate, the difference in arrival times of light at the MPPCs and the distribution of the number of firing pixels at each MPPC. The total trigger count is proportional to the flux of charged particles through the scintillator. The timing and photon counts were hoped to give information on positioning and the amount of energy deposited but this was found to be incorrect.
+The aim of these early experiments was to make three measurements: the total trigger rate, the difference in arrival times of light at the MPPCs and the distribution of the number of firing pixels at each MPPC. The total trigger count is proportional to the flux of charged particles through the scintillator.
+
+The timing and photon counts were hoped to give information on positioning and the amount of energy deposited but this was found to be incorrect. In the case of positioning information it was hoped that the left/right correlation of arrival times could be used to position the interaction within the scintillator but it was found that the variance on arrival times was too large compared to the difference between them so accurate resolution was impossible. Measurement of the particles' energy didn't succeed due to lack of accurate calibration data.
 
 % It was hoped that the timing difference between MPPC firings could be correlated to the position of the interaction within the scintillator (this was ultimately incorrect). The distribution of the number of firing pixels was hoped to give some idea of the energy deposited, and possible the types of particles. 
 
@@ -542,7 +544,7 @@ The detector consisted of an aluminium degrader whose thickness could be varied 
 
 The counters used were mylar wrapped scintillators with readout performed by MPPCs mounted on either end of a wavelength-shifting fibre bounded along the long axis of the scintillator using optical cement. The signals from each pair of MPPCs are combined and amplified before being passed to the data acquisition system (DAQ) for processing.
 
-Two important considerations were made with the choice of scintillators: the upstream scintillator had to minimise perturbation of the beam whilst providing a suitable trigger from muons and the downstream scintillator had to be effective at detecting electrons. To this end a thin (0.5~mm) upstream scintillator and thicker (3.5~mm) downstream scintillator were chosen. One downside of this set up is that in using a thin upstream scintillator the efficiency for detecting minimally ionising particles is reduced but as only stopping muons were desired this has a negligible effect.
+Two important considerations were made with the choice of scintillators: the upstream scintillator had to minimise perturbation of the beam whilst providing a suitable trigger from muons and the downstream scintillator had to be effective at detecting electrons. To this end a thin (0.5~mm) upstream scintillator and thicker (3.5~mm) downstream scintillator were chosen. One downside of this set up is that in using a thin upstream scintillator the efficiency for detecting minimally ionising particles is reduced (the expected light yield for a MIP is only \(\sim\)2.5 photons per MPPC) but as only stopping muons were desired this has a negligible effect.
 
 \subsubsection{Data Acquisition} % (fold)
 \label{sub:data_acquisition}
@@ -673,7 +675,7 @@ To ensure that there were no problems during data taking the trigger rate was ch
 % section secondary_calculations (end)
 \subsection{Results} % (fold)
 \label{sec:momenta_results}
-As has been discussed there are six data sets that were used for this analysis, the details of them are given in table~\ref{tab:run_summary}. For this analysis only the downstream scintillators are used to calculate the decay times as this was the scintillator best configured to detect them whilst the upstream scintillator was used to form the trigger. Each run was analysed in the same way, once processing was complete (section~\ref{sec:data_processing}) the binned data was converted into a histogram and fitted using:
+As has been discussed there are six data sets that were used for this analysis, the details of them are given in table~\ref{tab:run_summary}. To do this analysis only stop times from the downstream scintillators were used. The upstream start (\(T0\)) times were then subtracted from these to form the muon decay spectra. Each run was analysed as discussed in section~\ref{sec:data_processing}. The binned data was then fitted using:
 \begin{align}
   N_{f}\exp\left(\frac{-t}{\tau_{f}}\right) + N_{c}\exp\left(\frac{-t}{\tau_{c}}\right) + N_{s}\sin\left(2\pi\frac{t-\phi}{T}\right) + N_{b} \label{equ:fit}
 \end{align}
@@ -807,25 +809,25 @@ where \( R \) is the normalised rate of muon decays (in nA\(^{-1}\)), \(N_{\mu}\
 
 \begin{table}
   \begin{center}
-  \begin{tabular}{c | c | c | c | r@{\(\pm\)}l | r@{\(\pm\)}l | r@{\(\pm\)}l | r@{\(\pm\)}l  }
-    \multirow{2}{*}{Run}  &  \(I_{p}\)  &  \(D\)  &  \multirow{2}{*}{\(L\)}  
+  \begin{tabular}{c | c | c | c | c | r@{\(\pm\)}l | r@{\(\pm\)}l | r@{\(\pm\)}l | r@{\(\pm\)}l  }
+    \multirow{2}{*}{Run}  &  \(\Delta z\)  &  \(I_{p}\)  &  \(D\)  &  \multirow{2}{*}{\(L\)}  
          &  \multicolumn{4}{c|}{Copper Decays}   
                                           & \multicolumn{4}{c}{Free Decays}\\
-                          &  (nA)       &   (s)   &
+                          &    (mm)    &  (nA)       &   (s)   &
          &  \multicolumn{2}{c|}{Count}
-                         &  \multicolumn{2}{c|}{ Rate (nA\(^{-1}\))}
+                          &  \multicolumn{2}{c|}{ Rate (nA\(^{-1}\))}
                                           &  \multicolumn{2}{c|}{Count}
                                                             &  \multicolumn{2}{c}{Rate (nA\(^{-1}\))} \\
     \hline
-    448  &  0.01534  &  9221  &  0.6157  &  19895 & 400  &  228.5 & 4.6   &  528076 & 1283  &  6065 & 15  \\
-    451  &  0.01546  &  1001  &  0.7169  &   1999 & 114  &  180.2 & 10.3  &   45269 & 355   &  4080 & 33  \\
-    452  &  0.01313  &  4944  &  0.7412  &   9319 & 240  &  193.6 & 5.0   &  200246 & 732   &  4161 & 15  \\
-    455  &  0.01332  &  6307  &  0.7613  &  11937 & 265  &  186.6 & 4.1   &  246059 & 803   &  3847 & 13  \\
-    458  &  0.01363  &  5144  &  0.8347  &   9365 & 202  &  160.1 & 3.5   &  146384 & 570   &  2502 & 10  \\
-    459  &  0.01238  &  2452  &  0.8495  &   4440 & 136  &  172.1 & 5.3   &   65781 & 378   &  2550 & 15  \\
+    448  &  0.0  &  0.01534  &  9221  &  0.6157  &  19895 & 400  &  228.5 & 4.6   &  528076 & 1283  &  6065 & 15  \\
+    451  &  0.5  &  0.01546  &  1001  &  0.7169  &   1999 & 114  &  180.2 & 10.3  &   45269 & 355   &  4080 & 33  \\
+    452  &  0.5  &  0.01313  &  4944  &  0.7412  &   9319 & 240  &  193.6 & 5.0   &  200246 & 732   &  4161 & 15  \\
+    455  &  1.0  &  0.01332  &  6307  &  0.7613  &  11937 & 265  &  186.6 & 4.1   &  246059 & 803   &  3847 & 13  \\
+    458  &  5.0  &  0.01363  &  5144  &  0.8347  &   9365 & 202  &  160.1 & 3.5   &  146384 & 570   &  2502 & 10  \\
+    459  &  5.0  &  0.01238  &  2452  &  0.8495  &   4440 & 136  &  172.1 & 5.3   &   65781 & 378   &  2550 & 15  \\
   \end{tabular}
   \end{center}
-  \caption{Decay counts and rates, summed over all downstream scintillators.}
+  \caption{Decay counts and rates, summed over all downstream scintillators. \(\Delta z\) is the thickness of the aluminium degrader.}
   \label{tab:rates_res}
 \end{table}
 
