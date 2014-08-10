@@ -110,6 +110,7 @@ void charged_particle_flux_sim (){
     // TGraph2D* measured_flux_2d = new TGraph2D(n_points_2d, x, y, z);
     measured_flux_2d->SetTitle("Measured charged particle rate (2D)");
     measured_flux_2d->GetXaxis()->SetTitle("Horizontal position (mm)");
+    measured_flux_2d->GetXaxis()->CenterTitle(true);
     measured_flux_2d->GetXaxis()->SetTitleOffset(1.65);
     measured_flux_2d->GetYaxis()->SetTitle("Vertical position (mm)");
     measured_flux_2d->GetYaxis()->SetTitleOffset(1.85);
@@ -118,7 +119,7 @@ void charged_particle_flux_sim (){
     
     measured_flux_2d->SetMarkerStyle(20);
     measured_flux_2d->SetMarkerSize(3);
-    measured_flux_2d->Draw("PCOL ERR FB");
+    measured_flux_2d->Draw("PCOLZ ERR FB");
 
     can1->SaveAs("sim_1d_charged_flux.eps");
     can1->SaveAs("sim_1d_charged_flux.svg");

@@ -56,11 +56,11 @@ Geant4 manages simulation by splitting it into several layers with each layer re
 % whose subsequent interactions are then simulated, if another particle is produced (e.g.\ if the initial particle decays) then a new track is added to the event to represent the new particle(s). 
 % A track is made up of \emph{steps}, each step represents a period of time in which nothing `significant' occurs.
 
-A `significant' occurrence is one which will make further calculations of properties of the particle difficult and therefore limit the length of the particle's step. Determination of this step length is split between multiple classes within Geant4 but they can be broadly separated into four categories: detector considerations, user imposed limits, continuous physical processes and discrete physical processes. In each category the method is broadly the same, any class that can have an affect on the particle calculates a distance from the current position at which the affect will occur, e.g.\ a detector may report that the particle will leave the current volume in 10~mm whilst a decay process may report that the particle will likely decay in 5~mm. Once all the proposed step lengths have been determined the shortest is found and the particle is transported that distance and properties (position, time, energy, particle type(s)\footnote{Should the particle decay it is replaced at the end of the step with the appropriate daughter particles.} etc.) are updated. 
+A `significant' occurrence is one which will make further calculations of properties of the particle difficult and therefore limit the length of the particle's step. Determination of this step length is split between multiple classes within Geant4 but they can be broadly separated into four categories: detector considerations, user imposed limits, continuous physical processes and discrete physical processes. In each category the method is broadly the same, any class that can have an effect on the particle calculates a distance from the current position at which the effect will occur, e.g.\ a detector may report that the particle will leave the current volume in 10~mm whilst a decay process may report that the particle will likely decay in 5~mm. Once all the proposed step lengths have been determined the shortest is found and the particle is transported that distance and properties (position, time, energy, particle type(s)\footnote{Should the particle decay it is replaced at the end of the step with the appropriate daughter particles.} etc.) are updated. 
 
-As has been stated the main consideration for the step length with respect to the detector are the volume boundaries which generally delimitate a change in material that will obviously determine which processes occur and how. Other detector considerations include the affect of a field on the particle's transport. Continuous processes generally only limit a particle by reducing its energy to zero (obviously some processes can increase it but these rarely limit a step length). Discrete processes obviously limit a particle by changing it in some way, for example by having a particle decay. Once a step length has been determined any continuous affects are applied to the particle, if it's at a volume boundary it moves into the next volume, any limiting discrete processes are applied and the next step length is calculated. 
+As has been stated the main consideration for the step length with respect to the detector are the volume boundaries which generally delimitate a change in material that will obviously determine which processes occur and how. Other detector considerations include the effect of a field on the particle's transport. Continuous processes generally only limit a particle by reducing its energy to zero (obviously some processes can increase it but these rarely limit a step length). Discrete processes obviously limit a particle by changing it in some way, for example by having a particle decay. Once a step length has been determined any continuous effects are applied to the particle, if it's at a volume boundary it moves into the next volume, any limiting discrete processes are applied and the next step length is calculated. 
 
-The processes (discrete or continuous) are supplied by the physics list. The physics list registers which processes can occur to which particles and then assigns a class to handle that eventuality. In this way physical processes can be enabled or disabled at will. It is also possible to register several classes to a single particle-process pair in order to describe different situations the most common use of this is to apply different models depending on particle energy. Obviously the full range of physical processes that need to be described to accurately simulate the Standard Model is quiet large, luckily Geant4 has extensive pre-compiled lists that cover the major types of particle interaction as well as several specialised lists that cover specific situations e.g.\ low energy regimes which are often ignored in high energy simulations as they can be computationally expensive. 
+The processes (discrete or continuous) are supplied by the physics list. The physics list registers which processes can occur to which particles and then assigns a class to handle that eventuality. In this way physical processes can be enabled or disabled at will. It is also possible to register several classes to a single particle-process pair in order to describe different situations. The most common use of this is to apply different models depending on particle energy. Obviously the full range of physical processes that need to be described to accurately simulate the Standard Model is quite large, luckily Geant4 has extensive pre-compiled lists that cover the major types of particle interaction as well as several specialised lists that cover specific situations e.g.\ low energy regimes which are often ignored in high energy simulations as they can be computationally expensive. 
 
 % subsection execution_model (end)
 % section geant4 (end)
@@ -80,7 +80,7 @@ As has been discussed the simulation was split between G4BL and Geant4. This sec
 
 \subsection{G4Beamline} % (fold)
 \label{sec:g4beamline_impl}
-G4BL was used to describe the bulk of MuSIC: the initial proton beam, the pion capture solenoid: target, capture solenoid, the shielding and return yoke; and the transport solenoids: bending magnets and pipe sections. A virtual detector, with radius 50~cm, was placed at the end of the beam pipe and recorded the particles that pass through it. A wireframe rendering of the set up can be seen in figure~\ref{fig:images_Geometry_g4bl_wireframe} the co-ordinates used for the simulation and analysis are defined on it: \(X\) is horizontal across the beam pipe, \(Y\) is vertical across the beam pipe and \(Z\) is in the direction of the beam.
+G4BL was used to describe the bulk of MuSIC: the initial proton beam, the pion capture solenoid: target, capture solenoid, the shielding and return yoke; and the transport solenoids: bending magnets and pipe sections. A virtual detector, with radius 50~cm, was placed at the end of the beam pipe and recorded the particles that pass through it. A wireframe rendering of the set up can be seen in figure~\ref{fig:images_Geometry_g4bl_wireframe} and the co-ordinates used for the simulation and analysis are defined on it: \(X\) is horizontal across the beam pipe, \(Y\) is vertical across the beam pipe and \(Z\) is in the direction of the beam.
 
 \begin{figure}[hptb]
   \centering
@@ -180,7 +180,7 @@ The detector simulated is the same as that used in the final measurements of the
 \begin{figure}[hptb]
   \centering
     \includegraphics[width=.9\textwidth]{images/Detector_setup_music5.png}
-  \caption{Schematic of the detector configuration for simulation.}
+  \caption{Schematic of the detector configuration for simulation. In the face on view the dotted lines are the scintillators, blue for the eight upstream scintillators and red for the five downstream scintillators.}
   \label{fig:images_Detector_setup_music5}
 \end{figure}
 
@@ -241,7 +241,7 @@ These properties were only implemented for the materials involved in the optical
 \begin{figure}[hptb]
   \centering
     \includegraphics[width=.9\textwidth]{images/bcf-91a-g4.eps}
-  \caption{Absorption and re-emission spectra for BCF-91A wavelength shifting fibre. The points represent the values used in Geant4 to approximate the manufacturer's curve as given in the data-sheet~\cite{bcf_91a}.}
+  \caption{Absorption and re-emission spectra for BCF-91A wavelength-shifting fibre. The points represent the values used in Geant4 to approximate the manufacturer's curve as given in the data-sheet~\cite{bcf_91a}.}
   \label{fig:images_bcf-91a-g4}
 \end{figure}
 
@@ -270,7 +270,7 @@ The degrader and stopping target were configured so that their material and thic
   \label{tab:st_and_deg_dimensions}
 \end{table}
 
-The counters were more complex. Each counter was split into a number of `strips' (eight upstream, five downstream). A strip was composed of a scintillator, a 135\(^{\circ}\) section of pipe (also made of scintillator material) that mimicked the optical cement and a length of wavelength shifting fibre (made of a core and shell). Mylar was then used to define an optical surface that existed at the boundary between scintillator and air. An optical surface is a special construct in Geant4 that is not a full volume but a set of physical effects that occur when optical photons move from one volume to the next, in this way the reflective effect of mylar wrapping was created. A \(1\times1\times1\)~mm\(^3\) volume of air is placed at the end of each wavelength shifting fibre to act as a Multi-Pixel Photon Counter (MPPC) detector region. A side on view of the layout of a paddle can be seen in figure~\ref{fig:images_Geometry_full_strip}, the dimensions used for the paddles are are given in table~\ref{tab:dimensions_of_paddles} the entire layout can be seen in figure~\ref{fig:images_Detector_setup_music5}.
+The counters were more complex. Each counter was split into a number of `strips' (eight upstream, five downstream). A strip was composed of a scintillator, a 135\(^{\circ}\) section of pipe (also made of scintillator material) that mimicked the optical cement and a length of wavelength-shifting fibre (made of a core and shell). Mylar was then used to define an optical surface that existed at the boundary between scintillator and air. An optical surface is a special construct in Geant4 that is not a full volume but a set of physical effects that occur when optical photons move from one volume to the next, in this way the reflective effect of mylar wrapping was created. A \(1\times1\times1\)~mm\(^3\) volume of air is placed at both ends of each wavelength-shifting fibre to act as a Multi-Pixel Photon Counter (MPPC) detector region. The dimensions used for the paddles are are given in table~\ref{tab:dimensions_of_paddles} the entire layout can be seen in figure~\ref{fig:images_Detector_setup_music5}.
 
 \begin{table}
   \begin{center}
@@ -285,7 +285,7 @@ The counters were more complex. Each counter was split into a number of `strips'
     MPPC                  &  Air             &  2/paddle  &  \(1\times1\times1 \) \\
   \end{tabular}
   \end{center}
-  \caption{Dimensions of the simulated paddle components. The wavelength shifting fibres were the same for both up- and down-stream counters, as were the `MPPCs'. The WLS fibre's cladding is said to be 3\% of the total diameter so this is what is used~\cite{bcf_91a}.}
+  \caption{Dimensions of the simulated paddle components. The wavelength-shifting fibres were the same for both up- and down-stream counters, as were the `MPPCs'. The WLS fibre's cladding is said to be 3\% of the total diameter so this is what is used~\cite{bcf_91a}.}
   \label{tab:dimensions_of_paddles}
 \end{table}
 
@@ -303,21 +303,21 @@ At MuSIC the key task of the primary action generator was to either import the p
 \label{sec:physics_list}
 Geant4 provides the majority of physics processes as precompiled lists that cover the major aspects of a simulation. For MuSIC the key attribute of each list was the accuracy at low energies. In this respect the most important lists were those dealing with electromagnetic processes. To cover this `option3' and the `extra' lists were used which have improved low energy simulations and more detailed processes. Most importantly the `extra' list implements muon capture at rest. The few hadronic processes were simulated with the `HP' QGSP-BERT and the elastic physics models, both of which have better methods for simulating low energy neutrons.
 
-One problem with the default supplied physics lists is that the implementation of muon capture at rest is based mainly on theoretical work that doesn't accurately model the capture rate of muons on copper. This is obviously a problem as copper is the main stopping target used at MuSIC. The lifetime for muonic copper produced using unmodified Geant4 is \(\sim1.1\)~\(\mu\)s compared to the experimental value of 163.5~ns~\cite{suzuki_mu_capture_rates} or the theoretical value of 194~ns (calculated using equation~\cite{eq:primakoff_and_goulard}). This difference can be seen in  figure~\ref{fig:images_mu-_lifetime_in_cu_unmodded_g4} and figure~\ref{fig:images_mu-_lifetime_in_cu_modded_g4} which show the muon decay spectra of negative muons with the modified and un-modified versions of Geant4 respectively.
+One problem with the default supplied physics lists is that the implementation of muon capture at rest is based mainly on theoretical work that doesn't accurately model the muon capture rate for copper. This is obviously a problem as copper is the main stopping target used at MuSIC. The lifetime for muonic copper produced using unmodified Geant4 is \(\sim1.1\)~\(\mu\)s compared to the experimental value of 163.5~ns~\cite{suzuki_mu_capture_rates} or the theoretical value of 194~ns (calculated using equation~\cite{eq:primakoff_and_goulard}). This difference can be seen in figure~\ref{fig:images_mu-_lifetime_in_cu_unmodded_g4} and figure~\ref{fig:images_mu-_lifetime_in_cu_modded_g4} which show the muon decay spectra of negative muons with the unmodified and modified versions of Geant4 respectively.
 
-The modification used was to the `G4StopElementSelector' class where the function `GetMuonCaptureRate' had an additional element added to its precompiled lists of capture rates to correspond to the capture rate for muons in copper, which is \(5.72\pm0.05\times10^6\)~s\(^{-1}\). This capture rate corresponds to 93.5~\% of the negative muons being captured by the nucleus and the remaining 6.5~\% decaying in orbit. This was acknowledged as a bug by the Geant4 development team and has been fixed in more recent versions of the framework (i.e. more later than \( 4.9.6 \)~patch~02).
+The modification used was to the `G4StopElementSelector' class where the function `GetMuonCaptureRate' had an additional element added to its list experimentally determined muon capture rates. The added value corresponded to the muon capture rate in copper, which is \(5.72\pm0.05\times10^6\)~s\(^{-1}\). This capture rate corresponds to 93.5~\% of the negative muons being captured by the nucleus and the remaining 6.5~\% decaying in orbit. This was acknowledged as a bug by the Geant4 development team and has been fixed in more recent versions of the framework (i.e. more later than \(4.9.6\)~patch~02).
 
 \begin{figure}[hptb]
   \centering
     \includegraphics[width=.7\textwidth]{images/mu-_lifetime_in_cu_unmodded_g4.eps}
-  \caption{Decay spectrum of \(1\times10^6\) negative muons hitting a 1~mm copper stopping target using an unmodified version of Geant4. The decay times are fitted using \(N\exp(-x/\tau)\). As can be seen the Geant4 value, 1,161~ns, does not agree with either the experimentally determined value of 163.5~ns~\cite{suzuki_mu_capture_rates} or the theoretical value of 194~ns (calculated using the equation~\ref{eq:primakoff_and_goulard}. This bug has been fixed in more recent versions of Geant4 (versions \(>\)~\( 4.9.6 \)~patch~02).}
+  \caption{Decay time spectrum of \(1\times10^6\) negative muons hitting a 1~mm copper stopping target using an unmodified version of Geant4. The decay times are fitted using \(N\exp(-x/\tau)\). As can be seen the Geant4 value, 1,161~ns, does not agree with either the experimentally determined value of 163.5~ns~\cite{suzuki_mu_capture_rates} or the theoretical value of 194~ns (calculated using the equation~\ref{eq:primakoff_and_goulard}. This bug has been fixed in more recent versions of Geant4 (versions \(>\)~\( 4.9.6 \)~patch~02).}
   \label{fig:images_mu-_lifetime_in_cu_unmodded_g4}
 \end{figure}
 
 \begin{figure}[hptb]
   \centering
     \includegraphics[width=.7\textwidth]{images/mu-_lifetime_in_cu_modded_g4.eps}
-  \caption{Decay spectrum of \(1\times10^6\) negative muons hitting a 1~mm copper stopping target using a version of Geant4 modified to use the experimental muonic copper lifetime of 163.5~ns. The spectrum is fitted using \(N\exp(-x/\tau)\).}
+  \caption{Decay time spectrum of \(1\times10^6\) negative muons hitting a 1~mm copper stopping target using a version of Geant4 modified to use the experimental muonic copper lifetime of 163.5~ns. The spectrum is fitted using \(N\exp(-x/\tau)\).}
   \label{fig:images_mu-_lifetime_in_cu_modded_g4}
 \end{figure}
 
@@ -356,9 +356,9 @@ The MPPC data attempted to more closely approximate the actual data produced by 
 \section{Simulation Analysis} % (fold)
 \label{cha:simulation_analysis}
 
-As well as providing a method to test the affects of different detector constructions the Geant4 simulation was also used to verify the analysis technique used in the final measurements.
+As well as providing a method to test the effects of different detector constructions the Geant4 simulation was also used to verify the analysis technique used in the final measurements.
 
-To aid this analysis a very large numbers of muons were needed (both positive and negative). Given that the G4BL data set only contained 95,420 muons an approximation to the G4BL output was used to test the analysis technique. To approximate the G4BL output gaussian distributions of the muons' position and momentum were used. This was not used for comparison to the data as the approximation was too poor but it was a useful tool to test the analysis method discussed below.
+To aid this analysis a very large numbers of muons were needed (both positive and negative). Given that the G4BL data set only contained 95,420 muons an approximation to the G4BL output was used to test the analysis technique. To approximate the G4BL output Gaussian distributions of the muons' position and momentum were used. This was not used for comparison to the data as the approximation was too poor but it was a useful tool to test the analysis method discussed below.
 
 % This was done using an approximate particle distribution rather than the G4BL results. The approximation was used as it was possibly to generate very large sets of data for testing. The large data sets were particularly useful for testing the analysis technique with negative muons which the G4BL distribution was low in. Unfortunately the approximation was not accurate enough to be a substitution for full simulation of the beam done using G4BL.
 
@@ -402,7 +402,7 @@ The integrated approximation to the number of decays could then be compared dire
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % The simulation was used primarily to guide decisions on the detector construction but it also aided in testing analysis techniques for the final data. Using the simulated data it was possible to verify that fitting the data and then integrating the fitting function was an effective way of calculating the number of muon decays.
 % 
-% To carry out accurate fitting a large number of muons were required in the final data so the G4BL produced initial distributions couldn't be used. Instead of the G4BL distribution gaussian approximations to the muon distributions were used. Using the fitted distributions allowed 500,000 initial muons, both positive and negative, to be simulated; this is in contrast to the 86,710 and 9,009 muons (positive and negative respectively) produced by G4BL. 
+% To carry out accurate fitting a large number of muons were required in the final data so the G4BL produced initial distributions couldn't be used. Instead of the G4BL distribution Gaussian approximations to the muon distributions were used. Using the fitted distributions allowed 500,000 initial muons, both positive and negative, to be simulated; this is in contrast to the 86,710 and 9,009 muons (positive and negative respectively) produced by G4BL. 
 % 
 % The data produced from the Geant4 simulation was fitted using a simple double exponential: 
 % \begin{align}
