@@ -27,3 +27,5 @@ thesis.pdf
 */part_wrapper.pdf
 *.lof
 *.lot
+.ipynb_checkpoints
+

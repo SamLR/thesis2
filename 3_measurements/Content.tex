@@ -170,7 +170,7 @@ The DAQ used for these experiments was designed to have a lot greater functional
 
 % These early experiments had DAQ designs that were ultimately superfluous as the data it yielded was not used; this design is included for completeness.
 \subsection{Experimental Set Up} % (fold)
-\label{sec:experimental_set_up}
+\label{sec:experimental_set_up_charged}
 The experimental design for both measurements was broadly the same: the scintillators both had four MPPCs attached. In the first measurement a long strip scintillator was used and the MPPCs were distributed evenly across the short ends, for the second measurement the disk had the four MPPCs placed evenly around the circumference (see table~\ref{tab:charged_particle_flux_scint_details}). NIM crates housed the modules for the triggering logic, digitisation was performed via CAMAC modules and the read out data was recorded on a PC to be analysed afterwards. The scintillators were both wrapped with aluminium foil and black wrap and the MPPCs attached via optical cement. The scintillators were mounted on aluminium supports at the end of the beam-pipe.
 \begin{table}[hptb]
   \begin{center}
@@ -213,7 +213,7 @@ This can be seen as a schematic in figure~\ref{fig:MuSIC1_DAQ_Block}.
   \label{fig:MuSIC1_DAQ_Block}
 \end{figure}
 
-To make the final measurement of the trigger rate, the majority of the DAQ was ignored and the four-fold coincidence counted using a scaler. By counting the raw triggers, effects of dead time could be negated and a truer value for the number of interactions obtained. For the 1D experiment, measurements were made over 50~s with control done via hand, this obviously had limitations 
+To make the final measurement of the trigger rate, the majority of the DAQ was ignored and the four-fold coincidence counted using a scaler. By counting the raw triggers, effects of dead time could be negated and a truer value for the number of interactions obtained. One down side of this design is that by using a four-fold coincidence no cross-checking between channels could be carried out to find relative efficiencies, unfortunately this deficiency was not noticed until too late. For the 1D experiment, measurements were made over 50~s with control done via hand, this obviously had limitations.
 
 The positions of the two experiments are given in table~\ref{tab:flux_setup} with respect to the centre of the beam-pipe. `By-eye' read-out of the 1D measurement was done using a display mounted on the scaler used to count triggers. For the 2D measurement a CAMAC module was used that was read out by computer. It's important to note that not only were the detectors very different but due to experimental constraints the 2D measurement was made significantly further from the end of the beam pipe than the 1D experiment (85~cm compared to 6~cm).
 \begin{table}
@@ -235,7 +235,7 @@ The positions of the two experiments are given in table~\ref{tab:flux_setup} wit
 \label{sec:detector_efficiency}
 As well as making measurements of the charged particle flux another important measurement, made soon after the second beam time, was measurement of the efficiency of the circular detector. This was done using three large (\( 40\times40\times1 \)~cm\(^3\)) scintillator paddles. Light from the scintillators was detected using Photo-Multiplier Tubes (PMT). The three large paddles were positioned sandwiching the circular scintillator, two above and one below. 
 
-The circular detector's efficiency was calculated using the ratio of detections by the PMTs to detection by the MPPCs (once size considerations had been taken into account). It was assumed that the rate of detection by the circular scintillator was proportional to the detection rate in the three large scintillators. The first test was the efficiency of all three remaining MPPCs (one had become irrevocably damaged during beam time) then the efficiency of pairs of MPPCs was tested. Testing consisted of counting the occurrence of three-fold coincidence on the PMTs and either two or three fold coincidence on the MPPCs. Data was taken for approximately one day for each configuration. The MPPCs were not tested individually to ensure that dark current events were not included, although these were reduced by using a discriminator to produce the signals. The results of this measurement are shown in table~\ref{tab:music2_eff}.
+The circular detector's efficiency was calculated using the ratio of detections by the PMTs to detection by the MPPCs (once size considerations had been taken into account). It was assumed that the rate of detection by the circular scintillator was proportional to the detection rate in the three large scintillators. The first test was the efficiency of all three remaining MPPCs (one had become irrevocably damaged during beam time) then the efficiency of pairs of MPPCs was tested. Testing consisted of counting the occurrence of three-fold coincidence on the PMTs and either two or three fold coincidence on the MPPCs. Data was taken for approximately one day for each configuration. The MPPCs were not tested individually to ensure that dark current events were not included, although these were reduced by using a discriminator to produce the signals unfortunately this introduced the same bias as discussed in section~\ref{sec:experimental_set_up_charged}. The results of this measurement are shown in table~\ref{tab:music2_eff}.
 
 \begin{table}
   \begin{center}
@@ -267,10 +267,14 @@ With the measured efficiencies of the pairs of MPPCs we can calculate the indivi
   \epsilon_{23} &= \epsilon_{2} \epsilon_{3} &\implies   \epsilon_{3}  &= \sqrt{\frac{\epsilon_{23}\epsilon_{13}}{\epsilon_{12}}}  \\
 \end{align*} 
 This can be generalised to:
-\begin{align*}
+\begin{align}
   \epsilon_{i} &= \sqrt{\frac{\epsilon_{ij}\epsilon_{ik}}{\epsilon_{jk}}} \label{equ:individual_eff}
-\end{align*}
-Where \( \epsilon_i \) is a single efficiency we want to calculate and \( \epsilon_{jk} \) is the combined measurement of the other two efficiencies. Applying this to table~\ref{tab:music2_eff} we get the efficiencies for the MPPCs shown in table~\ref{tab:calculated_individual_eff}. It's important to note that these efficiencies represent more than just the individual MPPC's quantum efficiency but the entire gestalt of systematic effects that contribute to the efficiency of the specific MPPC including scintillator acceptance (both geometric and energetic), light collection and transmission. As can be seen the estimated total efficiency ends up being larger than what was actually measured but this is to be expected as the system assumes all the efficiencies are completely independent of one another. Using these values the average efficiency of a single MPPC can be calculated and given an error as seen in the final line of the table.
+\end{align}
+Where \( \epsilon_i \) is a single efficiency we want to calculate and \( \epsilon_{jk} \) is the combined measurement of the other two efficiencies. Applying this to table~\ref{tab:music2_eff} we get the efficiencies for the MPPCs shown in table~\ref{tab:calculated_individual_eff}. It's important to note that these efficiencies represent more than just the individual MPPC's quantum efficiency but the entire gestalt of systematic effects that contribute to the efficiency of the specific MPPC including scintillator acceptance (both geometric and energetic), light collection and transmission. As can be seen the estimated total efficiency ends up being larger than what was actually measured this is likely due to the bias introduced by requiring coincidence. Using these values the average efficiency of a single MPPC can be calculated and given an error as seen in the final line of the table. The error on the average efficiency was taken to be the proportional difference between the calculated and measured efficiencies, i.e.:
+\begin{align}
+  \Delta_\epsilon &= \epsilon_{\text{Ave.}} \times \frac{123_{Calc} - 123_{Meas}}{123_{Meas}} \label{equ:ave_eff_error}
+\end{align}
+As well as the discussed bias it is important to emphasise that this efficiency is strongly coupled to both the threshold used with for the discriminators and the physical set up of the detector. Its use in later calculations (specifically those in section~\ref{cha:momentum_spectrum}) is done with the understanding that is a better approximation to the efficiency that none but not a replacement for an actual measurement which could not be carried out.
 
 \begin{table}
   \lineup
@@ -285,11 +289,11 @@ Where \( \epsilon_i \) is a single efficiency we want to calculate and \( \epsil
       \( 123_{Calc} \)  &  0.0775  &  0.0016  \\
       \( 123_{Meas} \)  &  0.0591  &  0.0015  \\
       \hline 
-      \( \epsilon_{\text{Ave.}} \)  &  0.431\0 & 0.067 \\
+      \( \epsilon_{\text{Ave.}} \)  &  0.431\0 & 0.134 \\
          
     \end{tabular}
   \end{center}
-  \caption{Efficiencies of individual MPPCs calculated using the values from table~\ref{tab:music2_eff}, and equation~\eqref{equ:individual_eff}. The two values below the line represent the total efficiency as calculated using the individual values and the measured value. The final value, \(\epsilon_{\text{Ave.}}\) is the mean efficiency of the three individual efficiencies, it's error is the standard deviation of those values. Note: these values include any acceptance effects, the light collection efficiencies of the scintillator and any effects due to the DAQ.}
+  \caption{Efficiencies of individual MPPCs calculated using the values from table~\ref{tab:music2_eff}, and equation~\eqref{equ:individual_eff}. The two values below the line represent the total efficiency as calculated using the individual values and the measured value. The final value, \(\epsilon_{\text{Ave.}}\) is the mean efficiency of the three individual efficiencies. The error on the average efficiency is the proportional difference between the measured and calculated values of the efficiency of all three MPPCs (see equation~\eqref{equ:ave_eff_error}).}
   \label{tab:calculated_individual_eff}
 \end{table}
 
@@ -454,9 +458,9 @@ The data is then fitted with either one or two exponential decay functions and a
 % section results (end)
 \subsection{Analysis} % (fold)
 \label{sec:analysis}
-As can be seen in figures~\ref{fig:music2_mu_lifetime} and \ref{fig:music3_muon_lifetime} the exponential decays are good fits to the data with reasonable chi-squared values (\(192.6/114\) and \( 516/231 \) respectively). The muon lifetimes measured are in reasonable agreement with the canonical value of \((2.1969811\pm0.0000022)\)~\(\mu\)s~\cite{pdg}. The lifetime measurement for the first run is low but this is to be expected as the fit doesn't account for any of material in the detector or the stopping target itself, all of which will lower the lifetime. Whilst both measurements have a large amount of background this does not remove from the core fact that large numbers of muons were detected and they exhibited the expected properties. 
+As can be seen in figures~\ref{fig:music2_mu_lifetime} and \ref{fig:music3_muon_lifetime} the exponential decays are good fits to the data with reasonable chi-squared values (\(192.6/114\) and \( 516/231 \) respectively). The second muon lifetime is in agreement with the canonical value of \((2.1969811\pm0.0000022)\)~\(\mu\)s~\cite{pdg} whilst the first measurement for the first run is low, (2,016\(\pm\)89)~ns. This low measurement is likely due to the fit not accounting for any of material in the detector or the stopping target itself. The plastic detector is mostly carbon in which muons have a lifetime of (2,026.3\(\pm\)1.5)~ns~\cite{suzuki_mu_capture_rates} whilst the copper lifetime is (163.5\(\pm\)1.0)~ns~\cite{suzuki_mu_capture_rates}. Both measurements have a large background but the core fact remains that large numbers of muons were detected and could be identified by their lifetime.
 
-The second measurement produces a slightly high value for the lifetime negative muons in copper (the canonical value is \((163.5\pm1)\)~ns~\cite{suzuki_mu_capture_rates}) but this discrepancy is small (\(<2\sigma\)). There are a number of possible explanations for this error. Firstly there is an obvious problem with the data gathering as seen in the discontinuity at 16~\(\mu\)s, whilst this is excluded from the fit it may be that this is having some more subtle affects that aren't accounted for. A further possible cause of error is the noise seen in the residuals which seems to have a periodic component to it, this is further explored in section~\ref{cha:momentum_spectrum}.
+The second measurement produces a slightly high value for the lifetime of negative muons in copper, (194.8\(\pm\)17.1)~ns but this discrepancy is small (\(<2\sigma\)), there are a number of possible explanations for this. Firstly there is an obvious problem with the data gathering as seen in the discontinuity at 16~\(\mu\)s, whilst this is excluded from the fit it may be that this is having some more subtle affects that aren't accounted for. A further possible cause of error is the noise seen in the residuals which seems to have a periodic component to it, this is further explored in section~\ref{cha:momentum_spectrum}.
 
 \begin{figure}[hptb]
   \centering
@@ -951,9 +955,9 @@ Obviously this is a value based purely on simulation of a complex system so intr
 
 The efficiency of any single detector was taken to be the square of the average efficiency of a MPPC, as measured in section~\ref{sec:detector_efficiency}:
 \begin{align}
-  \epsilon_{\textsc{mppc}}^2 &= (18.6 \pm 4.1)\% 
+  \epsilon_{\textsc{mppc}}^2 &= (18.6 \pm 11.6)\% 
 \end{align}
-Whilst this value was for a different detector configuration with different thresholds it is hoped that it's a reasonable first-order approximation to the actual efficiency of the MPPCs although, again as with \(A\), it is hard to quantify the total error introduced.
+Whilst this value was for a different detector configuration with different thresholds it is hoped that it's a reasonable first-order approximation to the actual efficiency of the MPPCs although, again as with \(A\), it is hard to quantify the total error introduced. This is especially true for the efficiency as it was measured under different circumstance, with different discriminator thresholds on a scintillator with different mounting system and geometry.
 % Where \(\epsilon_{\textsc{mppc}}\) is the efficiency of a single MPPC from section~\ref{sec:detector_efficiency}. Whilst the efficiency measured was for a different experimental set up and different MPPCs for the final run it was not possible to make a measurement of the efficiency so this acts as a reasonable approximation.
 
 The systematic errors were largely assumed to be due to the inaccuracies in the method of fitting and integrating the data. Sources of this have already been discussed but to quantify it the key values were varied to show the affects of changing the parameters of the fit itself, rather than the parameters that were fitted (e.g.\ \(\tau_f\)). The key parameters were determined to be the point from which the fit was applied (the `lower bound') and the width of the bins used to fit the data. The bin width was varied to 8 and 32~ns whilst the lower bound could only be increased so was changed to 75~ns (there is no data before 50~ns). Using these values all the data was re-fit and the difference from measured value taken. The results are given in table~\ref{tab:systematic_fits}. The maximal fractional differences from the standard measured using 16~ns bins and a 50~ns lower bound were used as the systematic error. The systematic errors were 55.85\% and 1.14\% for copper and free decay counts respectively. As is clear the systematics on the copper fit is much higher but this is what we would expect. The systematic error on the copper count is included in the corrected rate but not for the free rate as the error on the efficiency is the dominant term then.
@@ -1002,35 +1006,39 @@ where the symbols \(I_p\), \(L\) and \(T\) have the same meaning as in equation~
 
 The same protocol can be applied to the muonic copper decays as well as adding the systematic error to get an corrected rate that is shown in figure~\ref{fig:images_plot_generating_scripts_adjusted_muon_rates_cu} and table~\ref{tab:adjusted_cu_rates}. Unfortunately due to the limitations of the simulation not enough negative muons are produced for accurate comparison and so only the measured values are shown here.
 
+
+% THESE ARE MADE USING 'replot_rates.C'
 \begin{table}
+  \lineup % enable \0, \- & \.
   \begin{center}
   \begin{tabular}{c | c | c | c | c}
-    Momentum  & \multirow{2}{*}{Runs}  &  Corrected Rate           &  \multicolumn{2}{c}{Error (nA\(^{-1}\))} \\
-     (MeV/c)  &                        &  (nA\(^{-1}\))  &     (incl.\ eff.)  &  (excl.\ eff.)      \\
+    Momentum       & \multirow{2}{*}{Runs}  &  Corrected Rate  &  \multicolumn{2}{c}{Error (nA\(^{-1}\))} \\
+     (MeV/c)       &                        &  (nA\(^{-1}\))   &     (incl.\ eff.)  &  (excl.\ eff.)      \\
     \hline
-    \(45 \pm 21\)  &       448  &  40,900  &  9,100  &  610  \\
-    \(50 \pm 19\)  &  451, 452  &  27,800  &  6,200  &  430  \\
-    \(52 \pm 18\)  &       455  &  26,000  &  5,800  &  400  \\
-    \(66 \pm 15\)  &  458, 459  &  17,100  &  3,800  &  260  \\
+    \(45 \pm 21\)  &       448              &  41,000          &  25,000            &  610  \\
+    \(50 \pm 19\)  &  451, 452              &  28,000          &  17,000            &  430  \\
+    \(52 \pm 18\)  &       455              &  26,000          &  16,000            &  390  \\
+    \(66 \pm 15\)  &  458, 459              &  17,100          &  11,000            &  260  \\
   \end{tabular}
   \end{center}
-  \caption{Corrected rates for freely decaying muons. The error column shows the error without the contribution from the MPPC efficiency and with it, as is clear this is the dominant source. The momentum values are the mean and RMS as determined by simulation.}
+  \caption{Corrected rates for freely decaying muons. The error column shows the error without the contribution from the MPPC efficiency and with it, as is clear this is the dominant source. The momentum values are the mean and RMS as determined by simulation (see section~\ref{sub:detector} and table~\ref{tab:stopped_muon_mom}).}
   \label{tab:adjusted_free_decay_rates}
 \end{table}
 
 \begin{table}
+  \lineup % enable \0, \- & \.
   \begin{center}
   \begin{tabular}{c | c | c | c | c | c}
-    Momentum  & \multirow{2}{*}{Runs}  &  Corrected Rate  &  \multicolumn{3}{c}{Error (nA\(^{-1}\))}   \\
-     (MeV/c)  &                        &  (nA\(^{-1}\))  &  Total  &  (excl.\ sys.)  &  (excl.\ eff.) \\
+    Momentum       & \multirow{2}{*}{Runs}  &  Corrected Rate  &  \multicolumn{3}{c}{Error (nA\(^{-1}\))}   \\
+     (MeV/c)       &                        &  (nA\(^{-1}\))   &  Total    &  (excl.\ sys.)  &  (excl.\ eff.) \\
     \hline
-    \(45 \pm 21\)  &       448  &  1,540  &  610  &  340  &  38  \\
-    \(50 \pm 19\)  &  451, 452  &  1,260  &  510  &  280  &  43  \\
-    \(52 \pm 18\)  &       455  &  1,260  &  500  &  280  &  34  \\
-    \(66 \pm 15\)  &  458, 459  &  1,120  &  450  &  250  &  27  \\
+    \(45 \pm 21\)  &       448              &  1,540           &  1,700    &  960            &  38  \\
+    \(50 \pm 19\)  &  451, 452              &  1,260           &  1,400    &  790            &  43  \\
+    \(52 \pm 18\)  &       455              &  1,260           &  1,400    &  780            &  34  \\
+    \(66 \pm 15\)  &  458, 459              &  1,120           &  1,200    &  700            &  27  \\
   \end{tabular}
   \end{center}
-  \caption{Corrected rates of muonic copper decay. Errors are split into three: total error (including systematics and MPPC efficiency); error excluding systematics but including MPPC efficiency; and error excluding both systematic and efficiency contributions (i.e.\ statistical). The momentum values are the mean and RMS as determined by simulation.}
+  \caption{Corrected rates of muonic copper decay. Errors are split into three: total error (including systematics and MPPC efficiency); error excluding systematics but including MPPC efficiency; and error excluding both systematic and efficiency contributions (i.e.\ statistical). The momentum values are the mean and RMS as determined by simulation (see section~\ref{sub:detector} and table~\ref{tab:stopped_muon_mom}).}
   \label{tab:adjusted_cu_rates}
 \end{table}
 
@@ -1062,60 +1070,36 @@ Based on the simulation the stopped muons account for a small portion of the bea
 \begin{align}\label{equ:total_rate}
   T &= 1,000\times\frac{R}{C}
 \end{align}
-Where \(T\) is the total muon flux per second, \(R\) is the measured muon rate per~nA and \(C\) is the fraction of the beam that was simulated to stop in that configuration. The factor of 1,000 converts from nA to \(\mu\)A and hence to s\(^{-1}\) for a 1~\(\mu\)A proton beam. The calculated values for the total muon flux are shown in table~\ref{tab:total_muon_rates} along with the per~Watt efficiency, using the RCNP's 400~W beam at 1~\(\mu\)A.
+Where \(T\) is the total muon flux per second, \(R\) is the measured muon rate per~nA and \(C\) is the fraction of the beam that was simulated to stop in that configuration. The factor of 1,000 converts from nA to \(\mu\)A and hence to s\(^{-1}\) for a 1~\(\mu\)A proton beam. The calculated values for the total muon flux are shown in table~\ref{tab:total_muon_rates} along with the per~Watt efficiency, calculated using the RCNP's 400~W beam at 1~\(\mu\)A.
 
+
+% This table made with 'final rates.ipynb'
 \begin{table}
   \lineup
   \begin{center}
   \begin{tabular}{c | r@{\(\pm\)}l | r@{\(\pm\)}l | r@{\(\pm\)}l | r@{\(\pm\)}l}
-    Momentum  &  \multicolumn{2}{c|}{Component}
-                                  &  \multicolumn{2}{c|}{Rate}
-                                                    &  \multicolumn{2}{c|}{Total flux}
+   \multirow{2}{*}{Run}
+           &  \multicolumn{2}{c|}{Component}
+                               &  \multicolumn{2}{c|}{Rate}
+                                              &  \multicolumn{2}{c|}{Total flux}
                                                                      &  \multicolumn{2}{c}{Efficiency} \\
-    (MeV/c)   &  \multicolumn{2}{c|}{(\%)}
-                                  &  \multicolumn{2}{c|}{(\(\times10^3\) nA\(^{-1}\))}
-                                                    &  \multicolumn{2}{c|}{(\(\times10^8\) s\(^{-1}\))}
+           &  \multicolumn{2}{c|}{(\%)}
+                               &  \multicolumn{2}{c|}{(\(\times10^3\) nA\(^{-1}\))}
+                                              &  \multicolumn{2}{c|}{(\(\times10^8\) s\(^{-1}\))}
                                                                      &  \multicolumn{2}{c}{(\(\times10^5\)~muons~W\(^{-1}\))} \\
     \hline
-    448       &  \.8.158 & 0.096  & \042.5 & 13     & \05.21 & 1.62  &   \0\0\013.0 & 4.1  \\
-    451       &  \.7.356 & 0.091  & \028.8 & \09.0  & \03.91 & 1.22  &  \0\0\0\09.8 & 3.1  \\
-    452       &  \.7.356 & 0.091  & \029.4 & \09.2  & \04.00 & 1.25  &   \0\0\010.0 & 3.1  \\
-    455       &  \.6.742 & 0.087  & \027.3 & \08.5  & \04.04 & 1.26  &   \0\0\010.1 & 3.2  \\
-    458       &  \.4.665 & 0.071  & \018.0 & \05.6  & \03.86 & 1.20  &  \0\0\0\09.7 & 3.0  \\
-    459       &  \.4.665 & 0.071  & \018.4 & \05.7  & \03.94 & 1.23  &  \0\0\0\09.9 & 3.1  \\
+    448    &  \.8.158 & 0.096  & \0\0\043 & 27  & \05.2 & 3.2  &   \0\0\013.0 & 8.1  \\
+    451    &  \.7.356 & 0.091  & \0\0\029 & 18  & \03.9 & 2.4  &  \0\0\0\09.8 & 6.1  \\
+    452    &  \.7.356 & 0.091  & \0\0\029 & 18  & \04.0 & 2.5  &   \0\0\010.0 & 6.2  \\
+    455    &  \.6.742 & 0.087  & \0\0\027 & 17  & \04.0 & 2.5  &   \0\0\010.1 & 6.3  \\
+    458    &  \.4.665 & 0.071  & \0\0\018 & 11  & \03.9 & 2.4  &  \0\0\0\09.6 & 6.0  \\
+    459    &  \.4.665 & 0.071  & \0\0\018 & 11  & \03.9 & 2.5  &  \0\0\0\09.9 & 6.1  \\
   \end{tabular}
   \end{center}
-  \caption{Calculated muon production efficiencies and total fluxes at 1~\(\mu\)A. `Component' is the simulated fraction of the total beam that stops in each set up. `Rate' is the sum of the corrected rates for free and copper decays. The total flux was calculated using equation~\eqref{equ:total_rate}. The average total flux is \( (4.16\pm0.92) \times10^8\)~muons~s\(^{-1}\) where the error is the same fractional error as is on the MPPC efficiency, \(\Delta\epsilon_{\textsc{mppc}}^2\sim 22\)~\%. The efficiency is the total flux divided by the full beam power (400~W). The average efficiency of MuSIC is calculated to be \((10.55\pm2.3)\times10^5\)~muons~W\(^{-1}\) which has the same, \(\epsilon_{\textsc{mppc}}^2\) dominated, error as the total flux.}
+  \caption{Calculated muon production efficiencies and total fluxes at 1~\(\mu\)A. `Component' is the simulated fraction of the total beam that stops in each configuration. `Rate' is the sum of the corrected rates for free and copper decays. The total flux was calculated using equation~\eqref{equ:total_rate}. The average total flux is \( (4.2\pm1.1) \times10^8\)~muons~s\(^{-1}\) where the error is the same fractional error as is on the MPPC efficiency, \(\Delta\epsilon_{\textsc{mppc}}^2\sim 26\)~\%. The efficiency is the total flux divided by the full beam power (400~W). The average efficiency of MuSIC is calculated to be \((10.4\pm2.7)\times10^5\)~muons~W\(^{-1}\).}
   \label{tab:total_muon_rates}
 \end{table}
 
-Two things are clear from table~\ref{tab:total_muon_rates}: at full power MuSIC should be capable of producing the design goal of \(>10^8\)~muons~s\(^{-1}\) and it should be one of the most intense muon beams in the world. The average intensity, \((4.16\pm0.92)\times10^8\)~muons~s\(^{-1}\), is comparable PSI's most intense muon beam (\(4.8\times10^8\)~muons~s\(^{-1}\)~\cite{mue4_psi}) but achieved with a proton beam significantly less powerful. This last point is best highlighted by comparing the number of muons produced per~Watt of proton beam: PSI produces 292~muons~W\(^{-1}\) whilst MuSIC is predicted to produce \((10.55\pm2.3)\times10^5\)~muons~W\(^{-1}\).
+Two things are clear from table~\ref{tab:total_muon_rates}: at full power MuSIC should be capable of producing the design goal of \(>10^8\)~muons~s\(^{-1}\) and it should be one of the most intense muon beams in the world. The average intensity, \((4.16\pm0.92)\times10^8\)~muons~s\(^{-1}\), is comparable PSI's most intense muon beam (\(4.8\times10^8\)~muons~s\(^{-1}\)~\cite{mue4_psi}) but achieved with a proton beam significantly less powerful. This last point is best highlighted by comparing the number of muons produced per~Watt of proton beam: PSI produces 292~muons~W\(^{-1}\) whilst MuSIC is predicted to produce \((10.55\pm2.3)\times10^5\)~muons~W\(^{-1}\). The largest source of errors in this analysis is the estimation of the MPPC efficiency, with an error of nearly \(\sim\)~62~\% it causes huge uncertainty to the final values. That being said if the flux calculations are carried out using the un-corrected rates then values \(\mathcal{O}(10^7)\)~muons~s\(^{-1}\) are still obtained.
 
-% As has been noted the lack of information on the detector's efficiency was a severe hinderance in the calculation of the muon rate. Further improvements are needed, not only to reduce errors and better understand the detector but to allow testing of the simulation. Work at COMET suggests that there are differences in the particle rates between various simulations (e.g.\ MARS and G4BL), understanding of this will be vital in those measurements.
-
-% subsection mom_analysis (end)
-
-
-% \chapter{Conclusion} % (fold)
-% \label{cha:conclusion}
-% %  \(6\times10^8\)~muons/nA)
-% Over the course of two years three different measurements of the MuSIC beam-line have been made; each building on the knowledge gathered in the previous. The total charged particle flux was measured and compared to simulation; the muon lifetime was determined and used to confirm their presence; and the number of muon decays under different configurations has been used to determine the momentum flux (as well as the muon flux).
-% 
-% The three measurements have gone a long way to testing the simulation of MuSIC and to confirming that it is a reasonable approximation to the reality. Further measurements will hopefully refine our knowledge of the beam and maybe begin testing the different models used in the simulation. Work on simulating COMET has already shown that there are differences in the predicted rates of different particles, determining how which simulation is correct will make further work easier and more accurate.
-% 
-% MuSIC has been shown to perform as expected, producing more muons per proton than any other beam. Even incomplete it's already being used to make new measurements (precisions measurements of decays from muon activated molybdenum) and it is hoped that further funding will help complete this powerful tool. 
-% 
-% Currently the largest problems with the measurements at MuSIC are in the errors on the measurements but as these are refined more detailed simulations will also be needed. There are two key improvements that can be made to the simulation: larger G4BL run and better digitisation. A larger G4BL run will increase the number of copper stopped muons that will allow detailed investigation of the rates of negative muons stopping in copper, it is also necessary to start making comparisons between different hadron production codes and may provide useful data for refining these at low energy. The second improvement, digitisation, will allow analysis of simulation that's more directly comparable to what's measured. This will be key in understanding backgrounds and having clear understanding of the fine properties of the beam. 
-% 
-
-% Over the last three years the simulation of MuSIC has been refined and tuned using data gathered over several periods of beam time. The simulation was written in G4Beamline to cover the bulk portions and Geant4 to test the detectors used. They were also used to compare to the data gathered during the beam-times.
-% 
-% The three measurements were made over five periods of beam time. Each beam time lasted between 24 and 72 hours. The first measurements were of the charged particle flux, then the muon lifetime was measured and finally the muon momentum distribution was measured. Each measurement was made using simple plastic scintillator detectors with Data Acquisition (DAQ) performed using off the shelf crate systems (NIM, CAMAC and VME). 
-% 
-% The measurement of the charged particle flux confirmed the beam location to the top and the left of the beam pipe. It also set a benchmark for the particle flux which confirmed the bounds of the maximum muon flux. The measurement determined that the peak particle flux was 90,800\(\pm\)7,000~particles~nA\(^{-1}\) of proton~beam positioned 5~cm above the beam centre (at a distance of 6~cm). The second measurement of the particle flux determined that the beam spot 85~cm from the end of the beam pipe was 25~cm above and 17~cm to the left of the beam centre, with a flux of 10,800\(\pm\)2,100~particles~nA\(^{-1}\). 
-
-
-
-% chapter executive_summary (end)
-
-% chapter conclusion (end)
+The other key problem with the final flux measurements are the bias introduced towards the simulation. Obviously this has a large effect on the final flux and efficiency measurements but unless the simulation is off by quiet a large amount it seems unlikely that MuSIC's intensity will be less than 10\( ^8 \)~muons~s\( ^{-1} \)

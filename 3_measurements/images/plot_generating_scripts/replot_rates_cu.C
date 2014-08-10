@@ -38,8 +38,9 @@ void replot_rates_cu() {
   // eff**2 as it is per MPPC and we have 2
   const double efficiency     = get_efficiency(true)*get_efficiency(true);
   // x +/- y, f = x**2 +/- xy 2**0.5
-  const double efficiency_err = TMath::Sqrt(2)*get_efficiency(true)*get_efficiency(false);
-  printf("Efficiency per MPPC: %.3f +/- %.3f\n", get_efficiency(true), get_efficiency(false));
+  // efficiency error re-defined to be 0.134 (123_meas - 123_calc)/123_meas
+  const double efficiency_err = 2*0.134*get_efficiency(true);
+  // printf("Efficiency per MPPC: %.3f +/- %.3f\n", get_efficiency(true), get_efficiency(false));
   printf("Efficiency (2 MPPCs): %.3f +/- %.3f\n", efficiency, efficiency_err);
   // photon acceptance is the number of decays / number of times the threshold & 50ns cut are passed
   // From calc acceptance
@@ -128,7 +129,7 @@ void replot_rates_cu() {
   out_f_hist_exec_eff->GetXaxis()->SetTitle("Momentum (MeV/c)");
   out_f_hist_exec_eff->GetYaxis()->SetTitle("Muon rate (nA^{-1})");
   out_f_hist_exec_eff->GetYaxis()->SetTitleOffset(1.45);
-  out_f_hist_exec_eff->GetYaxis()->SetRangeUser(0, 50000);
+  out_f_hist_exec_eff->GetYaxis()->SetRangeUser(0, 3000);
   
   TCanvas* can = new TCanvas("c1", "c1", 1436, 856);
   out_f_hist_exec_eff->SetLineColor(1);
@@ -137,7 +138,7 @@ void replot_rates_cu() {
   out_f_hist_exec_eff->SetMarkerSize(0.75);
   out_f_hist_exec_eff->SetMarkerColor(1);
   out_f_hist_exec_eff->SetMarkerStyle(5);
-  out_f_hist_exec_eff->GetYaxis()->SetRangeUser(0,2500);
+  out_f_hist_exec_eff->GetYaxis()->SetRangeUser(0,3000);
   out_f_hist_exec_eff->Draw("A P");
   
   char name99 [] = "Errors due to MPPC efficiency";

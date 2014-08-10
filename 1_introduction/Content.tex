@@ -46,7 +46,7 @@ The final measurement, the muon momentum spectrum, was the most complex. Six mea
   \label{fig:exec_summary_muon_momentum_spectrum}
 \end{figure}
 
-Using the data from the momentum spectrum measurement it was possible to predict the total muon flux at MuSIC when operated at full power\footnote{To prevent excessive dead time in the equipment currents of \(<\)1~nA were used rather than the RCNP's maximum current of 1~\(\mu\)A.} and this was calculated to be \((4.16\pm0.92)\times10^8\)~muons~s\(^{-1}\) which is on par with the world's most intense muon source, PSI, which has a peak flux of \(4.8\times10^8\)~muons~s\(^{-1}\). The key difference between MuSIC and PSI is that PSI produces its muons using a 1.2~MW proton beam compared to the RCNP's 400~W beam, giving per-Watt yields of \((10.55\pm2.3)\times10^5\)~muons~W\(^{-1}\) and 292~muons~W\(^{-1}\) respectively. Therefore MuSIC is the most efficient muon source in the world.
+Using the data from the momentum spectrum measurement it was possible to predict the total muon flux at MuSIC when operated at full power\footnote{To prevent excessive dead time in the equipment currents of \(<\)1~nA were used rather than the RCNP's maximum current of 1~\(\mu\)A.} and this was calculated to be \((4.2\pm1.1)\times10^8\)~muons~s\(^{-1}\) which is on par with the world's most intense muon source, PSI, which has a peak flux of \(4.8\times10^8\)~muons~s\(^{-1}\). The large errors on the total flux are due to some unavoidable assumptions made in the calculation. Firstly the calculation of the detector efficiency was made using an earlier measurement. Secondly the value is coupled strongly to the simulation of the beam that was used to estimate the ratio of stopping muons for each configuration. Despite these shortcomings the data clearly shows a high flux of muons which is comparable to that measured at PSI. The key difference between MuSIC and PSI is that PSI produces its muons using a 1.2~MW proton beam compared to the RCNP's 400~W beam, giving per-Watt yields of \((10.55\pm2.7)\times10^5\)~muons~W\(^{-1}\) and 292~muons~W\(^{-1}\) respectively. Therefore MuSIC is clearly the most efficient dedicated muon source in the world.
 
 % chapter preface (end)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -248,17 +248,18 @@ As momentum is increased another difference between electrons and other particle
 
 At MuSIC the loss of energy by charged particles to matter is very important as it is the main method for detecting particles, and hence, characterising, the beam. When a particle deposits energy in certain materials they will produce light, this light can then be detected giving information on the beam. The exact amount of light produced is dependent on the material and the amount of energy deposited but for many materials it can be approximated to a linear function of energy deposited. There are obviously problems with assuming linear light yields but a larger problem is the non-linear function for energy deposition. 
 
+
 % section charged_particle_interactions_in_matter (end)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Muon decay} % (fold)
 \label{sec:muon_decay}
-As has been noted muons decay \(\approx100\)\% of the time through the process: \( \mu \rightarrow e \nu \overline{\nu}  \). This process is the same for both positive and negative muons, although there is a sign change and the neutrino/anti-neutrino flavours will swap. The biggest difference between positive and negative muons is that negative muons can become bound to a nucleus in the same way as electrons. This section will start with a general discussion of the important parameters of muon decay and then continue with a discussion of how this property of negative muons changes their decay.
+As has been noted free muons decay \(\approx100\)\% of the time through the process: \( \mu \rightarrow e \nu \overline{\nu}  \). This process is the same for both positive and negative muons, although there is a sign change and the neutrino/anti-neutrino flavours will swap. The biggest difference between positive and negative muons is that negative muons can become bound to a nucleus in the same way as electrons. This section will start with a general discussion of the important parameters of muon decay and then continue with a discussion of how this property of negative muons changes their decay.
 
 The decay of a muon, like any other decay, can be modelled using the distribution:
 \begin{equation}\label{eq:poisson}
   P(t) = Ne^{-t/\tau}
 \end{equation}
-Where \( P(t) \) is the survival probability of a particle after time, \( t \); \( N \) is a scaling factor to the size of the initial population and \( \tau \) is the population's lifetime. For a free muon in a vacuum the lifetime is \( \sim2.2\)~\( \mu \)s. As figure~\ref{fig:muon_decay_feynmann} shows the muon decay is mediated by a charged W boson, the presence of the two neutrinos mean that the only practically detectable result of the muon decay is the electron. The muon's (comparatively) long lifetime makes identification of them possible through by plotting decay times; this is discussed in greater detail in chapter~\ref{prt:characterising_the_beam}. 
+Where \( P(t) \) is the survival probability of a particle after time, \( t \); \( N \) is a scaling factor to the size of the initial population and \( \tau \) is the population's lifetime. For a free muon in vacuum the lifetime is \( \sim2.2\)~\( \mu \)s. As figure~\ref{fig:muon_decay_feynmann} shows the muon decay is mediated by a charged W boson, the presence of the two neutrinos mean that the only practically detectable result of the muon decay is the electron. The muon's (comparatively) long lifetime makes identification of them possible through by plotting decay times; this is discussed in greater detail in chapter~\ref{prt:characterising_the_beam}.
 
 \begin{figure}[hptb]
   \centering
@@ -267,21 +268,26 @@ Where \( P(t) \) is the survival probability of a particle after time, \( t \); 
   \label{fig:muon_decay_feynmann}
 \end{figure}
 
-As has been noted negative muons can undergo an additional interaction with matter compared to positive muons. As a negatively charged lepton they can be become bound to a nucleus, reducing its lifetime as it loses energy falling through the nucleus' shells. The lifetime of a bound muon can be expressed as the reciprocal of an interaction rate:
+In addition to freely decaying, negative muons can undergo additional interactions with matter, unlike positive muons. As a negatively charged lepton they can be become bound to a nucleus, forming a muonic atom. A muon, becoming bound to an nucleus will rapidly transition to the un-occupied \(1s\) state, this normally takes less than \( 10^{-13}\)~s~\cite{review_nuclear_physics_mu_capture_measday}. In the \(1s\) state the muon will be able to interact weakly with the nucleus. The main interaction, known as `nuclear capture', is \(\mu + p \rightarrow \nu_{\mu} + n\) and can be seen in figure~\ref{fig:images_nuclear_muon_capture}. Whilst this process is undetectable reduces the apparent lifetime of the muon by reducing the total number of muons that can decay detectably. As well as nuclear capture, negative muons that are bound to atoms can undergo normal decay. This `decay in orbit' occurs in the \(1s\) shell and tends slightly increase lifetime, due to the reduced energy available for the process. The total lifetime of a negative muon is then reciprocal of the rates of these two processes:
 \begin{align}
   \tau_{\mu^-} &= (\Delta_t)^{-1}\\
   \Delta_t &= \Delta_c + Q\Delta_d \label{eq:capture_rate}
 \end{align}
-where \( \Delta_t \) is the total interaction rate; \( \Delta_c \) is the rate of nuclear muon capture; \( \Delta_d \) is the rate of decay for positive muons (i.e.\ \( \tau_{\mu^+} = (\Delta_d)^{-1}  \)) modified by the `Huff-factor', \( Q \), which compensates for the reduction in energy available for a bound muon to decay. The positive, rather than negative, muon decay rate is used as the negative rate is less precisely known because of its ability to bind to a nucleus.
+where \( \Delta_t \) is the total interaction rate; \( \Delta_c \) is the rate of nuclear muon capture; and \(Q\Delta_d\) is the rate of decay in orbit. \(Q\) is the `Huff-factor'~\cite{huff_factor}, a theoretical value which accounts for the reduction in energy available to bound muons, \(\Delta_d\) is the rate of the positive muon decay (i.e.\ \(\tau_{\mu^+} = (\Delta_d)^{-1}\)). The positive muon decay rate is used because measurements of the negative muon's lifetime are less accurate due to the discussed nuclear effects.
 
-When a negative muon is captured by a nucleus its lifetime is reduced compared to the positive muon. This reduction is due to the muon forming a muonic atom with its captor that allows it to rapidly shed energy via X-rays as it cascades through various shells until it enters the \( 1s \) state. The muonic cascade is a very rapid event, in most materials it occurs in less than \( 10^{-13}\)s~\cite{review_nuclear_physics_mu_capture_measday}, once in the \( 1s \) state the muon will decay much sooner having lost most of its energy. As will be discussed in chapters~\ref{prt:simulation}~and~\ref{prt:characterising_the_beam} these differing lifetimes give us some insight into the ratio of positive to negative muons.
+\begin{figure}[htpb]
+  \centering
+    \includegraphics[scale=1]{images/nuclear_muon_capture.png}
+  \caption{Nuclear capture of a negative muon. This process is very hard to detect directly. The net effect is to reduce the muon's apparent lifetime by removing them from the population.}
+  \label{fig:images_nuclear_muon_capture}
+\end{figure}
 
-A theoretical approximation to \( \Delta_c \) as a function of atomic mass, \( A \), and atomic number, \( Z \), was devised by Primakoff and Goulard~\cite{goulard_primakoff}:
+A theoretical approximation to \( \Delta_c \), as a function of atomic mass, \( A \), and atomic number, \( Z \), was devised by Primakoff and Goulard~\cite{goulard_primakoff}:
 \begin{align}
   \Delta_c(A,Z)&=Z^4_{eff} G_1 \left[ 1 + G_2 \frac{A}{2Z} - G_3 \frac{A-2Z}{2Z} - G_4 \left[\frac{A-Z}{2A} + \frac{A-2Z}{8AZ} \right] \right]
   \label{eq:primakoff_and_goulard}
 \end{align}
-Where the values \(G_{1-4}\) are parameters to be fitted and \( Z_{eff} \) is the effective value for the atomic number, as calculated by Ford and Wells~\cite{ford_and_wills_mesonic_atoms}, which accounts for the muon's \( 1s \) radius being much smaller than an electrons. The difference between the predicted capture rate and the measured rate is given in figure~\ref{fig:primakoff-goulard_vs_exp} with the fitted values of \(G\) shown in table~\ref{tab:g1_to_g4}. As can be seen there is still a fairly large disagreement between the theory and measured values for many atoms.
+Where the values \(G_{1-4}\) are parameters to be fitted and \( Z_{eff} \) is the effective value for the atomic number, as calculated by Ford and Wells~\cite{ford_and_wills_mesonic_atoms}, this accounts for the muon's \( 1s \) radius being much smaller than an electrons. The difference between the predicted capture rate and the measured rate is given in figure~\ref{fig:primakoff-goulard_vs_exp} with the fitted values of \(G\) shown in table~\ref{tab:g1_to_g4}. As can be seen there are still disagreements between theory and experiment, for this reason in later simulations the measured values of capture rates are preferred.
 
 \begin{figure}[hptb]
   \centering
