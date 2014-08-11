@@ -185,9 +185,7 @@ The experimental design for both measurements was broadly the same: the scintill
   \label{tab:charged_particle_flux_scint_details}
 \end{table}
 
-The aim of these early experiments was to make three measurements: the total trigger rate, the difference in arrival times of light at the MPPCs and the distribution of the number of firing pixels at each MPPC. The total trigger count is proportional to the flux of charged particles through the scintillator.
-
-The timing and photon counts were hoped to give information on positioning and the amount of energy deposited but this was found to be incorrect. In the case of positioning information it was hoped that the left/right correlation of arrival times could be used to position the interaction within the scintillator but it was found that the variance on arrival times was too large compared to the difference between them so accurate resolution was impossible. Measurement of the particles' energy didn't succeed due to lack of accurate calibration data.
+The aim of these early experiments was to make three measurements: the total trigger rate, the difference in arrival times of light at the MPPCs and the distribution of the number of firing pixels at each MPPC. The total trigger count is proportional to the flux of charged particles through the scintillator. The timing and photon counts were hoped to give information on positioning and the amount of energy deposited but this was found to be incorrect. In the case of positioning information it was hoped that the left/right correlation of arrival times could be used to position the interaction within the scintillator but it was found that the variance on arrival times was too large compared to the difference between them so accurate resolution was impossible. Measurement of the particles' energy didn't succeed due to lack of accurate calibration data.
 
 % It was hoped that the timing difference between MPPC firings could be correlated to the position of the interaction within the scintillator (this was ultimately incorrect). The distribution of the number of firing pixels was hoped to give some idea of the energy deposited, and possible the types of particles. 
 
@@ -382,7 +380,7 @@ where \(j\) is the flux, \(F\) is a scaling factor, \(C\) is the trigger count w
 \begin{figure}[hptb]
   \centering
   \includegraphics[width=.8\textwidth]{images/plot_generating_scripts/measured_2d_charged_flux.eps}
-  \caption{2D plot of the charged particle flux across the front of the MuSIC beam pipe. The final three measurements were rescaled using the ratio of the two measurements at \((0,20)\)~cm. The dot colour along with the z-axis indicates the flux.}
+  \caption{2D plot of the charged particle flux across the front of the MuSIC beam pipe. The final three measurements were rescaled using the ratio of the two measurements at \((0,20)\)~cm. Both the dot colour and the z-axis indicate the flux.}
   \label{fig:2D_flux}
 \end{figure}
  
@@ -544,7 +542,7 @@ The detector consisted of an aluminium degrader whose thickness could be varied 
 
 The counters used were mylar wrapped scintillators with readout performed by MPPCs mounted on either end of a wavelength-shifting fibre bounded along the long axis of the scintillator using optical cement. The signals from each pair of MPPCs are combined and amplified before being passed to the data acquisition system (DAQ) for processing.
 
-Two important considerations were made with the choice of scintillators: the upstream scintillator had to minimise perturbation of the beam whilst providing a suitable trigger from muons and the downstream scintillator had to be effective at detecting electrons. To this end a thin (0.5~mm) upstream scintillator and thicker (3.5~mm) downstream scintillator were chosen. One downside of this set up is that in using a thin upstream scintillator the efficiency for detecting minimally ionising particles is reduced (the expected light yield for a MIP is only \(\sim\)2.5 photons per MPPC) but as only stopping muons were desired this has a negligible effect.
+Two important considerations were made with the choice of scintillators: the upstream scintillator had to minimise perturbation of the beam whilst providing a suitable trigger from muons and the downstream scintillator had to be effective at detecting electrons. To this end a thin (0.5~mm) upstream scintillator and thicker (3.5~mm) downstream scintillator were chosen. One downside of this set up is that in using a thin upstream scintillator the efficiency for detecting minimally ionising particles is reduced (the simulated light yield for a MIP is only \(\sim\)3 photons per MPPC) but as muons that subsequently stop are desired (which deposit 3--4 times more energy) this has a negligible effect.
 
 \subsubsection{Data Acquisition} % (fold)
 \label{sub:data_acquisition}
