@@ -253,7 +253,7 @@ The receiver module is split into two state machines, one for each of the two co
   \label{fig:rx_entity}
 \end{figure}
   
-The designs uses strobes to signal which type of command has been received and buses to hold the ID information. The ID-buses (train, bunch pattern, checksum and bunch) are cleared at the start of the next fast command (not veto commands), this means that the data is available until it gets replaced.
+The designs uses strobes to signal which type of command has been received and buses to hold the ID information. The ID-buses (train, bunch pattern, checksum and bunch) are cleared at the start of the next fast control (not veto commands), this means that the data is available until it gets replaced.
   
 The two entities use simple state-machines designs (figures~\ref{fig:cmd_rx_flow} and \ref{fig:veto_rx_flow}) that can be summarised as: `IDLE \( \rightarrow \) LOG\_COMMAND \( \rightarrow \) STROBE\_COMMAND \( \rightarrow \) [LOG\_PAYLOAD \( \rightarrow \)] IDLE'. For both command and veto lines the state machine is triggered by the line going high. The stream is de-serialised by passing the serial commands to a shift register. Once a command is matched then the appropriate strobe is set. If the command has an attached payload then that is passed to a shift register until the appropriate number of payload bits have been received when they are written to a bus and the machine returns to `IDLE'.
 \begin{figure}[htbp]
@@ -809,7 +809,7 @@ A sample readout of the veto-log is shown in figure~\ref{fig:isim_locallink}. Th
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Conclusion} % (fold)
 \label{cha:conclusion}
-EuXFEL is a huge project, 3.4~km of systems and sub-systems that must be kept in sync at all times in order to work. One of these many sub-systems is the LPD, one of three planned 2D pixel detectors, that will record up to 5,120\( \times \)1~Mpixel images every second. Control of this detector is achieved via 16 FEMs each of which uses a command signal and clock signal, distributed to its supermodule of 512 ASICs, to maintain order. To provide a simple interface between the 2D detectors and the rest of EuXFEL the CCC uses three lines to distribute a \( \sim \)99~MHz clock, a fast command signal, and a veto signal whilst receiving status information. 
+EuXFEL is a huge project, 3.4~km of systems and sub-systems that must be kept in sync at all times in order to work. One of these many sub-systems is the LPD, one of three planned 2D pixel detectors, that will record up to 5,120\( \times \)1~Mpixel images every second. Control of this detector is achieved via 16 FEMs each of which uses a command signal and clock signal, distributed to its supermodule of 512 ASICs, to maintain order. To provide a simple interface between the 2D detectors and the rest of EuXFEL the CCC uses three lines to distribute a \( \sim \)99~MHz clock, a fast control signal, and a veto signal whilst receiving status information. 
 
 The LPD-CCC interface firmware runs on the FEM and provides translation from the three received signals to the two that each ASIC expects. This interface was split into three entities that dealt with receiving, vetoing and transmitting the information from the CCC. Using a rigorous testing regime each entity was developed according to the requirements of both LPD and CCC. The final designs use a combination of state-machines and BRAM to respond rapidly and accurately to each in-bound signal.
 

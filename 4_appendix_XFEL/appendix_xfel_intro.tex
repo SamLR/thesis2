@@ -125,7 +125,7 @@ The CCC has four primary functions in EuXFEL:
 \end{enumerate}
 In addition to these requirements the CCC can also operate in standalone mode (detached from a TR board) in order to facilitate testing and for use at other locations (e.g.\ LCLS). 
 
-The CCC communicates with FEMs via RJ45 (see figure~\ref{fig:CCC_RJ45_diagram}), the four paired wires carry signals: clock, fast-command, veto and status. The clock signal is a \(\sim\)99~MHz derived from the TR and synchronised to the, \(\sim\)4.5~MHz, bunch clock, the fast command line carries information about each train whilst the veto line carries information on whether a bunch should be kept, the status line returns the received clock to indicate good connections.
+The CCC communicates with FEMs via RJ45 (see figure~\ref{fig:CCC_RJ45_diagram}), the four paired wires carry signals: clock, fast control, veto and status. The clock signal is a \(\sim\)99~MHz derived from the TR and synchronised to the, \(\sim\)4.5~MHz, bunch clock, the fast control line carries information about each train whilst the veto line carries information on whether a bunch should be kept, the status line returns the received clock to indicate good connections.
 \subsection{Clock and Control Card (CCC)} % (fold)
 \label{sub:clock_and_control_card}
 \begin{figure}[htbp]
@@ -156,7 +156,7 @@ Note: there is some vagueness as to the exact clock speeds used as, at time of w
 \label{sub:control_signal}
 The fast control is used to convey information about each train. This information comes in four parts: when the next train will start, when it will stop, what its ID is and what bunch pattern should be used (see `Veto signals', below). There is also a reset command to indicate that the ASIC and FEM should be reset to a known state. 
 
-The expected use of the control signal is shown in table~\ref{tab:fast_commands}, a \texttt{START} signal arrives with attached train ID and bunch pattern ID, after some number of vetos the \texttt{STOP} signal is received. Rarely, either when there is a fault or if, for example, the detector's been switched off, the \texttt{RESET} signal will restore the FEM and ASIC to a prepared state.
+The expected use of the fast signal is shown in table~\ref{tab:fast_commands}, a \texttt{START} signal arrives with attached train ID and bunch pattern ID, after some number of vetos the \texttt{STOP} signal is received. Rarely, either when there is a fault or if, for example, the detector's been switched off, the \texttt{RESET} signal will restore the FEM and ASIC to a prepared state.
 \begin{table}[htbp]
   \begin{center}
   \begin{tabular}{c | c | c | c}
@@ -171,7 +171,7 @@ The expected use of the control signal is shown in table~\ref{tab:fast_commands}
     reserved & 0b1111 & n/a                            & n/a\\
   \end{tabular}
   \end{center}
-  \caption{Specification of the fast command signals and their payloads.}
+  \caption{Specification of the fast control signals and their payloads.}
   \label{tab:fast_commands}
 \end{table}
 % subsubsection control_signal (end)
@@ -216,7 +216,7 @@ The slice-based architecture of FPGAs means that many designs are synthesised as
 
 In VHDL, blocks of code (called `entities') are defined by their name, ports and generics; entities represent a cohesive unit of logic, for example a state-machine. Ports represent in or out-bound signals\footnote{VHDL also specifies `inout' as a bi-directional port but they are not used here.} to that entity, these can either be single or grouped into vectors. The generics of an entity describe constant values associated with it; they can be changed on a per-synthesis scale but not by the firmware itself. Generics are mainly used in the design to specify reset values for registers and values that shouldn't be changeable at run time, but may need to change between systems (e.g.\ delays). 
 
-VHDL specifies two broad classes of value that can be used for ports: signals and vectors, a signal is a single bit of information whilst a vector is a collection of bits in some order. VHDL's basic signal type is called `std\_logic' (sl). std\_logic is generally used for transfer of the boolean values (`1' or `0') but it can also take several other values\footnote{`L', `H', `U', `W', `X', `Z' and `-'.} that better describe the ultimately analogue reality of hardware signals e.g.\ the value `L' specifies a weak signal that should probably be low. The vector form of std\_logic is a `std\_logic\_vector' (slv) that is ordered `X (up)to Y' or `Y downto X', if the slv is converted to a numeric type (e.g.\ an integer) then this ordering determines the `endedness'. E.g.\ if an slv (3 downto 0) is 0b1000 then it has an integer value of 8, the same value but with ordered reversed (i.e.\ 0 to 3) has an integer vale of 1. Throughout this document order is denoted using parenthesis e.g.\ slv~(3:0) is a std\_logic\_vector~(3~downto~0) while slv~(0:3) is (0~to~3).
+VHDL specifies two broad classes of value that can be used for ports: signals and vectors, a signal is a single bit of information whilst a vector is a collection of bits in some order. VHDL's basic signal type is called `std\_logic' (sl). std\_logic is generally used for transfer of the boolean values (`1' or `0') but it can also take several other values\footnote{`L', `H', `U', `W', `X', `Z' and `-'.} that better describe the ultimately analogue reality of hardware signals e.g.\ the value `L' specifies a weak signal that should probably be low. The vector form of std\_logic is a `std\_logic\_vector' (slv) that is ordered `X (up)to Y' or `Y downto X', if the slv is converted to a numeric type (e.g.\ an integer) then this ordering determines the `endedness'. E.g.\ if an slv (3 downto 0) is 0b1000 then it has an integer value of 8, the same value but with ordered reversed (i.e.\ 0 to 3) has an integer value of 1. Throughout this document order is denoted using parenthesis e.g.\ slv~(3:0) is a std\_logic\_vector~(3~downto~0) while slv~(0:3) is (0~to~3).
 % subsection vhdl (end)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % section firmware (end)
